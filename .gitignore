@@ -1,0 +1,13 @@
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Large cache files (pickle/dense embeddings) — too large for git
+data/cache/*.pkl
+data/cache/triviaqa_*.pkl
+
+# But keep the generation cache (text-only JSON, small enough)
+# data/cache/generation_cache.json  <- keep this
