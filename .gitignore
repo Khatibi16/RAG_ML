@@ -11,6 +11,9 @@ venv/
 env/
 .env/
 
+# Claude Code worktrees and local state
+.claude/
+
 # Large cache files (pickle/dense embeddings) — too large for git
 data/cache/*.pkl
 data/cache/triviaqa_*.pkl
