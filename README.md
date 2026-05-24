@@ -126,36 +126,53 @@ experiments directly test several of their identified dimensions.
 
 ## 4. Dataset
 
-**TriviaQA** (`rc.wikipedia` configuration, Joshi et al. 2017).
+**TriviaQA** (`rc` configuration, Joshi et al. 2017).
 
 We use this benchmark because it is the primary dataset in all three
 reference papers (Lewis et al. [42], Izacard & Grave [43], Gao et al. [44]),
 enabling direct comparison with published results.
 
-### Why TriviaQA `rc.wikipedia`?
+### Why TriviaQA `rc`?
 
-The `rc.wikipedia` configuration provides each trivia question paired with a
-set of Wikipedia *entity pages* — the documents that Wikipedia's search would
-surface for the named entities mentioned in the question. This creates a
-realistic retrieval setting:
+The `rc` (reading comprehension) configuration provides each trivia question
+with **two** evidence sources: Wikipedia *entity pages* (curated, one per
+named entity mentioned in the question) and *web search results* (snippets
+of pages returned by a real search engine for the question). Pooling both
+into one corpus gives a realistic retrieval setting:
 
-- The corpus contains **relevant** documents (the entity pages associated
-  with the question's answer) **and** many **distractor** documents
-  (entity pages from other questions).
-- The retriever must identify the relevant pages without knowing which
-  question they were associated with.
+- The corpus contains **relevant** documents (some entity page or search
+  result that actually contains the answer) **and** many **distractor**
+  documents (web pages that share topical vocabulary with the question but
+  do not contain the answer, plus all the evidence from *other* questions).
+- The retriever must identify the answer-bearing passage without knowing
+  which question its evidence was originally collected for, and without the
+  guarantee that the answer-bearing passage is a hand-picked Wikipedia
+  article. Web search results are noisier, so the task is harder than
+  `rc.wikipedia`.
 
 ### Corpus construction
 
-We take the first **500 questions** from the validation split.
-For each question, TriviaQA provides a list of entity Wikipedia pages
-(typically 2–10 pages). We pool all pages across all questions into a
-single shared retrieval corpus. This produces:
+We take the first **`config.NUM_QUESTIONS`** questions from the validation
+split (default **100** for fast iteration; raise to 500–1000 for the final
+run). For each question, TriviaQA provides ~2–10 entity Wikipedia pages
+plus ~10–50 web search hits; we keep all the wiki pages and the top
+`config.MAX_SEARCH_RESULTS_PER_Q` (default **5**) web hits. All of these
+are pooled across questions into a single shared retrieval corpus,
+deduplicated by `(source, filename)`. Documents shorter than 50 characters
+are dropped. At the default settings this produces:
 
-- **~500 questions** with gold answer strings and aliases.
-- **Up to 6,000 Wikipedia article passages** as the retrieval corpus.
+- **~100 questions** with gold answer strings and aliases.
+- **~700–1 500 documents** in the retrieval corpus (the wiki/web
+  breakdown is logged at load time, capped overall at
+  `config.MAX_CORPUS_DOCS = 5 000`).
 
-The corpus is cached to disk after the first download to avoid re-downloading.
+Each document carries a `source` field (`"wiki"` or `"web"`) so per-source
+analyses are possible if needed.
+
+The corpus is cached to disk after the first download to avoid
+re-downloading. **Note:** the `rc` config is substantially larger than
+`rc.wikipedia` (~5–10 GB download), so the first download will take a
+while even though we only use the first 100 questions.
 
 ### Answer format
 
@@ -336,6 +353,18 @@ Recall@k = 1  if  normalize(answer)  is a substring of  normalize(chunk)
 This measures whether the retriever *found* the information, independently
 of whether the generator *extracted* it.
 
+> **Caveat — substring matching inflates Recall@k.** Because we use a
+> normalised-substring test (not a token / span match), a gold answer that
+> happens to be a substring of an unrelated longer token counts as a hit:
+> "Black" inside "Blackboard", "Green" inside "Greenland", numeric answers
+> like "1066" inside "10665". This biases Recall@k *upward*, with the bias
+> concentrated on short / common / numeric answers. The downstream EM and
+> F1 numbers are unaffected (they compare against the *generated* answer),
+> but the absolute Recall@k values — and the "recall=1 but EM=0" buckets in
+> the Exp 5 error analysis — should be read as upper bounds on true
+> retrieval success. A cleaner alternative is a token-span match against
+> TriviaQA's annotated gold-evidence pages, which we leave as future work.
+
 ### Bootstrap Confidence Intervals
 
 We compute 95% CIs using **percentile bootstrap** with 1000 resamples
@@ -424,11 +453,16 @@ This will:
 2. Run all 5 experiments sequentially.
 3. Save results JSON files to `results/`.
 
-**Expected runtime** (Apple Silicon / modern CPU):
-- Data loading: ~5 min (first run; <10 s from cache)
-- Dense embedding (6k chunks × 4 chunk sizes): ~15–20 min
-- Generation (500 questions × ~6 conditions): ~30–60 min (mostly cached after first run)
-- Total first run: ~1–2 hours
+**Expected runtime** at the default `NUM_QUESTIONS=100` / `MAX_SEARCH_RESULTS_PER_Q=5`
+(Apple Silicon / modern CPU):
+- Data loading: 5–15 min first time (the `rc` dataset is large); <10 s from cache afterwards.
+- Dense embedding (~1 k docs × 4 chunk sizes): ~2–5 min.
+- Generation (100 questions × ~8 conditions): ~5–15 min on CPU, faster on MPS/CUDA. Cache keeps re-runs cheap.
+- Total first end-to-end run: ~20–30 min.
+
+To run at "report scale", bump `config.NUM_QUESTIONS` to 500 or 1000 and
+optionally raise `MAX_SEARCH_RESULTS_PER_Q`; runtime scales roughly linearly
+with both.
 
 ### Run a single experiment
 
@@ -459,121 +493,64 @@ experiment_5(q, docs, gen)
 
 ## 10. Results Summary
 
-All results below are from n = 500 TriviaQA `rc.wikipedia` validation questions.
-All numbers are **mean [95 % bootstrap CI]**.
-
----
+> **Status — results pending regeneration.** The numbers and figures
+> previously listed here were produced under an earlier pipeline
+> configuration (`rc.wikipedia` corpus, `MAX_INPUT_TOKENS=1024`,
+> question-at-end prompts). The pipeline has since been updated to fix
+> several validity issues:
+>
+> - dataset switched from `rc.wikipedia` to `rc` (wiki + web evidence
+>   pooled into one corpus),
+> - `MAX_INPUT_TOKENS` lowered to 512 to match Flan-T5-base's
+>   pre-training context,
+> - prompts now repeat the question both before and after the context
+>   so truncation can't drop it.
+>
+> Each of those changes invalidates the cached results. Re-run the
+> notebook (or `python experiments/run_experiments.py`) to populate
+> `results/` and `figures/`, then fill in the tables below.
 
 ### Experiment 1 — Retriever Comparison
 
 | Method | EM | Token F1 | Recall@5 |
 |---|---|---|---|
-| BM25   | 0.176 [0.140–0.210] | 0.229 [0.196–0.263] | 0.688 |
-| TF-IDF | 0.192 [0.160–0.228] | 0.253 [0.220–0.289] | 0.772 |
-| **Dense** | **0.204 [0.168–0.238]** | **0.271 [0.237–0.308]** | **0.842** |
-
-**Finding:** Dense semantic retrieval dominates across every metric. It raises
-Recall@5 by +15.4 pp over BM25 (68.8% → 84.2%), confirming the hypothesis
-that trivia questions rarely share exact vocabulary with their Wikipedia evidence.
-The ordering matches Lewis et al. (2020) [42].
-
----
+| BM25   | _TBD_ | _TBD_ | _TBD_ |
+| TF-IDF | _TBD_ | _TBD_ | _TBD_ |
+| Dense  | _TBD_ | _TBD_ | _TBD_ |
 
 ### Experiment 2 — Chunk Size
 
 | Chunk (words) | EM | Token F1 | Recall@5 |
 |---|---|---|---|
-| 64  | **0.490 [0.446–0.534]** | **0.563 [0.523–0.604]** | 0.784 |
-| 128 | 0.204 [0.168–0.238] | 0.271 [0.237–0.308] | 0.842 |
-| 256 | 0.016 [0.006–0.028] | 0.061 [0.048–0.075] | 0.888 |
-| 512 | 0.016 [0.006–0.028] | 0.063 [0.048–0.079] | 0.922 |
-
-**Finding:** A striking non-monotone trade-off. Recall@k *increases* with chunk
-size (more context → higher probability of covering the answer), but EM
-*collapses* for chunks ≥ 256 words. The root cause: Flan-T5-base has a
-512-token encoder limit. With k = 5 passages of 256 words each, the total
-prompt exceeds ~1 280 words (≈ 1 700 tokens), forcing severe truncation that
-drops the question itself. Small 64-word chunks keep each passage focused and
-the total prompt within the model's context window, yielding the highest EM.
-
-> **Key insight:** Chunk size and k are not independent — their *product*
-> determines whether the context fits in the generator's window. This
-> interaction is under-reported in the RAG survey literature (Gao et al. [44]).
-
----
+| 64  | _TBD_ | _TBD_ | _TBD_ |
+| 128 | _TBD_ | _TBD_ | _TBD_ |
+| 256 | _TBD_ | _TBD_ | _TBD_ |
+| 512 | _TBD_ | _TBD_ | _TBD_ |
 
 ### Experiment 3 — Number of Retrieved Passages (k)
 
 | k | EM | Token F1 | Recall@k |
 |---|---|---|---|
-| 1  | 0.408 [0.366–0.452] | 0.483 [0.444–0.525] | 0.596 |
-| 3  | **0.512 [0.470–0.554]** | **0.590 [0.552–0.629]** | 0.788 |
-| 5  | 0.204 [0.168–0.238] | 0.271 [0.237–0.308] | 0.842 |
-| 10 | 0.016 [0.006–0.028] | 0.069 [0.054–0.084] | 0.910 |
-
-**Finding:** k = 3 is the empirical sweet spot for Flan-T5-base with 128-word
-chunks. Recall continues to grow with k, but EM peaks at k = 3 and then
-drops sharply. At k = 10, performance collapses for the same context-window
-reason as in Experiment 2. This directly validates the core argument of
-Izacard & Grave (2021) [43]: *how* you aggregate many passages into the
-generator matters enormously — naive concatenation (as used here) hits a
-hard wall at the model's context length. FiD's per-passage encoding removes
-this bottleneck.
-
----
+| 1  | _TBD_ | _TBD_ | _TBD_ |
+| 3  | _TBD_ | _TBD_ | _TBD_ |
+| 5  | _TBD_ | _TBD_ | _TBD_ |
+| 10 | _TBD_ | _TBD_ | _TBD_ |
 
 ### Experiment 4 — Prompt Template
 
-| Template | EM | Token F1 |
+| Template   | EM    | Token F1 |
 |---|---|---|
-| **Concise** | **0.344 [0.304–0.384]** | **0.397 [0.358–0.434]** |
-| Instructed | 0.204 [0.168–0.238] | 0.271 [0.237–0.308] |
-
-**Finding:** Counter-intuitively, the shorter "concise" prompt outperforms the
-"instructed" prompt. The explanation is again the context window: the
-"instructed" template adds ~50 tokens of system instructions before the
-retrieved context, which pushes the total prompt length further past the
-encoding limit and causes more truncation of the retrieved passages. This
-reveals a **prompt length vs. instruction quality** trade-off: better
-instructions cost tokens, and those tokens compete directly with retrieved
-evidence.
-
----
+| Concise    | _TBD_ | _TBD_    |
+| Instructed | _TBD_ | _TBD_    |
 
 ### Experiment 5 — RAG vs No-RAG
 
-| Condition | EM | Token F1 |
+| Condition                | EM    | Token F1 |
 |---|---|---|
-| No-RAG (parametric only) | 0.058 [0.038–0.078] | 0.101 [0.079–0.123] |
-| **RAG (Dense, k = 5)** | **0.204 [0.168–0.238]** | **0.271 [0.237–0.308]** |
+| No-RAG (parametric only) | _TBD_ | _TBD_    |
+| RAG (Dense, k = 5)       | _TBD_ | _TBD_    |
 
-**RAG gain:** +14.6 pp EM, +17.0 pp F1 — a **3.5× improvement**.
-
-Per-question breakdown (n = 500):
-- **RAG helps** (EM improves): 96 questions (19.2 %)
-- **RAG hurts** (EM decreases): 23 questions (4.6 %)
-- **Ties**: 381 questions (76.2 %)
-
-**Finding:** RAG is unambiguously better than parametric-only generation at
-this model scale — Flan-T5-base memorises very little trivia. The per-question
-analysis reveals the mechanism: on the 84.2 % of questions where the answer
-is retrieved (Recall@5 = 0.842), the model often extracts it correctly; on
-the 15.8 % where retrieval misses, the model receives irrelevant context that
-sometimes confuses it (the 4.6 % hurt cases). This matches Lewis et al.'s
-finding that retrieval quality is the primary bottleneck in RAG systems.
-
----
-
-### Summary of Key Takeaways
-
-| Finding | Evidence |
-|---|---|
-| Dense retrieval > sparse methods | Exp 1: +15 pp Recall@5 over BM25 |
-| Context window caps performance | Exp 2 & 3: EM collapses at chunk≥256 or k≥10 |
-| Chunk size × k interact critically | Exp 2 & 3: product determines context length |
-| Shorter prompts can beat longer ones | Exp 4: concise +14 pp EM over instructed |
-| RAG gives 3.5× EM improvement | Exp 5: 5.8% → 20.4% over parametric baseline |
-| RAG hurts < 5% of the time | Exp 5: 23/500 hurt cases |
+Per-question breakdown (n = 500): _TBD helps / TBD hurts / TBD ties_.
 
 ---
 
@@ -602,9 +579,15 @@ Figures in `figures/`:
    fine-tuned on TriviaQA (as in Lewis et al. [42]) would likely show a
    larger performance gap between dense and sparse retrieval.
 
-3. **Corpus size**: We cap the corpus at 6,000 pages for computational
-   feasibility. Full TriviaQA uses the entire Wikipedia dump (~21 M passages),
-   which changes the retrieval difficulty significantly.
+3. **Corpus size and provenance**: At the default fast-iteration settings
+   (`NUM_QUESTIONS=100`, `MAX_SEARCH_RESULTS_PER_Q=5`) the corpus is only
+   ~700–1 500 documents — enough to demonstrate the pipeline and the
+   directional findings, but not enough to draw quantitative conclusions.
+   For the final report run, raise both constants. Even at the maximum
+   `rc` setting the corpus is much smaller and less diverse than the
+   open-domain settings used in Lewis et al. [42] (~21 M Wikipedia
+   passages indexed with FAISS); absolute Recall@k numbers should be read
+   in that context.
 
 4. **No query expansion or re-ranking**: Advanced RAG techniques (HyDE,
    step-back prompting, cross-encoder re-ranking) are not evaluated. These

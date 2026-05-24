@@ -113,50 +113,6 @@ def retrieval_recall_single(
 # Corpus-level metrics
 # ─────────────────────────────────────────────────────────────────
 
-def compute_metrics(
-    predictions: List[str],
-    gold_answers_list: List[List[str]],
-    retrieved_chunks_list: Optional[List[List[Dict]]] = None,
-) -> Dict[str, float]:
-    """
-    Compute EM, F1, and optionally Recall@k over the full set.
-
-    Parameters
-    ----------
-    predictions           : list of model-generated answer strings
-    gold_answers_list     : list of gold answer lists (one per question)
-    retrieved_chunks_list : optional list of retrieved chunk lists
-
-    Returns
-    -------
-    dict with keys: em, f1, recall_at_k (only if retrieved_chunks_list given)
-    """
-    assert len(predictions) == len(gold_answers_list), \
-        "predictions and gold_answers_list must have the same length"
-
-    em_scores = []
-    f1_scores = []
-
-    for pred, golds in zip(predictions, gold_answers_list):
-        em_scores.append(exact_match(pred, golds))
-        f1_scores.append(token_f1(pred, golds))
-
-    result: Dict[str, float] = {
-        "em":  float(np.mean(em_scores)),
-        "f1":  float(np.mean(f1_scores)),
-        "n":   float(len(predictions)),
-    }
-
-    if retrieved_chunks_list is not None:
-        recall_scores = [
-            retrieval_recall_single(chunks, golds)
-            for chunks, golds in zip(retrieved_chunks_list, gold_answers_list)
-        ]
-        result["recall_at_k"] = float(np.mean(recall_scores))
-
-    return result
-
-
 def bootstrap_ci(
     scores: List[float],
     n_bootstrap: int = config.BOOTSTRAP_SAMPLES,
@@ -185,11 +141,11 @@ def evaluate_with_ci(
     retrieved_chunks_list: Optional[List[List[Dict]]] = None,
 ) -> Dict[str, Dict[str, float]]:
     """
-    Like compute_metrics but also returns 95% CI for each metric.
+    Compute EM, F1, and (optionally) Recall@k with 95% bootstrap CIs.
 
     Returns
     -------
-    dict mapping metric name → {'mean': ..., 'lo': ..., 'hi': ...}
+    dict mapping metric name → {'mean': ..., 'lo': ..., 'hi': ..., 'n': ...}
     """
     em_scores = [exact_match(p, g) for p, g in zip(predictions, gold_answers_list)]
     f1_scores = [token_f1(p, g)    for p, g in zip(predictions, gold_answers_list)]

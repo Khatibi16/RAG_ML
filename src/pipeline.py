@@ -151,5 +151,10 @@ class RAGPipeline:
                 "generation_s":      round(t_generation, 2),
                 "total_s":           round(time.perf_counter() - t_start, 2),
                 "n_questions":       len(questions),
+                # Cache stats so that a near-zero generation_s can be
+                # recognised as "everything was cached" rather than "the
+                # generator is suspiciously fast".
+                "cache_hits":        getattr(self.generator, "last_cache_hits",   None),
+                "cache_misses":      getattr(self.generator, "last_cache_misses", None),
             },
         }

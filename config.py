@@ -24,12 +24,30 @@ for _d in [DATA_DIR, RESULTS_DIR, FIGURES_DIR, CACHE_DIR]:
 # Dataset
 # ─────────────────────────────────────────────────────────────────
 DATASET_NAME   = "trivia_qa"          # HuggingFace dataset identifier
-DATASET_CONFIG = "rc.wikipedia"       # Wikipedia evidence pages (as in Lewis et al.)
+DATASET_CONFIG = "rc"                 # Open reading-comprehension config:
+                                      # both Wikipedia entity pages AND web
+                                      # search results.  The web docs are
+                                      # noisier and add genuine retrieval
+                                      # difficulty, unlike `rc.wikipedia`
+                                      # where every doc was hand-picked as
+                                      # evidence for some question.
 DATASET_SPLIT  = "validation"         # validation split (avoid contaminating test)
-NUM_QUESTIONS  = 500                  # first N questions for all experiments
-                                      # (set lower if memory-constrained; 300 is fast)
-MAX_CORPUS_DOCS = 6000                # cap on total Wikipedia pages to index
-                                      # (keeps memory manageable; ~300+ pages/question)
+NUM_QUESTIONS  = 100                  # first N questions for all experiments.
+                                      # Set to 100 for fast iteration; raise to
+                                      # 500 (or 1000) once the pipeline is final.
+                                      # Drives retrieval queries, generations,
+                                      # and the bootstrap base, so runtime
+                                      # roughly scales linearly with it.
+MAX_CORPUS_DOCS = 5000                # cap on total documents to index.
+                                      # With MAX_SEARCH_RESULTS_PER_Q=5, 100
+                                      # questions yield ~700-1500 unique docs
+                                      # after dedup, well under this ceiling.
+MAX_SEARCH_RESULTS_PER_Q = 5          # take only the top-N web search hits
+                                      # per question.  rc questions ship 10-50
+                                      # search results; the long tail mostly
+                                      # adds embedding cost without much new
+                                      # signal for retrieval.  Raise to None
+                                      # (no cap) to ingest all of them.
 
 # ─────────────────────────────────────────────────────────────────
 # Chunking
@@ -61,8 +79,16 @@ DENSE_BATCH_SIZE = 64                 # encoding batch size (reduce if OOM)
 # Flan-T5-base: instruction-tuned T5 variant, no API key needed,
 # runs on CPU/MPS, handles multi-passage prompts well.
 GENERATOR_MODEL  = "google/flan-t5-base"   # ~250M params
-MAX_INPUT_TOKENS = 1024               # truncate prompt to stay within model limits
-MAX_NEW_TOKENS   = 64                 # maximum tokens to generate per answer
+MAX_INPUT_TOKENS = 512                # Flan-T5-base's effective pre-training
+                                      # context window (the tokenizer's
+                                      # model_max_length).  Going higher works
+                                      # but pushes the encoder past sequences
+                                      # it ever saw during training and quietly
+                                      # degrades performance.
+MAX_NEW_TOKENS   = 32                 # maximum tokens to generate per answer.
+                                      # TriviaQA answers are almost always
+                                      # <10 tokens; 32 leaves slack for the
+                                      # occasional long alias.
 GENERATOR_BATCH_SIZE = 16            # generation batch size
 
 # ─────────────────────────────────────────────────────────────────
@@ -78,7 +104,13 @@ RANDOM_SEED       = 42               # reproducibility
 # "concise" = minimal instruction (prone to verbosity),
 # "instructed" = explicit directive to answer briefly and directly.
 PROMPT_TEMPLATES = {
+    # NB: the question appears both *before* and *after* the context.  T5
+    # truncation chops from the end, so a question only at the end can be
+    # cut off when the context is long; repeating it at the start keeps it
+    # visible even under aggressive truncation, while the trailing "Answer:"
+    # still serves as the generation cue.
     "concise": (
+        "Question: {question}\n\n"
         "Context:\n{context}\n\n"
         "Question: {question}\n"
         "Answer:"
@@ -87,6 +119,7 @@ PROMPT_TEMPLATES = {
         "You are a factual QA assistant. "
         "Read the context and answer the question with a short phrase only. "
         "Do NOT repeat the question. Do NOT write a sentence; just the answer.\n\n"
+        "Question: {question}\n\n"
         "Context:\n{context}\n\n"
         "Question: {question}\n"
         "Short answer:"

@@ -54,6 +54,11 @@ class Generator:
         self._model           = None
         self._tokenizer       = None
         self._cache: Dict[str, str] = {}
+        # Stats from the most recent generate() call, so that timing can be
+        # interpreted (a fast generation_s is meaningless if everything was
+        # served from cache).
+        self.last_cache_hits:   int = 0
+        self.last_cache_misses: int = 0
         self._load_cache()
 
     # ─────────────────────────────────────────────────────────────
@@ -132,10 +137,12 @@ class Generator:
                 uncached_indices.append(i)
                 uncached_prompts.append(prompt)
 
+        self.last_cache_hits   = len(prompts) - len(uncached_prompts)
+        self.last_cache_misses = len(uncached_prompts)
         logger.info(
             "Generation: %d cached, %d to generate.",
-            len(prompts) - len(uncached_prompts),
-            len(uncached_prompts),
+            self.last_cache_hits,
+            self.last_cache_misses,
         )
 
         if uncached_prompts:

@@ -1,18 +1,22 @@
 """
 corpus.py — TriviaQA corpus loading and passage extraction.
 
-We use the `rc.wikipedia` configuration of TriviaQA (Lewis et al. 2020 [42];
-Joshi et al. 2017), which pairs each trivia question with a set of Wikipedia
-entity pages as evidence. This is the exact benchmark used in all three
-reference papers.
+We use the `rc` configuration of TriviaQA (Joshi et al. 2017), which pairs
+each trivia question with two evidence sources: Wikipedia entity pages
+(curated) and Web search results (noisier).  Both are pooled into a single
+shared retrieval corpus, which makes retrieval genuinely difficult — the
+correct passage now competes with web pages that may be only tangentially
+related to any sampled question.
 
 Design choices:
-  - We pool entity pages from all sampled questions to form one shared
-    retrieval corpus. This means relevant pages exist in the corpus, but so do
-    many distractor pages — a realistic retrieval setting.
+  - We pool both ``entity_pages`` (wiki) and ``search_results`` (web) from
+    all sampled questions to form one shared retrieval corpus.
+  - Documents are deduplicated by ``(source, filename)`` where filename is
+    available, otherwise by title.
   - We cache the raw dataset download to avoid re-downloading on each run.
-  - Each document is stored as a dict with fields 'doc_id', 'title', 'text'
-    so the chunker and retrievers have a uniform interface.
+  - Each document is stored as a dict with fields ``doc_id``, ``title``,
+    ``text``, ``source`` so the chunker and retrievers have a uniform
+    interface.
 """
 
 import json
@@ -59,7 +63,14 @@ def load_triviaqa(
         Total document count is capped at config.MAX_CORPUS_DOCS.
     """
     if cache_path is None:
-        cache_path = config.CACHE_DIR / f"triviaqa_{num_questions}.pkl"
+        # Include all parsing-relevant config so changing the search cap
+        # doesn't silently re-use a stale parsed corpus.
+        web_cap = getattr(config, "MAX_SEARCH_RESULTS_PER_Q", None)
+        web_tag = "all" if web_cap is None else str(web_cap)
+        cache_path = (
+            config.CACHE_DIR
+            / f"triviaqa_{config.DATASET_CONFIG}_n{num_questions}_w{web_tag}.pkl"
+        )
 
     if cache_path.exists():
         logger.info("Loading TriviaQA from cache: %s", cache_path)
@@ -84,10 +95,18 @@ def load_triviaqa(
 
     questions: List[Dict[str, Any]] = []
     corpus_docs: List[Dict[str, Any]] = []
-    seen_titles: set = set()
+    seen_keys: set = set()
+
+    # (source_name, section_key_in_example, text_field_in_section)
+    SOURCE_SPECS = [
+        ("wiki", "entity_pages",   "wiki_context"),
+        ("web",  "search_results", "search_context"),
+    ]
+    MIN_DOC_CHARS = 50  # filter out empty / single-line search snippets
 
     subset = ds.select(range(min(num_questions, len(ds))))
 
+    cap_reached = False
     for idx, example in enumerate(tqdm(subset, desc="Parsing TriviaQA")):
         # ── Build question entry ────────────────────────────────
         answers = _extract_answers(example)
@@ -101,36 +120,60 @@ def load_triviaqa(
         }
         questions.append(q)
 
-        # ── Build corpus from entity pages ──────────────────────
-        # TriviaQA rc.wikipedia stores Wikipedia pages under
-        # example["entity_pages"] (a dict with 'title' and 'wiki_context')
-        entity_pages = example.get("entity_pages", {})
-        titles = entity_pages.get("title", []) or []
-        texts  = entity_pages.get("wiki_context", []) or []
+        if cap_reached:
+            # Still record the question so it's evaluable, but don't add
+            # any more docs (the answer's evidence may now be missing).
+            continue
 
-        for title, text in zip(titles, texts):
-            if not title or not text:
-                continue
-            if title in seen_titles:
-                continue
-            seen_titles.add(title)
-            corpus_docs.append({
-                "doc_id": f"wiki_{len(corpus_docs):06d}",
-                "title":  title,
-                "text":   text.strip(),
-            })
+        # ── Build corpus from wiki entity pages + web search results ──
+        web_cap = getattr(config, "MAX_SEARCH_RESULTS_PER_Q", None)
+        for src, section_key, text_field in SOURCE_SPECS:
+            section = example.get(section_key) or {}
+            titles    = section.get("title")    or []
+            texts     = section.get(text_field) or []
+            filenames = section.get("filename") or []
+            n         = max(len(titles), len(texts), len(filenames))
+            if src == "web" and web_cap is not None:
+                n = min(n, web_cap)
 
-            if len(corpus_docs) >= config.MAX_CORPUS_DOCS:
+            for i in range(n):
+                title    = titles[i]    if i < len(titles)    else ""
+                text     = texts[i]     if i < len(texts)     else ""
+                filename = filenames[i] if i < len(filenames) else ""
+
+                text = (text or "").strip()
+                if len(text) < MIN_DOC_CHARS:
+                    continue
+
+                dedup_id = filename or title
+                if not dedup_id:
+                    continue
+                dedup_key = (src, dedup_id)
+                if dedup_key in seen_keys:
+                    continue
+                seen_keys.add(dedup_key)
+
+                corpus_docs.append({
+                    "doc_id": f"{src}_{len(corpus_docs):06d}",
+                    "title":  title or f"(untitled {src})",
+                    "text":   text,
+                    "source": src,
+                })
+
+                if len(corpus_docs) >= config.MAX_CORPUS_DOCS:
+                    cap_reached = True
+                    break
+            if cap_reached:
                 break
-
-        if len(corpus_docs) >= config.MAX_CORPUS_DOCS:
-            logger.info("Reached MAX_CORPUS_DOCS=%d — stopping corpus collection.",
+        if cap_reached:
+            logger.info("Reached MAX_CORPUS_DOCS=%d — no more docs will be added.",
                         config.MAX_CORPUS_DOCS)
-            break
 
+    n_wiki = sum(1 for d in corpus_docs if d["source"] == "wiki")
+    n_web  = sum(1 for d in corpus_docs if d["source"] == "web")
     logger.info(
-        "Loaded %d questions and %d corpus documents.",
-        len(questions), len(corpus_docs),
+        "Loaded %d questions and %d corpus documents (%d wiki + %d web).",
+        len(questions), len(corpus_docs), n_wiki, n_web,
     )
 
     result = (questions, corpus_docs)
