@@ -5,6 +5,12 @@ __pycache__/
 *.pyo
 .DS_Store
 
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
 # Large cache files (pickle/dense embeddings) — too large for git
 data/cache/*.pkl
 data/cache/triviaqa_*.pkl
