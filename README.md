@@ -159,20 +159,67 @@ plus ~10–50 web search hits; we keep all the wiki pages and the top
 `config.MAX_SEARCH_RESULTS_PER_Q` (default **5**) web hits. All of these
 are pooled across questions into a single shared retrieval corpus,
 deduplicated by `(source, filename)`. Documents shorter than 50 characters
-are dropped. At the default settings this produces:
+are dropped.
+
+We additionally mix in **`config.NUM_WIKI_DISTRACTORS`** (default **2 000**)
+articles from Simple English Wikipedia
+(`wikimedia/wikipedia` / `20231101.simple`, deterministically shuffled with
+seed 42, truncated to `config.WIKI_DISTRACTOR_MAX_CHARS = 2 000` chars
+each) as topic-agnostic external distractors. These articles carry no
+question-conditioned signal; their job is to widen the noise floor of the
+retrieval pool so the retriever has to find the gold-bearing pages among
+documents whose presence is *not* correlated with our test questions. Set
+`NUM_WIKI_DISTRACTORS = 0` to fall back to the pure-TriviaQA pool. The
+first run additionally downloads ~100 MB of Wikipedia content; the parsed
+corpus is then cached as a pickle keyed on `(num_questions, web_cap,
+wiki_distractor_count)` so subsequent runs are instant.
+
+At the default settings this produces:
 
 - **~100 questions** with gold answer strings and aliases.
-- **~700–1 500 documents** in the retrieval corpus (the wiki/web
-  breakdown is logged at load time, capped overall at
-  `config.MAX_CORPUS_DOCS = 5 000`).
+- **~2 700–3 500 documents** in the retrieval corpus: ~700–1 500 from
+  TriviaQA (wiki entity pages + web hits) plus ~2 000 external Simple
+  Wikipedia distractors. The per-source breakdown is logged at load time;
+  overall capped at `config.MAX_CORPUS_DOCS = 5 000`.
 
-Each document carries a `source` field (`"wiki"` or `"web"`) so per-source
-analyses are possible if needed.
+Each document carries a `source` field (`"wiki"`, `"web"`, or
+`"wiki_distractor"`) so per-source analyses are possible if needed.
 
 The corpus is cached to disk after the first download to avoid
 re-downloading. **Note:** the `rc` config is substantially larger than
 `rc.wikipedia` (~5–10 GB download), so the first download will take a
 while even though we only use the first 100 questions.
+
+### Retrieval setting — what this *is* and what it isn't
+
+We call this setting **pooled-evidence retrieval**: a hybrid between
+closed-book QA (only the gold evidence for each question) and the true
+open-domain regime used in Lewis et al. [42] (the entire ~21 M-passage
+Wikipedia indexed with FAISS). Specifically:
+
+- **Gold evidence is present for every test question.** TriviaQA's
+  curated entity pages are designed to contain the answer; pooling
+  doesn't remove them, so retrieval is always answerable in principle.
+- **In-batch distractors are present.** Each question's retrieval
+  competes with the entity pages and web hits collected for the other
+  ~99 questions. These are topical, but not selected to be adversarial
+  for any specific question.
+- **The web-hit half of the in-batch pool is task-conditioned.** Web
+  results in TriviaQA were originally retrieved by a search engine
+  *using the question itself*, so they are correlated with the question
+  by construction — pages that a real search engine already judged
+  relevant. This makes that half of the noise easier than realistic
+  open-domain noise.
+- **External distractors (this implementation) are topic-agnostic.** The
+  ~2 000 Simple Wikipedia articles we mix in were sampled with no
+  reference to our test questions; they raise the corpus to ~2.5×–4×
+  the size of the pure-TriviaQA pool and contribute pure noise.
+
+Because of points 1–3, absolute Recall@k numbers should be read as
+**upper bounds on retrieval difficulty**, not estimates of performance
+in a full open-domain deployment. Point 4 mitigates but does not close
+the gap to Lewis et al.'s setting, which is ~4 orders of magnitude
+larger and contains many adversarial near-duplicates per query.
 
 ### Answer format
 
@@ -259,10 +306,19 @@ unreliable.
 
 **Variable:** prompt template ∈ {"concise", "instructed"}
 
-**Templates:**
+**Templates:** Both templates use the same question-twice scaffold (the
+question is repeated *before* and *after* the context, since T5 truncates
+from the end and we want the question to survive long contexts). The only
+deliberate contrast is the leading instruction sentence in the
+*instructed* variant; the leading sentence is kept short so that
+*concise* and *instructed* are length-matched to within ~10 tokens — Exp 4
+therefore measures the instruction signal itself, not the cost of
+displaced context under truncation.
 
 *Concise:*
 ```
+Question: {question}
+
 Context:
 {retrieved passages}
 
@@ -272,9 +328,9 @@ Answer:
 
 *Instructed:*
 ```
-You are a factual QA assistant. Read the context and answer the question
-with a short phrase only. Do NOT repeat the question. Do NOT write a
-sentence; just the answer.
+Answer with a short phrase.
+
+Question: {question}
 
 Context:
 {retrieved passages}
@@ -284,9 +340,11 @@ Short answer:
 ```
 
 **Hypothesis:** Instruction-tuned models like Flan-T5 respond better to
-explicit directives. Without them, the model may copy sentences from the
-context or generate overly verbose answers, hurting EM (which requires an
-exact short phrase match).
+explicit directives. The single leading sentence ("Answer with a short
+phrase.") plus the "Short answer:" cue should push the model toward
+terse phrase-level outputs, improving EM (which requires an exact short
+phrase match); without them the model may copy sentences from the
+context or generate overly verbose answers.
 
 **Measurement:** EM and F1.
 
@@ -311,6 +369,19 @@ recall — this lets us test the causal story:
 - **RAG helps when recall = 1** → retrieval found the answer, generator used it.
 - **RAG hurts when recall = 1** → answer was retrieved but generator was distracted.
 - **RAG hurts when recall = 0** → retrieval missed entirely; model got wrong context.
+
+> **Caveat — the "RAG hurts" bucket is bounded by the No-RAG baseline.**
+> A question can only end up in "RAG hurts" if No-RAG got it right and RAG
+> got it wrong. With Flan-T5-base's parametric EM near zero on TriviaQA at
+> our default prompt, this bucket is *structurally* small (in our 100-q run
+> it is exactly 0), and the "RAG hurts when recall = 1" / "RAG hurts when
+> recall = 0" decomposition is correspondingly underpowered. The
+> `helps / ties / hurts` split should therefore be read as "where RAG adds
+> value on top of weak parametric memory", not as evidence that RAG never
+> hurts in general. To make the "hurts" analysis meaningful, either raise
+> the No-RAG baseline (a less restrictive no-context prompt, a larger
+> generator) or recast the comparison in F1 / per-question $\Delta$F1, which
+> registers partial-credit regressions that EM ignores.
 
 ---
 
@@ -383,7 +454,7 @@ We compute 95% CIs using **percentile bootstrap** with 1000 resamples
 - Model: `google/flan-t5-base` (~250 M parameters)
 - Decoding: greedy (deterministic; no sampling)
 - Truncation: prompts are truncated to 1024 tokens
-- Maximum new tokens: 64
+- Maximum new tokens: 32
 - Device: auto-detected (MPS → CUDA → CPU)
 - All generation results cached to `data/cache/generation_cache.json`
 
@@ -580,14 +651,19 @@ Figures in `figures/`:
    larger performance gap between dense and sparse retrieval.
 
 3. **Corpus size and provenance**: At the default fast-iteration settings
-   (`NUM_QUESTIONS=100`, `MAX_SEARCH_RESULTS_PER_Q=5`) the corpus is only
-   ~700–1 500 documents — enough to demonstrate the pipeline and the
-   directional findings, but not enough to draw quantitative conclusions.
-   For the final report run, raise both constants. Even at the maximum
-   `rc` setting the corpus is much smaller and less diverse than the
-   open-domain settings used in Lewis et al. [42] (~21 M Wikipedia
-   passages indexed with FAISS); absolute Recall@k numbers should be read
-   in that context.
+   (`NUM_QUESTIONS=100`, `MAX_SEARCH_RESULTS_PER_Q=5`,
+   `NUM_WIKI_DISTRACTORS=2000`) the corpus is ~2 700–3 500 documents —
+   enough to demonstrate the pipeline and the directional findings, but
+   not enough to draw quantitative conclusions. For the final report run,
+   raise `NUM_QUESTIONS` and `NUM_WIKI_DISTRACTORS` together. Even at the
+   maximum `rc` setting the corpus is much smaller and less diverse than
+   the full open-domain setting in Lewis et al. [42] (~21 M Wikipedia
+   passages indexed with FAISS). As discussed in §4, the in-batch web
+   hits are also task-conditioned by construction, and the external
+   Simple-Wikipedia distractors are topic-agnostic rather than
+   adversarial — both factors flatter retrieval. Absolute Recall@k
+   numbers should be read as **upper bounds**, not as estimates of
+   open-domain performance.
 
 4. **No query expansion or re-ranking**: Advanced RAG techniques (HyDE,
    step-back prompting, cross-encoder re-ranking) are not evaluated. These
