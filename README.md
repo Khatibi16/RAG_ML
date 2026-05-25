@@ -16,6 +16,9 @@
    - [Exp 3 — Number of Passages k](#exp-3--number-of-retrieved-passages-k)
    - [Exp 4 — Prompt Template](#exp-4--prompt-template-ablation)
    - [Exp 5 — RAG vs No-RAG](#exp-5--rag-vs-no-rag)
+   - [Exp 6 — Oracle Baseline](#exp-6--oracle-baseline-retrieval-upper-bound)
+   - [Exp 7 — Cross-Encoder Re-ranking](#exp-7--cross-encoder-re-ranking)
+   - [Exp 8 — Distractor Count Sweep](#exp-8--distractor-count-sweep)
 6. [Evaluation Metrics](#6-evaluation-metrics)
 7. [Implementation Details](#7-implementation-details)
 8. [Reproducibility](#8-reproducibility)
@@ -243,10 +246,27 @@ All experiments follow the same evaluation protocol:
 
 **Variable:** retrieval method ∈ {BM25, TF-IDF, Dense}
 
-**Hypothesis:** Dense retrieval (semantic matching) will outperform sparse
-methods (BM25, TF-IDF) on TriviaQA because trivia questions rarely share
-exact vocabulary with their answer passages, making term-based matching
-unreliable.
+**Prior expectations vs. what we should actually expect on this corpus.**
+A common textbook prior is that a dense bi-encoder should outperform
+sparse retrieval on QA because questions and answer passages need not
+share vocabulary (Lewis et al. [42]; Karpukhin et al., DPR). The
+opposite is plausible on TriviaQA `rc` specifically: trivia questions
+are dominated by named entities, dates, and titles, and the gold
+evidence is Wikipedia entity pages where those exact strings recur —
+strong literal overlap → term-frequency matching is already strong, and
+an off-the-shelf MiniLM bi-encoder (not fine-tuned on TriviaQA, unlike
+DPR) gives up the small generalisation advantage that the dense
+direction usually enjoys. So a tie or a slight sparse win at this scale
+would not be surprising; this experiment is a test of that.
+
+**Empirical result (this run, n = 100, ~2.7 k-doc corpus):**
+BM25 ≈ TF-IDF ≈ 0.70 EM, Dense ≈ 0.67 EM, all three at Recall@5 ≈ 0.94
+with heavily overlapping bootstrap CIs. The interpretation is that
+retrieval is near-ceiling on this corpus for all three methods and the
+generator-side gap dominates the residual error. A larger or more
+adversarial corpus (see Experiments 7 and 8), a multi-hop dataset, or
+a TriviaQA-fine-tuned dense encoder would all be expected to widen the
+dense-vs-sparse spread.
 
 **Methods:** BM25 and TF-IDF consume the **same** token stream produced
 by a shared `_lexical_tokenize` (NFKD accent-strip → lowercase → regex
@@ -407,6 +427,96 @@ recall — this lets us test the causal story:
 
 ---
 
+### Exp 6 — Oracle Baseline (retrieval upper bound)
+
+**Fixed:** retriever = Dense (used for the non-oracle slots), chunk size = 128, k = 5, prompt = "instructed"
+
+**Condition:** Every question is *guaranteed* to have an answer-bearing
+chunk in its top-k context. Concretely: run dense retrieval as usual at
+k = 5; for any question whose top-5 misses the gold answer (recall = 0),
+find the first chunk in the corpus that contains it (normalised substring
+match) and place it at rank 1, dropping the lowest-ranked retrieved chunk
+so k stays at 5. If no chunk in the corpus contains the answer (chunking
+artefact — the answer may straddle a window boundary), the question is
+left as-is and flagged.
+
+**Hypothesis & interpretation:**
+- **Oracle − RAG** = the share of error attributable to *retrieval
+  failure*. If the dense retriever already finds the answer for most
+  questions, this gap is small.
+- **1 − Oracle** = the *generator* failure under perfect retrieval — a
+  ceiling on what better retrieval alone can buy. If Oracle is far below
+  1.0, scaling retrieval further has diminishing returns and the
+  generator (model size, prompting, fine-tuning) is the binding
+  constraint.
+
+**Measurement:** EM, F1, and the number of questions where the oracle
+fix was applied (`n_injected`) and where no fix was possible
+(`n_unfixable`).
+
+---
+
+### Exp 7 — Cross-Encoder Re-ranking
+
+**Fixed:** chunk size = 128, k = 5 (final), prompt = "instructed"
+
+**Condition:** two-stage retrieval — a dense bi-encoder first stage
+returns the top-N candidates (`RERANK_TOP_N = 50`), then a cross-encoder
+(`cross-encoder/ms-marco-MiniLM-L-6-v2`) scores every `(query, chunk)`
+pair jointly and the top-k are kept for the generator.
+
+A cross-encoder reads the query and chunk *together* in a single
+transformer pass, so it can model term-level interactions a bi-encoder
+cannot — but it is quadratic in the number of chunks, so it has to be
+used as a *re-ranker* on a small candidate set rather than as a
+first-stage retriever. This is the canonical "advanced RAG" topology in
+the Gao et al. survey [44].
+
+**Hypotheses:**
+- Re-ranking should **raise Recall@5** if the dense top-50 contained
+  answer-bearing chunks that the dense top-5 missed (a "good candidates,
+  bad ranking" failure mode).
+- Whether the Recall@5 lift translates into EM/F1 lift is the
+  *interesting* question: if Exp 6 already showed the generator is the
+  binding constraint, even a perfect retriever won't help; if Exp 6
+  showed retrieval is the bottleneck, re-ranking should help roughly
+  in proportion to the Recall@5 gain.
+
+**Measurement:** EM, F1, Recall@5 vs the Exp 1 dense-only numbers.
+
+---
+
+### Exp 8 — Distractor Count Sweep
+
+**Fixed:** retriever = Dense, chunk size = 128, k = 5, prompt = "instructed"
+
+**Variable:** `NUM_WIKI_DISTRACTORS` ∈ {0, 500, 2000, 5000}
+
+The default corpus mixes 2 000 topic-agnostic Simple-English Wikipedia
+articles into the retrieval pool. This number is somewhat arbitrary —
+too few and retrieval is essentially "find the gold page among other
+questions' gold pages"; too many and the gold becomes a needle in a
+haystack. This experiment sweeps the distractor count holding everything
+else fixed (same questions, same chunking, same generator) and re-runs
+the RAG arm only; the No-RAG arm is corpus-independent and is reused
+from Experiment 5.
+
+**Hypotheses:**
+- **Recall@5** should fall monotonically with the noise floor.
+- **EM / F1** falls *only if* (a) Recall@5 falls *and* (b) the generator
+  was actually using the now-missing chunks. If EM is flat while
+  Recall@5 drops, the generator is robust to noisier retrieval; if both
+  drop together, retrieval quality is the binding constraint at scale.
+
+This is the most direct test in the project of *"how much does
+retrieval quality matter for end-to-end answer quality"* — the variable
+*is* the difficulty of the retrieval task itself.
+
+**Measurement:** EM, F1, Recall@5 at each distractor count, with
+absolute corpus sizes and chunk counts reported for context.
+
+---
+
 ## 6. Evaluation Metrics
 
 All metrics follow the SQuAD / TriviaQA evaluation convention exactly.
@@ -475,10 +585,21 @@ We compute 95% CIs using **percentile bootstrap** with 1000 resamples
 
 - Model: `google/flan-t5-base` (~250 M parameters)
 - Decoding: greedy (deterministic; no sampling)
-- Truncation: prompts are truncated to 1024 tokens
+- Truncation budget: 1024 input tokens
+- **Middle-truncation for long RAG prompts.** RAG prompts are built as
+  `(prefix, context, suffix)` triples where the prefix and suffix carry
+  the question repeats and the `Short answer:` cue. When the joined
+  prompt exceeds 1024 tokens, the generator preserves prefix and suffix
+  verbatim and trims only the *context body* — so the answer cue is never
+  lost to right-truncation, only the lowest-ranked retrieved passages.
+  Prompt-length logs distinguish raw tokens (pre-truncation) from final
+  tokens (what the model sees) and report how many prompts had context
+  trimmed.
 - Maximum new tokens: 32
 - Device: auto-detected (MPS → CUDA → CPU)
-- All generation results cached to `data/cache/generation_cache.json`
+- All generation results cached to `data/cache/generation_cache.json`,
+  keyed by MD5 of the *final* rendered prompt so changing the budget
+  invalidates exactly the affected entries.
 
 We choose Flan-T5-base because:
 1. It is instruction-tuned, so it follows prompt directives reliably.
@@ -605,6 +726,21 @@ experiment_5(q, docs, gen)
 > Each of those changes invalidates the cached results. Re-run the
 > notebook (or `python experiments/run_experiments.py`) to populate
 > `results/` and `figures/`, then fill in the tables below.
+>
+> **Additional pending invalidation (middle-truncation fix).** The
+> Generator now middle-truncates long RAG prompts so that the trailing
+> `Short answer:` cue is preserved (it was previously being truncated
+> away in ~60 % of Exp 1 prompts and 100 % of Exp 3 k=10 prompts). The
+> rendered prompt strings for those conditions have changed, so the
+> MD5 cache keys no longer match — those entries will be re-generated
+> automatically on the next run, but until then the saved
+> `results/exp{1,2,3,5}*.json` and the existing figures reflect the
+> pre-fix behaviour.
+>
+> **New experiments added in this pass.** Experiments 6 (oracle), 7
+> (cross-encoder re-ranking) and 8 (distractor count sweep) are in
+> the notebook but have not been run yet — their `results/exp{6,7,8}*.json`
+> and `figures/fig{8,9,10}*.png` will appear after re-running.
 
 ### Experiment 1 — Retriever Comparison
 
@@ -648,6 +784,32 @@ experiment_5(q, docs, gen)
 
 Per-question breakdown (n = 500): _TBD helps / TBD hurts / TBD ties_.
 
+### Experiment 6 — Oracle Baseline
+
+| Condition                       | EM    | Token F1 | Recall@5 |
+|---|---|---|---|
+| RAG (Dense, k = 5)              | _TBD_ | _TBD_    | _TBD_    |
+| Oracle (answer guaranteed, k=5) | _TBD_ | _TBD_    | 1.00     |
+
+Injected answer chunk for _TBD / n_ questions; _TBD / n_ unfixable (no
+answer-bearing chunk in corpus).
+
+### Experiment 7 — Cross-Encoder Re-ranking
+
+| Method                           | EM    | Token F1 | Recall@5 |
+|---|---|---|---|
+| Dense (Exp 1)                    | _TBD_ | _TBD_    | _TBD_    |
+| Dense + Rerank (top-50 → top-5)  | _TBD_ | _TBD_    | _TBD_    |
+
+### Experiment 8 — Distractor Count Sweep
+
+| `NUM_WIKI_DISTRACTORS` | n_corpus_docs | EM    | Token F1 | Recall@5 |
+|---|---|---|---|---|
+| 0    | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 500  | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 2000 | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 5000 | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+
 ---
 
 Figures in `figures/`:
@@ -661,6 +823,9 @@ Figures in `figures/`:
 | `fig5_rag_vs_no_rag.png`        | EM + F1: RAG vs parametric baseline |
 | `fig6_error_analysis.png`       | Pie (helps/hurts/ties) + scatter (recall vs EM) |
 | `fig7_qualitative.png`          | Example table: cases where RAG helps vs hurts |
+| `fig8_oracle.png`               | EM + F1: No-RAG / RAG / Oracle (Exp 6 — retrieval vs generation gap) |
+| `fig9_rerank.png`               | EM + F1 + Recall@5: Dense vs Dense + Cross-Encoder Rerank (Exp 7) |
+| `fig10_distractor_sweep.png`    | EM / F1 / Recall@k vs number of external distractors (Exp 8) |
 
 ---
 
