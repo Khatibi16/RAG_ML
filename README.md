@@ -863,11 +863,13 @@ cells top to bottom (in Jupyter / VS Code, or
    saving results JSON to `results/`.
 3. Generate every figure into `figures/` (300 dpi PNG).
 
-`config.FORCE_RERUN = True` (default) makes every experiment recompute
-end-to-end; set it `False` to skip experiments whose `results/*.json` already
-exists and only re-plot. Generation is cached per rendered prompt in
-`data/cache/generation_cache.json`, so re-runs only regenerate prompts that
-actually changed.
+Every experiment recomputes end-to-end on each run and overwrites its
+`results/*.json` — there is no results-level skip cache, so editing an
+experiment and re-running always reflects the change. Generation is still
+cached per *rendered prompt* in `data/cache/generation_cache.json` (keyed by
+the exact prompt text), so re-runs only regenerate prompts that actually
+changed; delete that file if you change a decoding/budget setting that doesn't
+alter the prompt text (e.g. `MAX_NEW_TOKENS`).
 
 **Expected runtime** at the default `NUM_QUESTIONS=100` / `MAX_SEARCH_RESULTS_PER_Q=5`
 (Apple Silicon / modern CPU):
