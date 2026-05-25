@@ -1832,6 +1832,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the man behind The Chipmunks?\nA:",
       "top_chunk": ""
     },
@@ -1850,6 +1852,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which Lloyd Webber musical premiered in the US on 10th December 1993?\nA:",
       "top_chunk": ""
     },
@@ -1869,6 +1873,8 @@
       "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the next British Prime Minister after Arthur Balfour?\nA:",
       "top_chunk": ""
     },
@@ -1897,6 +1903,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who had a 70s No 1 hit with Kiss You All Over?\nA:",
       "top_chunk": ""
     },
@@ -1956,6 +1964,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What claimed the life of singer Kathleen Ferrier?\nA:",
       "top_chunk": ""
     },
@@ -1988,6 +1998,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Rita Coolidge sang the title song for which Bond film?\nA:",
       "top_chunk": ""
     },
@@ -2035,6 +2047,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was the last US state to reintroduce alcohol after prohibition?\nA:",
       "top_chunk": ""
     },
@@ -2058,6 +2072,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which actress was voted Miss Greenwich Village in 1942?\nA:",
       "top_chunk": ""
     },
@@ -2074,6 +2090,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What is the Japanese share index called?\nA:",
       "top_chunk": ""
     },
@@ -2100,6 +2118,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was the name of Michael Jackson's autobiography written in 1988?\nA:",
       "top_chunk": ""
     },
@@ -2131,6 +2151,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which decade did stereo records first go on sale?\nA:",
       "top_chunk": ""
     },
@@ -2146,6 +2168,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In what year's Olympics were electric timing devices and a public-address system used for the first time?\nA:",
       "top_chunk": ""
     },
@@ -2191,6 +2215,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which volcano in Tanzania is the highest mountain in Africa?\nA:",
       "top_chunk": ""
     },
@@ -2226,6 +2252,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: The flag of Libya is a plain rectangle of which color?\nA:",
       "top_chunk": ""
     },
@@ -2253,6 +2281,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Of which African country is Niamey the capital?\nA:",
       "top_chunk": ""
     },
@@ -2281,6 +2311,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the director of the CIA from 1976-81?\nA:",
       "top_chunk": ""
     },
@@ -2312,6 +2344,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which musical featured the song The Street Where You Live?\nA:",
       "top_chunk": ""
     },
@@ -2387,6 +2421,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"\nA:",
       "top_chunk": ""
     },
@@ -2402,6 +2438,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who had an 80s No 1 hit with Hold On To The Nights?\nA:",
       "top_chunk": ""
     },
@@ -2437,6 +2475,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who directed the classic 30s western Stagecoach?\nA:",
       "top_chunk": ""
     },
@@ -2481,6 +2521,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Dave Gilmore and Roger Waters were in which rock group?\nA:",
       "top_chunk": ""
     },
@@ -2497,6 +2539,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which highway was Revisited in a classic 60s album by Bob Dylan?\nA:",
       "top_chunk": ""
     },
@@ -2535,6 +2579,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which was the only eastern bloc country to participate in the 1984 LA Olympics?\nA:",
       "top_chunk": ""
     },
@@ -2549,6 +2595,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?\nA:",
       "top_chunk": ""
     },
@@ -2571,6 +2619,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: If I Were A Rich Man Was a big hit from which stage show?\nA:",
       "top_chunk": ""
     },
@@ -2592,6 +2642,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel?\nA:",
       "top_chunk": ""
     },
@@ -2613,6 +2665,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was Truman Capote's last name before he was adopted by his stepfather?\nA:",
       "top_chunk": ""
     },
@@ -2630,6 +2684,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?\nA:",
       "top_chunk": ""
     },
@@ -2706,6 +2762,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In the Bible, who did the sun and moon stand still before?\nA:",
       "top_chunk": ""
     },
@@ -2724,6 +2782,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise?\nA:",
       "top_chunk": ""
     },
@@ -2743,6 +2803,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was President Gerald Ford's middle name?\nA:",
       "top_chunk": ""
     },
@@ -2771,6 +2833,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Art Garfunkel trained for which profession although he didn't qualify?\nA:",
       "top_chunk": ""
     },
@@ -2796,6 +2860,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the last inmate of Spandau jail in Berlin?\nA:",
       "top_chunk": ""
     },
@@ -2813,6 +2879,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was Eddie Murphy's first movie?\nA:",
       "top_chunk": ""
     },
@@ -2837,6 +2905,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In the 80s who wrote the novel Empire of The Sun?\nA:",
       "top_chunk": ""
     },
@@ -2881,6 +2951,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Kagoshima international airport is in which country?\nA:",
       "top_chunk": ""
     },
@@ -2924,6 +2996,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which sport could the Pacers take on the Pistons?\nA:",
       "top_chunk": ""
     },
@@ -2944,6 +3018,8 @@
       "f1": 0.09302325581395349,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?\nA:",
       "top_chunk": ""
     },
@@ -3003,6 +3079,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Where in Canada is the Lion's Gate bridge?\nA:",
       "top_chunk": ""
     },
@@ -3018,6 +3096,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was Walter Matthau's first movie?\nA:",
       "top_chunk": ""
     },
@@ -3035,6 +3115,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Otis Barton was a pioneer in exploring where?\nA:",
       "top_chunk": ""
     },
@@ -3066,6 +3148,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Where in England was actor Nigel Hawthorne born?\nA:",
       "top_chunk": ""
     },
@@ -3082,6 +3166,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What mythological beast has the head of a man, the body of a lion, and the tail and feet of a dragon?\nA:",
       "top_chunk": ""
     },
@@ -3098,6 +3184,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In Greek mythology, who were Arges, Brontes and Steropes?\nA:",
       "top_chunk": ""
     },
@@ -3125,6 +3213,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which musician founded the Red Hot Peppers?\nA:",
       "top_chunk": ""
     },
@@ -3160,6 +3250,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Where did the Shinning Path terrorists operate?\nA:",
       "top_chunk": ""
     },
@@ -3176,6 +3268,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: How old was Jimi Hendrix when he died?\nA:",
       "top_chunk": ""
     },
@@ -3190,6 +3284,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which Brit broke the land speed record in 1990 in Thrust 2?\nA:",
       "top_chunk": ""
     },
@@ -3237,6 +3333,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which state was Gene Vincent born?\nA:",
       "top_chunk": ""
     },
@@ -3264,6 +3362,8 @@
       "f1": 0.4,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: How was the European Recovery Program in the 1940s more commonly known?\nA:",
       "top_chunk": ""
     },
@@ -3283,6 +3383,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Brandon Lee died during the making of which movie?\nA:",
       "top_chunk": ""
     },
@@ -3301,6 +3403,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who had a 70s No 1 hit with Let's Do It Again?\nA:",
       "top_chunk": ""
     },
@@ -3336,6 +3440,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who had a Too Legit To Quit Tour?\nA:",
       "top_chunk": ""
     },
@@ -3350,6 +3456,8 @@
       "f1": 0.3333333333333333,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: \"According to Rudyard Kipling what were the \"\"two imposters\"\" to meet and treat the same day?\"\nA:",
       "top_chunk": ""
     },
@@ -3398,6 +3506,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who is the most successful UK solo artist in the USA?\nA:",
       "top_chunk": ""
     },
@@ -3419,6 +3529,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which country does the airline TAAG come from?\nA:",
       "top_chunk": ""
     },
@@ -3438,6 +3550,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which US No 1 single came from Diana Ross's platinum album Diana?\nA:",
       "top_chunk": ""
     },
@@ -3454,6 +3568,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: River Phoenix died during the making of which movie?\nA:",
       "top_chunk": ""
     },
@@ -3469,6 +3585,8 @@
       "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which artist David was born in Bradford UK?\nA:",
       "top_chunk": ""
     },
@@ -3518,6 +3636,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What is Mel Gibson's middle name?\nA:",
       "top_chunk": ""
     },
@@ -3598,6 +3718,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Richard Daley was mayor of which city for 21 years?\nA:",
       "top_chunk": ""
     },
@@ -3616,6 +3738,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: \"In which movie did Garbo say, \"\"I want to be alone\"\".\"\nA:",
       "top_chunk": ""
     },
@@ -3635,6 +3759,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What is Osbert Lancaster best known for producing?\nA:",
       "top_chunk": ""
     },
@@ -3650,6 +3776,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the defending champion when Martina Navratilova first won Wimbledon singles?\nA:",
       "top_chunk": ""
     },
@@ -3667,6 +3795,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the first US-born winner of golf's British Open?\nA:",
       "top_chunk": ""
     },
@@ -3704,6 +3834,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which country is the Sky Train Rail bridge?\nA:",
       "top_chunk": ""
     },
@@ -3722,6 +3854,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was the Paramount Film Company originally called?\nA:",
       "top_chunk": ""
     },
@@ -3745,6 +3879,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the first person after Scott to reach the South Pole overland?\nA:",
       "top_chunk": ""
     },
@@ -3774,6 +3910,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which journalist first told the world about the My Lai massacre?\nA:",
       "top_chunk": ""
     },
@@ -3796,6 +3934,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What is the name of Terence and Shirley Conran's dress designer son?\nA:",
       "top_chunk": ""
     },
@@ -3856,6 +3996,8 @@
       "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which drink did The Spice Girls promote?\nA:",
       "top_chunk": ""
     },
@@ -3876,6 +4018,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the youngest brother in the Beach Boys?\nA:",
       "top_chunk": ""
     },
@@ -3894,6 +4038,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who first hosted Family Feud?\nA:",
       "top_chunk": ""
     },
@@ -3910,6 +4056,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What did the Lone Ranger's title Kemo Sabe mean in Apache?\nA:",
       "top_chunk": ""
     },
@@ -3941,6 +4089,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who or what was Gentle Ben in the 60s TV series?\nA:",
       "top_chunk": ""
     },
@@ -3964,6 +4114,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which 70s show was based on the British show Till Death Us Do Part?\nA:",
       "top_chunk": ""
     },
@@ -3984,6 +4136,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: On what date in 1969 did Neil Armstrong first set foot on the Moon?\nA:",
       "top_chunk": ""
     },
@@ -4027,6 +4181,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Bandar Seri Begawan International airport is in which country?\nA:",
       "top_chunk": ""
     },
@@ -4045,6 +4201,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What was the profession of Paul Strand (1890 - 1976)?\nA:",
       "top_chunk": ""
     },
@@ -4062,6 +4220,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who had a 60s No 1 with Downtown?\nA:",
       "top_chunk": ""
     },
@@ -4085,6 +4245,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was born first, Kiefer Sutherland or Christian Slater?\nA:",
       "top_chunk": ""
     },
@@ -4100,6 +4262,8 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: To the nearest two, how many tennis Grand Slam titles did Jimmy Connors win?\nA:",
       "top_chunk": ""
     },
@@ -4120,6 +4284,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who was the Georgia Peach?\nA:",
       "top_chunk": ""
     },
@@ -4152,6 +4318,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who set fire to his guitar at the Monterey Pop festival in 19676?\nA:",
       "top_chunk": ""
     },
@@ -4170,6 +4338,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Della Street was whose secretary?\nA:",
       "top_chunk": ""
     },
@@ -4189,6 +4359,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In music, who was Sweet and Innocent and Too Young?\nA:",
       "top_chunk": ""
     },
@@ -4215,6 +4387,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Who is featured on Puff Daddy's Can't Hold Me Down?\nA:",
       "top_chunk": ""
     },
@@ -4243,6 +4417,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: What had Edmond Hillary worked at before taking up mountain climbing?\nA:",
       "top_chunk": ""
     },
@@ -4311,6 +4487,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which American state is the Isabella Stewart Gardner Museum?\nA:",
       "top_chunk": ""
     },
@@ -4348,6 +4526,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Benina international airport is in which country?\nA:",
       "top_chunk": ""
     },
@@ -4388,6 +4568,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Beloved in 1999 was whose first movie since The Color Purple in 1985?\nA:",
       "top_chunk": ""
     },
@@ -4404,6 +4586,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which Star Trek star directed Three Men and a Baby?\nA:",
       "top_chunk": ""
     },
@@ -4433,6 +4617,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which sitcom star appeared on the big screening The Object of My Affection?\nA:",
       "top_chunk": ""
     },
@@ -4457,6 +4643,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: \"Which character did Julia \"\"Roberts play in Steven Spielberg's Hook?\"\nA:",
       "top_chunk": ""
     },
@@ -4501,6 +4689,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which US president did Anthony Hopkins play in a film whose title was simply his name?\nA:",
       "top_chunk": ""
     },
@@ -4525,6 +4715,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which movie was a biopic about the life of David Helfgott?\nA:",
       "top_chunk": ""
     },
@@ -4542,6 +4734,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which film director guested as the FBI Director in The Silence of the Lambs?\nA:",
       "top_chunk": ""
     },
@@ -4578,6 +4772,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: In which sci fi classic did the space ship Nostromo first appear?\nA:",
       "top_chunk": ""
     },
@@ -4603,6 +4799,8 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Nigel Hawthorne was Oscar nominated for The Madness of which King?\nA:",
       "top_chunk": ""
     },
@@ -4621,21 +4819,31 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
       "prompt": "Q: Which Swedish actress won the Best Supporting Actress Oscar for Murder on the Orient Express?\nA:",
       "top_chunk": ""
     }
   ],
   "timing": {
     "retrieval_s": 0.0,
-    "generation_s": 0.0,
-    "total_s": 0.14,
+    "generation_s": 17.5,
+    "total_s": 17.75,
     "n_questions": 100,
-    "cache_hits": 100,
-    "cache_misses": 0,
+    "cache_hits": 0,
+    "cache_misses": 100,
     "prompt_tokens_mean": 19.8,
     "prompt_tokens_max": 38,
     "prompt_tokens_budget": 1024,
+    "final_tokens_mean": 19.8,
+    "final_tokens_max": 38,
     "prompts_truncated": 0,
-    "n_prompts": 100
+    "n_prompts": 100,
+    "nominal_k": 0,
+    "effective_k_mean": 0.0,
+    "effective_k_min": 0,
+    "effective_k_max": 0,
+    "n_prompts_partial_k": 0,
+    "n_rag_prompts": 0
   }
 }

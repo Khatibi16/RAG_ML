@@ -1,15 +1,15 @@
 {
   "rag": {
     "em": {
-      "mean": 0.67,
-      "lo": 0.58,
-      "hi": 0.76,
+      "mean": 0.63,
+      "lo": 0.55,
+      "hi": 0.73,
       "n": 100
     },
     "f1": {
-      "mean": 0.7234285714285714,
-      "lo": 0.6420869047619048,
-      "hi": 0.803767857142857,
+      "mean": 0.6780952380952381,
+      "lo": 0.6040404761904762,
+      "hi": 0.7636749999999999,
       "n": 100
     }
   },
@@ -28,9 +28,9 @@
     }
   },
   "delta_counts": {
-    "helps": 62,
-    "hurts": 2,
-    "ties": 36
+    "helps": 57,
+    "hurts": 1,
+    "ties": 42
   },
   "delta_analysis": [
     {
@@ -59,14 +59,14 @@
         "Sunset Bulevard",
         "Sunset Blvd."
       ],
-      "rag_pred": "Sunset Boulevard",
+      "rag_pred": "ASPECTS OF LOVE",
       "no_rag_pred": "saturday night s",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -325,7 +325,7 @@
         "moonwalk disambiguation",
         "walk on moon"
       ],
-      "rag_pred": "Thriller",
+      "rag_pred": "Michael Jackson Biography - Rolling Stone",
       "no_rag_pred": "The Jackson Story",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -728,14 +728,14 @@
         "tea set",
         "t set"
       ],
-      "rag_pred": "Pink Floyd",
+      "rag_pred": "The Beach Boys",
       "no_rag_pred": "screamin' babes",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -872,11 +872,11 @@
         "A person",
         "person philosophical"
       ],
-      "rag_pred": "Streckfus Persons",
+      "rag_pred": "Capote",
       "no_rag_pred": "Capote",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.6666666666666666,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
       "rag_helps": 0,
@@ -1203,15 +1203,15 @@
         "rim basketball",
         "women s hoops"
       ],
-      "rag_pred": "NBA",
+      "rag_pred": "basketball",
       "no_rag_pred": "basketball",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 1.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 1.0,
       "recall": 1.0,
       "rag_helps": 0,
-      "rag_hurts": 1
+      "rag_hurts": 0
     },
     {
       "qid": "tc_559",
@@ -1373,14 +1373,14 @@
         "The Manticore",
         "manticore"
       ],
-      "rag_pred": "manticore",
+      "rag_pred": "Minotaur",
       "no_rag_pred": "",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -1457,7 +1457,7 @@
         "Peruvia",
         "iso 3166 1 pe"
       ],
-      "rag_pred": "in the Ene-Apurmac valley",
+      "rag_pred": "the Ene-Apurmac valley",
       "no_rag_pred": "Afghanistan",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1663,14 +1663,14 @@
       "gold": [
         "Triumph and Disaster"
       ],
-      "rag_pred": "Triumph and Disaster",
+      "rag_pred": "[1] (The remarkable story behind Rudyard Kipling's 'If' - and ...) two imposters just the same'",
       "no_rag_pred": "a sailor and a sailor",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.13333333333333333,
       "no_rag_f1": 0.3333333333333333,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -1757,7 +1757,7 @@
         "upside down diana ross song",
         "upside down single"
       ],
-      "rag_pred": "\"I'm Coming Out\"",
+      "rag_pred": "Why Do Fools Fall in Love",
       "no_rag_pred": "\"I'm a Good Girl\"",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2225,7 +2225,7 @@
         "wilson carl dean",
         "wilson carl"
       ],
-      "rag_pred": "Dennis",
+      "rag_pred": "Brian",
       "no_rag_pred": "John",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2263,7 +2263,7 @@
         "Lèine bhàn",
         "Leine bhan"
       ],
-      "rag_pred": "\"Friend\" to Kema",
+      "rag_pred": "friend",
       "no_rag_pred": "\"the king of the sands\"",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2469,7 +2469,7 @@
         "10",
         "ten"
       ],
-      "rag_pred": "109",
+      "rag_pred": "8",
       "no_rag_pred": "ten",
       "rag_em": 0.0,
       "no_rag_em": 1.0,
@@ -2896,14 +2896,14 @@
         "nixon richard",
         "nixon s"
       ],
-      "rag_pred": "Richard Nixon",
+      "rag_pred": "Steven Spielberg",
       "no_rag_pred": "George Washington",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 0.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
