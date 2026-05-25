@@ -248,11 +248,16 @@ methods (BM25, TF-IDF) on TriviaQA because trivia questions rarely share
 exact vocabulary with their answer passages, making term-based matching
 unreliable.
 
-**Methods:**
-- **BM25** (Robertson et al.): Okapi BM25 on lowercased whitespace tokens.
-  No stemming, to keep the comparison with TF-IDF fair.
-- **TF-IDF** (sklearn): TfidfVectorizer with sublinear TF, unigrams +
-  bigrams, min/max DF filtering, cosine similarity retrieval.
+**Methods:** BM25 and TF-IDF consume the **same** token stream produced
+by a shared `_lexical_tokenize` (NFKD accent-strip → lowercase → regex
+`\b\w\w+\b`). The only remaining difference between the two sparse
+retrievers is the scoring function itself — vocabulary, n-gram order,
+and DF filtering are held constant.
+- **BM25** (Robertson et al.): Okapi BM25 on the shared token stream.
+  No stemming.
+- **TF-IDF** (sklearn): `TfidfVectorizer` with `tokenizer=_lexical_tokenize`,
+  `ngram_range=(1,1)`, sublinear TF, no `min_df` / `max_df` filtering,
+  cosine similarity retrieval.
 - **Dense** (sentence-transformers): `all-MiniLM-L6-v2` bi-encoder
   (22 M parameters). Query and passage embeddings are L2-normalised; 
   retrieval is by dot product (= cosine similarity). Embeddings cached to disk.
@@ -583,14 +588,17 @@ experiment_5(q, docs, gen)
 
 > **Status — results pending regeneration.** The numbers and figures
 > previously listed here were produced under an earlier pipeline
-> configuration (`rc.wikipedia` corpus, `MAX_INPUT_TOKENS=1024`,
+> configuration (`rc.wikipedia` corpus, `MAX_INPUT_TOKENS=512`,
 > question-at-end prompts). The pipeline has since been updated to fix
 > several validity issues:
 >
 > - dataset switched from `rc.wikipedia` to `rc` (wiki + web evidence
 >   pooled into one corpus),
-> - `MAX_INPUT_TOKENS` lowered to 512 to match Flan-T5-base's
->   pre-training context,
+> - `MAX_INPUT_TOKENS` raised to 1024 so that at chunk=128 the encoder
+>   actually sees the difference between k=3, k=5, and k=10 instead of
+>   receiving an identically-truncated input (Flan-T5-base was
+>   pre-trained at 512 but tolerates longer inputs in practice; see the
+>   inline comment in `config.MAX_INPUT_TOKENS`),
 > - prompts now repeat the question both before and after the context
 >   so truncation can't drop it.
 >

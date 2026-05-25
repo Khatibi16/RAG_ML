@@ -1,105 +1,105 @@
 {
   "predictions": [
-    "john d. scott",
+    "John McKay",
     "saturday night s",
     "henry viii",
     "johnny mccartney",
     "a heart attack",
     "british intelligence agency",
-    "california",
-    "elizabeth scott",
-    "yen",
-    "i m a millionaire",
+    "New York",
+    "elizabeth harris",
+    "(iv)",
+    "The Jackson Story",
     "1960s",
     "1924",
-    "sahara",
+    "Mount Kilimanjaro",
     "blue",
-    "ethiopia",
-    "john d. harris",
-    "saturday night live",
-    "sarajevo",
+    "equatorial guinea",
+    "Robert L. Rogers",
+    "The Little Mermaid",
+    "samuel h samuel",
     "johnny mccartney",
-    "john dylan",
-    "screamin' wolves",
-    "m5",
+    "John Ford",
+    "screamin' babes",
+    "Interstate 35",
     "switzerland",
-    "savages",
-    "saturday night live",
+    "The Dark Knight",
+    "The Simpsons",
     "samuel harrison",
-    "cleveland",
-    "a snark",
-    "adam",
-    "saturday night rap",
+    "Capote",
+    "a snarky snark",
+    "apes",
+    "The Girl Next Door",
     "charles",
     "composer",
-    "samuel sadler",
-    "saturday night live",
-    "john dylan",
-    "iraq",
+    "Yuri i",
+    "The Devil Wears Prada",
+    "john d. savage",
+    "Japan",
     "basketball",
     "i love you",
-    "st. johns",
-    "saturday night s",
-    "arctic",
-    "st johns",
-    "tao",
-    "syria",
-    "john dylan",
+    "Vancouver",
+    "The Man Who Shot Himself",
+    "Antarctica",
+    "Stratford-upon-Avon",
+    "",
+    "sylvesters",
+    "John Lennon",
     "Afghanistan",
     "69",
-    "john davy",
-    "california",
-    "epsilon",
-    "saturday night s",
+    "steve scott",
+    "New York",
+    "epsilon programme",
+    "The Last Picture Show",
     "johnny mccartney",
-    "scott scott",
+    "The Beatles",
     "a sailor and a sailor",
-    "eddie jackson",
-    "Austria",
-    "i love you",
-    "saturday night s dream",
-    "john dylan",
+    "elvis presley",
+    "Germany",
+    "\"I'm a Good Girl\"",
+    "The Last Picture Show",
+    "David Morris",
     "edward",
     "san francisco",
     "saturday night live",
-    "a musical",
-    "sarah sandler",
+    "a film",
+    "Nicola Stadtner",
     "john dillinger",
-    "ukraine",
-    "san diego",
-    "john d. scott",
-    "john d. scott",
-    "terry conran",
-    "sassy",
-    "john d. scott",
-    "john mccartney",
+    "scotland",
+    "Paramount Pictures",
+    "Jacques Cousteau",
+    "John Lennon",
+    "John Conran",
+    "Spice",
+    "John",
+    "bobby scott",
     "\"the king of the sands\"",
     "a sailor",
-    "saturday night live",
-    "april 17",
-    "kenya",
+    "The Countdown",
+    "December 17, 1969",
+    "Malaysia",
     "film director",
     "johnny mccartney",
     "Kiefer Sutherland",
-    "three",
-    "elizabeth e. scott",
-    "johnny scott",
-    "john d. kennedy",
-    "johnny harris",
-    "bobby jackson",
+    "ten",
+    "Mary Elizabeth \"Mary\" Moore",
+    "john dylan",
+    "elizabeth harris",
+    "johnny mccartney",
+    "Freddie Mercury",
     "a chemist",
-    "california",
-    "nigeria",
-    "john dillinger",
-    "john dillinger",
-    "emma scott",
-    "eddie scott",
-    "john f kennedy",
-    "saturday night s",
-    "john dillinger",
+    "New York",
+    "Nigeria",
+    "Jeremy Irons",
+    "John Carpenter",
+    "Jeremy Irons",
+    "ada",
+    "George Washington",
+    "The Man Who Shot Himself",
+    "John Ford",
     "saturn",
     "king charles ii",
-    "sandra bullock"
+    "Nicola Stenson"
   ],
   "gold_answers": [
     [
@@ -1808,15 +1808,15 @@
   ],
   "metrics": {
     "em": {
-      "mean": 0.02,
-      "lo": 0.0,
-      "hi": 0.05,
+      "mean": 0.07,
+      "lo": 0.02,
+      "hi": 0.13,
       "n": 100
     },
     "f1": {
-      "mean": 0.042263565891472864,
-      "lo": 0.011996511627906981,
-      "hi": 0.07833333333333332,
+      "mean": 0.09326356589147287,
+      "lo": 0.04492848837209302,
+      "hi": 0.15066666666666667,
       "n": 100
     }
   },
@@ -1827,12 +1827,12 @@
       "gold": [
         "David Seville"
       ],
-      "prediction": "john d. scott",
+      "prediction": "John McKay",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the man behind The Chipmunks?\nShort answer:",
+      "prompt": "Q: Who was the man behind The Chipmunks?\nA:",
       "top_chunk": ""
     },
     {
@@ -1850,7 +1850,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which Lloyd Webber musical premiered in the US on 10th December 1993?\nShort answer:",
+      "prompt": "Q: Which Lloyd Webber musical premiered in the US on 10th December 1993?\nA:",
       "top_chunk": ""
     },
     {
@@ -1869,7 +1869,7 @@
       "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the next British Prime Minister after Arthur Balfour?\nShort answer:",
+      "prompt": "Q: Who was the next British Prime Minister after Arthur Balfour?\nA:",
       "top_chunk": ""
     },
     {
@@ -1897,7 +1897,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who had a 70s No 1 hit with Kiss You All Over?\nShort answer:",
+      "prompt": "Q: Who had a 70s No 1 hit with Kiss You All Over?\nA:",
       "top_chunk": ""
     },
     {
@@ -1956,7 +1956,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What claimed the life of singer Kathleen Ferrier?\nShort answer:",
+      "prompt": "Q: What claimed the life of singer Kathleen Ferrier?\nA:",
       "top_chunk": ""
     },
     {
@@ -1988,7 +1988,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Rita Coolidge sang the title song for which Bond film?\nShort answer:",
+      "prompt": "Q: Rita Coolidge sang the title song for which Bond film?\nA:",
       "top_chunk": ""
     },
     {
@@ -2030,12 +2030,12 @@
         "history of utah to 1847",
         "utah u s state"
       ],
-      "prediction": "california",
+      "prediction": "New York",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was the last US state to reintroduce alcohol after prohibition?\nShort answer:",
+      "prompt": "Q: What was the last US state to reintroduce alcohol after prohibition?\nA:",
       "top_chunk": ""
     },
     {
@@ -2053,12 +2053,12 @@
         "Betty Joan Perski",
         "betty j perske"
       ],
-      "prediction": "elizabeth scott",
+      "prediction": "elizabeth harris",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which actress was voted Miss Greenwich Village in 1942?\nShort answer:",
+      "prompt": "Q: Which actress was voted Miss Greenwich Village in 1942?\nA:",
       "top_chunk": ""
     },
     {
@@ -2069,12 +2069,12 @@
         "Nikkei (disambiguation)",
         "nikkei disambiguation"
       ],
-      "prediction": "yen",
+      "prediction": "(iv)",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What is the Japanese share index called?\nShort answer:",
+      "prompt": "Q: What is the Japanese share index called?\nA:",
       "top_chunk": ""
     },
     {
@@ -2095,12 +2095,12 @@
         "moonwalk disambiguation",
         "walk on moon"
       ],
-      "prediction": "i m a millionaire",
+      "prediction": "The Jackson Story",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was the name of Michael Jackson's autobiography written in 1988?\nShort answer:",
+      "prompt": "Q: What was the name of Michael Jackson's autobiography written in 1988?\nA:",
       "top_chunk": ""
     },
     {
@@ -2131,7 +2131,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which decade did stereo records first go on sale?\nShort answer:",
+      "prompt": "Q: In which decade did stereo records first go on sale?\nA:",
       "top_chunk": ""
     },
     {
@@ -2146,7 +2146,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In what year's Olympics were electric timing devices and a public-address system used for the first time?\nShort answer:",
+      "prompt": "Q: In what year's Olympics were electric timing devices and a public-address system used for the first time?\nA:",
       "top_chunk": ""
     },
     {
@@ -2186,12 +2186,12 @@
         "gilman s point",
         "kilima njaro"
       ],
-      "prediction": "sahara",
-      "em": 0.0,
-      "f1": 0.0,
+      "prediction": "Mount Kilimanjaro",
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which volcano in Tanzania is the highest mountain in Africa?\nShort answer:",
+      "prompt": "Q: Which volcano in Tanzania is the highest mountain in Africa?\nA:",
       "top_chunk": ""
     },
     {
@@ -2226,7 +2226,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: The flag of Libya is a plain rectangle of which color?\nShort answer:",
+      "prompt": "Q: The flag of Libya is a plain rectangle of which color?\nA:",
       "top_chunk": ""
     },
     {
@@ -2248,12 +2248,12 @@
         "niger country",
         "ng ni"
       ],
-      "prediction": "ethiopia",
+      "prediction": "equatorial guinea",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Of which African country is Niamey the capital?\nShort answer:",
+      "prompt": "Q: Of which African country is Niamey the capital?\nA:",
       "top_chunk": ""
     },
     {
@@ -2276,12 +2276,12 @@
         "george bush president",
         "george bush disambiguation"
       ],
-      "prediction": "john d. harris",
+      "prediction": "Robert L. Rogers",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the director of the CIA from 1976-81?\nShort answer:",
+      "prompt": "Q: Who was the director of the CIA from 1976-81?\nA:",
       "top_chunk": ""
     },
     {
@@ -2307,12 +2307,12 @@
         "my fair lady 2015 film",
         "i m ordinary man"
       ],
-      "prediction": "saturday night live",
+      "prediction": "The Little Mermaid",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which musical featured the song The Street Where You Live?\nShort answer:",
+      "prompt": "Q: Which musical featured the song The Street Where You Live?\nA:",
       "top_chunk": ""
     },
     {
@@ -2382,12 +2382,12 @@
         "adolph hitler s medical health",
         "adolph hitler s health"
       ],
-      "prediction": "sarajevo",
+      "prediction": "samuel h samuel",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"\nShort answer:",
+      "prompt": "Q: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"\nA:",
       "top_chunk": ""
     },
     {
@@ -2402,7 +2402,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who had an 80s No 1 hit with Hold On To The Nights?\nShort answer:",
+      "prompt": "Q: Who had an 80s No 1 hit with Hold On To The Nights?\nA:",
       "top_chunk": ""
     },
     {
@@ -2432,12 +2432,12 @@
         "john ford director",
         "john martin o feeney"
       ],
-      "prediction": "john dylan",
-      "em": 0.0,
-      "f1": 0.5,
+      "prediction": "John Ford",
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who directed the classic 30s western Stagecoach?\nShort answer:",
+      "prompt": "Q: Who directed the classic 30s western Stagecoach?\nA:",
       "top_chunk": ""
     },
     {
@@ -2476,12 +2476,12 @@
         "tea set",
         "t set"
       ],
-      "prediction": "screamin' wolves",
+      "prediction": "screamin' babes",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Dave Gilmore and Roger Waters were in which rock group?\nShort answer:",
+      "prompt": "Q: Dave Gilmore and Roger Waters were in which rock group?\nA:",
       "top_chunk": ""
     },
     {
@@ -2492,12 +2492,12 @@
         "sixty-one",
         "sixty one"
       ],
-      "prediction": "m5",
+      "prediction": "Interstate 35",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which highway was Revisited in a classic 60s album by Bob Dylan?\nShort answer:",
+      "prompt": "Q: Which highway was Revisited in a classic 60s album by Bob Dylan?\nA:",
       "top_chunk": ""
     },
     {
@@ -2535,7 +2535,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which was the only eastern bloc country to participate in the 1984 LA Olympics?\nShort answer:",
+      "prompt": "Q: Which was the only eastern bloc country to participate in the 1984 LA Olympics?\nA:",
       "top_chunk": ""
     },
     {
@@ -2544,12 +2544,12 @@
       "gold": [
         "Wild Palms"
       ],
-      "prediction": "savages",
+      "prediction": "The Dark Knight",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?\nShort answer:",
+      "prompt": "Q: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?\nA:",
       "top_chunk": ""
     },
     {
@@ -2566,12 +2566,12 @@
         "fiddler on roof",
         "fiddler on reoof"
       ],
-      "prediction": "saturday night live",
+      "prediction": "The Simpsons",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: If I Were A Rich Man Was a big hit from which stage show?\nShort answer:",
+      "prompt": "Q: If I Were A Rich Man Was a big hit from which stage show?\nA:",
       "top_chunk": ""
     },
     {
@@ -2592,7 +2592,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel?\nShort answer:",
+      "prompt": "Q: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel?\nA:",
       "top_chunk": ""
     },
     {
@@ -2608,12 +2608,12 @@
         "A person",
         "person philosophical"
       ],
-      "prediction": "cleveland",
+      "prediction": "Capote",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was Truman Capote's last name before he was adopted by his stepfather?\nShort answer:",
+      "prompt": "Q: What was Truman Capote's last name before he was adopted by his stepfather?\nA:",
       "top_chunk": ""
     },
     {
@@ -2625,12 +2625,12 @@
         "Boojum",
         "boojum disambiguation"
       ],
-      "prediction": "a snark",
+      "prediction": "a snarky snark",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?\nShort answer:",
+      "prompt": "Q: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?\nA:",
       "top_chunk": ""
     },
     {
@@ -2701,12 +2701,12 @@
         "y hoshia",
         "y hosha"
       ],
-      "prediction": "adam",
+      "prediction": "apes",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In the Bible, who did the sun and moon stand still before?\nShort answer:",
+      "prompt": "Q: In the Bible, who did the sun and moon stand still before?\nA:",
       "top_chunk": ""
     },
     {
@@ -2719,12 +2719,12 @@
         "my posse don t do homework",
         "dangerous minds film"
       ],
-      "prediction": "saturday night rap",
+      "prediction": "The Girl Next Door",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise?\nShort answer:",
+      "prompt": "Q: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise?\nA:",
       "top_chunk": ""
     },
     {
@@ -2743,7 +2743,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was President Gerald Ford's middle name?\nShort answer:",
+      "prompt": "Q: What was President Gerald Ford's middle name?\nA:",
       "top_chunk": ""
     },
     {
@@ -2771,7 +2771,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Art Garfunkel trained for which profession although he didn't qualify?\nShort answer:",
+      "prompt": "Q: Art Garfunkel trained for which profession although he didn't qualify?\nA:",
       "top_chunk": ""
     },
     {
@@ -2791,12 +2791,12 @@
         "hess rudolf",
         "rudolf w hess"
       ],
-      "prediction": "samuel sadler",
+      "prediction": "Yuri i",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the last inmate of Spandau jail in Berlin?\nShort answer:",
+      "prompt": "Q: Who was the last inmate of Spandau jail in Berlin?\nA:",
       "top_chunk": ""
     },
     {
@@ -2808,12 +2808,12 @@
         "forty-eight  time",
         "forty eight time"
       ],
-      "prediction": "saturday night live",
+      "prediction": "The Devil Wears Prada",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was Eddie Murphy's first movie?\nShort answer:",
+      "prompt": "Q: What was Eddie Murphy's first movie?\nA:",
       "top_chunk": ""
     },
     {
@@ -2832,12 +2832,12 @@
         "user s guide to millenium",
         "james g ballard"
       ],
-      "prediction": "john dylan",
+      "prediction": "john d. savage",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In the 80s who wrote the novel Empire of The Sun?\nShort answer:",
+      "prompt": "Q: In the 80s who wrote the novel Empire of The Sun?\nA:",
       "top_chunk": ""
     },
     {
@@ -2876,12 +2876,12 @@
         "nippon koku",
         "ja pan"
       ],
-      "prediction": "iraq",
-      "em": 0.0,
-      "f1": 0.0,
+      "prediction": "Japan",
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Kagoshima international airport is in which country?\nShort answer:",
+      "prompt": "Q: Kagoshima international airport is in which country?\nA:",
       "top_chunk": ""
     },
     {
@@ -2924,7 +2924,7 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which sport could the Pacers take on the Pistons?\nShort answer:",
+      "prompt": "Q: In which sport could the Pacers take on the Pistons?\nA:",
       "top_chunk": ""
     },
     {
@@ -2944,7 +2944,7 @@
       "f1": 0.09302325581395349,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?\nShort answer:",
+      "prompt": "Q: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?\nA:",
       "top_chunk": ""
     },
     {
@@ -2998,12 +2998,12 @@
         "vancouver b c",
         "vancouver british columbia canada"
       ],
-      "prediction": "st. johns",
-      "em": 0.0,
-      "f1": 0.0,
+      "prediction": "Vancouver",
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Where in Canada is the Lion's Gate bridge?\nShort answer:",
+      "prompt": "Q: Where in Canada is the Lion's Gate bridge?\nA:",
       "top_chunk": ""
     },
     {
@@ -3013,12 +3013,12 @@
         "The Kentuckian",
         "kentuckian"
       ],
-      "prediction": "saturday night s",
+      "prediction": "The Man Who Shot Himself",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was Walter Matthau's first movie?\nShort answer:",
+      "prompt": "Q: What was Walter Matthau's first movie?\nA:",
       "top_chunk": ""
     },
     {
@@ -3030,12 +3030,12 @@
         "Underwater life",
         "Undersea"
       ],
-      "prediction": "arctic",
+      "prediction": "Antarctica",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Otis Barton was a pioneer in exploring where?\nShort answer:",
+      "prompt": "Q: Otis Barton was a pioneer in exploring where?\nA:",
       "top_chunk": ""
     },
     {
@@ -3061,12 +3061,12 @@
         "coventry england",
         "coventry warwickshire"
       ],
-      "prediction": "st johns",
+      "prediction": "Stratford-upon-Avon",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Where in England was actor Nigel Hawthorne born?\nShort answer:",
+      "prompt": "Q: Where in England was actor Nigel Hawthorne born?\nA:",
       "top_chunk": ""
     },
     {
@@ -3077,12 +3077,12 @@
         "The Manticore",
         "manticore"
       ],
-      "prediction": "tao",
+      "prediction": "",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What mythological beast has the head of a man, the body of a lion, and the tail and feet of a dragon?\nShort answer:",
+      "prompt": "Q: What mythological beast has the head of a man, the body of a lion, and the tail and feet of a dragon?\nA:",
       "top_chunk": ""
     },
     {
@@ -3093,12 +3093,12 @@
         "Cyclopes (disambiguation)",
         "cyclopes disambiguation"
       ],
-      "prediction": "syria",
+      "prediction": "sylvesters",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In Greek mythology, who were Arges, Brontes and Steropes?\nShort answer:",
+      "prompt": "Q: In Greek mythology, who were Arges, Brontes and Steropes?\nA:",
       "top_chunk": ""
     },
     {
@@ -3120,12 +3120,12 @@
         "f p lamothe",
         "ferdinand 22jelly roll 22 morton"
       ],
-      "prediction": "john dylan",
+      "prediction": "John Lennon",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which musician founded the Red Hot Peppers?\nShort answer:",
+      "prompt": "Q: Which musician founded the Red Hot Peppers?\nA:",
       "top_chunk": ""
     },
     {
@@ -3160,7 +3160,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Where did the Shinning Path terrorists operate?\nShort answer:",
+      "prompt": "Q: Where did the Shinning Path terrorists operate?\nA:",
       "top_chunk": ""
     },
     {
@@ -3176,7 +3176,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: How old was Jimi Hendrix when he died?\nShort answer:",
+      "prompt": "Q: How old was Jimi Hendrix when he died?\nA:",
       "top_chunk": ""
     },
     {
@@ -3185,12 +3185,12 @@
       "gold": [
         "Richard Noble"
       ],
-      "prediction": "john davy",
+      "prediction": "steve scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which Brit broke the land speed record in 1990 in Thrust 2?\nShort answer:",
+      "prompt": "Q: Which Brit broke the land speed record in 1990 in Thrust 2?\nA:",
       "top_chunk": ""
     },
     {
@@ -3232,12 +3232,12 @@
         "virginia state",
         "virginia u s state"
       ],
-      "prediction": "california",
+      "prediction": "New York",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which state was Gene Vincent born?\nShort answer:",
+      "prompt": "Q: In which state was Gene Vincent born?\nA:",
       "top_chunk": ""
     },
     {
@@ -3259,12 +3259,12 @@
         "Economic Cooperation Act of 1948",
         "Operation Rathole"
       ],
-      "prediction": "epsilon",
+      "prediction": "epsilon programme",
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.4,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: How was the European Recovery Program in the 1940s more commonly known?\nShort answer:",
+      "prompt": "Q: How was the European Recovery Program in the 1940s more commonly known?\nA:",
       "top_chunk": ""
     },
     {
@@ -3278,12 +3278,12 @@
         "crow dead time",
         "crow 2016 film"
       ],
-      "prediction": "saturday night s",
+      "prediction": "The Last Picture Show",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Brandon Lee died during the making of which movie?\nShort answer:",
+      "prompt": "Q: Brandon Lee died during the making of which movie?\nA:",
       "top_chunk": ""
     },
     {
@@ -3301,7 +3301,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who had a 70s No 1 hit with Let's Do It Again?\nShort answer:",
+      "prompt": "Q: Who had a 70s No 1 hit with Let's Do It Again?\nA:",
       "top_chunk": ""
     },
     {
@@ -3331,12 +3331,12 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "prediction": "scott scott",
+      "prediction": "The Beatles",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who had a Too Legit To Quit Tour?\nShort answer:",
+      "prompt": "Q: Who had a Too Legit To Quit Tour?\nA:",
       "top_chunk": ""
     },
     {
@@ -3350,7 +3350,7 @@
       "f1": 0.3333333333333333,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: \"According to Rudyard Kipling what were the \"\"two imposters\"\" to meet and treat the same day?\"\nShort answer:",
+      "prompt": "Q: \"According to Rudyard Kipling what were the \"\"two imposters\"\" to meet and treat the same day?\"\nA:",
       "top_chunk": ""
     },
     {
@@ -3393,12 +3393,12 @@
         "elton h john",
         "elton john s discography"
       ],
-      "prediction": "eddie jackson",
+      "prediction": "elvis presley",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who is the most successful UK solo artist in the USA?\nShort answer:",
+      "prompt": "Q: Who is the most successful UK solo artist in the USA?\nA:",
       "top_chunk": ""
     },
     {
@@ -3414,12 +3414,12 @@
         "ISO 3166-1:AO",
         "iso 3166 1 ao"
       ],
-      "prediction": "Austria",
+      "prediction": "Germany",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which country does the airline TAAG come from?\nShort answer:",
+      "prompt": "Q: Which country does the airline TAAG come from?\nA:",
       "top_chunk": ""
     },
     {
@@ -3433,12 +3433,12 @@
         "upside down diana ross song",
         "upside down single"
       ],
-      "prediction": "i love you",
+      "prediction": "\"I'm a Good Girl\"",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which US No 1 single came from Diana Ross's platinum album Diana?\nShort answer:",
+      "prompt": "Q: Which US No 1 single came from Diana Ross's platinum album Diana?\nA:",
       "top_chunk": ""
     },
     {
@@ -3449,12 +3449,12 @@
         "Dark Blood (film)",
         "dark blood film"
       ],
-      "prediction": "saturday night s dream",
+      "prediction": "The Last Picture Show",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: River Phoenix died during the making of which movie?\nShort answer:",
+      "prompt": "Q: River Phoenix died during the making of which movie?\nA:",
       "top_chunk": ""
     },
     {
@@ -3464,12 +3464,12 @@
         "Hockney",
         "David Hockney"
       ],
-      "prediction": "john dylan",
+      "prediction": "David Morris",
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which artist David was born in Bradford UK?\nShort answer:",
+      "prompt": "Q: Which artist David was born in Bradford UK?\nA:",
       "top_chunk": ""
     },
     {
@@ -3518,7 +3518,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What is Mel Gibson's middle name?\nShort answer:",
+      "prompt": "Q: What is Mel Gibson's middle name?\nA:",
       "top_chunk": ""
     },
     {
@@ -3598,7 +3598,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Richard Daley was mayor of which city for 21 years?\nShort answer:",
+      "prompt": "Q: Richard Daley was mayor of which city for 21 years?\nA:",
       "top_chunk": ""
     },
     {
@@ -3616,7 +3616,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: \"In which movie did Garbo say, \"\"I want to be alone\"\".\"\nShort answer:",
+      "prompt": "Q: \"In which movie did Garbo say, \"\"I want to be alone\"\".\"\nA:",
       "top_chunk": ""
     },
     {
@@ -3630,12 +3630,12 @@
         "Cartoonistic",
         "Cartoonism"
       ],
-      "prediction": "a musical",
+      "prediction": "a film",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What is Osbert Lancaster best known for producing?\nShort answer:",
+      "prompt": "Q: What is Osbert Lancaster best known for producing?\nA:",
       "top_chunk": ""
     },
     {
@@ -3645,12 +3645,12 @@
         "Virginia Wade",
         "Sarah Virginia Wade"
       ],
-      "prediction": "sarah sandler",
+      "prediction": "Nicola Stadtner",
       "em": 0.0,
-      "f1": 0.4,
+      "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the defending champion when Martina Navratilova first won Wimbledon singles?\nShort answer:",
+      "prompt": "Q: Who was the defending champion when Martina Navratilova first won Wimbledon singles?\nA:",
       "top_chunk": ""
     },
     {
@@ -3667,7 +3667,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the first US-born winner of golf's British Open?\nShort answer:",
+      "prompt": "Q: Who was the first US-born winner of golf's British Open?\nA:",
       "top_chunk": ""
     },
     {
@@ -3699,12 +3699,12 @@
         "iso 3166 1 ca",
         "canada references"
       ],
-      "prediction": "ukraine",
+      "prediction": "scotland",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which country is the Sky Train Rail bridge?\nShort answer:",
+      "prompt": "Q: In which country is the Sky Train Rail bridge?\nA:",
       "top_chunk": ""
     },
     {
@@ -3717,12 +3717,12 @@
         "Celebrated Players Film Corporation",
         "famous players"
       ],
-      "prediction": "san diego",
+      "prediction": "Paramount Pictures",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was the Paramount Film Company originally called?\nShort answer:",
+      "prompt": "Q: What was the Paramount Film Company originally called?\nA:",
       "top_chunk": ""
     },
     {
@@ -3740,12 +3740,12 @@
         "Edmund Percival Hillary",
         "Edmund Hillary"
       ],
-      "prediction": "john d. scott",
+      "prediction": "Jacques Cousteau",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the first person after Scott to reach the South Pole overland?\nShort answer:",
+      "prompt": "Q: Who was the first person after Scott to reach the South Pole overland?\nA:",
       "top_chunk": ""
     },
     {
@@ -3769,12 +3769,12 @@
         "hersh seymour m",
         "chain of command road from 9 11 to abu ghraib"
       ],
-      "prediction": "john d. scott",
+      "prediction": "John Lennon",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which journalist first told the world about the My Lai massacre?\nShort answer:",
+      "prompt": "Q: Which journalist first told the world about the My Lai massacre?\nA:",
       "top_chunk": ""
     },
     {
@@ -3791,12 +3791,12 @@
         "Youngite",
         "jasper mineral"
       ],
-      "prediction": "terry conran",
+      "prediction": "John Conran",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What is the name of Terence and Shirley Conran's dress designer son?\nShort answer:",
+      "prompt": "Q: What is the name of Terence and Shirley Conran's dress designer son?\nA:",
       "top_chunk": ""
     },
     {
@@ -3851,12 +3851,12 @@
         "pep si",
         "brad s drink"
       ],
-      "prediction": "sassy",
+      "prediction": "Spice",
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.5,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which drink did The Spice Girls promote?\nShort answer:",
+      "prompt": "Q: Which drink did The Spice Girls promote?\nA:",
       "top_chunk": ""
     },
     {
@@ -3871,12 +3871,12 @@
         "wilson carl dean",
         "wilson carl"
       ],
-      "prediction": "john d. scott",
+      "prediction": "John",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the youngest brother in the Beach Boys?\nShort answer:",
+      "prompt": "Q: Who was the youngest brother in the Beach Boys?\nA:",
       "top_chunk": ""
     },
     {
@@ -3889,12 +3889,12 @@
         "Colin Lionel Emm",
         "Colin Emm"
       ],
-      "prediction": "john mccartney",
+      "prediction": "bobby scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who first hosted Family Feud?\nShort answer:",
+      "prompt": "Q: Who first hosted Family Feud?\nA:",
       "top_chunk": ""
     },
     {
@@ -3910,7 +3910,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What did the Lone Ranger's title Kemo Sabe mean in Apache?\nShort answer:",
+      "prompt": "Q: What did the Lone Ranger's title Kemo Sabe mean in Apache?\nA:",
       "top_chunk": ""
     },
     {
@@ -3941,7 +3941,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who or what was Gentle Ben in the 60s TV series?\nShort answer:",
+      "prompt": "Q: Who or what was Gentle Ben in the 60s TV series?\nA:",
       "top_chunk": ""
     },
     {
@@ -3959,12 +3959,12 @@
         "all in family",
         "those were days tv pilot"
       ],
-      "prediction": "saturday night live",
+      "prediction": "The Countdown",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which 70s show was based on the British show Till Death Us Do Part?\nShort answer:",
+      "prompt": "Q: Which 70s show was based on the British show Till Death Us Do Part?\nA:",
       "top_chunk": ""
     },
     {
@@ -3979,12 +3979,12 @@
         "Historical anniversaries/July 20",
         "historical anniversaries july 20"
       ],
-      "prediction": "april 17",
+      "prediction": "December 17, 1969",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: On what date in 1969 did Neil Armstrong first set foot on the Moon?\nShort answer:",
+      "prompt": "Q: On what date in 1969 did Neil Armstrong first set foot on the Moon?\nA:",
       "top_chunk": ""
     },
     {
@@ -4022,12 +4022,12 @@
         "asia brunei",
         "iso 3166 1 bn"
       ],
-      "prediction": "kenya",
+      "prediction": "Malaysia",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Bandar Seri Begawan International airport is in which country?\nShort answer:",
+      "prompt": "Q: Bandar Seri Begawan International airport is in which country?\nA:",
       "top_chunk": ""
     },
     {
@@ -4045,7 +4045,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What was the profession of Paul Strand (1890 - 1976)?\nShort answer:",
+      "prompt": "Q: What was the profession of Paul Strand (1890 - 1976)?\nA:",
       "top_chunk": ""
     },
     {
@@ -4062,7 +4062,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who had a 60s No 1 with Downtown?\nShort answer:",
+      "prompt": "Q: Who had a 60s No 1 with Downtown?\nA:",
       "top_chunk": ""
     },
     {
@@ -4085,7 +4085,7 @@
       "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was born first, Kiefer Sutherland or Christian Slater?\nShort answer:",
+      "prompt": "Q: Who was born first, Kiefer Sutherland or Christian Slater?\nA:",
       "top_chunk": ""
     },
     {
@@ -4095,12 +4095,12 @@
         "10",
         "ten"
       ],
-      "prediction": "three",
-      "em": 0.0,
-      "f1": 0.0,
+      "prediction": "ten",
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: To the nearest two, how many tennis Grand Slam titles did Jimmy Connors win?\nShort answer:",
+      "prompt": "Q: To the nearest two, how many tennis Grand Slam titles did Jimmy Connors win?\nA:",
       "top_chunk": ""
     },
     {
@@ -4115,12 +4115,12 @@
         "cobb ty",
         "georgia peach"
       ],
-      "prediction": "elizabeth e. scott",
+      "prediction": "Mary Elizabeth \"Mary\" Moore",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who was the Georgia Peach?\nShort answer:",
+      "prompt": "Q: Who was the Georgia Peach?\nA:",
       "top_chunk": ""
     },
     {
@@ -4147,12 +4147,12 @@
         "Gypsy Suns and Rainbows",
         "James Hendrix"
       ],
-      "prediction": "johnny scott",
+      "prediction": "john dylan",
       "em": 0.0,
-      "f1": 0.4,
+      "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who set fire to his guitar at the Monterey Pop festival in 19676?\nShort answer:",
+      "prompt": "Q: Who set fire to his guitar at the Monterey Pop festival in 19676?\nA:",
       "top_chunk": ""
     },
     {
@@ -4165,12 +4165,12 @@
         "perry mason case of defiant daughter",
         "perry mason film"
       ],
-      "prediction": "john d. kennedy",
+      "prediction": "elizabeth harris",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Della Street was whose secretary?\nShort answer:",
+      "prompt": "Q: Della Street was whose secretary?\nA:",
       "top_chunk": ""
     },
     {
@@ -4184,12 +4184,12 @@
         "Donnie Osmond",
         "donny marie in las vegas"
       ],
-      "prediction": "johnny harris",
+      "prediction": "johnny mccartney",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In music, who was Sweet and Innocent and Too Young?\nShort answer:",
+      "prompt": "Q: In music, who was Sweet and Innocent and Too Young?\nA:",
       "top_chunk": ""
     },
     {
@@ -4210,12 +4210,12 @@
         "murda ma e",
         "karma mase album"
       ],
-      "prediction": "bobby jackson",
+      "prediction": "Freddie Mercury",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Who is featured on Puff Daddy's Can't Hold Me Down?\nShort answer:",
+      "prompt": "Q: Who is featured on Puff Daddy's Can't Hold Me Down?\nA:",
       "top_chunk": ""
     },
     {
@@ -4243,7 +4243,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: What had Edmond Hillary worked at before taking up mountain climbing?\nShort answer:",
+      "prompt": "Q: What had Edmond Hillary worked at before taking up mountain climbing?\nA:",
       "top_chunk": ""
     },
     {
@@ -4306,12 +4306,12 @@
         "us ma",
         "massachusetts united states"
       ],
-      "prediction": "california",
+      "prediction": "New York",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which American state is the Isabella Stewart Gardner Museum?\nShort answer:",
+      "prompt": "Q: In which American state is the Isabella Stewart Gardner Museum?\nA:",
       "top_chunk": ""
     },
     {
@@ -4343,12 +4343,12 @@
         "libya national transitional council",
         "al jamahiriya al 60arabiyah al libiyah ash sha 60biyah al ishtirakiyah al uzma"
       ],
-      "prediction": "nigeria",
+      "prediction": "Nigeria",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Benina international airport is in which country?\nShort answer:",
+      "prompt": "Q: Benina international airport is in which country?\nA:",
       "top_chunk": ""
     },
     {
@@ -4383,12 +4383,12 @@
         "harpo radio inc",
         "harpo inc"
       ],
-      "prediction": "john dillinger",
+      "prediction": "Jeremy Irons",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Beloved in 1999 was whose first movie since The Color Purple in 1985?\nShort answer:",
+      "prompt": "Q: Beloved in 1999 was whose first movie since The Color Purple in 1985?\nA:",
       "top_chunk": ""
     },
     {
@@ -4399,12 +4399,12 @@
         "Leonard Nemoy",
         "Leonard Simon Nimoy"
       ],
-      "prediction": "john dillinger",
+      "prediction": "John Carpenter",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which Star Trek star directed Three Men and a Baby?\nShort answer:",
+      "prompt": "Q: Which Star Trek star directed Three Men and a Baby?\nA:",
       "top_chunk": ""
     },
     {
@@ -4428,12 +4428,12 @@
         "counter clockwise film",
         "pumas film"
       ],
-      "prediction": "emma scott",
+      "prediction": "Jeremy Irons",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which sitcom star appeared on the big screening The Object of My Affection?\nShort answer:",
+      "prompt": "Q: Which sitcom star appeared on the big screening The Object of My Affection?\nA:",
       "top_chunk": ""
     },
     {
@@ -4452,12 +4452,12 @@
         "pixie dust disambiguation",
         "tinker bell disney"
       ],
-      "prediction": "eddie scott",
+      "prediction": "ada",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: \"Which character did Julia \"\"Roberts play in Steven Spielberg's Hook?\"\nShort answer:",
+      "prompt": "Q: \"Which character did Julia \"\"Roberts play in Steven Spielberg's Hook?\"\nA:",
       "top_chunk": ""
     },
     {
@@ -4496,12 +4496,12 @@
         "nixon richard",
         "nixon s"
       ],
-      "prediction": "john f kennedy",
+      "prediction": "George Washington",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which US president did Anthony Hopkins play in a film whose title was simply his name?\nShort answer:",
+      "prompt": "Q: Which US president did Anthony Hopkins play in a film whose title was simply his name?\nA:",
       "top_chunk": ""
     },
     {
@@ -4520,12 +4520,12 @@
         "shine disambiguation",
         "shine song"
       ],
-      "prediction": "saturday night s",
+      "prediction": "The Man Who Shot Himself",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which movie was a biopic about the life of David Helfgott?\nShort answer:",
+      "prompt": "Q: Which movie was a biopic about the life of David Helfgott?\nA:",
       "top_chunk": ""
     },
     {
@@ -4537,12 +4537,12 @@
         "Roger William Corman",
         "doorway film"
       ],
-      "prediction": "john dillinger",
+      "prediction": "John Ford",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which film director guested as the FBI Director in The Silence of the Lambs?\nShort answer:",
+      "prompt": "Q: Which film director guested as the FBI Director in The Silence of the Lambs?\nA:",
       "top_chunk": ""
     },
     {
@@ -4578,7 +4578,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: In which sci fi classic did the space ship Nostromo first appear?\nShort answer:",
+      "prompt": "Q: In which sci fi classic did the space ship Nostromo first appear?\nA:",
       "top_chunk": ""
     },
     {
@@ -4603,7 +4603,7 @@
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Nigel Hawthorne was Oscar nominated for The Madness of which King?\nShort answer:",
+      "prompt": "Q: Nigel Hawthorne was Oscar nominated for The Madness of which King?\nA:",
       "top_chunk": ""
     },
     {
@@ -4616,24 +4616,24 @@
         "Ingrid Rossellini",
         "Ingrid Berman"
       ],
-      "prediction": "sandra bullock",
+      "prediction": "Nicola Stenson",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
       "n_retrieved": 0,
-      "prompt": "Answer the following question with a short phrase.\n\nQuestion: Which Swedish actress won the Best Supporting Actress Oscar for Murder on the Orient Express?\nShort answer:",
+      "prompt": "Q: Which Swedish actress won the Best Supporting Actress Oscar for Murder on the Orient Express?\nA:",
       "top_chunk": ""
     }
   ],
   "timing": {
     "retrieval_s": 0.0,
     "generation_s": 0.0,
-    "total_s": 0.17,
+    "total_s": 0.0,
     "n_questions": 100,
     "cache_hits": 100,
     "cache_misses": 0,
-    "prompt_tokens_mean": 30.8,
-    "prompt_tokens_max": 49,
+    "prompt_tokens_mean": 19.8,
+    "prompt_tokens_max": 38,
     "prompt_tokens_budget": 1024,
     "prompts_truncated": 0,
     "n_prompts": 100

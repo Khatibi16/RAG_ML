@@ -15,22 +15,22 @@
   },
   "no_rag": {
     "em": {
-      "mean": 0.02,
-      "lo": 0.0,
-      "hi": 0.05,
+      "mean": 0.07,
+      "lo": 0.02,
+      "hi": 0.13,
       "n": 100
     },
     "f1": {
-      "mean": 0.042263565891472864,
-      "lo": 0.011996511627906981,
-      "hi": 0.07833333333333332,
+      "mean": 0.09326356589147287,
+      "lo": 0.04492848837209302,
+      "hi": 0.15066666666666667,
       "n": 100
     }
   },
   "delta_counts": {
-    "helps": 66,
-    "hurts": 1,
-    "ties": 33
+    "helps": 62,
+    "hurts": 2,
+    "ties": 36
   },
   "delta_analysis": [
     {
@@ -40,7 +40,7 @@
         "David Seville"
       ],
       "rag_pred": "Dave Seville",
-      "no_rag_pred": "john d. scott",
+      "no_rag_pred": "John McKay",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.5,
@@ -255,7 +255,7 @@
         "utah u s state"
       ],
       "rag_pred": "Utah",
-      "no_rag_pred": "california",
+      "no_rag_pred": "New York",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -280,7 +280,7 @@
         "betty j perske"
       ],
       "rag_pred": "Lauren Bacall",
-      "no_rag_pred": "elizabeth scott",
+      "no_rag_pred": "elizabeth harris",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -298,7 +298,7 @@
         "nikkei disambiguation"
       ],
       "rag_pred": "Nikkei",
-      "no_rag_pred": "yen",
+      "no_rag_pred": "(iv)",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -326,7 +326,7 @@
         "walk on moon"
       ],
       "rag_pred": "Thriller",
-      "no_rag_pred": "i m a millionaire",
+      "no_rag_pred": "The Jackson Story",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -423,13 +423,13 @@
         "kilima njaro"
       ],
       "rag_pred": "Kilimanjaro",
-      "no_rag_pred": "sahara",
+      "no_rag_pred": "Mount Kilimanjaro",
       "rag_em": 1.0,
-      "no_rag_em": 0.0,
+      "no_rag_em": 1.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 1.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -489,7 +489,7 @@
         "ng ni"
       ],
       "rag_pred": "Niger",
-      "no_rag_pred": "ethiopia",
+      "no_rag_pred": "equatorial guinea",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -519,7 +519,7 @@
         "george bush disambiguation"
       ],
       "rag_pred": "Duane Clarridge",
-      "no_rag_pred": "john d. harris",
+      "no_rag_pred": "Robert L. Rogers",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -552,7 +552,7 @@
         "i m ordinary man"
       ],
       "rag_pred": "My Fair Lady",
-      "no_rag_pred": "saturday night live",
+      "no_rag_pred": "The Little Mermaid",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -629,7 +629,7 @@
         "adolph hitler s health"
       ],
       "rag_pred": "Hitler",
-      "no_rag_pred": "sarajevo",
+      "no_rag_pred": "samuel h samuel",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -683,13 +683,13 @@
         "john martin o feeney"
       ],
       "rag_pred": "John Ford",
-      "no_rag_pred": "john dylan",
+      "no_rag_pred": "John Ford",
       "rag_em": 1.0,
-      "no_rag_em": 0.0,
+      "no_rag_em": 1.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.5,
+      "no_rag_f1": 1.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -729,7 +729,7 @@
         "t set"
       ],
       "rag_pred": "Pink Floyd",
-      "no_rag_pred": "screamin' wolves",
+      "no_rag_pred": "screamin' babes",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -747,7 +747,7 @@
         "sixty one"
       ],
       "rag_pred": "Highway 61",
-      "no_rag_pred": "m5",
+      "no_rag_pred": "Interstate 35",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.6666666666666666,
@@ -803,7 +803,7 @@
         "Wild Palms"
       ],
       "rag_pred": "Wild Palms",
-      "no_rag_pred": "savages",
+      "no_rag_pred": "The Dark Knight",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -827,7 +827,7 @@
         "fiddler on reoof"
       ],
       "rag_pred": "Fiddler on the Roof",
-      "no_rag_pred": "saturday night live",
+      "no_rag_pred": "The Simpsons",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -873,7 +873,7 @@
         "person philosophical"
       ],
       "rag_pred": "Streckfus Persons",
-      "no_rag_pred": "cleveland",
+      "no_rag_pred": "Capote",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.6666666666666666,
@@ -892,7 +892,7 @@
         "boojum disambiguation"
       ],
       "rag_pred": "Boojum",
-      "no_rag_pred": "a snark",
+      "no_rag_pred": "a snarky snark",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -970,7 +970,7 @@
         "y hosha"
       ],
       "rag_pred": "writers of Scripture",
-      "no_rag_pred": "adam",
+      "no_rag_pred": "apes",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.3333333333333333,
@@ -990,7 +990,7 @@
         "dangerous minds film"
       ],
       "rag_pred": "Dangerous Minds",
-      "no_rag_pred": "saturday night rap",
+      "no_rag_pred": "The Girl Next Door",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1068,7 +1068,7 @@
         "rudolf w hess"
       ],
       "rag_pred": "Rudolf Hess",
-      "no_rag_pred": "samuel sadler",
+      "no_rag_pred": "Yuri i",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1087,7 +1087,7 @@
         "forty eight time"
       ],
       "rag_pred": "Harlem Nights",
-      "no_rag_pred": "saturday night live",
+      "no_rag_pred": "The Devil Wears Prada",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -1113,7 +1113,7 @@
         "james g ballard"
       ],
       "rag_pred": "J. G. Ballard",
-      "no_rag_pred": "john dylan",
+      "no_rag_pred": "john d. savage",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1159,13 +1159,13 @@
         "ja pan"
       ],
       "rag_pred": "Japan",
-      "no_rag_pred": "iraq",
+      "no_rag_pred": "Japan",
       "rag_em": 1.0,
-      "no_rag_em": 0.0,
+      "no_rag_em": 1.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 1.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -1287,13 +1287,13 @@
         "vancouver british columbia canada"
       ],
       "rag_pred": "Vancouver",
-      "no_rag_pred": "st. johns",
+      "no_rag_pred": "Vancouver",
       "rag_em": 1.0,
-      "no_rag_em": 0.0,
+      "no_rag_em": 1.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 1.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -1304,7 +1304,7 @@
         "kentuckian"
       ],
       "rag_pred": "The Kentuckian",
-      "no_rag_pred": "saturday night s",
+      "no_rag_pred": "The Man Who Shot Himself",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1323,7 +1323,7 @@
         "Undersea"
       ],
       "rag_pred": "Bermuda waters",
-      "no_rag_pred": "arctic",
+      "no_rag_pred": "Antarctica",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -1356,7 +1356,7 @@
         "coventry warwickshire"
       ],
       "rag_pred": "Coventry",
-      "no_rag_pred": "st johns",
+      "no_rag_pred": "Stratford-upon-Avon",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1374,7 +1374,7 @@
         "manticore"
       ],
       "rag_pred": "manticore",
-      "no_rag_pred": "tao",
+      "no_rag_pred": "",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1392,7 +1392,7 @@
         "cyclopes disambiguation"
       ],
       "rag_pred": "Cyclopes",
-      "no_rag_pred": "syria",
+      "no_rag_pred": "sylvesters",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1421,7 +1421,7 @@
         "ferdinand 22jelly roll 22 morton"
       ],
       "rag_pred": "Jelly Roll Morton",
-      "no_rag_pred": "john dylan",
+      "no_rag_pred": "John Lennon",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1492,7 +1492,7 @@
         "Richard Noble"
       ],
       "rag_pred": "Richard Noble",
-      "no_rag_pred": "john davy",
+      "no_rag_pred": "steve scott",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1541,7 +1541,7 @@
         "virginia u s state"
       ],
       "rag_pred": "Virginia",
-      "no_rag_pred": "california",
+      "no_rag_pred": "New York",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1570,11 +1570,11 @@
         "Operation Rathole"
       ],
       "rag_pred": "Marshall Plan",
-      "no_rag_pred": "epsilon",
+      "no_rag_pred": "epsilon programme",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 0.4,
       "recall": 1.0,
       "rag_helps": 1,
       "rag_hurts": 0
@@ -1591,7 +1591,7 @@
         "crow 2016 film"
       ],
       "rag_pred": "The Crow",
-      "no_rag_pred": "saturday night s",
+      "no_rag_pred": "The Last Picture Show",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1648,7 +1648,7 @@
         "you shouldn t touch this"
       ],
       "rag_pred": "MC Hammer",
-      "no_rag_pred": "scott scott",
+      "no_rag_pred": "The Beatles",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1714,7 +1714,7 @@
         "elton john s discography"
       ],
       "rag_pred": "Led Zeppelin and Pink Floyd",
-      "no_rag_pred": "eddie jackson",
+      "no_rag_pred": "elvis presley",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -1737,7 +1737,7 @@
         "iso 3166 1 ao"
       ],
       "rag_pred": "Angola",
-      "no_rag_pred": "Austria",
+      "no_rag_pred": "Germany",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1758,7 +1758,7 @@
         "upside down single"
       ],
       "rag_pred": "\"I'm Coming Out\"",
-      "no_rag_pred": "i love you",
+      "no_rag_pred": "\"I'm a Good Girl\"",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -1776,7 +1776,7 @@
         "dark blood film"
       ],
       "rag_pred": "Dark Blood",
-      "no_rag_pred": "saturday night s dream",
+      "no_rag_pred": "The Last Picture Show",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -1793,11 +1793,11 @@
         "David Hockney"
       ],
       "rag_pred": "David Hockney",
-      "no_rag_pred": "john dylan",
+      "no_rag_pred": "David Morris",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 0.5,
       "recall": 1.0,
       "rag_helps": 1,
       "rag_hurts": 0
@@ -1967,7 +1967,7 @@
         "Cartoonism"
       ],
       "rag_pred": "cartoons published in the Daily Express",
-      "no_rag_pred": "a musical",
+      "no_rag_pred": "a film",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.33333333333333337,
@@ -1984,11 +1984,11 @@
         "Sarah Virginia Wade"
       ],
       "rag_pred": "Margaret Court",
-      "no_rag_pred": "sarah sandler",
+      "no_rag_pred": "Nicola Stadtner",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
-      "no_rag_f1": 0.4,
+      "no_rag_f1": 0.0,
       "recall": 0.0,
       "rag_helps": 0,
       "rag_hurts": 0
@@ -2042,7 +2042,7 @@
         "canada references"
       ],
       "rag_pred": "Canada",
-      "no_rag_pred": "ukraine",
+      "no_rag_pred": "scotland",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2062,7 +2062,7 @@
         "famous players"
       ],
       "rag_pred": "Famous Players-Lasky Corporation",
-      "no_rag_pred": "san diego",
+      "no_rag_pred": "Paramount Pictures",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.4,
@@ -2087,7 +2087,7 @@
         "Edmund Hillary"
       ],
       "rag_pred": "Ernest Shackleton and Edward Wilson",
-      "no_rag_pred": "john d. scott",
+      "no_rag_pred": "Jacques Cousteau",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -2118,7 +2118,7 @@
         "chain of command road from 9 11 to abu ghraib"
       ],
       "rag_pred": "Seymour Hersh",
-      "no_rag_pred": "john d. scott",
+      "no_rag_pred": "John Lennon",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2142,7 +2142,7 @@
         "jasper mineral"
       ],
       "rag_pred": "Jasper Conran",
-      "no_rag_pred": "terry conran",
+      "no_rag_pred": "John Conran",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.6666666666666666,
@@ -2204,11 +2204,11 @@
         "brad s drink"
       ],
       "rag_pred": "Pepsi",
-      "no_rag_pred": "sassy",
+      "no_rag_pred": "Spice",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 0.5,
       "recall": 1.0,
       "rag_helps": 1,
       "rag_hurts": 0
@@ -2226,7 +2226,7 @@
         "wilson carl"
       ],
       "rag_pred": "Dennis",
-      "no_rag_pred": "john d. scott",
+      "no_rag_pred": "John",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -2246,7 +2246,7 @@
         "Colin Emm"
       ],
       "rag_pred": "Richard Dawson",
-      "no_rag_pred": "john mccartney",
+      "no_rag_pred": "bobby scott",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2322,7 +2322,7 @@
         "those were days tv pilot"
       ],
       "rag_pred": "All In The Family",
-      "no_rag_pred": "saturday night live",
+      "no_rag_pred": "The Countdown",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2344,7 +2344,7 @@
         "historical anniversaries july 20"
       ],
       "rag_pred": "21 July 1969",
-      "no_rag_pred": "april 17",
+      "no_rag_pred": "December 17, 1969",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.4,
@@ -2389,7 +2389,7 @@
         "iso 3166 1 bn"
       ],
       "rag_pred": "Brunei",
-      "no_rag_pred": "kenya",
+      "no_rag_pred": "Malaysia",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2470,14 +2470,14 @@
         "ten"
       ],
       "rag_pred": "109",
-      "no_rag_pred": "three",
+      "no_rag_pred": "ten",
       "rag_em": 0.0,
-      "no_rag_em": 0.0,
+      "no_rag_em": 1.0,
       "rag_f1": 0.0,
-      "no_rag_f1": 0.0,
+      "no_rag_f1": 1.0,
       "recall": 1.0,
       "rag_helps": 0,
-      "rag_hurts": 0
+      "rag_hurts": 1
     },
     {
       "qid": "tc_1009",
@@ -2492,7 +2492,7 @@
         "georgia peach"
       ],
       "rag_pred": "Elberta",
-      "no_rag_pred": "elizabeth e. scott",
+      "no_rag_pred": "Mary Elizabeth \"Mary\" Moore",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -2526,11 +2526,11 @@
         "James Hendrix"
       ],
       "rag_pred": "Jimi Hendrix",
-      "no_rag_pred": "johnny scott",
+      "no_rag_pred": "john dylan",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
-      "no_rag_f1": 0.4,
+      "no_rag_f1": 0.0,
       "recall": 1.0,
       "rag_helps": 1,
       "rag_hurts": 0
@@ -2546,7 +2546,7 @@
         "perry mason film"
       ],
       "rag_pred": "Perry Mason",
-      "no_rag_pred": "john d. kennedy",
+      "no_rag_pred": "elizabeth harris",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2567,7 +2567,7 @@
         "donny marie in las vegas"
       ],
       "rag_pred": "Donny Osmond",
-      "no_rag_pred": "johnny harris",
+      "no_rag_pred": "johnny mccartney",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2595,7 +2595,7 @@
         "karma mase album"
       ],
       "rag_pred": "Mase",
-      "no_rag_pred": "bobby jackson",
+      "no_rag_pred": "Freddie Mercury",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2695,7 +2695,7 @@
         "massachusetts united states"
       ],
       "rag_pred": "Massachusetts",
-      "no_rag_pred": "california",
+      "no_rag_pred": "New York",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2734,7 +2734,7 @@
         "al jamahiriya al 60arabiyah al libiyah ash sha 60biyah al ishtirakiyah al uzma"
       ],
       "rag_pred": "Libya",
-      "no_rag_pred": "nigeria",
+      "no_rag_pred": "Nigeria",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2776,7 +2776,7 @@
         "harpo inc"
       ],
       "rag_pred": "Steven Spielberg",
-      "no_rag_pred": "john dillinger",
+      "no_rag_pred": "Jeremy Irons",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -2794,7 +2794,7 @@
         "Leonard Simon Nimoy"
       ],
       "rag_pred": "Leonard Nimoy",
-      "no_rag_pred": "john dillinger",
+      "no_rag_pred": "John Carpenter",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2825,7 +2825,7 @@
         "pumas film"
       ],
       "rag_pred": "Jennifer Aniston",
-      "no_rag_pred": "emma scott",
+      "no_rag_pred": "Jeremy Irons",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2851,7 +2851,7 @@
         "tinker bell disney"
       ],
       "rag_pred": "Tinkerbell",
-      "no_rag_pred": "eddie scott",
+      "no_rag_pred": "ada",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2897,7 +2897,7 @@
         "nixon s"
       ],
       "rag_pred": "Richard Nixon",
-      "no_rag_pred": "john f kennedy",
+      "no_rag_pred": "George Washington",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2923,7 +2923,7 @@
         "shine song"
       ],
       "rag_pred": "Shine",
-      "no_rag_pred": "saturday night s",
+      "no_rag_pred": "The Man Who Shot Himself",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
@@ -2942,7 +2942,7 @@
         "doorway film"
       ],
       "rag_pred": "Jonathan Demme",
-      "no_rag_pred": "john dillinger",
+      "no_rag_pred": "John Ford",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
       "rag_f1": 0.0,
@@ -3027,7 +3027,7 @@
         "Ingrid Berman"
       ],
       "rag_pred": "Ingrid Bergman",
-      "no_rag_pred": "sandra bullock",
+      "no_rag_pred": "Nicola Stenson",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
       "rag_f1": 1.0,
