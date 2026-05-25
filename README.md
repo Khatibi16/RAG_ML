@@ -111,19 +111,24 @@ experiments directly test several of their identified dimensions.
 └──────────────────────────────────────────────────────────┘
 ```
 
-### Module responsibilities
+### Notebook structure
 
-| File | Responsibility |
+The whole project is a single self-contained notebook, `project.ipynb`
+(the modular file paths some sections reference do **not** exist). It is
+organised into the following sections:
+
+| Notebook section | Responsibility |
 |---|---|
-| `config.py` | All hyperparameters (single source of truth) |
-| `src/corpus.py` | TriviaQA loading; Wikipedia entity page extraction |
-| `src/chunker.py` | Fixed-size word-window chunking with configurable overlap |
-| `src/retriever.py` | BM25Retriever, TFIDFRetriever, DenseRetriever classes |
-| `src/generator.py` | Flan-T5-base wrapper with deterministic generation + caching |
-| `src/evaluator.py` | Exact Match, Token F1, Recall@k, bootstrap CI |
-| `src/pipeline.py` | Orchestrates retrieve → prompt → generate → evaluate |
-| `experiments/run_experiments.py` | Runs all 5 experiments; writes JSON results |
-| `analysis/plot_results.py` | Generates all 7 figures from JSON results |
+| §1 `config` | All hyperparameters (single source of truth) |
+| §2 Corpus loading | TriviaQA `rc` loading + external Wikipedia distractors |
+| §3 Chunking | Fixed-size word-window chunking with configurable overlap |
+| §4 Retrieval backends | BM25, TF-IDF, Dense, and Cross-Encoder rerank classes |
+| §5 Generator | Flan-T5-base wrapper: deterministic generation, caching, middle-truncation, context packing |
+| §6 Evaluation metrics | Exact Match, Token F1, Recall@k, bootstrap CI |
+| §7 Pipeline | Orchestrates retrieve → prompt → generate → evaluate |
+| §8 Experiment helpers | JSON save/load, metric logging, shared setup |
+| §9–17 Experiments 1–8 | The eight experiments described below |
+| §18 Analysis | Generates all figures from the saved JSON results |
 
 ---
 
@@ -259,14 +264,12 @@ DPR) gives up the small generalisation advantage that the dense
 direction usually enjoys. So a tie or a slight sparse win at this scale
 would not be surprising; this experiment is a test of that.
 
-**Empirical result (this run, n = 100, ~2.7 k-doc corpus):**
-BM25 ≈ TF-IDF ≈ 0.70 EM, Dense ≈ 0.67 EM, all three at Recall@5 ≈ 0.94
-with heavily overlapping bootstrap CIs. The interpretation is that
-retrieval is near-ceiling on this corpus for all three methods and the
-generator-side gap dominates the residual error. A larger or more
-adversarial corpus (see Experiments 7 and 8), a multi-hop dataset, or
-a TriviaQA-fine-tuned dense encoder would all be expected to widen the
-dense-vs-sparse spread.
+**Empirical result:** pending regeneration (see §10). Earlier runs showed
+all three methods near retrieval-ceiling (Recall@5 ≈ 0.94) with heavily
+overlapping bootstrap CIs, i.e. the generator-side gap dominated the residual
+error. A larger or more adversarial corpus (see Experiments 7 and 8), a
+multi-hop dataset, or a TriviaQA-fine-tuned dense encoder would all be
+expected to widen the dense-vs-sparse spread.
 
 **Methods:** BM25 and TF-IDF consume the **same** token stream produced
 by a shared `_lexical_tokenize` (NFKD accent-strip → lowercase → regex
@@ -283,43 +286,75 @@ and DF filtering are held constant.
   retrieval is by dot product (= cosine similarity). Embeddings cached to disk.
 
 **Measurement:**
-- Primary: EM and F1 on the 500-question set
+- Primary: EM and F1 on the evaluation set (`config.NUM_QUESTIONS`, default 100)
 - Secondary: Retrieval Recall@k (answer string substring-matched in top-5 chunks)
 
 ---
 
 ### Exp 2 — Chunk Size Ablation
 
-**Fixed:** retriever = Dense, k = 5, prompt = "instructed"
+**Fixed:** retriever = Dense, prompt = "instructed", **context-token budget =
+`MAX_INPUT_TOKENS` (1024)**.
 
 **Variable:** chunk size ∈ {64, 128, 256, 512} words
 
-**Hypothesis (two-sided):**
-- *Small chunks* (64 words) → high precision but low recall — the answer
-  may straddle a chunk boundary or be split across two chunks.
-- *Large chunks* (512 words) → high recall but the relevant sentence is
-  diluted by surrounding text, making it harder for the generator to
-  extract the answer.
+**Why a fixed token budget instead of a fixed `k`.** Under a 1024-token
+generator budget a fixed `k` (e.g. `k=5`) does *not* hold the amount of
+context constant: 5×64 words ≈ 450 tokens but 5×512 words ≈ 3 600 tokens. The
+large-chunk conditions then overflow the budget and are middle-truncated
+*mid-chunk*, while the small-chunk conditions under-fill the window — so a
+fixed-`k` sweep confounds chunk **granularity** with the **amount of context
+the generator actually reads**, and showing 5 chunks of 512 words is simply
+impossible at 1024 tokens (no code or budget change fixes that). Instead we
+hold the *context-token budget* fixed: we retrieve `PACK_RETRIEVE_N` (= 30)
+candidates and **greedily pack whole chunks** into the prompt until the next
+one would exceed the budget (`Generator.pack_to_budget`). Every chunk-size
+condition then presents ~the same amount of context (~510–630 words in our
+runs), nothing is truncated, and the number of chunks `k` becomes a *reported
+output* (`packed_k_mean` ≈ 9.6 / 4.9 / 2.0 / 1.0 chunks at 64 / 128 / 256 /
+512 words). The experiment therefore isolates the one thing we mean to vary —
+how a fixed budget is *sliced*: many small chunks vs few large ones.
+
+**Hypothesis (two-sided), at fixed budget:**
+- *Small chunks* (64 words, ~10 of them) → finer-grained retrieval and higher
+  Recall@k, but each passage carries little surrounding context and the budget
+  is split across many headers.
+- *Large chunks* (512 words, ~1 of them) → more self-contained context, but
+  far fewer independent passages fit, so a single retrieval miss costs the
+  whole window.
 - An intermediate size (128–256 words) should optimise the EM/F1 tradeoff.
 
-**Overlap:** 32 words (half the smallest chunk) to reduce boundary effects.
+**Overlap:** 32 words to reduce boundary effects (held constant across sizes).
 
-**Measurement:** EM, F1, Recall@k at each chunk size.
+**Measurement:** EM, F1, Recall@k, and `packed_k_mean` at each chunk size.
 
 ---
 
 ### Exp 3 — Number of Retrieved Passages (k)
 
-**Fixed:** retriever = Dense, chunk size = 128 words, prompt = "instructed"
+**Fixed:** retriever = Dense, chunk size = **48 words** (`EXP3_CHUNK_SIZE`),
+prompt = "instructed"
 
 **Variable:** k ∈ {1, 3, 5, 10}
+
+**Why chunk = 48 here (not the project default of 128).** This experiment
+varies `k`, so `k` has to be a genuine input — every passage we ask for must
+actually reach the generator. At chunk = 128 the top of the sweep overflows
+the 1024-token budget (k=10 ≈ 1 800 tokens) and is middle-truncated, so the
+"k=10" condition would really measure a context-window ceiling, not the effect
+of retrieval depth. Dropping the chunk size to 48 words makes the entire range
+fit untruncated (verified: k=10 ≈ 850–917 tokens < 1024), so the k effect is
+measured cleanly. The trade-off — smaller chunks carry slightly less
+per-passage context — is held constant across all k values and so does not
+confound the comparison.
 
 **Hypothesis:**
 - Recall@k increases monotonically with k (more passages → higher chance
   that one contains the answer).
-- EM and F1 may *decrease* for large k if the model is overwhelmed by long
-  or distracting context (cf. Izacard & Grave [43] who address this with FiD).
-- We expect a sweet spot near k = 5 for Flan-T5-base's 512-token context.
+- EM and F1 may *decrease* for large k if the model is distracted by extra
+  passages (cf. Izacard & Grave [43] who address this with FiD) — and because
+  the whole range now fits the budget, any decrease is attributable to
+  distraction rather than to truncation dropping passages.
 
 **Measurement:** EM, F1, Recall@k at each k.
 
@@ -595,6 +630,19 @@ We compute 95% CIs using **percentile bootstrap** with 1000 resamples
   Prompt-length logs distinguish raw tokens (pre-truncation) from final
   tokens (what the model sees) and report how many prompts had context
   trimmed.
+- **Context packing (Experiment 2).** When `RAGPipeline.run(..., pack=True)`
+  is used, the pipeline instead retrieves a deep candidate set and packs
+  whole chunks up to the token budget (`Generator.pack_to_budget`), so the
+  prompt fits with no truncation and `k` is reported as an output. The
+  middle-truncation path above then acts only as a backstop for the
+  fixed-`k` experiments (1, 4–8), where it can still fire at chunk = 128,
+  k = 5.
+- **Effective-k accounting.** The prompt-length log reports `effective_k` —
+  how many retrieved chunks the generator still sees the header (and some
+  text) for after truncation. It is counted at the *token* level over the
+  original context, because the T5 tokenizer strips newlines on decode, so a
+  text-level marker count would otherwise collapse every truncated prompt to
+  `effective_k = 1`.
 - Maximum new tokens: 32
 - Device: auto-detected (MPS → CUDA → CPU)
 - All generation results cached to `data/cache/generation_cache.json`,
@@ -656,23 +704,27 @@ pip install -r requirements.txt
 python -c "import nltk; nltk.download('punkt')"
 ```
 
-### Run all experiments
+### Run the experiments
 
-```bash
-python experiments/run_experiments.py
-```
+Everything runs from the single notebook `project.ipynb`: open it and run all
+cells top to bottom (in Jupyter / VS Code, or
+`jupyter nbconvert --to notebook --execute project.ipynb`). This will:
+1. Download TriviaQA (first run only; cached to `data/cache/` afterwards).
+2. Run all 8 experiments sequentially, saving results JSON to `results/`.
+3. Generate every figure into `figures/` (300 dpi PNG).
 
-This will:
-1. Download TriviaQA (first run only; cached afterwards).
-2. Run all 5 experiments sequentially.
-3. Save results JSON files to `results/`.
+`config.FORCE_RERUN = True` (default) makes every experiment recompute
+end-to-end; set it `False` to skip experiments whose `results/*.json` already
+exists and only re-plot. Generation is cached per rendered prompt in
+`data/cache/generation_cache.json`, so re-runs only regenerate prompts that
+actually changed.
 
 **Expected runtime** at the default `NUM_QUESTIONS=100` / `MAX_SEARCH_RESULTS_PER_Q=5`
 (Apple Silicon / modern CPU):
 - Data loading: 5–15 min first time (the `rc` dataset is large); <10 s from cache afterwards.
-- Dense embedding (~1 k docs × 4 chunk sizes): ~2–5 min.
+- Dense embedding (across chunk sizes, including the chunk=48 index for Exp 3): ~3–8 min.
 - Generation (100 questions × ~8 conditions): ~5–15 min on CPU, faster on MPS/CUDA. Cache keeps re-runs cheap.
-- Total first end-to-end run: ~20–30 min.
+- Total first end-to-end run: ~25–35 min.
 
 To run at "report scale", bump `config.NUM_QUESTIONS` to 500 or 1000 and
 optionally raise `MAX_SEARCH_RESULTS_PER_Q`; runtime scales roughly linearly
@@ -680,28 +732,10 @@ with both.
 
 ### Run a single experiment
 
-```bash
-python experiments/run_experiments.py --exp 1   # Retriever comparison only
-python experiments/run_experiments.py --exp 5   # RAG vs No-RAG only
-```
-
-### Generate figures
-
-```bash
-python analysis/plot_results.py
-```
-
-Figures are saved to `figures/` as 300 dpi PNG files.
-
-### Verify the pipeline quickly (smoke test)
-
-```python
-import config
-config.NUM_QUESTIONS = 10   # override for a quick test
-from experiments.run_experiments import setup, experiment_5
-q, docs, gen = setup()
-experiment_5(q, docs, gen)
-```
+Each experiment is a self-contained function in the notebook (`experiment_1`,
+…, `experiment_8_distractor_sweep`). After running the setup cells (config,
+corpus load, generator), call just the one you want, e.g.
+`experiment_5(questions, corpus_docs, generator)`.
 
 ---
 
@@ -721,11 +755,17 @@ experiment_5(q, docs, gen)
 >   pre-trained at 512 but tolerates longer inputs in practice; see the
 >   inline comment in `config.MAX_INPUT_TOKENS`),
 > - prompts now repeat the question both before and after the context
->   so truncation can't drop it.
+>   so truncation can't drop it,
+> - **Experiment 2 now holds the context-token budget fixed and packs whole
+>   chunks** instead of a fixed `k=5` that overflowed and was truncated
+>   mid-chunk at chunk ≥ 256; `k` is reported as `packed_k_mean`,
+> - **Experiment 3 now runs at chunk = 48 words** so the full
+>   `k ∈ {1,3,5,10}` range fits the 1024-token budget without truncation
+>   (at chunk = 128 the k = 10 arm was 100 % truncated).
 >
 > Each of those changes invalidates the cached results. Re-run the
-> notebook (or `python experiments/run_experiments.py`) to populate
-> `results/` and `figures/`, then fill in the tables below.
+> notebook end-to-end to populate `results/` and `figures/`, then fill in
+> the tables below.
 >
 > **Additional pending invalidation (middle-truncation fix).** The
 > Generator now middle-truncates long RAG prompts so that the trailing
@@ -750,16 +790,16 @@ experiment_5(q, docs, gen)
 | TF-IDF | _TBD_ | _TBD_ | _TBD_ |
 | Dense  | _TBD_ | _TBD_ | _TBD_ |
 
-### Experiment 2 — Chunk Size
+### Experiment 2 — Chunk Size (fixed token budget)
 
-| Chunk (words) | EM | Token F1 | Recall@5 |
-|---|---|---|---|
-| 64  | _TBD_ | _TBD_ | _TBD_ |
-| 128 | _TBD_ | _TBD_ | _TBD_ |
-| 256 | _TBD_ | _TBD_ | _TBD_ |
-| 512 | _TBD_ | _TBD_ | _TBD_ |
+| Chunk (words) | packed k (mean) | EM | Token F1 | Recall@k |
+|---|---|---|---|---|
+| 64  | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 128 | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 256 | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
+| 512 | _TBD_ | _TBD_ | _TBD_ | _TBD_ |
 
-### Experiment 3 — Number of Retrieved Passages (k)
+### Experiment 3 — Number of Retrieved Passages (k, chunk = 48 words)
 
 | k | EM | Token F1 | Recall@k |
 |---|---|---|---|
@@ -817,8 +857,8 @@ Figures in `figures/`:
 | Figure | Content |
 |---|---|
 | `fig1_retriever_comparison.png` | EM + F1 bar chart across retrieval methods with 95% CI |
-| `fig2_chunk_size.png`           | EM / F1 / Recall@k vs chunk size (line + CI band) |
-| `fig3_k_values.png`             | EM / F1 / Recall@k vs k (line + CI band) |
+| `fig2_chunk_size.png`           | EM / F1 / Recall@k vs chunk size (whole chunks packed to a fixed token budget) |
+| `fig3_k_values.png`             | EM / F1 / Recall@k vs k (chunk = 48 words; line + CI band) |
 | `fig4_prompt_template.png`      | EM + F1: concise vs instructed prompts |
 | `fig5_rag_vs_no_rag.png`        | EM + F1: RAG vs parametric baseline |
 | `fig6_error_analysis.png`       | Pie (helps/hurts/ties) + scatter (recall vs EM) |
