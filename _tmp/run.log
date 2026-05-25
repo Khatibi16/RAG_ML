@@ -1,0 +1,73 @@
+21:44:34 [INFO] rag_project — ============================================================
+21:44:34 [INFO] rag_project — Loading TriviaQA (100 questions)…
+21:44:34 [INFO] rag_project — Loading TriviaQA from cache: C:\Users\Filip\Documents\ml-project\RAG_ML\data\cache\triviaqa_rc_n100_w5_wd2000.pkl
+21:44:34 [INFO] rag_project — Corpus: 2524 documents
+21:44:34 [INFO] rag_project — Loaded generation cache (1667 entries).
+21:44:34 [INFO] rag_project — ============================================================
+21:44:34 [INFO] rag_project — EXPERIMENT 9 — Controlled distraction (recall held at 1)
+21:44:34 [INFO] rag_project — Fixed: retriever=dense  chunk_size=48  prompt=instructed  N in [0, 1, 2, 4, 8]
+21:44:34 [INFO] rag_project — Loading cached dense embeddings from C:\Users\Filip\Documents\ml-project\RAG_ML\data\cache\dense_embeddings_48w.pkl
+21:44:34 [INFO] rag_project — Cache hit — 91496 embeddings loaded.
+21:44:52 [INFO] rag_project — Loading dense model: sentence-transformers/all-MiniLM-L6-v2
+21:44:52 [INFO] sentence_transformers.base.model — No device provided, using cpu
+21:44:52 [INFO] sentence_transformers.base.model — Loading SentenceTransformer model from sentence-transformers/all-MiniLM-L6-v2.
+Working directory: C:\Users\Filip\Documents\ml-project\RAG_ML
+Results dir:       C:\Users\Filip\Documents\ml-project\RAG_ML\results
+Figures dir:       C:\Users\Filip\Documents\ml-project\RAG_ML\figures
+Cache dir:         C:\Users\Filip\Documents\ml-project\RAG_ML\data\cache
+>>> setup()
+>>> setup done in 0.0s; 100 questions, 2524 docs
+>>> Experiment 9 (controlled distraction)
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|##########| 103/103 [00:00<00:00, 2092.08it/s]
+21:44:53 [INFO] rag_project — Dense batch encoding 100 queries…
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|#####     | 1/2 [00:00<00:00,  1.28it/s]Batches: 100%|##########| 2/2 [00:01<00:00,  2.15it/s]Batches: 100%|##########| 2/2 [00:01<00:00,  1.95it/s]
+21:45:04 [INFO] rag_project — Distraction: 100/100 questions usable (0 excluded — no answer-bearing chunk in the corpus).
+21:45:04 [INFO] rag_project — --- N distractors = 0 ---
+21:45:04 [INFO] rag_project — Generation: 36 cached, 64 to generate.
+21:45:04 [INFO] rag_project — Loading generator 'google/flan-t5-base' on device 'cpu'…
+Loading weights:   0%|          | 0/282 [00:00<?, ?it/s]Loading weights: 100%|##########| 282/282 [00:00<00:00, 3670.81it/s]
+[transformers] The tied weights mapping and config for this model specifies to tie shared.weight to lm_head.weight, but both are present in the checkpoints with different values, so we will NOT tie them. You should update the config with `tie_word_embeddings=False` to silence this warning.
+21:45:05 [INFO] rag_project — Generator ready.
+Generating:   0%|          | 0/4 [00:00<?, ?it/s]Generating:  25%|##5       | 1/4 [00:07<00:23,  7.88s/it]Generating:  50%|#####     | 2/4 [00:20<00:21, 10.91s/it]Generating:  75%|#######5  | 3/4 [00:27<00:09,  9.09s/it]Generating: 100%|##########| 4/4 [00:35<00:00,  8.72s/it]Generating: 100%|##########| 4/4 [00:35<00:00,  9.00s/it]
+21:45:41 [INFO] rag_project — N_distractors=0 — EM 0.680 [0.590-0.770]  F1 0.718 [0.633-0.800]  Recall 1.000 [1.000-1.000]
+21:45:41 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_n0.json
+21:45:41 [INFO] rag_project — --- N distractors = 1 ---
+21:45:41 [INFO] rag_project — Generation: 4 cached, 96 to generate.
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|#6        | 1/6 [00:10<00:50, 10.07s/it]Generating:  33%|###3      | 2/6 [00:28<01:00, 15.15s/it]Generating:  50%|#####     | 3/6 [00:43<00:44, 14.80s/it]Generating:  67%|######6   | 4/6 [00:57<00:29, 14.57s/it]Generating:  83%|########3 | 5/6 [01:08<00:13, 13.38s/it]Generating: 100%|##########| 6/6 [01:19<00:00, 12.52s/it]Generating: 100%|##########| 6/6 [01:19<00:00, 13.25s/it]
+21:47:01 [INFO] rag_project — N_distractors=1 — EM 0.590 [0.490-0.680]  F1 0.634 [0.541-0.722]  Recall 1.000 [1.000-1.000]
+21:47:01 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_n1.json
+21:47:01 [INFO] rag_project — --- N distractors = 2 ---
+21:47:01 [INFO] rag_project — Generation: 6 cached, 94 to generate.
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|#6        | 1/6 [00:15<01:19, 15.94s/it]Generating:  33%|###3      | 2/6 [00:29<00:57, 14.30s/it]Generating:  50%|#####     | 3/6 [00:45<00:45, 15.20s/it]Generating:  67%|######6   | 4/6 [00:57<00:28, 14.05s/it]Generating:  83%|########3 | 5/6 [01:08<00:12, 12.90s/it]Generating: 100%|##########| 6/6 [01:18<00:00, 11.92s/it]Generating: 100%|##########| 6/6 [01:18<00:00, 13.09s/it]
+21:48:20 [INFO] rag_project — N_distractors=2 — EM 0.570 [0.470-0.670]  F1 0.630 [0.543-0.714]  Recall 1.000 [1.000-1.000]
+21:48:20 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_n2.json
+21:48:20 [INFO] rag_project — --- N distractors = 4 ---
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (570 > 512). Running this sequence through the model will result in indexing errors
+21:48:20 [INFO] rag_project — Generation: 7 cached, 93 to generate.
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|#6        | 1/6 [00:26<02:14, 26.82s/it]Generating:  33%|###3      | 2/6 [00:59<02:00, 30.01s/it]Generating:  50%|#####     | 3/6 [01:34<01:36, 32.27s/it]Generating:  67%|######6   | 4/6 [01:58<00:58, 29.17s/it]Generating:  83%|########3 | 5/6 [02:28<00:29, 29.50s/it]Generating: 100%|##########| 6/6 [02:46<00:00, 25.48s/it]Generating: 100%|##########| 6/6 [02:46<00:00, 27.70s/it]
+21:51:06 [INFO] rag_project — N_distractors=4 — EM 0.470 [0.380-0.570]  F1 0.523 [0.433-0.619]  Recall 1.000 [1.000-1.000]
+21:51:06 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_n4.json
+21:51:06 [INFO] rag_project — --- N distractors = 8 ---
+21:51:07 [INFO] rag_project — Generation: 9 cached, 91 to generate.
+Generating:   0%|          | 0/6 [00:00<?, ?it/s]Generating:  17%|#6        | 1/6 [00:45<03:49, 45.97s/it]Generating:  33%|###3      | 2/6 [01:44<03:32, 53.13s/it]Generating:  50%|#####     | 3/6 [02:27<02:25, 48.56s/it]Generating:  67%|######6   | 4/6 [03:10<01:32, 46.46s/it]Generating:  83%|########3 | 5/6 [03:53<00:45, 45.11s/it]Generating: 100%|##########| 6/6 [04:17<00:00, 38.14s/it]Generating: 100%|##########| 6/6 [04:17<00:00, 42.97s/it]
+21:55:25 [INFO] rag_project — N_distractors=8 — EM 0.480 [0.380-0.580]  F1 0.549 [0.457-0.645]  Recall 1.000 [1.000-1.000]
+21:55:25 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_n8.json
+21:55:25 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\exp9_summary.json
+21:55:25 [INFO] rag_project — ============================================================
+21:55:25 [INFO] rag_project — Paired significance tests (McNemar on EM + paired bootstrap)
+21:55:25 [INFO] rag_project — BM25          vs Dense         | dEM=+0.060 [-0.030,+0.150] McNemar p=0.2632 (disc 13/20) | dF1=+0.052 [-0.034,+0.138] boot p=0.2294
+21:55:25 [INFO] rag_project — TF-IDF        vs Dense         | dEM=+0.030 [-0.060,+0.110] McNemar p=0.6476 (disc 11/19) | dF1=+0.022 [-0.064,+0.105] boot p=0.6090
+21:55:25 [INFO] rag_project — BM25          vs TF-IDF        | dEM=+0.030 [-0.020,+0.080] McNemar p=0.4531 (disc 5/7) | dF1=+0.030 [-0.016,+0.081] boot p=0.1980
+21:55:25 [INFO] rag_project — Instructed    vs Concise       | dEM=+0.010 [-0.030,+0.050] McNemar p=1.0000 (disc 3/5) | dF1=+0.001 [-0.039,+0.038] boot p=0.8962
+21:55:25 [INFO] rag_project — RAG           vs No-RAG        | dEM=+0.560 [+0.460,+0.660] McNemar p=0.0000 (disc 57/58) | dF1=+0.585 [+0.487,+0.677] boot p=0.0000
+21:55:26 [INFO] rag_project — Dense+Rerank  vs Dense         | dEM=+0.080 [+0.010,+0.150] McNemar p=0.0574 (disc 11/14) | dF1=+0.106 [+0.034,+0.181] boot p=0.0034
+21:55:26 [INFO] rag_project — Oracle        vs RAG           | dEM=+0.020 [+0.000,+0.050] McNemar p=0.5000 (disc 2/2) | dF1=+0.015 [+0.000,+0.040] boot p=0.0000
+21:55:26 [INFO] rag_project — Results saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\results\paired_significance.json
+21:55:27 [INFO] rag_project — Saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\figures\fig11_distraction.png
+<string>:36: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+21:55:28 [INFO] rag_project — Saved \u2192 C:\Users\Filip\Documents\ml-project\RAG_ML\figures\fig12_significance.png
+<string>:82: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+>>> Exp9 done in 651.4s
+>>> Paired significance
+>>> Figures
+>>> ALL DONE
