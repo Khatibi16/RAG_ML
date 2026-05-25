@@ -2,71 +2,81 @@
   "results": {
     "bm25": {
       "em": {
-        "mean": 0.56,
-        "lo": 0.46,
-        "hi": 0.65,
+        "mean": 0.61,
+        "lo": 0.51,
+        "hi": 0.7,
         "n": 100
       },
       "f1": {
-        "mean": 0.6243333333333333,
-        "lo": 0.53465,
-        "hi": 0.7113499999999999,
+        "mean": 0.6650952380952382,
+        "lo": 0.577327380952381,
+        "hi": 0.7487023809523808,
         "n": 100
       },
       "recall_at_k": {
         "mean": 0.82,
-        "lo": 0.75,
+        "lo": 0.74,
         "hi": 0.89,
         "n": 100
       },
       "timing": {
-        "retrieval_s": 9.81,
-        "generation_s": 116.88,
-        "total_s": 127.02,
+        "retrieval_s": 12.32,
+        "generation_s": 291.32,
+        "total_s": 311.27,
         "n_questions": 100,
-        "cache_hits": 8,
-        "cache_misses": 92
+        "cache_hits": 0,
+        "cache_misses": 100,
+        "prompt_tokens_mean": 1048.53,
+        "prompt_tokens_max": 1359,
+        "prompt_tokens_budget": 1024,
+        "prompts_truncated": 59,
+        "n_prompts": 100
       }
     },
     "tfidf": {
       "em": {
-        "mean": 0.59,
-        "lo": 0.5,
-        "hi": 0.6802499999999998,
+        "mean": 0.71,
+        "lo": 0.61,
+        "hi": 0.8,
         "n": 100
       },
       "f1": {
-        "mean": 0.6641666666666667,
-        "lo": 0.5829958333333333,
-        "hi": 0.7460083333333334,
+        "mean": 0.7663333333333334,
+        "lo": 0.6813166666666667,
+        "hi": 0.8413333333333334,
         "n": 100
       },
       "recall_at_k": {
-        "mean": 0.94,
-        "lo": 0.89,
+        "mean": 0.93,
+        "lo": 0.88,
         "hi": 0.98,
         "n": 100
       },
       "timing": {
-        "retrieval_s": 9.62,
-        "generation_s": 113.62,
-        "total_s": 123.55,
+        "retrieval_s": 19.82,
+        "generation_s": 274.73,
+        "total_s": 295.76,
         "n_questions": 100,
-        "cache_hits": 12,
-        "cache_misses": 88
+        "cache_hits": 0,
+        "cache_misses": 100,
+        "prompt_tokens_mean": 1029.78,
+        "prompt_tokens_max": 1417,
+        "prompt_tokens_budget": 1024,
+        "prompts_truncated": 53,
+        "n_prompts": 100
       }
     },
     "dense": {
       "em": {
-        "mean": 0.49,
-        "lo": 0.39,
-        "hi": 0.59,
+        "mean": 0.67,
+        "lo": 0.58,
+        "hi": 0.76,
         "n": 100
       },
       "f1": {
-        "mean": 0.5589285714285714,
-        "lo": 0.4747577380952381,
-        "hi": 0.6489452380952381,
+        "mean": 0.7234285714285714,
+        "lo": 0.6420869047619048,
+        "hi": 0.803767857142857,
         "n": 100
       },
       "recall_at_k": {
@@ -76,12 +86,17 @@
         "n": 100
       },
       "timing": {
-        "retrieval_s": 1.95,
-        "generation_s": 75.87,
-        "total_s": 78.08,
+        "retrieval_s": 1.79,
+        "generation_s": 263.47,
+        "total_s": 266.05,
         "n_questions": 100,
-        "cache_hits": 46,
-        "cache_misses": 54
+        "cache_hits": 0,
+        "cache_misses": 100,
+        "prompt_tokens_mean": 1042.54,
+        "prompt_tokens_max": 1295,
+        "prompt_tokens_budget": 1024,
+        "prompts_truncated": 59,
+        "n_prompts": 100
       }
     }
   }

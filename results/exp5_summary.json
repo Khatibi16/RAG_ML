@@ -1,15 +1,15 @@
 {
   "rag": {
     "em": {
-      "mean": 0.49,
-      "lo": 0.39,
-      "hi": 0.59,
+      "mean": 0.67,
+      "lo": 0.58,
+      "hi": 0.76,
       "n": 100
     },
     "f1": {
-      "mean": 0.5589285714285714,
-      "lo": 0.4747577380952381,
-      "hi": 0.6489452380952381,
+      "mean": 0.7234285714285714,
+      "lo": 0.6420869047619048,
+      "hi": 0.803767857142857,
       "n": 100
     }
   },
@@ -28,9 +28,9 @@
     }
   },
   "delta_counts": {
-    "helps": 47,
-    "hurts": 0,
-    "ties": 53
+    "helps": 66,
+    "hurts": 1,
+    "ties": 33
   },
   "delta_analysis": [
     {
@@ -59,14 +59,14 @@
         "Sunset Bulevard",
         "Sunset Blvd."
       ],
-      "rag_pred": "The film version of Cats",
+      "rag_pred": "Sunset Boulevard",
       "no_rag_pred": "saturday night s",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -80,7 +80,7 @@
         "Henry Campbell Bannerman",
         "Henry Campbell-Bannerman"
       ],
-      "rag_pred": "Andrew Bonar Law",
+      "rag_pred": "David Lloyd George",
       "no_rag_pred": "henry viii",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -254,14 +254,14 @@
         "history of utah to 1847",
         "utah u s state"
       ],
-      "rag_pred": "Mississippi",
+      "rag_pred": "Utah",
       "no_rag_pred": "california",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -297,14 +297,14 @@
         "Nikkei (disambiguation)",
         "nikkei disambiguation"
       ],
-      "rag_pred": "Nikkei 225 Stock Average",
+      "rag_pred": "Nikkei",
       "no_rag_pred": "yen",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.4,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -459,14 +459,14 @@
         "colour green",
         "green colour"
       ],
-      "rag_pred": "red",
+      "rag_pred": "Green",
       "no_rag_pred": "blue",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -518,7 +518,7 @@
         "george bush president",
         "george bush disambiguation"
       ],
-      "rag_pred": "William Colby",
+      "rag_pred": "Duane Clarridge",
       "no_rag_pred": "john d. harris",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -645,14 +645,14 @@
         "Richard Marx",
         "Richard Noel Marx"
       ],
-      "rag_pred": "Diana Ross",
+      "rag_pred": "Richard Marx",
       "no_rag_pred": "johnny mccartney",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -682,14 +682,14 @@
         "john ford director",
         "john martin o feeney"
       ],
-      "rag_pred": "B-Westerns",
+      "rag_pred": "John Ford",
       "no_rag_pred": "john dylan",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.5,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -786,7 +786,7 @@
         "iso 3166 1 ro",
         "ro country"
       ],
-      "rag_pred": "Laos and Czechoslovakia",
+      "rag_pred": "Soviet Union",
       "no_rag_pred": "switzerland",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -802,14 +802,14 @@
       "gold": [
         "Wild Palms"
       ],
-      "rag_pred": "The Ghost Writer",
+      "rag_pred": "Wild Palms",
       "no_rag_pred": "savages",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -826,7 +826,7 @@
         "fiddler on roof",
         "fiddler on reoof"
       ],
-      "rag_pred": "Fiddler On The Roof",
+      "rag_pred": "Fiddler on the Roof",
       "no_rag_pred": "saturday night live",
       "rag_em": 1.0,
       "no_rag_em": 0.0,
@@ -872,11 +872,11 @@
         "A person",
         "person philosophical"
       ],
-      "rag_pred": "Capote",
+      "rag_pred": "Streckfus Persons",
       "no_rag_pred": "cleveland",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 0.6666666666666666,
       "no_rag_f1": 0.0,
       "recall": 1.0,
       "rag_helps": 0,
@@ -891,14 +891,14 @@
         "Boojum",
         "boojum disambiguation"
       ],
-      "rag_pred": "idiotcy",
+      "rag_pred": "Boojum",
       "no_rag_pred": "a snark",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -969,7 +969,7 @@
         "y hoshia",
         "y hosha"
       ],
-      "rag_pred": "the children of Israel",
+      "rag_pred": "writers of Scripture",
       "no_rag_pred": "adam",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1067,14 +1067,14 @@
         "hess rudolf",
         "rudolf w hess"
       ],
-      "rag_pred": "Hess",
+      "rag_pred": "Rudolf Hess",
       "no_rag_pred": "samuel sadler",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.6666666666666666,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1086,7 +1086,7 @@
         "forty-eight  time",
         "forty eight time"
       ],
-      "rag_pred": "Coming to America",
+      "rag_pred": "Harlem Nights",
       "no_rag_pred": "saturday night live",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1203,15 +1203,15 @@
         "rim basketball",
         "women s hoops"
       ],
-      "rag_pred": "basketball",
+      "rag_pred": "NBA",
       "no_rag_pred": "basketball",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 1.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 1.0,
       "recall": 1.0,
       "rag_helps": 0,
-      "rag_hurts": 0
+      "rag_hurts": 1
     },
     {
       "qid": "tc_559",
@@ -1225,14 +1225,14 @@
         "stars on 45 single",
         "medley intro venus sugar sugar no reply i ll be back drive my car do you want to know secret we can work it out i should have known better nowhere man you re going to lose that girl stars on 45"
       ],
-      "rag_pred": "Bette Davis Eyes",
+      "rag_pred": "Stars on 45 Medley",
       "no_rag_pred": "i love you",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.09302325581395349,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1303,14 +1303,14 @@
         "The Kentuckian",
         "kentuckian"
       ],
-      "rag_pred": "The Fortune Cookie",
+      "rag_pred": "The Kentuckian",
       "no_rag_pred": "saturday night s",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1322,7 +1322,7 @@
         "Underwater life",
         "Undersea"
       ],
-      "rag_pred": "Nepal, China, South America and the Galapagos",
+      "rag_pred": "Bermuda waters",
       "no_rag_pred": "arctic",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1457,7 +1457,7 @@
         "Peruvia",
         "iso 3166 1 pe"
       ],
-      "rag_pred": "jungle and on urban terrorist cells in cities",
+      "rag_pred": "in the Ene-Apurmac valley",
       "no_rag_pred": "Afghanistan",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1491,14 +1491,14 @@
       "gold": [
         "Richard Noble"
       ],
-      "rag_pred": "Ron Ayers",
+      "rag_pred": "Richard Noble",
       "no_rag_pred": "john davy",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1647,14 +1647,14 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "rag_pred": "[3] (The Beach Boys) the Maharishi",
+      "rag_pred": "MC Hammer",
       "no_rag_pred": "scott scott",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1663,14 +1663,14 @@
       "gold": [
         "Triumph and Disaster"
       ],
-      "rag_pred": "the fullness of respect which is accorded thereto",
+      "rag_pred": "Triumph and Disaster",
       "no_rag_pred": "a sailor and a sailor",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.3333333333333333,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1713,7 +1713,7 @@
         "elton h john",
         "elton john s discography"
       ],
-      "rag_pred": "Madonna",
+      "rag_pred": "Led Zeppelin and Pink Floyd",
       "no_rag_pred": "eddie jackson",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1757,7 +1757,7 @@
         "upside down diana ross song",
         "upside down single"
       ],
-      "rag_pred": "Silk Electric",
+      "rag_pred": "\"I'm Coming Out\"",
       "no_rag_pred": "i love you",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -1792,14 +1792,14 @@
         "Hockney",
         "David Hockney"
       ],
-      "rag_pred": "Frederick Delius",
+      "rag_pred": "David Hockney",
       "no_rag_pred": "john dylan",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -1966,14 +1966,14 @@
         "Cartoonistic",
         "Cartoonism"
       ],
-      "rag_pred": "cartoons",
+      "rag_pred": "cartoons published in the Daily Express",
       "no_rag_pred": "a musical",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.33333333333333337,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -1983,7 +1983,7 @@
         "Virginia Wade",
         "Sarah Virginia Wade"
       ],
-      "rag_pred": "Jo Durie",
+      "rag_pred": "Margaret Court",
       "no_rag_pred": "sarah sandler",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2041,14 +2041,14 @@
         "iso 3166 1 ca",
         "canada references"
       ],
-      "rag_pred": "France",
+      "rag_pred": "Canada",
       "no_rag_pred": "ukraine",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -2086,7 +2086,7 @@
         "Edmund Percival Hillary",
         "Edmund Hillary"
       ],
-      "rag_pred": "US Admiral Richard Evelyn Byrd",
+      "rag_pred": "Ernest Shackleton and Edward Wilson",
       "no_rag_pred": "john d. scott",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2225,14 +2225,14 @@
         "wilson carl dean",
         "wilson carl"
       ],
-      "rag_pred": "Carl Wilson",
+      "rag_pred": "Dennis",
       "no_rag_pred": "john d. scott",
-      "rag_em": 1.0,
+      "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 1.0,
+      "rag_f1": 0.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 1,
+      "rag_helps": 0,
       "rag_hurts": 0
     },
     {
@@ -2245,14 +2245,14 @@
         "Colin Lionel Emm",
         "Colin Emm"
       ],
-      "rag_pred": "Ray Combs",
+      "rag_pred": "Richard Dawson",
       "no_rag_pred": "john mccartney",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -2263,7 +2263,7 @@
         "Lèine bhàn",
         "Leine bhan"
       ],
-      "rag_pred": "Greetings trusty scout",
+      "rag_pred": "\"Friend\" to Kema",
       "no_rag_pred": "\"the king of the sands\"",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2321,14 +2321,14 @@
         "all in family",
         "those were days tv pilot"
       ],
-      "rag_pred": "In Sickness and in Health",
+      "rag_pred": "All In The Family",
       "no_rag_pred": "saturday night live",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.25,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -2343,11 +2343,11 @@
         "Historical anniversaries/July 20",
         "historical anniversaries july 20"
       ],
-      "rag_pred": "July 20, 1969",
+      "rag_pred": "21 July 1969",
       "no_rag_pred": "april 17",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.8,
+      "rag_f1": 0.4,
       "no_rag_f1": 0.0,
       "recall": 1.0,
       "rag_helps": 0,
@@ -2469,7 +2469,7 @@
         "10",
         "ten"
       ],
-      "rag_pred": "eight",
+      "rag_pred": "109",
       "no_rag_pred": "three",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2491,7 +2491,7 @@
         "cobb ty",
         "georgia peach"
       ],
-      "rag_pred": "The first peaches were planted in the state in the eighteenth century, Peaches and the first commercial production occurred in the mid-nineteen",
+      "rag_pred": "Elberta",
       "no_rag_pred": "elizabeth e. scott",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
@@ -2896,14 +2896,14 @@
         "nixon richard",
         "nixon s"
       ],
-      "rag_pred": "Richard I",
+      "rag_pred": "Richard Nixon",
       "no_rag_pred": "john f kennedy",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.5,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 0.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -2922,14 +2922,14 @@
         "shine disambiguation",
         "shine song"
       ],
-      "rag_pred": "Fargo",
+      "rag_pred": "Shine",
       "no_rag_pred": "saturday night s",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -2979,14 +2979,14 @@
         "aliens band",
         "alien fictional creature"
       ],
-      "rag_pred": "Dark Star",
+      "rag_pred": "Alien",
       "no_rag_pred": "saturn",
-      "rag_em": 0.0,
+      "rag_em": 1.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.0,
+      "rag_f1": 1.0,
       "no_rag_f1": 0.0,
       "recall": 1.0,
-      "rag_helps": 0,
+      "rag_helps": 1,
       "rag_hurts": 0
     },
     {
@@ -3006,11 +3006,11 @@
         "george s",
         "george disambiguation"
       ],
-      "rag_pred": "George III",
+      "rag_pred": "George III of Great Britain",
       "no_rag_pred": "king charles ii",
       "rag_em": 0.0,
       "no_rag_em": 0.0,
-      "rag_f1": 0.6666666666666666,
+      "rag_f1": 0.33333333333333337,
       "no_rag_f1": 0.0,
       "recall": 1.0,
       "rag_helps": 0,

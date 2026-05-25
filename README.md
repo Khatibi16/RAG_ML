@@ -356,8 +356,24 @@ context or generate overly verbose answers.
 
 **Conditions:**
 - **RAG:** top-5 retrieved passages included in the prompt.
-- **No-RAG (parametric):** no context — the model must answer from its
-  parametric knowledge alone using a minimal prompt.
+- **No-RAG (parametric floor):** no context — the model is given only the
+  question through a minimal `Q: {question}\nA:` cue. This cue was
+  selected from a four-prompt robustness sweep (see notebook §14
+  "Prompt sensitivity of the No-RAG baseline"), in which the spread
+  across reasonable alternatives was only ~5 pp EM. The arm should
+  therefore be read as a **blind-guess floor** for Flan-T5-base on
+  TriviaQA-grade questions — inspection of sample predictions confirms
+  the model produces confidently-shaped but unrelated entity strings
+  (e.g. `"henry viii"` for *"PM after Balfour"*) — not as a measurement
+  of its specific parametric knowledge. Flan-T5-base genuinely lacks
+  these long-tail facts; *that the floor is so low is itself the
+  finding*.
+
+  We report **F1 alongside EM** for this arm: at EM≈0.07 a single
+  question swing is 1 pp, so EM is noisy, whereas F1 retains a
+  partial-credit signal that distinguishes near-misses from total
+  ignorance and is the more stable comparator for the per-question
+  delta analysis below.
 
 **Analysis:**
 Beyond aggregate metrics, we perform a **per-question delta analysis**:
@@ -370,18 +386,19 @@ recall — this lets us test the causal story:
 - **RAG hurts when recall = 1** → answer was retrieved but generator was distracted.
 - **RAG hurts when recall = 0** → retrieval missed entirely; model got wrong context.
 
-> **Caveat — the "RAG hurts" bucket is bounded by the No-RAG baseline.**
-> A question can only end up in "RAG hurts" if No-RAG got it right and RAG
-> got it wrong. With Flan-T5-base's parametric EM near zero on TriviaQA at
-> our default prompt, this bucket is *structurally* small (in our 100-q run
-> it is exactly 0), and the "RAG hurts when recall = 1" / "RAG hurts when
-> recall = 0" decomposition is correspondingly underpowered. The
-> `helps / ties / hurts` split should therefore be read as "where RAG adds
-> value on top of weak parametric memory", not as evidence that RAG never
-> hurts in general. To make the "hurts" analysis meaningful, either raise
-> the No-RAG baseline (a less restrictive no-context prompt, a larger
-> generator) or recast the comparison in F1 / per-question $\Delta$F1, which
-> registers partial-credit regressions that EM ignores.
+> **Caveat — the "RAG hurts" bucket is bounded by the No-RAG floor.**
+> A question can only end up in "RAG hurts" if No-RAG got it right and
+> RAG got it wrong. With the No-RAG floor at EM≈0.07 (see above), the
+> bucket size is upper-bounded at ~7 questions out of 100 — a handful at
+> most — so the further decomposition into "RAG hurts when recall = 1" /
+> "RAG hurts when recall = 0" is essentially unpowered. The
+> `helps / ties / hurts` split should therefore be read as "where RAG
+> adds value on top of a weak parametric floor", not as evidence that
+> RAG rarely hurts in general. The per-question **ΔF1** view
+> (RAG F1 − No-RAG F1) is more informative at this scale because it
+> registers partial-credit regressions that EM cannot; a larger generator
+> (e.g. Flan-T5-large/XL) would also raise the floor and give the
+> decomposition real statistical power.
 
 ---
 
