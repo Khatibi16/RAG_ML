@@ -1,22 +1,22 @@
 {
   "metrics": {
     "em": {
-      "mean": 0.5858585858585859,
-      "lo": 0.47474747474747475,
-      "hi": 0.6767676767676768,
-      "n": 99
+      "mean": 0.19,
+      "lo": 0.11,
+      "hi": 0.26024999999999976,
+      "n": 100
     },
     "f1": {
-      "mean": 0.6560540469631378,
-      "lo": 0.5640092483274302,
-      "hi": 0.7380417814508725,
-      "n": 99
+      "mean": 0.2860578473813768,
+      "lo": 0.2111308982683983,
+      "hi": 0.36511037263390195,
+      "n": 100
     },
     "recall_at_k": {
-      "mean": 1.0,
-      "lo": 1.0,
-      "hi": 1.0,
-      "n": 99
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "n": 100
     }
   },
   "per_example": [
@@ -30,8 +30,7 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_11822",
@@ -45,24 +44,22 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_17752",
-      "prediction": "Jim Laker",
+      "prediction": "Andy Flower",
       "gold": [
         "JIM LAKER",
         "James Laker"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_2689",
-      "prediction": "adapted as a film",
+      "prediction": "a book",
       "gold": [
         "Farthings",
         "Farthing (coin)",
@@ -73,12 +70,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_6199",
-      "prediction": "Vitus",
+      "prediction": "Saints Julius and Aaron",
       "gold": [
         "St Vitus",
         "Saint Guy",
@@ -111,25 +107,23 @@
         "modestus vitus and crescentia saints",
         "monastery of st vito"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.4444444444444445,
+      "recall": 0.0
     },
     {
       "qid": "qg_607",
-      "prediction": "Karl Marx and Friedrich Engels",
+      "prediction": "[1] (The Communist Manifesto) the Cologne Communists in November 1852\"",
       "gold": [
         "Karl Marx and Friedrich Engels"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "bb_912",
-      "prediction": "Jerez de la Frontera",
+      "prediction": "Sherry",
       "gold": [
         "Jerez",
         "Jérez de la Frontera",
@@ -153,14 +147,13 @@
         "jérez de la frontera spain",
         "jerez de la frontera spain"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "dpql_4760",
-      "prediction": "Rangers",
+      "prediction": "[4] (Dumfries) Rangers",
       "gold": [
         "Queen of the South",
         "The Doonhamers",
@@ -180,8 +173,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_22481",
@@ -208,12 +200,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_20557",
-      "prediction": "Boris Johnson",
+      "prediction": "Geoffrey",
       "gold": [
         "Steven Norris",
         "Steve Norris",
@@ -222,12 +213,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "tc_2182",
-      "prediction": "Mae West",
+      "prediction": "[1]",
       "gold": [
         "Mae West",
         "Is that a gun in your pocket, or are you just happy to see me%3F",
@@ -239,26 +229,24 @@
         "when i m bad i m better",
         "when i m good i m very good"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qz_4047",
-      "prediction": "Fancy Dress Shop",
+      "prediction": "costume shop",
       "gold": [
         "A fancy dress shop",
         "fancy dress shop"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.4,
+      "recall": 0.0
     },
     {
       "qid": "qf_1928",
-      "prediction": "wheels",
+      "prediction": "turbines",
       "gold": [
         "Wagons",
         "Wagon",
@@ -274,8 +262,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qw_1225",
@@ -302,12 +289,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "jp_2252",
-      "prediction": "Rio de Janeiro",
+      "prediction": "So Paulo",
       "gold": [
         "Rio de Janeiro",
         "São Sebastião do Rio de Janeiro",
@@ -346,14 +332,13 @@
         "rio brazil",
         "rio de janeiro rio de janeiro"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_7436",
-      "prediction": "Addis Ababa",
+      "prediction": "Ethiopia",
       "gold": [
         "Addis Ababa",
         "Ethiopian Natural History Museum",
@@ -383,14 +368,13 @@
         "addis abba ethiopia",
         "addis ababa et"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.5,
+      "recall": 0.0
     },
     {
       "qid": "sfq_21619",
-      "prediction": "[2]",
+      "prediction": "Hastings",
       "gold": [
         "Handley-Page",
         "Handley Page Ltd",
@@ -409,12 +393,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_10251",
-      "prediction": "Ro de la Plata",
+      "prediction": "Rio de la Plata",
       "gold": [
         "RIVER PLATE",
         "The River Plate (disambiguation)",
@@ -424,22 +407,20 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qb_1448",
-      "prediction": "Boutros Ghali",
+      "prediction": "Ahmad Fuad Mohieddin",
       "gold": [
         "Boutros Ghali",
         "Boutros Ghali Pasha",
         "Boutros, Pasha Ghali",
         "boutros pasha ghali"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "wh_2443",
@@ -542,12 +523,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qb_6004",
-      "prediction": "George VI",
+      "prediction": "Elizabeth II",
       "gold": [
         "King George VI",
         "Albert, Duke of York",
@@ -590,10 +570,9 @@
         "george vi emperor",
         "king george vi of united kingdom"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "tc_1069",
@@ -657,12 +636,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qw_16501",
-      "prediction": "George II",
+      "prediction": "king James I",
       "gold": [
         "George III",
         "George III, King of Great Britain and Ireland",
@@ -700,13 +678,12 @@
         "george third"
       ],
       "em": 0.0,
-      "f1": 0.5,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.3333333333333333,
+      "recall": 0.0
     },
     {
       "qid": "wh_3301",
-      "prediction": "William Tell",
+      "prediction": "[5] (Gioachino Rossini)",
       "gold": [
         "WILLIAM TELL",
         "There But for the Grace of Grace",
@@ -904,22 +881,20 @@
         "last of really odd lovers",
         "i artificial insemination"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_4949",
-      "prediction": "[1]",
+      "prediction": "[1] (Sing a Song of Sixpence) house, Counting out his money; The queen was in the parlour,",
       "gold": [
         "Sing a Song of Sixpence",
         "sing song of sixpence"
       ],
       "em": 0.0,
-      "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.4444444444444445,
+      "recall": 0.0
     },
     {
       "qid": "odql_8301",
@@ -939,8 +914,7 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "dpql_206",
@@ -964,12 +938,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "bb_1493",
-      "prediction": "perfume",
+      "prediction": "jewelry company",
       "gold": [
         "Perfume",
         "Extrait de Parfum",
@@ -992,14 +965,13 @@
         "Perfumingly",
         "men s fragrance"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_19603",
-      "prediction": "Gingerbread",
+      "prediction": "Influential Woman in Britain",
       "gold": [
         "GINGERBREAD",
         "Gingerbreads",
@@ -1010,14 +982,13 @@
         "Ginger cake",
         "Gingercake"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_16378",
-      "prediction": "Alfred Lord Tennyson",
+      "prediction": "the longest period",
       "gold": [
         "Alfred Lord Tennyson",
         "A. tennyson",
@@ -1041,14 +1012,13 @@
         "alfred tennyson lord tennyson",
         "alfred tennyson 1st baron tennyson"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_6288",
-      "prediction": "aprile",
+      "prediction": "giugno",
       "gold": [
         "June",
         "㋅",
@@ -1062,36 +1032,33 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qf_277",
-      "prediction": "Corporal Jones",
+      "prediction": "William Simpson \"Bill\" Fraser",
       "gold": [
         "Snudge"
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "wh_817",
-      "prediction": "Ares",
+      "prediction": "Kratos",
       "gold": [
         "ARES",
         "Ares (disambiguation)",
         "ares disambiguation"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_3290",
-      "prediction": "the molecular structure of nucleic acids",
+      "prediction": "the molecular structure of nucleic acids and its significance for information transfer in living material",
       "gold": [
         "DNA structure",
         "RNA Structure",
@@ -1101,9 +1068,8 @@
         "DNA bubble"
       ],
       "em": 0.0,
-      "f1": 0.5,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.23529411764705882,
+      "recall": 0.0
     },
     {
       "qid": "odql_3663",
@@ -1130,12 +1096,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qb_1414",
-      "prediction": "falconry",
+      "prediction": "Falconry",
       "gold": [
         "Falconry",
         "Austringer",
@@ -1149,12 +1114,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qb_2020",
-      "prediction": "moon",
+      "prediction": "all terrestrial planets",
       "gold": [
         "The moon",
         "Sol 3a",
@@ -1203,14 +1167,13 @@
         "luna natural satellite",
         "earth s natural satellites"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "bb_3952",
-      "prediction": "abortions after 20 weeks of pregnancy, require abortion clinics",
+      "prediction": "a budget bill that cut $4 billion from public education in the state",
       "gold": [
         "Abortion",
         "Abortion, Physical Effects of",
@@ -1250,9 +1213,8 @@
         "elective termination of pregnancy"
       ],
       "em": 0.0,
-      "f1": 0.3636363636363636,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.14285714285714288,
+      "recall": 0.0
     },
     {
       "qid": "tc_2090",
@@ -1267,8 +1229,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "odql_10047",
@@ -1287,8 +1248,7 @@
       ],
       "em": 0.0,
       "f1": 0.8,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_7781",
@@ -1300,26 +1260,24 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_21320",
-      "prediction": "Gorky",
+      "prediction": "the administrative center of the oblast",
       "gold": [
         "GORKY",
         "Gorkiy",
         "Gorky (disambiguation)",
         "gorky disambiguation"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "wh_267",
-      "prediction": "Italy",
+      "prediction": "Sicilian",
       "gold": [
         "GIGLIO",
         "Giglio (disambiguation)",
@@ -1327,8 +1285,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "bb_8041",
@@ -1363,8 +1320,7 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_23344",
@@ -1385,12 +1341,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "odql_9681",
-      "prediction": "[2] (House of Commons of the United Kingdom) Mace is laid upon the Table of the House during sittings",
+      "prediction": "[1]",
       "gold": [
         "'HANSARD'",
         "Hansard",
@@ -1405,12 +1360,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "wh_4276",
-      "prediction": "Sarah",
+      "prediction": "[1] (Isaac - Definition and Meaning, Bible Dictionary) mother, who is not merely of the same stock as Abraham but",
       "gold": [
         "SARAH",
         "Colonel Briggs (Eureka character)",
@@ -1465,10 +1419,9 @@
         "zoe carter eureka character",
         "henry deacon eureka character"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0909090909090909,
+      "recall": 0.0
     },
     {
       "qid": "odql_14990",
@@ -1504,12 +1457,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "odql_12335",
-      "prediction": "Eugène Delacroix",
+      "prediction": "Delacroix",
       "gold": [
         "(Eugene) Delacroix",
         "Delacroix, Ferdinand-Victor-Eugène",
@@ -1533,14 +1485,13 @@
         "delacroix ferdinand victor eugene",
         "delacroix ferdinand victor eugène"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.6666666666666666,
+      "recall": 0.0
     },
     {
       "qid": "jp_657",
-      "prediction": "well",
+      "prediction": "the well",
       "gold": [
         "a Well",
         "The Well (album)",
@@ -1555,12 +1506,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "dpql_5066",
-      "prediction": "Dover, Wight, Portland, and Plymouth",
+      "prediction": "Hammer, Thames. Southeast veering southwest 4 or 5, occasionally 6 later. Thundery showers. Moderate or good, occasionally poor.\"",
       "gold": [
         "Trafalgar",
         "Trafalgar (disambiguation)",
@@ -1571,12 +1521,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_23329",
-      "prediction": "STATIONER",
+      "prediction": "Blacksmiths",
       "gold": [
         "Tanner",
         "Tanner (name)",
@@ -1586,8 +1535,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "bb_5774",
@@ -1601,12 +1549,11 @@
       ],
       "em": 0.0,
       "f1": 0.4,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_14566",
-      "prediction": "[2] (Moroni, Comoros)",
+      "prediction": "Grande Comore",
       "gold": [
         "COMOROS",
         "Federal Islamic Republic of the Comoros",
@@ -1648,13 +1595,12 @@
         "al ittiḥād al qumuriyy"
       ],
       "em": 0.0,
-      "f1": 0.5,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "dpql_2596",
-      "prediction": "Dover",
+      "prediction": "Bath",
       "gold": [
         "Dover",
         "Dover RFC",
@@ -1669,10 +1615,9 @@
         "dover england",
         "dover kent"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qw_8348",
@@ -1734,12 +1679,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qw_13550",
-      "prediction": "Brian Lara",
+      "prediction": "Ramnaresh Sarwan",
       "gold": [
         "Matthew Hayden",
         "Mathew Hayden",
@@ -1750,8 +1694,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_19424",
@@ -1766,12 +1709,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "dpql_5817",
-      "prediction": "Three Men and a Baby",
+      "prediction": "Three Men and a Cradle",
       "gold": [
         "THREE MEN AND A BABY",
         "3 Men and a Baby",
@@ -1782,14 +1724,24 @@
         "peter mitchell three men and baby",
         "three men and baby"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.75,
+      "recall": 0.0
+    },
+    {
+      "qid": "qw_13630",
+      "prediction": "Walk On The Wild Side",
+      "gold": [
+        "Holly came from Miami F L A",
+        "holly came from miami f l"
+      ],
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_10149",
-      "prediction": "yellow",
+      "prediction": "black",
       "gold": [
         "Yellow",
         "Yellowest",
@@ -1816,14 +1768,13 @@
         "yellow colour",
         "255 255 0"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "bb_3998",
-      "prediction": "South Vietnamese Army",
+      "prediction": "North Vietnamese Army",
       "gold": [
         "New Year",
         "New-year",
@@ -1838,8 +1789,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "odql_13385",
@@ -1849,25 +1799,23 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_13317",
-      "prediction": "Northern line",
+      "prediction": "Tottenham Court Road",
       "gold": [
         "Northern",
         "Northern (disambiguation)",
         "northern disambiguation"
       ],
       "em": 0.0,
-      "f1": 0.6666666666666666,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "odql_5188",
-      "prediction": "George H.W. Bush",
+      "prediction": "George H. W. Bush",
       "gold": [
         "BILL CLINTON",
         "US President Bill Clinton",
@@ -1932,12 +1880,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qb_9577",
-      "prediction": "Edmund",
+      "prediction": "Rowan",
       "gold": [
         "Edmund",
         "Eadmund",
@@ -1946,23 +1893,21 @@
         "eadmund disambiguation",
         "edmund given name"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qf_85",
-      "prediction": "Jeff Christie",
+      "prediction": "Jigsaw from Melbourne and Autumn from Sydney both had success with cover versions",
       "gold": [
         "Christie",
         "Christie (disambiguation)",
         "christie disambiguation"
       ],
       "em": 0.0,
-      "f1": 0.6666666666666666,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "odql_14848",
@@ -1976,12 +1921,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_12214",
-      "prediction": "closed system",
+      "prediction": "Endangered Species Act",
       "gold": [
         "Space",
         "Spacial",
@@ -1998,12 +1942,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_20339",
-      "prediction": "Gingerbread",
+      "prediction": "Turn2us",
       "gold": [
         "Gingerbread",
         "Gingerbreads",
@@ -2014,14 +1957,13 @@
         "Ginger cake",
         "Gingercake"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "bt_4210",
-      "prediction": "Aston Villa",
+      "prediction": "Tottenham Hotspur",
       "gold": [
         "Aston Villa",
         "Aston Villa F.C",
@@ -2036,10 +1978,9 @@
         "Aston Villa Hall of Fame",
         "Aston Villa F.C."
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qz_2289",
@@ -2059,8 +2000,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qz_3152",
@@ -2108,23 +2048,21 @@
       ],
       "em": 0.0,
       "f1": 0.8,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "odql_206",
-      "prediction": "Neptune",
+      "prediction": "Uranus",
       "gold": [
         "NEPTUNE"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qz_611",
-      "prediction": "Huey, Dewey, and Louis Duck",
+      "prediction": "[1] (Duck family (Disney)) and Louie",
       "gold": [
         "Huey, Dewey and Louie",
         "Huey, Louie and Dewey",
@@ -2165,13 +2103,12 @@
         "huey dewey louie"
       ],
       "em": 0.0,
-      "f1": 0.8000000000000002,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.5454545454545454,
+      "recall": 0.0
     },
     {
       "qid": "qg_547",
-      "prediction": "Costco",
+      "prediction": "Random House, Inc.",
       "gold": [
         "Costco",
         "Costco.com",
@@ -2195,14 +2132,13 @@
         "costco co",
         "price costco"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.4,
+      "recall": 0.0
     },
     {
       "qid": "bt_4413",
-      "prediction": "John Entwistle",
+      "prediction": "[1] (John Entwistle)",
       "gold": [
         "John Entwhistle",
         "John Entwistle's",
@@ -2215,14 +2151,13 @@
         "bogey man song",
         "john entwistle s"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.8,
+      "recall": 0.0
     },
     {
       "qid": "sfq_10376",
-      "prediction": "Tony Blair",
+      "prediction": "Blair",
       "gold": [
         "Tony Blair",
         "Rt Hon Anthony Blair MP",
@@ -2267,14 +2202,13 @@
         "tony blair s private life",
         "rt hon anthony charles lynton blair"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.6666666666666666,
+      "recall": 0.0
     },
     {
       "qid": "sfq_8726",
-      "prediction": "towers",
+      "prediction": "[2]",
       "gold": [
         "BASCULE",
         "Bascule (disambiguation)",
@@ -2282,8 +2216,7 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "dpql_345",
@@ -2296,12 +2229,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qw_6697",
-      "prediction": "a fraction bar",
+      "prediction": "[4]",
       "gold": [
         "Solidus",
         "Solidus Line",
@@ -2310,12 +2242,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_15113",
-      "prediction": "green",
+      "prediction": "black",
       "gold": [
         "Green",
         "Greenishly",
@@ -2340,14 +2271,13 @@
         "colour green",
         "green colour"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qz_6186",
-      "prediction": "Faggot",
+      "prediction": "potato pancakes",
       "gold": [
         "Faggots",
         "Fagget",
@@ -2374,10 +2304,9 @@
         "faggot disambiguation",
         "faggot stitch"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_17706",
@@ -2405,21 +2334,19 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "wh_2999",
-      "prediction": "Krypton",
+      "prediction": "[1]",
       "gold": [
         "KRYPTON",
         "KRYPTON (Programming Language)",
         "KRYPTON programming language"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_13492",
@@ -2429,25 +2356,23 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_19838",
-      "prediction": "Amadeus",
+      "prediction": "The Royal Hunt Of The Sun",
       "gold": [
         "AMADEUS",
         "Amadeus (play)",
         "amadeus play"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "dpql_5620",
-      "prediction": "San Francisco",
+      "prediction": "SFPD",
       "gold": [
         "San Francisco",
         "San Fransciso",
@@ -2549,14 +2474,13 @@
         "san francisco county california",
         "hamlin school"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "odql_14427",
-      "prediction": "Baileys Women's Prize for Fiction",
+      "prediction": "the Baileys Women's Prize for Fiction",
       "gold": [
         "THE ORANGE PRIZE",
         "Baileys Women's Prize for Fiction",
@@ -2570,8 +2494,7 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "bb_7609",
@@ -2611,12 +2534,11 @@
       ],
       "em": 0.0,
       "f1": 0.28571428571428575,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qz_1725",
-      "prediction": "Steve Bing",
+      "prediction": "Arun Nayar",
       "gold": [
         "Stephen Bing",
         "Steve bing",
@@ -2624,40 +2546,37 @@
         "Steven Bing",
         "shangri la entertainment"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qb_1030",
-      "prediction": "Phar Lap",
+      "prediction": "Makybe Diva",
       "gold": [
         "Phar Lap",
         "Pharlap",
         "Phar"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "sfq_3798",
-      "prediction": "Clyde",
+      "prediction": "Clydebank",
       "gold": [
         "Clyde",
         "Clyde (disambiguation)",
         "clyde disambiguation"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "bb_5000",
-      "prediction": "the area to go West",
+      "prediction": "Los Angeles",
       "gold": [
         "America",
         "The United States of America",
@@ -2855,9 +2774,8 @@
         "u –s"
       ],
       "em": 0.0,
-      "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.4,
+      "recall": 0.0
     },
     {
       "qid": "qz_5801",
@@ -2902,12 +2820,11 @@
       ],
       "em": 1.0,
       "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "qf_630",
-      "prediction": "Utya",
+      "prediction": "Svalbard",
       "gold": [
         "Utoya Island",
         "Utoeya island",
@@ -2918,12 +2835,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "dpql_5208",
-      "prediction": "turtle",
+      "prediction": "a giant turtle",
       "gold": [
         "DISCWORLD",
         "Great Atuin (Discworld)",
@@ -2972,13 +2888,12 @@
         "discworld world"
       ],
       "em": 0.0,
-      "f1": 0.6666666666666666,
-      "recall": 1.0,
-      "n_distractors": 1
+      "f1": 0.5,
+      "recall": 0.0
     },
     {
       "qid": "qb_4235",
-      "prediction": "Bulls Eye",
+      "prediction": "Oliver Twist",
       "gold": [
         "Bulls Eye",
         "Bullseye (disambiguation)",
@@ -2988,10 +2903,9 @@
         "bullseye disambiguation",
         "bullseye game show"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     },
     {
       "qid": "qg_2410",
@@ -3046,12 +2960,11 @@
       ],
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "recall": 0.0
     },
     {
       "qid": "sfq_18732",
-      "prediction": "Interlaken",
+      "prediction": "Meiringen",
       "gold": [
         "Interlaken",
         "Interlaken (Bern)",
@@ -3062,18 +2975,22 @@
         "interlaken bern",
         "interlaken berne"
       ],
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_distractors": 1
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0
     }
   ],
-  "n_included": 99,
-  "n_excluded": 1,
-  "n_distractors": 1,
+  "n_included": 100,
+  "n_no_negs": 0,
+  "k": 5,
   "timing": {
-    "n_questions": 99,
+    "n_questions": 100,
     "cache_hits": 0,
-    "cache_misses": 99
+    "cache_misses": 100
+  },
+  "vs_no_rag": {
+    "helps": 18,
+    "hurts": 0,
+    "ties": 82
   }
 }
