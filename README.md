@@ -138,6 +138,7 @@ organised into the following sections:
 | §17b Experiment 9 | Controlled-distraction experiment (recall held at 1, gold position fixed) |
 | §17d Experiment 10 | Embedding-model comparison (dense bi-encoder ablation) |
 | §17e Experiment 11 | Forced retrieval miss (recall held at 0) — mirror of Exp 9 |
+| §17f Experiment 12 | Generator-size sweep (RAG vs No-RAG across Flan-T5 small/base/large) |
 | §17c Paired significance | McNemar + paired-bootstrap tests across shared-question contrasts |
 | §18 Analysis | Generates all figures from the saved JSON results |
 
@@ -730,6 +731,34 @@ helps/hurts/ties split vs the No-RAG floor.
 
 ---
 
+### Exp 12 — Generator-Size Sweep (RAG vs No-RAG)
+
+**Fixed:** retriever = Dense, chunk size = 128, k = 5, prompt = "instructed",
+corpus fixed. **Variable:** generator ∈ `config.GENERATOR_MODELS`
+(`flan-t5-small` ≈ 80M, `flan-t5-base` ≈ 250M, `flan-t5-large` ≈ 780M).
+
+**Why.** Experiment 5 measured the RAG−No-RAG gap at a single scale
+(base, No-RAG floor ~0.01). The project's central thesis — *retrieval helps
+most when parametric memory is weak* — is a claim about how that gap **moves
+with model scale**, which a single point cannot show. This experiment repeats
+*only the Exp 5 conditions* (RAG dense k=5, and No-RAG) at each scale.
+
+**Efficiency.** Retrieval and embeddings are generator-independent, so the
+dense index is built **once** and only *generation* is repeated per model. The
+generation cache is keyed by *model + prompt* (§7) so the runs never collide;
+the `base` row reproduces Exp 5 exactly (consistency check).
+
+**Hypothesis.** The No-RAG EM rises with scale (more parametric knowledge)
+while RAG rises more slowly (already near the retrieval/generation ceiling), so
+**ΔEM = RAG − No-RAG shrinks** as the model grows. The No-RAG prompt is the
+dev-selected `qa_cue` (§12b) reused across scales; a per-model re-selection is
+left to future work.
+
+**Measurement:** No-RAG EM, RAG EM, ΔEM (and F1) per model, plus the Exp-5-style
+helps/hurts/ties split at each scale.
+
+---
+
 ## 6. Evaluation Metrics
 
 All metrics follow the SQuAD / TriviaQA evaluation convention exactly.
@@ -858,8 +887,9 @@ on the identical question set, we add two **paired** tests (notebook §17c,
 - Maximum new tokens: 32
 - Device: auto-detected (MPS → CUDA → CPU)
 - All generation results cached to `data/cache/generation_cache.json`,
-  keyed by MD5 of the *final* rendered prompt so changing the budget
-  invalidates exactly the affected entries.
+  keyed by MD5 of the **generator model name + the *final* rendered prompt**,
+  so different generator sizes (Experiment 12) never collide in the shared
+  cache and changing the budget invalidates exactly the affected entries.
 
 We choose Flan-T5-base because:
 1. It is instruction-tuned, so it follows prompt directives reliably.
@@ -919,7 +949,7 @@ Everything runs from the single notebook `project.ipynb`: open it and run all
 cells top to bottom (in Jupyter / VS Code, or
 `jupyter nbconvert --to notebook --execute project.ipynb`). This will:
 1. Download TriviaQA (first run only; cached to `data/cache/` afterwards).
-2. Run all 9 experiments (plus the paired-significance tests) sequentially,
+2. Run all experiments 1–12 (plus the paired-significance tests) sequentially,
    saving results JSON to `results/`.
 3. Generate every figure into `figures/` (300 dpi PNG).
 
@@ -943,7 +973,10 @@ delete that file to avoid replaying stale answers.
 - Data loading: 5–15 min first time (the `rc` dataset is large); <10 s from cache afterwards.
 - Dense embedding (across chunk sizes, including the chunk=48 index for Exp 3): ~3–8 min.
 - Generation (100 questions × ~25 conditions across all experiments): ~15–30 min on CPU, faster on MPS/CUDA. Cache keeps re-runs cheap.
-- Total first end-to-end run: ~30–45 min.
+- Experiment 12 adds a generator-size sweep: `flan-t5-small` is fast, but
+  `flan-t5-large` (~780M, ~3 GB) downloads on first run and is ~3–5× slower
+  than base on CPU — budget an extra ~15–30 min on CPU (much less on MPS/CUDA).
+- Total first end-to-end run: ~45–75 min (with the Exp 12 large-model sweep).
 
 To run at "report scale", bump `config.NUM_QUESTIONS` to 500 or 1000 and
 optionally raise `MAX_SEARCH_RESULTS_PER_Q`; runtime scales roughly linearly
@@ -953,7 +986,8 @@ with both.
 
 Each experiment is a self-contained function in the notebook (`experiment_1`,
 …, `experiment_9_distraction`, `experiment_10_embedding_models`,
-`experiment_11_forced_miss`). After running the setup cells (config, corpus
+`experiment_11_forced_miss`, `experiment_12_generator_scale`). After running
+the setup cells (config, corpus
 load, generator) — and, for the No-RAG arm, the dev-split prompt-selection cell
 (§12b) — call just the one you want, e.g.
 `experiment_5(questions, corpus_docs, generator)`. The paired-significance
@@ -1179,10 +1213,34 @@ parametric floor. (ii) A *topically related* but answer-free context, wrapped
 in the instructed RAG scaffold, actually *primes* parametric recall (0.01 →
 0.19). **Caveat:** the `ForcedMiss − No-RAG` contrast is confounded — No-RAG
 uses the bare `Q:/A:` cue while forced-miss uses the richer instructed prompt
-*and* topical context, so it does not cleanly isolate "wrong context." A
-format-matched baseline (instructed prompt with *empty* context) is needed to
-separate the prompt-scaffold effect from the topical-priming effect — see
-*Next steps*.
+*and* topical context, so it does not cleanly isolate "wrong context."
+
+> **Update — matched baseline added.** The notebook now also scores a
+> **format-matched no-context** arm (`exp11_matched_no_context`): the *same*
+> instructed scaffold as the forced-miss arm but with an **empty** context,
+> on the same questions. This decomposes the effect cleanly —
+> `forced-miss − matched` is the pure topical-wrong-context effect (prompt
+> format held fixed), and `matched − No-RAG` is the scaffold-only effect. A
+> `ForcedMiss − InstrNoCtx` paired contrast is added to the §10 table.
+> Numbers populate on the next Exp 11 run.
+
+### Experiment 12 — Generator-Size Sweep (RAG vs No-RAG)
+
+> **Pending — not yet run.** Added after the last end-to-end run; its
+> `results/exp12_*.json` and `figures/fig15_generator_scale.png` populate on
+> the next run (note: first run downloads `flan-t5-large`, ~3 GB). Expected
+> shape — the RAG−No-RAG gap should *shrink* as the generator grows:
+>
+> | Generator | No-RAG EM | RAG EM | ΔEM |
+> |---|---|---|---|
+> | `flan-t5-small` | _pending_ | _pending_ | _pending_ |
+> | `flan-t5-base`  | 0.01 (= Exp 5) | 0.59 (= Exp 5) | +0.58 |
+> | `flan-t5-large` | _pending_ | _pending_ | _pending_ |
+>
+> The `base` row will match Experiment 5 exactly (consistency check). If the
+> gap narrows monotonically, it confirms "retrieval helps most when parametric
+> memory is weak"; if `small` also has a low floor and `large` a much higher
+> one, the thesis is supported quantitatively.
 
 ### Paired significance (same questions; McNemar on EM, paired bootstrap on deltas)
 
@@ -1196,6 +1254,9 @@ separate the prompt-scaffold effect from the topical-priming effect — see
 | Dense+Rerank − e5-Dense | +0.020 | 0.7266 | 5/3  | +0.044 | [+0.005, +0.089] | 0.0238 |
 | Oracle − RAG            | +0.010 | 1.0000 | 1/0  | +0.013 | [−0.002, +0.037] | 0.1260 |
 | ForcedMiss − No-RAG     | +0.180 | 0.0000 | 18/0 | +0.228 | [+0.153, +0.307] | 0.0000 |
+
+A `ForcedMiss − InstrNoCtx` row (the clean wrong-context isolation from fix 1)
+will join this table on the next Exp 11 run.
 
 Reading the table: **three contrasts are statistically distinguishable** at
 n = 100 — RAG vs No-RAG (huge), ForcedMiss vs No-RAG (large; but see the Exp 11
@@ -1225,7 +1286,8 @@ Figures in `figures/`:
 | `fig11_distraction.png`         | EM / F1 / Recall@k vs number of hard non-gold distractors, recall held at 1 (Exp 9) |
 | `fig12_significance.png`        | Table of paired tests (McNemar on EM, paired bootstrap on EM/F1 deltas) |
 | `fig13_embedding_models.png`    | EM + F1 + Recall@5 across dense embedding models (Exp 10) |
-| `fig14_forced_miss.png`         | EM + F1: No-RAG / Forced-miss (non-gold ctx) / RAG (Exp 11) |
+| `fig14_forced_miss.png`         | EM + F1: No-RAG / matched (instr, empty ctx) / Forced-miss / RAG (Exp 11) |
+| `fig15_generator_scale.png`     | EM grouped bars: No-RAG vs RAG across Flan-T5 small/base/large (Exp 12) |
 
 ---
 
