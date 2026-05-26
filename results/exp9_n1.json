@@ -7,9 +7,9 @@
       "n": 100
     },
     "f1": {
-      "mean": 0.6336666666666667,
-      "lo": 0.5406416666666667,
-      "hi": 0.7220166666666666,
+      "mean": 0.6327142857142857,
+      "lo": 0.5447059523809524,
+      "hi": 0.7240488095238095,
       "n": 100
     },
     "recall_at_k": {
@@ -670,12 +670,12 @@
     },
     {
       "qid": "tc_304",
-      "prediction": "[1]",
+      "prediction": "Wild Palms",
       "gold": [
         "Wild Palms"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -823,7 +823,7 @@
     },
     {
       "qid": "tc_455",
-      "prediction": "[2] (Coolio — Gangsta's Paradise — Listen, watch, download and ...) (1995)",
+      "prediction": "[1] (Coolio — Gangsta's Paradise — Listen, watch, download and ...) (1995) (starring",
       "gold": [
         "Dangerous Minds",
         "Dangerous Minds (film)",
@@ -901,7 +901,7 @@
     },
     {
       "qid": "tc_518",
-      "prediction": "Beverly Hills Cop 2",
+      "prediction": "Mr. Robinson",
       "gold": [
         "48 Hours",
         "48 time",
@@ -1294,7 +1294,7 @@
     },
     {
       "qid": "tc_665",
-      "prediction": "ERP",
+      "prediction": "[2] (Marshall Plan) rescue program",
       "gold": [
         "Marshall Plan",
         "European Recovery Programme",
@@ -1312,7 +1312,7 @@
         "Operation Rathole"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.5714285714285715,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "qid": "tc_687",
-      "prediction": "Hammer",
+      "prediction": "MC Hammer",
       "gold": [
         "MC Hammer",
         "M. C. Hammer",
@@ -1374,8 +1374,8 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "em": 0.0,
-      "f1": 0.6666666666666666,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "qid": "tc_715",
-      "prediction": "I Love You",
+      "prediction": "Upside Down",
       "gold": [
         "Upside Down",
         "Upside Down (Diana Ross song)",
@@ -1464,8 +1464,8 @@
         "upside down diana ross song",
         "upside down single"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -1484,13 +1484,13 @@
     },
     {
       "qid": "tc_723",
-      "prediction": "David Hockney",
+      "prediction": "Frederick Delius",
       "gold": [
         "Hockney",
         "David Hockney"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -1676,7 +1676,7 @@
     },
     {
       "qid": "tc_841",
-      "prediction": "Canada",
+      "prediction": "Vancouver",
       "gold": [
         "Canada",
         "Canadá",
@@ -1703,8 +1703,8 @@
         "iso 3166 1 ca",
         "canada references"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -1725,7 +1725,7 @@
     },
     {
       "qid": "tc_866",
-      "prediction": "Edward Elgar",
+      "prediction": "Edward Wilson",
       "gold": [
         "Edmond Hillary",
         "Sir Edmund Hillary",
@@ -2158,7 +2158,7 @@
     },
     {
       "qid": "tc_1068",
-      "prediction": "beekeeping",
+      "prediction": "a holistic health philosophy",
       "gold": [
         "Bee Keeping",
         "Bee keeper",
@@ -2176,8 +2176,8 @@
         "Apiarian",
         "History of beekeeping"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 1
     },
@@ -2529,7 +2529,7 @@
   "n_distractors": 1,
   "timing": {
     "n_questions": 100,
-    "cache_hits": 4,
-    "cache_misses": 96
+    "cache_hits": 47,
+    "cache_misses": 53
   }
 }

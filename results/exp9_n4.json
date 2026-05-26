@@ -1,15 +1,15 @@
 {
   "metrics": {
     "em": {
-      "mean": 0.47,
-      "lo": 0.37975000000000025,
-      "hi": 0.57,
+      "mean": 0.53,
+      "lo": 0.43,
+      "hi": 0.63,
       "n": 100
     },
     "f1": {
-      "mean": 0.5232828282828282,
-      "lo": 0.4331502525252525,
-      "hi": 0.6193159090909091,
+      "mean": 0.584047619047619,
+      "lo": 0.49638095238095237,
+      "hi": 0.6770166666666666,
       "n": 100
     },
     "recall_at_k": {
@@ -274,7 +274,7 @@
     },
     {
       "qid": "tc_149",
-      "prediction": "1958",
+      "prediction": "mid-40's",
       "gold": [
         "1930s",
         "1930’s",
@@ -581,7 +581,7 @@
     },
     {
       "qid": "tc_282",
-      "prediction": "The Beach Boys",
+      "prediction": "Pink Floyd",
       "gold": [
         "Pink Floyd",
         "Grey Floyd",
@@ -615,8 +615,8 @@
         "tea set",
         "t set"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -700,7 +700,7 @@
     },
     {
       "qid": "tc_349",
-      "prediction": "on the Bounty",
+      "prediction": "Mutiny on the \"Bounty\"",
       "gold": [
         "Mutiny On The Bounty",
         "HMS Bounty mutineers",
@@ -711,8 +711,8 @@
         "mutiny on bounty history",
         "bounty vessel"
       ],
-      "em": 0.0,
-      "f1": 0.8,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -736,7 +736,7 @@
     },
     {
       "qid": "tc_397",
-      "prediction": "a Boojum",
+      "prediction": "Boojum",
       "gold": [
         "A boojum",
         "Boojum (disambiguation)",
@@ -750,7 +750,7 @@
     },
     {
       "qid": "tc_453",
-      "prediction": "Gibeon; and thou, Moon, in the valley of Ajalon.",
+      "prediction": "the people",
       "gold": [
         "Joshua",
         "Joshua of ephraim",
@@ -817,13 +817,13 @@
         "y hosha"
       ],
       "em": 0.0,
-      "f1": 0.18181818181818182,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_455",
-      "prediction": "Amish Paradise",
+      "prediction": "[3] (Dangerous Minds)",
       "gold": [
         "Dangerous Minds",
         "Dangerous Minds (film)",
@@ -832,7 +832,7 @@
         "dangerous minds film"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.8,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -901,7 +901,7 @@
     },
     {
       "qid": "tc_518",
-      "prediction": "Beverly Hills Cop 2",
+      "prediction": "Mr. Robinson, prison poet Tyrone Green, and the Little Rascals' Buckwheat",
       "gold": [
         "48 Hours",
         "48 time",
@@ -915,7 +915,7 @@
     },
     {
       "qid": "tc_538",
-      "prediction": "J.G. Ballard",
+      "prediction": "J. G. Ballard",
       "gold": [
         "J. G. Ballard",
         "JG Ballard",
@@ -1017,7 +1017,7 @@
     },
     {
       "qid": "tc_559",
-      "prediction": "\"Stars on 45 Medley\"",
+      "prediction": "Stars on 45 Medley",
       "gold": [
         "Stars on 45 medley",
         "Stars on 45 (Single)",
@@ -1090,19 +1090,19 @@
     },
     {
       "qid": "tc_564",
-      "prediction": "The Odd Couple",
+      "prediction": "The Kentuckian",
       "gold": [
         "The Kentuckian",
         "kentuckian"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_585",
-      "prediction": "the bottom of Cotuit Harbor in Massachusetts",
+      "prediction": "the ocean",
       "gold": [
         "Underwater",
         "Under water",
@@ -1250,7 +1250,7 @@
     },
     {
       "qid": "tc_664",
-      "prediction": "Virginia",
+      "prediction": "Massachusetts",
       "gold": [
         "Virginia",
         "US-VA",
@@ -1287,14 +1287,14 @@
         "virginia state",
         "virginia u s state"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_665",
-      "prediction": "[3] (The Marshall Plan - Rebuilding Western Europe after WW2)",
+      "prediction": "[2] (Marshall Plan) rescue program",
       "gold": [
         "Marshall Plan",
         "European Recovery Programme",
@@ -1312,7 +1312,7 @@
         "Operation Rathole"
       ],
       "em": 0.0,
-      "f1": 0.4,
+      "f1": 0.5714285714285715,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "qid": "tc_687",
-      "prediction": "[3] (Too Legit to Quit)",
+      "prediction": "MC Hammer",
       "gold": [
         "MC Hammer",
         "M. C. Hammer",
@@ -1374,19 +1374,19 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "em": 0.0,
-      "f1": 0.22222222222222224,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_690",
-      "prediction": "those otherwise intoxicated with mere appearances",
+      "prediction": "triumph and disaster",
       "gold": [
         "Triumph and Disaster"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -1484,13 +1484,13 @@
     },
     {
       "qid": "tc_723",
-      "prediction": "Roger Cecil",
+      "prediction": "David Hockney",
       "gold": [
         "Hockney",
         "David Hockney"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -1710,7 +1710,7 @@
     },
     {
       "qid": "tc_847",
-      "prediction": "...)",
+      "prediction": "Famous Players-Lasky Corporation",
       "gold": [
         "Famous Players Film Company",
         "Raleigh Studios",
@@ -1719,13 +1719,13 @@
         "famous players"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.4,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_866",
-      "prediction": "Edward Wilson",
+      "prediction": "Richard E. Byrd",
       "gold": [
         "Edmond Hillary",
         "Sir Edmund Hillary",
@@ -1847,7 +1847,7 @@
     },
     {
       "qid": "tc_888",
-      "prediction": "Dennis",
+      "prediction": "Brian",
       "gold": [
         "Carl Wilson",
         "Carl Wilson discography",
@@ -1892,7 +1892,7 @@
     },
     {
       "qid": "tc_938",
-      "prediction": "an older Ben. Ben as a full-grown adult was played primarily by Bruno, who also was the main bear playing Ben in the TV series.",
+      "prediction": "an older Ben",
       "gold": [
         "Bear cub",
         "Ursine",
@@ -1914,7 +1914,7 @@
         "bear zoology"
       ],
       "em": 0.0,
-      "f1": 0.0909090909090909,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "qid": "tc_955",
-      "prediction": "Brunei",
+      "prediction": "country",
       "gold": [
         "Brunei",
         "Abode of Peace",
@@ -1990,8 +1990,8 @@
         "asia brunei",
         "iso 3166 1 bn"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -2058,7 +2058,7 @@
     },
     {
       "qid": "tc_1009",
-      "prediction": "Cherokee Indians",
+      "prediction": "the Cherokee Indians",
       "gold": [
         "Ty Cobb",
         "Cobb, Ty",
@@ -2135,7 +2135,7 @@
     },
     {
       "qid": "tc_1029",
-      "prediction": "Sean \"Puff Daddy\" Combs",
+      "prediction": "Mase",
       "gold": [
         "Mase",
         "MA$E",
@@ -2151,14 +2151,14 @@
         "murda ma e",
         "karma mase album"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
     {
       "qid": "tc_1068",
-      "prediction": "Hydrographic Organization",
+      "prediction": "beekeeping",
       "gold": [
         "Bee Keeping",
         "Bee keeper",
@@ -2176,8 +2176,8 @@
         "Apiarian",
         "History of beekeeping"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 4
     },
@@ -2529,7 +2529,7 @@
   "n_distractors": 4,
   "timing": {
     "n_questions": 100,
-    "cache_hits": 7,
-    "cache_misses": 93
+    "cache_hits": 10,
+    "cache_misses": 90
   }
 }

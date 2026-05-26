@@ -1,15 +1,15 @@
 {
   "metrics": {
     "em": {
-      "mean": 0.48,
-      "lo": 0.38,
-      "hi": 0.58,
+      "mean": 0.5,
+      "lo": 0.41,
+      "hi": 0.6,
       "n": 100
     },
     "f1": {
-      "mean": 0.5489653679653679,
-      "lo": 0.45697283549783557,
-      "hi": 0.6446546536796537,
+      "mean": 0.5645324675324676,
+      "lo": 0.4789940476190476,
+      "hi": 0.659646645021645,
       "n": 100
     },
     "recall_at_k": {
@@ -48,7 +48,7 @@
     },
     {
       "qid": "tc_40",
-      "prediction": "David",
+      "prediction": "Andrew Bonar Law",
       "gold": [
         "Campbell-Bannerman",
         "Sir Henry Campbell-Bannerman",
@@ -274,7 +274,7 @@
     },
     {
       "qid": "tc_149",
-      "prediction": "1960S",
+      "prediction": "mid-40's",
       "gold": [
         "1930s",
         "1930’s",
@@ -412,7 +412,7 @@
     },
     {
       "qid": "tc_245",
-      "prediction": "Gerald Ford",
+      "prediction": "George Bush",
       "gold": [
         "George Bush",
         "Goerge Bush",
@@ -430,8 +430,8 @@
         "george bush president",
         "george bush disambiguation"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -700,7 +700,7 @@
     },
     {
       "qid": "tc_349",
-      "prediction": "on the Bounty",
+      "prediction": "Men Against the Sea",
       "gold": [
         "Mutiny On The Bounty",
         "HMS Bounty mutineers",
@@ -712,7 +712,7 @@
         "bounty vessel"
       ],
       "em": 0.0,
-      "f1": 0.8,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -736,7 +736,7 @@
     },
     {
       "qid": "tc_397",
-      "prediction": "a Boojum",
+      "prediction": "Boojum",
       "gold": [
         "A boojum",
         "Boojum (disambiguation)",
@@ -750,7 +750,7 @@
     },
     {
       "qid": "tc_453",
-      "prediction": "Gibeon; and thou, Moon, in the valley of Ajalon.",
+      "prediction": "the children of Israel",
       "gold": [
         "Joshua",
         "Joshua of ephraim",
@@ -817,13 +817,13 @@
         "y hosha"
       ],
       "em": 0.0,
-      "f1": 0.18181818181818182,
+      "f1": 0.3333333333333333,
       "recall": 1.0,
       "n_distractors": 8
     },
     {
       "qid": "tc_455",
-      "prediction": "[8] (Coolio — Gangsta's Paradise — Listen, watch, download and ...) (1995)",
+      "prediction": "Amish Paradise",
       "gold": [
         "Dangerous Minds",
         "Dangerous Minds (film)",
@@ -901,7 +901,7 @@
     },
     {
       "qid": "tc_518",
-      "prediction": "The Golden Child",
+      "prediction": "Mr. Robinson",
       "gold": [
         "48 Hours",
         "48 time",
@@ -915,7 +915,7 @@
     },
     {
       "qid": "tc_538",
-      "prediction": "J.G. Ballard",
+      "prediction": "J. G. Ballard",
       "gold": [
         "J. G. Ballard",
         "JG Ballard",
@@ -1017,7 +1017,7 @@
     },
     {
       "qid": "tc_559",
-      "prediction": "\"Stars on 45 Medley\"",
+      "prediction": "Stars on 45 Medley",
       "gold": [
         "Stars on 45 medley",
         "Stars on 45 (Single)",
@@ -1250,7 +1250,7 @@
     },
     {
       "qid": "tc_664",
-      "prediction": "Virginia",
+      "prediction": "Massachusetts",
       "gold": [
         "Virginia",
         "US-VA",
@@ -1287,8 +1287,8 @@
         "virginia state",
         "virginia u s state"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "qid": "tc_687",
-      "prediction": "[1] (Bob Dylan) by either Bob Dylan or the Grateful Dead.\"",
+      "prediction": "MC Hammer",
       "gold": [
         "MC Hammer",
         "M. C. Hammer",
@@ -1374,8 +1374,8 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -1619,7 +1619,7 @@
     },
     {
       "qid": "tc_759",
-      "prediction": "[1] (Greta Garbo) Institute in 2005 voted the 30th most memorable movie quote of all time, \"I want to",
+      "prediction": "[1] (I want to be alone - with my enormous ego: GRETA GARBO ...) from Queen Christina, were ‘Life",
       "gold": [
         "Grand Hotel",
         "The grand hotel",
@@ -1676,7 +1676,7 @@
     },
     {
       "qid": "tc_841",
-      "prediction": "England",
+      "prediction": "Australia",
       "gold": [
         "Canada",
         "Canadá",
@@ -1710,7 +1710,7 @@
     },
     {
       "qid": "tc_847",
-      "prediction": "Paramount Pictures Corporation",
+      "prediction": "Famous Players-Lasky Corporation",
       "gold": [
         "Famous Players Film Company",
         "Raleigh Studios",
@@ -1719,7 +1719,7 @@
         "famous players"
       ],
       "em": 0.0,
-      "f1": 0.28571428571428575,
+      "f1": 0.4,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -1745,7 +1745,7 @@
     },
     {
       "qid": "tc_875",
-      "prediction": "Seymour Hersh",
+      "prediction": "Richard Hammer",
       "gold": [
         "Seymour Hersh",
         "Seymour Hersch",
@@ -1764,8 +1764,8 @@
         "hersh seymour m",
         "chain of command road from 9 11 to abu ghraib"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -1847,7 +1847,7 @@
     },
     {
       "qid": "tc_888",
-      "prediction": "Al Jardine",
+      "prediction": "Brian",
       "gold": [
         "Carl Wilson",
         "Carl Wilson discography",
@@ -1879,20 +1879,20 @@
     },
     {
       "qid": "tc_935",
-      "prediction": "Soggy Shrub",
+      "prediction": "\"one who is white,\" or shown a picture of the Ranger (in the white shirt and trousers he wore in the earliest publicity photos",
       "gold": [
         "White Shirt",
         "Lèine bhàn",
         "Leine bhan"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.18181818181818182,
       "recall": 1.0,
       "n_distractors": 8
     },
     {
       "qid": "tc_938",
-      "prediction": "an older Ben. Ben as a full-grown adult was played primarily by Bruno, who also was the main bear playing Ben in the TV series.",
+      "prediction": "an older Ben",
       "gold": [
         "Bear cub",
         "Ursine",
@@ -1914,7 +1914,7 @@
         "bear zoology"
       ],
       "em": 0.0,
-      "f1": 0.0909090909090909,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -2046,7 +2046,7 @@
     },
     {
       "qid": "tc_1008",
-      "prediction": "8",
+      "prediction": "109",
       "gold": [
         "10",
         "ten"
@@ -2135,7 +2135,7 @@
     },
     {
       "qid": "tc_1029",
-      "prediction": "Sean \"Puff Daddy\" Combs",
+      "prediction": "Mase",
       "gold": [
         "Mase",
         "MA$E",
@@ -2151,14 +2151,14 @@
         "murda ma e",
         "karma mase album"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 8
     },
     {
       "qid": "tc_1068",
-      "prediction": "Hydrographic Organization",
+      "prediction": "beekeeping",
       "gold": [
         "Bee Keeping",
         "Bee keeper",
@@ -2176,8 +2176,8 @@
         "Apiarian",
         "History of beekeeping"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 8
     },
@@ -2379,7 +2379,7 @@
     },
     {
       "qid": "tc_1123",
-      "prediction": "Tony",
+      "prediction": "Philip Anthony Hopkins",
       "gold": [
         "Nixon",
         "I'm not a crook",
@@ -2455,7 +2455,7 @@
     },
     {
       "qid": "tc_1131",
-      "prediction": "[1]",
+      "prediction": "[9]",
       "gold": [
         "Alien",
         "Alien (disambiguation)",

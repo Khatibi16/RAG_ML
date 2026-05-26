@@ -645,8 +645,10 @@ context, even though the answer is always present.
 
 **Fixed:** chunk size = 128 words, k = 5, prompt = "instructed", corpus fixed.
 
-**Variable:** dense embedding model ∈ {`all-MiniLM-L6-v2`, `bge-small-en-v1.5`,
-`e5-small-v2`}.
+**Variable:** dense embedding model ∈ {`all-MiniLM-L6-v2`, `bge-small-en-v1.5`}
+(downscaled — each extra model adds a cold full-corpus encode of tens of minutes
+on CPU; `e5-small-v2` is left in `config.EMBEDDING_MODELS`, commented out, to
+re-enable the fuller sweep).
 
 Experiment 1 fixed the dense backbone to `all-MiniLM-L6-v2` and varied the
 retrieval *family* (BM25 / TF-IDF / Dense). This experiment isolates the
@@ -865,11 +867,18 @@ cells top to bottom (in Jupyter / VS Code, or
 
 Every experiment recomputes end-to-end on each run and overwrites its
 `results/*.json` — there is no results-level skip cache, so editing an
-experiment and re-running always reflects the change. Generation is still
-cached per *rendered prompt* in `data/cache/generation_cache.json` (keyed by
-the exact prompt text), so re-runs only regenerate prompts that actually
-changed; delete that file if you change a decoding/budget setting that doesn't
-alter the prompt text (e.g. `MAX_NEW_TOKENS`).
+experiment and re-running always reflects the change.
+
+Generation answer caching is controlled by `config.USE_GENERATION_CACHE`
+(default **False**). With it off, the generator actually runs on every prompt
+each run (greedy decoding is deterministic, so the numbers are identical to a
+cached run — a full run just takes the full ~40 min instead of seconds). Set it
+**True** for fast plot-only iteration once the results exist: answers are then
+cached per *rendered prompt* in `data/cache/generation_cache.json` (keyed by the
+exact prompt text), so re-runs only regenerate prompts that actually changed.
+Note that key is the prompt text only, so if you cache and then change a
+decoding/budget setting that doesn't alter the prompt (e.g. `MAX_NEW_TOKENS`),
+delete that file to avoid replaying stale answers.
 
 **Expected runtime** at the default `NUM_QUESTIONS=100` / `MAX_SEARCH_RESULTS_PER_Q=5`
 (Apple Silicon / modern CPU):
@@ -1051,8 +1060,8 @@ one-chunk context the generator misses ~32 % of questions.
 > **Pending — not yet run.** This experiment was added after the last
 > end-to-end run; its `results/exp10_*.json` and `figures/fig13_*.png` will be
 > produced on the next run. Expected outputs: EM / F1 / Recall@5 for
-> `all-MiniLM-L6-v2` (= the Exp 1 dense row), `bge-small-en-v1.5`, and
-> `e5-small-v2`.
+> `all-MiniLM-L6-v2` (= the Exp 1 dense row) and `bge-small-en-v1.5`
+> (`e5-small-v2` is available but commented out — see §5).
 
 ### Paired significance (same questions; McNemar on EM, paired bootstrap on deltas)
 

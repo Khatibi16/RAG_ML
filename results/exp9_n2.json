@@ -2,14 +2,14 @@
   "metrics": {
     "em": {
       "mean": 0.57,
-      "lo": 0.47,
+      "lo": 0.48,
       "hi": 0.67,
       "n": 100
     },
     "f1": {
-      "mean": 0.6296666666666667,
-      "lo": 0.5426416666666667,
-      "hi": 0.7140166666666667,
+      "mean": 0.634847619047619,
+      "lo": 0.5524140476190476,
+      "hi": 0.7177154761904763,
       "n": 100
     },
     "recall_at_k": {
@@ -750,7 +750,7 @@
     },
     {
       "qid": "tc_453",
-      "prediction": "the people had revenge upon their enemies",
+      "prediction": "the people",
       "gold": [
         "Joshua",
         "Joshua of ephraim",
@@ -823,7 +823,7 @@
     },
     {
       "qid": "tc_455",
-      "prediction": "Dangerous Minds",
+      "prediction": "[3] (Dangerous Minds)",
       "gold": [
         "Dangerous Minds",
         "Dangerous Minds (film)",
@@ -831,8 +831,8 @@
         "my posse don t do homework",
         "dangerous minds film"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.8,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -901,7 +901,7 @@
     },
     {
       "qid": "tc_518",
-      "prediction": "Beverly Hills Cop 2",
+      "prediction": "Mr. Robinson",
       "gold": [
         "48 Hours",
         "48 time",
@@ -1090,13 +1090,13 @@
     },
     {
       "qid": "tc_564",
-      "prediction": "The Odd Couple",
+      "prediction": "The Kentuckian",
       "gold": [
         "The Kentuckian",
         "kentuckian"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -1294,7 +1294,7 @@
     },
     {
       "qid": "tc_665",
-      "prediction": "ERP",
+      "prediction": "[2] (Marshall Plan) rescue program",
       "gold": [
         "Marshall Plan",
         "European Recovery Programme",
@@ -1312,7 +1312,7 @@
         "Operation Rathole"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.5714285714285715,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -1349,7 +1349,7 @@
     },
     {
       "qid": "tc_687",
-      "prediction": "Hammer",
+      "prediction": "MC Hammer",
       "gold": [
         "MC Hammer",
         "M. C. Hammer",
@@ -1374,8 +1374,8 @@
         "hammer crew",
         "you shouldn t touch this"
       ],
-      "em": 0.0,
-      "f1": 0.6666666666666666,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -1455,7 +1455,7 @@
     },
     {
       "qid": "tc_715",
-      "prediction": "I'm Coming Out",
+      "prediction": "Upside Down",
       "gold": [
         "Upside Down",
         "Upside Down (Diana Ross song)",
@@ -1464,8 +1464,8 @@
         "upside down diana ross song",
         "upside down single"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -1650,7 +1650,7 @@
     },
     {
       "qid": "tc_812",
-      "prediction": "Billie Jean King",
+      "prediction": "France",
       "gold": [
         "Virginia Wade",
         "Sarah Virginia Wade"
@@ -1710,7 +1710,7 @@
     },
     {
       "qid": "tc_847",
-      "prediction": "[1] (Paramount Pictures)",
+      "prediction": "Famous Players-Lasky Corporation",
       "gold": [
         "Famous Players Film Company",
         "Raleigh Studios",
@@ -1719,7 +1719,7 @@
         "famous players"
       ],
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.4,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -1957,7 +1957,7 @@
     },
     {
       "qid": "tc_955",
-      "prediction": "country",
+      "prediction": "Indonesia",
       "gold": [
         "Brunei",
         "Abode of Peace",
@@ -2012,15 +2012,15 @@
     },
     {
       "qid": "tc_1004",
-      "prediction": "Sherman",
+      "prediction": "Petula Clark",
       "gold": [
         "Petula Clark",
         "Petula Clarke",
         "Pet clark",
         "Petula Sally Olwen Clark"
       ],
-      "em": 0.0,
-      "f1": 0.0,
+      "em": 1.0,
+      "f1": 1.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -2058,7 +2058,7 @@
     },
     {
       "qid": "tc_1009",
-      "prediction": "Georgia",
+      "prediction": "The first Georgia peaches were shipped to the New York market between 1858 and 1860. They were transported by wagon to Augusta , then by shallow",
       "gold": [
         "Ty Cobb",
         "Cobb, Ty",
@@ -2069,7 +2069,7 @@
         "georgia peach"
       ],
       "em": 0.0,
-      "f1": 0.6666666666666666,
+      "f1": 0.08,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -2158,7 +2158,7 @@
     },
     {
       "qid": "tc_1068",
-      "prediction": "beekeeping",
+      "prediction": "health advocate",
       "gold": [
         "Bee Keeping",
         "Bee keeper",
@@ -2176,8 +2176,8 @@
         "Apiarian",
         "History of beekeeping"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -2455,7 +2455,7 @@
     },
     {
       "qid": "tc_1131",
-      "prediction": "Alien",
+      "prediction": "[1]",
       "gold": [
         "Alien",
         "Alien (disambiguation)",
@@ -2481,8 +2481,8 @@
         "aliens band",
         "alien fictional creature"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 2
     },
@@ -2510,7 +2510,7 @@
     },
     {
       "qid": "tc_1156",
-      "prediction": "Ingrid Bergman",
+      "prediction": "Madelon Claudet",
       "gold": [
         "Ingrid Bergman",
         "Ingrid Bergmann",
@@ -2518,8 +2518,8 @@
         "Ingrid Rossellini",
         "Ingrid Berman"
       ],
-      "em": 1.0,
-      "f1": 1.0,
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 1.0,
       "n_distractors": 2
     }
@@ -2529,7 +2529,7 @@
   "n_distractors": 2,
   "timing": {
     "n_questions": 100,
-    "cache_hits": 6,
-    "cache_misses": 94
+    "cache_hits": 33,
+    "cache_misses": 67
   }
 }

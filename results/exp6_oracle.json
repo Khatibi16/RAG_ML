@@ -2928,7 +2928,7 @@
   "n_unfixable": 0,
   "timing": {
     "n_questions": 100,
-    "cache_hits": 94,
-    "cache_misses": 6
+    "cache_hits": 100,
+    "cache_misses": 0
   }
 }

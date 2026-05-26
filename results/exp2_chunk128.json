@@ -4832,12 +4832,12 @@
     }
   ],
   "timing": {
-    "retrieval_s": 4.83,
-    "generation_s": 175.84,
-    "total_s": 182.58,
+    "retrieval_s": 4.34,
+    "generation_s": 0.42,
+    "total_s": 6.43,
     "n_questions": 100,
-    "cache_hits": 41,
-    "cache_misses": 59,
+    "cache_hits": 100,
+    "cache_misses": 0,
     "prompt_tokens_mean": 914.86,
     "prompt_tokens_max": 1023,
     "prompt_tokens_budget": 1024,

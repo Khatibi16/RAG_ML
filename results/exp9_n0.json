@@ -2529,7 +2529,7 @@
   "n_distractors": 0,
   "timing": {
     "n_questions": 100,
-    "cache_hits": 36,
-    "cache_misses": 64
+    "cache_hits": 100,
+    "cache_misses": 0
   }
 }

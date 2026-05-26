@@ -1,5 +1,5 @@
 {
-  "default (current)": {
+  "short-instruction": {
     "template": "Answer the following question with a short phrase.\n\nQuestion: {question}\nShort answer:",
     "em": {
       "mean": 0.02,

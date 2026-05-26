@@ -22,12 +22,12 @@
     }
   },
   "timing": {
-    "retrieval_s": 3.73,
-    "generation_s": 18.14,
-    "total_s": 25.01,
+    "retrieval_s": 4.05,
+    "generation_s": 0.95,
+    "total_s": 7.69,
     "n_questions": 100,
-    "cache_hits": 95,
-    "cache_misses": 5,
+    "cache_hits": 100,
+    "cache_misses": 0,
     "prompt_tokens_mean": 1044.94,
     "prompt_tokens_max": 1295,
     "prompt_tokens_budget": 1024,
