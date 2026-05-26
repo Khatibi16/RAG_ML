@@ -1,105 +1,105 @@
 {
   "predictions": [
-    "Pulsar",
-    "Ruddigore",
-    "Andy Flower",
-    "adapted as a film",
-    "Vitus",
-    "Karl Marx and Friedrich Engels",
-    "Sherry",
-    "Rangers",
-    "Nicaragua",
-    "Boris Johnson",
-    "[1]",
-    "Fancy Dress Shop",
-    "wheels",
-    "Paraguay",
-    "Rio de Janeiro",
-    "Addis Ababa",
-    "Handley Page Hastings",
-    "Rio de la Plata",
-    "Ahmad Fuad Mohieddin",
-    "China",
-    "monarch",
-    "Massachusetts",
-    "king James I",
-    "La cambiale di matrimonio",
-    "[1]",
-    "Diego Maradona",
+    "d).",
+    "scottish scottish",
+    "john scott",
+    "a sexy sexy sexy",
+    "st. john",
+    "John C. Kennedy and John C. Kennedy",
+    "St. John's",
+    "st lansing",
+    "the United States",
+    "John Fletcher",
+    "john scott",
+    "d).",
+    "a sandstone",
+    "Argentina",
+    "Tokyo",
+    "el-e-Kada",
+    "Allied Aircraft Company",
+    "Argentine River",
+    "el-Mahri",
+    "sweden",
+    "henry viii",
+    "New York",
+    "king henry viii",
+    "\"Standard\"",
+    "st john",
+    "Mauricio Pochettino",
     "black",
-    "movie royalties",
-    "Gingerbread",
-    "first female Poet Laureate",
-    "aprile",
-    "Dick",
-    "Ares",
-    "the molecular structure of nucleic acids and its significance for information transfer in living material",
-    "Mauritania",
-    "falconry",
-    "the moon",
-    "abortions after 20 weeks of pregnancy, require abortion clinics",
-    "Walt Disney",
-    "Federal Reserve",
+    "a business",
+    "The Children's Fund",
+    "Nicola Sturgeon",
     "",
-    "Gorky",
-    "Italy",
-    "Poland",
-    "Woody Guthrie",
-    "[1] (House of Commons of the United Kingdom) Mace is laid upon the Table of the House during sittings",
-    "Sarah",
+    "adam scott",
+    "aristotle",
+    "a synapsis",
+    "",
+    "tennis",
+    "octopus",
+    "a federal law",
+    "john scott",
+    "Department of Homeland Security",
+    "1897",
+    "аард",
+    "st juan",
+    "",
+    "Freddie Prinze",
+    "the journal of the house of commons",
+    "abraham",
     "Carl Davis",
-    "François-Louis Legrand",
-    "river",
-    "Rockall, Malin, Hebrides",
-    "Blacksmiths",
-    "U.S. Highway 66",
-    "the Union of the Comoros",
-    "Bath",
-    "Siamese",
-    "Ramnaresh Sarwan",
-    "Estimate",
-    "Three Men and a Baby",
-    "[1] (Lou Reed - Walk On The Wild Side (Lyrics in Description ...)",
-    "black",
-    "North Vietnamese Army",
-    "Ramnaresh",
-    "Northern line",
-    "George H. W. Bush",
-    "Edmund",
-    "Jeff Christie",
-    "Autodromo Enzo e Dino Ferrari",
-    "Endangered Species Act",
-    "Gingerbread",
-    "Tottenham Hotspur",
-    "SC Weiz",
-    "a soldier",
-    "just the 8th planet in our solar system",
-    "Huey, Dewey, and Louis Duck",
-    "Costco",
-    "John Entwistle",
-    "Tony Blair",
-    "towers",
-    "30 (48)",
-    "fraction bar",
-    "blue",
-    "Faggot",
-    "urach",
-    "[1]",
-    "Aidan Crawley",
-    "Amadeus",
-    "New York City",
-    "Baileys women's prize for fiction",
-    "[1] (Papal conclave)",
-    "Steve Bing",
-    "Briseis",
-    "Hood",
-    "an agreement between European Americans and the Osage Nation about allowing settlers' wagon trains to go through the area to go West",
-    "Manfred von Richthofen",
-    "Norway",
-    "a giant turtle",
-    "Bulls Eye",
+    "Jacques Lennon",
+    "d).",
+    "North Sea",
+    "abraham smith",
+    "st. john s s s s s s s s s s s s s",
+    "sands",
+    "st john",
+    "femur",
+    "edward s. scott",
+    "adolfo",
+    "a sailor",
+    "a slew of sex",
+    "red",
+    "tet",
+    "alan",
+    "London Underground",
+    "john d. bush",
+    "john",
+    "antonio sacramento",
+    "st. giorno",
+    "d).",
+    "The Royal Family",
+    "the United States",
+    "Manchester United",
+    "john scott",
+    "venus",
+    "john w. kennedy",
+    "GE",
+    "john scott",
+    "john scott",
+    "a slender bridge",
+    "d).",
+    "d).",
+    "april",
+    "sour cream",
+    "fox",
+    "syria",
+    "john scott",
+    "The Man Who Shot the Devil",
+    "st john s s s s s s s s s s s s s ",
+    "adolescent fiction",
+    "Electoral Assembly",
+    "edward wilson",
+    "samuel scott",
+    "st. john",
+    "a slum",
+    "abraham scott",
+    "st. jäsen",
+    "a sand castle",
+    "a squid",
     "Paris",
-    "Meiringen"
+    "st el st el st el st el st el s"
   ],
   "gold_answers": [
     [
@@ -2364,21 +2364,15 @@
   ],
   "metrics": {
     "em": {
-      "mean": 0.35,
-      "lo": 0.25,
-      "hi": 0.44024999999999975,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
       "n": 100
     },
     "f1": {
-      "mean": 0.42309320091673036,
-      "lo": 0.3292578113063407,
-      "hi": 0.5175096702317291,
-      "n": 100
-    },
-    "recall_at_k": {
-      "mean": 0.46,
-      "lo": 0.36,
-      "hi": 0.55,
+      "mean": 0.037222222222222226,
+      "lo": 0.015,
+      "hi": 0.06289722222222222,
       "n": 100
     }
   },
@@ -2391,15 +2385,15 @@
         "Yukon Optics",
         "Beltex Optics"
       ],
-      "prediction": "Pulsar",
-      "em": 1.0,
-      "f1": 1.0,
+      "prediction": "d).",
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What general name is given to a rotating star which emits a regular beat of radiation?\n\nContext:\n[1] (* Pulsar (Astronomy) - Definition,meaning - Online ...) with a hot spot , which emits radiation in a cone as the star rotate s, and are observable if Earth and our solar system happens lie within the cone. Q Pulsars: Spinning neutron star s that sling 'lighthouse beams' of radio waves around as they rotate .\n\nQuestion: What general name is given to a rotating star which emits a regular beat of radiation?\nShort answer:",
-      "top_chunk": "with a hot spot , which emits radiation in a cone as the star rotate s, and are observable if Earth and our solar system happens lie within the cone. Q Pulsars: Spinning neutron star s that sling 'lig"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What general name is given to a rotating star which emits a regular beat of radiation?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_11822",
@@ -2411,15 +2405,15 @@
         "Rudigore",
         "ruddigore witch s curse"
       ],
-      "prediction": "Ruddigore",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"Which Gilbert and Sullivan operetta is sub titled 'The Witches Curse\"\"?\"\n\nContext:\n[1] (Gilbert and Sullivan: Ruddigore for Rent on DVD - DVD Netflix) from D'Oyly Carte, this collection of Gilbert & Sullivan operettas is the most comprehensive ever put on video. Vincent Price stars in \"Ruddigore,\" the story of a lord who finds a simple yet ingenious solution to counteract a witch's curse that forces him to commit a crime each\n\nQuestion: \"Which Gilbert and Sullivan operetta is sub titled 'The Witches Curse\"\"?\"\nShort answer:",
-      "top_chunk": "from D'Oyly Carte, this collection of Gilbert & Sullivan operettas is the most comprehensive ever put on video. Vincent Price stars in \"Ruddigore,\" the story of a lord who finds a simple yet ingenious"
+      "prediction": "scottish scottish",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"Which Gilbert and Sullivan operetta is sub titled 'The Witches Curse\"\"?\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_17752",
@@ -2428,15 +2422,15 @@
         "JIM LAKER",
         "James Laker"
       ],
-      "prediction": "Andy Flower",
+      "prediction": "john scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which English cricketer had figures for bowling 10 for 53 against Australia 1956?\n\nContext:\n[1] (Zimbabwe national cricket team) runs in a match: 341, Andy Flower (142 and 199 not out) v South Africa, 7–11 September 2001 at Harare * Best individual bowling figures in an innings: 8/109, Paul Strang v New Zealand, 12–16 September 2000 at Bulawayo * Best individual bowling figures in a match: 11/255,\n\nQuestion: Which English cricketer had figures for bowling 10 for 53 against Australia 1956?\nShort answer:",
-      "top_chunk": "runs in a match: 341, Andy Flower (142 and 199 not out) v South Africa, 7–11 September 2001 at Harare * Best individual bowling figures in an innings: 8/109, Paul Strang v New Zealand, 12–16 September"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which English cricketer had figures for bowling 10 for 53 against Australia 1956?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_2689",
@@ -2449,15 +2443,15 @@
         "Farthing coin",
         "farthing disambiguation"
       ],
-      "prediction": "adapted as a film",
+      "prediction": "a sexy sexy sexy",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Wolf Mankowitz wrote the 1953 novel ‘A Kid For Two….’what’?\n\nContext:\n[1] (Wolf Mankowitz) College, Cambridge. Career His background provided Mankowitz with the material for his most successful book A Kid for Two Farthings (1953). This was adapted as a film by the director Carol Reed in 1955. Mankowitz himself wrote the screenplay. In 1958 he wrote the book for the West\n\nQuestion: Wolf Mankowitz wrote the 1953 novel ‘A Kid For Two….’what’?\nShort answer:",
-      "top_chunk": "College, Cambridge. Career His background provided Mankowitz with the material for his most successful book A Kid for Two Farthings (1953). This was adapted as a film by the director Carol Reed in 195"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Wolf Mankowitz wrote the 1953 novel ‘A Kid For Two….’what’?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_6199",
@@ -2494,15 +2488,15 @@
         "modestus vitus and crescentia saints",
         "monastery of st vito"
       ],
-      "prediction": "Vitus",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who is the patron saint of dancers?\n\nContext:\n[1] (Vitus) to the neurological disorder Sydenham's chorea. It also led to Vitus being considered the patron saint of dancers and of entertainers in general. Vitus is considered the patron saint of actors, comedians, dancers, and epileptics, similarly to Genesius of Rome. He is also said to protect against lightning\n\nQuestion: Who is the patron saint of dancers?\nShort answer:",
-      "top_chunk": "to the neurological disorder Sydenham's chorea. It also led to Vitus being considered the patron saint of dancers and of entertainers in general. Vitus is considered the patron saint of actors, comedi"
+      "prediction": "st. john",
+      "em": 0.0,
+      "f1": 0.5,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who is the patron saint of dancers?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qg_607",
@@ -2510,15 +2504,15 @@
       "gold": [
         "Karl Marx and Friedrich Engels"
       ],
-      "prediction": "Karl Marx and Friedrich Engels",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Published on Feb 21, 1848, which two authors were responsible for the Communist Manifesto?\n\nContext:\n[1] (The Communist Manifesto) The Communist Manifesto (originally Manifesto of the Communist Party) is an 1848 political pamphlet by German philosophers Karl Marx and Friedrich Engels. Commissioned by the Communist League and originally published in London (in German as Manifest der Kommunistischen Partei) just as the revolutions of 1848 began to erupt,\n\nQuestion: Published on Feb 21, 1848, which two authors were responsible for the Communist Manifesto?\nShort answer:",
-      "top_chunk": "The Communist Manifesto (originally Manifesto of the Communist Party) is an 1848 political pamphlet by German philosophers Karl Marx and Friedrich Engels. Commissioned by the Communist League and orig"
+      "prediction": "John C. Kennedy and John C. Kennedy",
+      "em": 0.0,
+      "f1": 0.16666666666666666,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Published on Feb 21, 1848, which two authors were responsible for the Communist Manifesto?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_912",
@@ -2546,15 +2540,15 @@
         "jérez de la frontera spain",
         "jerez de la frontera spain"
       ],
-      "prediction": "Sherry",
+      "prediction": "St. John's",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The fortified wine drink Sherry is named after what town?\n\nContext:\n[1] (PX Sherry - wine anorak) now it has been woefully underappreciated. In this article, I�m going to try to convince you to drink more of it by sharing my enthusiasm, as well as some notes from a big tasting of many of the top Sherries. Sherry is a fortified wine made from vineyards\n\nQuestion: The fortified wine drink Sherry is named after what town?\nShort answer:",
-      "top_chunk": "now it has been woefully underappreciated. In this article, I�m going to try to convince you to drink more of it by sharing my enthusiasm, as well as some notes from a big tasting of many of the top S"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The fortified wine drink Sherry is named after what town?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_4760",
@@ -2576,15 +2570,15 @@
         "doonhamers",
         "queen of south"
       ],
-      "prediction": "Rangers",
+      "prediction": "st lansing",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The nickname for Dumfries became the name of which Scottish football club?\n\nContext:\n[1] (Dumfries) Maxwelltown side of the River Nith. They reached the 2008 Scottish Cup Final, losing 3–2 to Rangers. Dumfries Saints Rugby Club is one of Scotland's oldest rugby clubs having been admitted to the Scottish Rugby Union in 1876–77 as \"Dumfries Rangers\". Dumfries is also home to a number\n\nQuestion: The nickname for Dumfries became the name of which Scottish football club?\nShort answer:",
-      "top_chunk": "Maxwelltown side of the River Nith. They reached the 2008 Scottish Cup Final, losing 3–2 to Rangers. Dumfries Saints Rugby Club is one of Scotland's oldest rugby clubs having been admitted to the Scot"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The nickname for Dumfries became the name of which Scottish football club?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_22481",
@@ -2609,15 +2603,15 @@
         "nicaragua central america",
         "iso 3166 1 ni"
       ],
-      "prediction": "Nicaragua",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The revolutionary group the Sandinistas were active in which country?\n\nContext:\n[1] (Sandinista National Liberation Front) The Sandinista National Liberation Front (, FSLN) is now a democratic socialist political party in Nicaragua. Its members are called Sandinistas in both English and Spanish. The party is named after Augusto César Sandino, who led the Nicaraguan resistance against the United States occupation of Nicaragua in the\n\nQuestion: The revolutionary group the Sandinistas were active in which country?\nShort answer:",
-      "top_chunk": "The Sandinista National Liberation Front (, FSLN) is now a democratic socialist political party in Nicaragua. Its members are called Sandinistas in both English and Spanish. The party is named after A"
+      "prediction": "the United States",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The revolutionary group the Sandinistas were active in which country?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_20557",
@@ -2628,15 +2622,15 @@
         "Steven John Norris",
         "Stephen Norris"
       ],
-      "prediction": "Boris Johnson",
+      "prediction": "John Fletcher",
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.4,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who was the conservative candidate beaten by Ken Livingstone in the first two elections for Mayor of London?\n\nContext:\n[1] (Ken Livingstone) the London Mayoral election, 2008, this time against Conservative candidate Boris Johnson. At the start of the campaign Livingstone took Johnson more seriously than many others were doing, referring to him as \"the most formidable opponent I will face in my political career.\" Much of Labour's campaign revolved\n\nQuestion: Who was the conservative candidate beaten by Ken Livingstone in the first two elections for Mayor of London?\nShort answer:",
-      "top_chunk": "the London Mayoral election, 2008, this time against Conservative candidate Boris Johnson. At the start of the campaign Livingstone took Johnson more seriously than many others were doing, referring t"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who was the conservative candidate beaten by Ken Livingstone in the first two elections for Mayor of London?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "tc_2182",
@@ -2652,15 +2646,15 @@
         "when i m bad i m better",
         "when i m good i m very good"
       ],
-      "prediction": "[1]",
+      "prediction": "john scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"Who said, To err is human but it feels divine?\"\"\"\n\nContext:\n[1] (To Err is Human; To Forgive Divine - Google Groups) was once quoted as saying, \"To err is human, but it feels divine.\" For anyone who works with computers today you'll agree: \"To err is human-but to really mess things up you need a computer.\" Someone wisely observed, \"To err is human, and to cover it up is\n\nQuestion: \"Who said, To err is human but it feels divine?\"\"\"\nShort answer:",
-      "top_chunk": "was once quoted as saying, \"To err is human, but it feels divine.\" For anyone who works with computers today you'll agree: \"To err is human-but to really mess things up you need a computer.\" Someone w"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"Who said, To err is human but it feels divine?\"\"\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_4047",
@@ -2669,15 +2663,15 @@
         "A fancy dress shop",
         "fancy dress shop"
       ],
-      "prediction": "Fancy Dress Shop",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: When Mr Benn was looking for an adventure, what type of shop did he visit?\n\nContext:\n[1] (Mr Benn Fan Reviews & Ratings - TV.com) where Mr Benn is an ordinary man who goes to an unusual Fancy Dress Shop where he tries on an outfit and as if by magic he enters a world of adventure. 8.0 By chillial , Jul 22, 2007 In these days of mass media childrens television merchandising,\n\nQuestion: When Mr Benn was looking for an adventure, what type of shop did he visit?\nShort answer:",
-      "top_chunk": "where Mr Benn is an ordinary man who goes to an unusual Fancy Dress Shop where he tries on an outfit and as if by magic he enters a world of adventure. 8.0 By chillial , Jul 22, 2007 In these days of "
+      "prediction": "d).",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: When Mr Benn was looking for an adventure, what type of shop did he visit?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qf_1928",
@@ -2695,15 +2689,15 @@
         "wagon vehicle",
         "horse drawn wagon"
       ],
-      "prediction": "wheels",
+      "prediction": "a sandstone",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What was made and repaired by a Wainwright?\n\nContext:\n[1] (Blacksmiths Glossary) the metallurgy industry with iron using a furnace, anvil, and hammer. Wainwright A person who made and repaired wheels for carts, wagons and horse-drawn carriages, also known as a Cartwright. The term comes from the old English \"wain\" meaning a large wagon for farm use and \"wryhta\" meaning\n\nQuestion: What was made and repaired by a Wainwright?\nShort answer:",
-      "top_chunk": "the metallurgy industry with iron using a furnace, anvil, and hammer. Wainwright A person who made and repaired wheels for carts, wagons and horse-drawn carriages, also known as a Cartwright. The term"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What was made and repaired by a Wainwright?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_1225",
@@ -2728,15 +2722,15 @@
         "República del Paraguay",
         "iso 3166 1 py"
       ],
-      "prediction": "Paraguay",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The War of the Triple Alliance (1864 - 1870) was fought between the allied countries of Argentina, Brazil, and Uruguay and which other country?\n\nContext:\n[1] (Triple Alliance, War of the | Article about Triple ...) Free Dictionary http://encyclopedia2.thefreedictionary.com/Triple+Alliance%2c+War+of+the Triple Alliance, War of the Triple Alliance, War of the, 1865–70, fought between Paraguay on one side and an alliance of Argentina, Brazil, and Uruguay on the other. Brazil's military reprisals for injuries to Brazilian subjects in Uruguay's civil war brought a declaration of war\n\nQuestion: The War of the Triple Alliance (1864 - 1870) was fought between the allied countries of Argentina, Brazil, and Uruguay and which other country?\nShort answer:",
-      "top_chunk": "Free Dictionary http://encyclopedia2.thefreedictionary.com/Triple+Alliance%2c+War+of+the Triple Alliance, War of the Triple Alliance, War of the, 1865–70, fought between Paraguay on one side and an al"
+      "prediction": "Argentina",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The War of the Triple Alliance (1864 - 1870) was fought between the allied countries of Argentina, Brazil, and Uruguay and which other country?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "jp_2252",
@@ -2779,15 +2773,15 @@
         "rio brazil",
         "rio de janeiro rio de janeiro"
       ],
-      "prediction": "Rio de Janeiro",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What city will host the 2016 Olympics?\n\nContext:\n[1] (2016 Summer Olympics) land the games. Chicago and Tokyo were eliminated after the first and second rounds of voting, respectively, while Rio de Janeiro took a significant lead over Madrid heading into the final round. The lead held and Rio de Janeiro was announced as host of 2016 Summer Olympics. Failed\n\nQuestion: What city will host the 2016 Olympics?\nShort answer:",
-      "top_chunk": "land the games. Chicago and Tokyo were eliminated after the first and second rounds of voting, respectively, while Rio de Janeiro took a significant lead over Madrid heading into the final round. The "
+      "prediction": "Tokyo",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What city will host the 2016 Olympics?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_7436",
@@ -2821,15 +2815,15 @@
         "addis abba ethiopia",
         "addis ababa et"
       ],
-      "prediction": "Addis Ababa",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Mount Entoto is the highest peak overlooking which African capital city?\n\nContext:\n[1] (Mount Entoto - Entoto Hill, Addis Ababa Traveller Reviews ...) 2013 Mount Entoto is the highest peak overlooking the city of Addis Ababa, the capital of Ethiopia. Mount Entoto is part of the Entoto mountain chain, reaching 3,200 meters above sea level. Mount Entoto is the best location to observe the panoramic view of the capital. It is\n\nQuestion: Mount Entoto is the highest peak overlooking which African capital city?\nShort answer:",
-      "top_chunk": "2013 Mount Entoto is the highest peak overlooking the city of Addis Ababa, the capital of Ethiopia. Mount Entoto is part of the Entoto mountain chain, reaching 3,200 meters above sea level. Mount Ento"
+      "prediction": "el-e-Kada",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Mount Entoto is the highest peak overlooking which African capital city?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_21619",
@@ -2850,15 +2844,15 @@
         "handley page reading",
         "handley page o 100 and o 400"
       ],
-      "prediction": "Handley Page Hastings",
+      "prediction": "Allied Aircraft Company",
       "em": 0.0,
-      "f1": 0.8,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which company produced the Hastings and Herald aircraft?\n\nContext:\n[1] (Handley Page Hastings) with a conventional tail unit. It had all-metal tapering dihedral wings, which had been designed for the abandoned HP.66 bomber development of the Handley Page Halifax and a circular fuselage suitable for pressurisation up to . It had a retractable undercarriage and tailwheel. The Hastings was powered by\n\nQuestion: Which company produced the Hastings and Herald aircraft?\nShort answer:",
-      "top_chunk": "with a conventional tail unit. It had all-metal tapering dihedral wings, which had been designed for the abandoned HP.66 bomber development of the Handley Page Halifax and a circular fuselage suitable"
+      "f1": 0.6666666666666666,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which company produced the Hastings and Herald aircraft?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_10251",
@@ -2870,15 +2864,15 @@
         "River Plate (disambiguation)",
         "river plate disambiguation"
       ],
-      "prediction": "Rio de la Plata",
+      "prediction": "Argentine River",
       "em": 0.0,
-      "f1": 0.0,
+      "f1": 0.5,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Buenos Aires is located on the estuary of which river?\n\nContext:\n[1] (Rio de la Plata | estuary, South America | Britannica.com) shore of the estuary, and Buenos Aires , the capital of Argentina, is on the southwestern shore. The delta of the Paraná and the mouth of the Uruguay meet at the head of the Río de la Plata. The breadth of the estuary increases from the head seaward,\n\nQuestion: Buenos Aires is located on the estuary of which river?\nShort answer:",
-      "top_chunk": "shore of the estuary, and Buenos Aires , the capital of Argentina, is on the southwestern shore. The delta of the Paraná and the mouth of the Uruguay meet at the head of the Río de la Plata. The bread"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Buenos Aires is located on the estuary of which river?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_1448",
@@ -2889,15 +2883,15 @@
         "Boutros, Pasha Ghali",
         "boutros pasha ghali"
       ],
-      "prediction": "Ahmad Fuad Mohieddin",
+      "prediction": "el-Mahri",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What was the name of the Prime Minister of Egypt who was assassinated in 1910?\n\nContext:\n[1] (Ahmad Fuad Mohieddin) Egyptian politician and physician, he served as Prime Minister of Egypt from January 2, 1982 until June 5, 1984. He served as Minister of Information from September 10, 1981 to January 31, 1982. He was a member of the National Democratic Party. He died in 1984 while on\n\nQuestion: What was the name of the Prime Minister of Egypt who was assassinated in 1910?\nShort answer:",
-      "top_chunk": "Egyptian politician and physician, he served as Prime Minister of Egypt from January 2, 1982 until June 5, 1984. He served as Minister of Information from September 10, 1981 to January 31, 1982. He wa"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What was the name of the Prime Minister of Egypt who was assassinated in 1910?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_2443",
@@ -2998,15 +2992,15 @@
         "china people s republic",
         "people republic of china"
       ],
-      "prediction": "China",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Cathay is a poetic name for which far eastern country?\n\nContext:\n[1] (cathay : definition of cathay and synonyms of cathay (English)) cathay : definition of cathay and synonyms of cathay (English) For other uses, see Cathay (disambiguation) . \"Chataio\" on Fra Mauro map (ca. 1450). Note that the south is on top Cathay is the Anglicized version of \"Catai\" and an alternative name for China in English. It originates\n\nQuestion: Cathay is a poetic name for which far eastern country?\nShort answer:",
-      "top_chunk": "cathay : definition of cathay and synonyms of cathay (English) For other uses, see Cathay (disambiguation) . \"Chataio\" on Fra Mauro map (ca. 1450). Note that the south is on top Cathay is the Angliciz"
+      "prediction": "sweden",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Cathay is a poetic name for which far eastern country?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_6004",
@@ -3053,15 +3047,15 @@
         "george vi emperor",
         "king george vi of united kingdom"
       ],
-      "prediction": "monarch",
+      "prediction": "henry viii",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which British monarch was the first Head of the Commonwealth?\n\nContext:\n[1] (Monarchy of the United Kingdom) monarch was acknowledged as \"Head of the Commonwealth\" in all Commonwealth member states, whether they were realms or republics. The position is purely ceremonial, and is not inherited by the British monarch as of right but is vested in an individual chosen by the Commonwealth heads of government.\n\nQuestion: Which British monarch was the first Head of the Commonwealth?\nShort answer:",
-      "top_chunk": "monarch was acknowledged as \"Head of the Commonwealth\" in all Commonwealth member states, whether they were realms or republics. The position is purely ceremonial, and is not inherited by the British "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which British monarch was the first Head of the Commonwealth?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "tc_1069",
@@ -3123,15 +3117,15 @@
         "us ma",
         "massachusetts united states"
       ],
-      "prediction": "Massachusetts",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In which American state is the Isabella Stewart Gardner Museum?\n\nContext:\n[1] (Isabella Stewart Gardner Museum) The Isabella Stewart Gardner Museum (ISGM) or Fenway Court, as the museum was known during Isabella Stewart Gardner's lifetime, is a museum in the Fenway-Kenmore neighborhood of Boston, Massachusetts, located within walking distance of the Museum of Fine Arts (although the Museum of Fine Arts's Huntington Avenue location\n\nQuestion: In which American state is the Isabella Stewart Gardner Museum?\nShort answer:",
-      "top_chunk": "The Isabella Stewart Gardner Museum (ISGM) or Fenway Court, as the museum was known during Isabella Stewart Gardner's lifetime, is a museum in the Fenway-Kenmore neighborhood of Boston, Massachusetts,"
+      "prediction": "New York",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In which American state is the Isabella Stewart Gardner Museum?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_16501",
@@ -3172,15 +3166,15 @@
         "george iii king of great britain and ireland",
         "george third"
       ],
-      "prediction": "king James I",
+      "prediction": "king henry viii",
       "em": 0.0,
       "f1": 0.3333333333333333,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Under which British monarch was Warren Hastings appointed first Governor of the Presidency of Fort William (Bengal) and the head of the Supreme Council of Bengal, effectively the first Governor-General of India?\n\nContext:\n[1] (Warren Hastings - Unionpedia, the concept map) Warren Hastings - Unionpedia, the concept map Yes, please No, thanks Warren Hastings Warren Hastings (6 December 1732 – 22 August 1818), an English statesman, was the first Governor of the Presidency of Fort William (Bengal) and thereby the first de facto Governor-General of India from 1773 to\n\nQuestion: Under which British monarch was Warren Hastings appointed first Governor of the Presidency of Fort William (Bengal) and the head of the Supreme Council of Bengal, effectively the first Governor-General of India?\nShort answer:",
-      "top_chunk": "Warren Hastings - Unionpedia, the concept map Yes, please No, thanks Warren Hastings Warren Hastings (6 December 1732 – 22 August 1818), an English statesman, was the first Governor of the Presidency "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Under which British monarch was Warren Hastings appointed first Governor of the Presidency of Fort William (Bengal) and the head of the Supreme Council of Bengal, effectively the first Governor-General of India?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_3301",
@@ -3382,15 +3376,15 @@
         "last of really odd lovers",
         "i artificial insemination"
       ],
-      "prediction": "La cambiale di matrimonio",
+      "prediction": "\"Standard\"",
       "em": 0.0,
-      "f1": 0.18181818181818182,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which opera by Rossini , his last , is based on a play by Schiller ?\n\nContext:\n[1] (Gioachino Rossini) of his best known overtures (La cambiale di matrimonio, Tancredi, La Cenerentola and The Barber of Seville) share operas apart from those with which they are most famously associated. A characteristic mannerism in Rossini's orchestral scoring is a long, steady building of sound over an ostinato figure, creating\n\nQuestion: Which opera by Rossini , his last , is based on a play by Schiller ?\nShort answer:",
-      "top_chunk": "of his best known overtures (La cambiale di matrimonio, Tancredi, La Cenerentola and The Barber of Seville) share operas apart from those with which they are most famously associated. A characteristic"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which opera by Rossini , his last , is based on a play by Schiller ?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_4949",
@@ -3399,15 +3393,15 @@
         "Sing a Song of Sixpence",
         "sing song of sixpence"
       ],
-      "prediction": "[1]",
+      "prediction": "st john",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: ‘The Queen was in the parlour eating bread and honey’ in which nursery rhyme?\n\nContext:\n[1] (Sing a Song of Sixpence) house, Counting out his money; The queen was in the parlour, Eating bread and honey. The maid was in the garden, Hanging out the clothes, When down came a blackbird And pecked off her nose.I. Opie and P. Opie, The Oxford Dictionary of Nursery Rhymes (Oxford University Press,\n\nQuestion: ‘The Queen was in the parlour eating bread and honey’ in which nursery rhyme?\nShort answer:",
-      "top_chunk": "house, Counting out his money; The queen was in the parlour, Eating bread and honey. The maid was in the garden, Hanging out the clothes, When down came a blackbird And pecked off her nose.I. Opie and"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: ‘The Queen was in the parlour eating bread and honey’ in which nursery rhyme?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_8301",
@@ -3425,15 +3419,15 @@
         "Diego Armando Maradona",
         "maradona diego"
       ],
-      "prediction": "Diego Maradona",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who is the father-in-law of Manchester City footballer Sergio Kűn Aguerro?\n\nContext:\n[1] (Diego Maradona calls Sergio Aguero a wimp after split from ...) comments A furious Diego Maradona has labelled Manchester City striker Sergio Aguero ‘a wimp’ on the day the controversial ‘Hand of God’ forward turned 53. Aguero was married to Giannina, Maradona’s daughter, for four years and has a son, Benjamin, with her, but the two split earlier this\n\nQuestion: Who is the father-in-law of Manchester City footballer Sergio Kűn Aguerro?\nShort answer:",
-      "top_chunk": "comments A furious Diego Maradona has labelled Manchester City striker Sergio Aguero ‘a wimp’ on the day the controversial ‘Hand of God’ forward turned 53. Aguero was married to Giannina, Maradona’s d"
+      "prediction": "Mauricio Pochettino",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who is the father-in-law of Manchester City footballer Sergio Kűn Aguerro?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_206",
@@ -3459,11 +3453,11 @@
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What colour hair did Charles Dickens' character David Copperfield have?\n\nContext:\n[1] (Charles Dickens) draw their portraits of characters from people they have known in real life. David Copperfield is regarded by many as a veiled autobiography of Dickens. The scenes of interminable court cases and legal arguments in Bleak House reflect Dickens's experiences as a law clerk and court reporter, and\n\nQuestion: What colour hair did Charles Dickens' character David Copperfield have?\nShort answer:",
-      "top_chunk": "draw their portraits of characters from people they have known in real life. David Copperfield is regarded by many as a veiled autobiography of Dickens. The scenes of interminable court cases and lega"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What colour hair did Charles Dickens' character David Copperfield have?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_1493",
@@ -3490,15 +3484,15 @@
         "Perfumingly",
         "men s fragrance"
       ],
-      "prediction": "movie royalties",
+      "prediction": "a business",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Elizabeth Taylor made a fortune from what business aside from acting?\n\nContext:\n[1] (Elizabeth Taylor - The Probate Lawyer Blog) Given her success, both on the screen and off, perhaps it should be no surprise that Elizabeth Taylor’s fortune has just been estimated to be worth as much as one billion dollars. Why so much? Certainly movie royalties alone could not account for that kind of value in\n\nQuestion: Elizabeth Taylor made a fortune from what business aside from acting?\nShort answer:",
-      "top_chunk": "Given her success, both on the screen and off, perhaps it should be no surprise that Elizabeth Taylor’s fortune has just been estimated to be worth as much as one billion dollars. Why so much? Certain"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Elizabeth Taylor made a fortune from what business aside from acting?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_19603",
@@ -3513,15 +3507,15 @@
         "Ginger cake",
         "Gingercake"
       ],
-      "prediction": "Gingerbread",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the name of the charity for single parents founded in the 1970s which currently has J K Rowling as its President?\n\nContext:\n[1] (J. K. Rowling) 26 July 2007. Anti-poverty and children's welfare Rowling, once a single parent, is now president of the charity Gingerbread (originally One Parent Families), having become their first Ambassador in 2000. Rowling collaborated with Sarah Brown to write a book of children's stories to aid One Parent Families. In\n\nQuestion: What is the name of the charity for single parents founded in the 1970s which currently has J K Rowling as its President?\nShort answer:",
-      "top_chunk": "26 July 2007. Anti-poverty and children's welfare Rowling, once a single parent, is now president of the charity Gingerbread (originally One Parent Families), having become their first Ambassador in 2"
+      "prediction": "The Children's Fund",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the name of the charity for single parents founded in the 1970s which currently has J K Rowling as its President?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_16378",
@@ -3549,15 +3543,15 @@
         "alfred tennyson lord tennyson",
         "alfred tennyson 1st baron tennyson"
       ],
-      "prediction": "first female Poet Laureate",
+      "prediction": "Nicola Sturgeon",
       "em": 0.0,
-      "f1": 0.3333333333333333,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who was the UK Poet Laureate or the longest period?\n\nContext:\n[1] (first female Poet Laureate in Carol Ann Duffy - The Guardian) 1930 John Masefield becomes the second-longest-serving poet laureate. 1967 Cecil Day-Lewis is appointed. 1972 Sir John Betjeman begins his tenure; according to his letters he hated the position. 1984 Ted Hughes accepts the job after Philip Larkin turns it down. 1999 Andrew Motion becomes the first poet laureate\n\nQuestion: Who was the UK Poet Laureate or the longest period?\nShort answer:",
-      "top_chunk": "1930 John Masefield becomes the second-longest-serving poet laureate. 1967 Cecil Day-Lewis is appointed. 1972 Sir John Betjeman begins his tenure; according to his letters he hated the position. 1984 "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who was the UK Poet Laureate or the longest period?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_6288",
@@ -3573,15 +3567,15 @@
         "jun",
         "juno german"
       ],
-      "prediction": "aprile",
+      "prediction": "",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Giugno is Italian for which month of the year?\n\nContext:\n[1] (Italian Calendar - Italian Months - Italian Days) was in Italy from September to December. Il mio migliore amico abita in Italia sei mesi all’anno da gennaio a giugno. - My best friend lives in Italy for six months of the year from January to June. Il mio compleanno è il diciotto di aprile, quindi il\n\nQuestion: Giugno is Italian for which month of the year?\nShort answer:",
-      "top_chunk": "was in Italy from September to December. Il mio migliore amico abita in Italia sei mesi all’anno da gennaio a giugno. - My best friend lives in Italy for six months of the year from January to June. I"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Giugno is Italian for which month of the year?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qf_277",
@@ -3589,15 +3583,15 @@
       "gold": [
         "Snudge"
       ],
-      "prediction": "Dick",
+      "prediction": "adam scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What character was played by Bill Fraser in 'The Army Game'?\n\nContext:\n[1] (The Army Game) The Army Game is a British sitcom that broadcast on ITV from 1957 to 1961. Made in black-and-white, it is about National Service conscription to the post-war British Army. It was created by Sid Colin. Many stars, including Charles Hawtrey, William Hartnell, Bernard Bresslaw, Alfie Bass and Dick\n\nQuestion: What character was played by Bill Fraser in 'The Army Game'?\nShort answer:",
-      "top_chunk": "The Army Game is a British sitcom that broadcast on ITV from 1957 to 1961. Made in black-and-white, it is about National Service conscription to the post-war British Army. It was created by Sid Colin."
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What character was played by Bill Fraser in 'The Army Game'?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_817",
@@ -3607,15 +3601,15 @@
         "Ares (disambiguation)",
         "ares disambiguation"
       ],
-      "prediction": "Ares",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who is the Greek God of War?\n\nContext:\n[1] (Ares) Ares (; ) is the Greek god of war. He is one of the Twelve Olympians, and the son of Zeus and Hera. In Greek literature, he often represents the physical or violent and untamed aspect of war, in contrast to his sister the armored Athena, whose functions\n\nQuestion: Who is the Greek God of War?\nShort answer:",
-      "top_chunk": "Ares (; ) is the Greek god of war. He is one of the Twelve Olympians, and the son of Zeus and Hera. In Greek literature, he often represents the physical or violent and untamed aspect of war, in contr"
+      "prediction": "aristotle",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who is the Greek God of War?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_3290",
@@ -3628,15 +3622,15 @@
         "DNA topology",
         "DNA bubble"
       ],
-      "prediction": "the molecular structure of nucleic acids and its significance for information transfer in living material",
+      "prediction": "a synapsis",
       "em": 0.0,
-      "f1": 0.23529411764705882,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: For which scientific discovery did Crick and Watson receive the 1962 Nobel Prize for Medicine?\n\nContext:\n[1] (Newfound Nobel Letters Reveal Secrets of DNA Prize) Crick and Watson ended up winning the 1962 Nobel Prize in Physiology or Medicine \"for their discoveries concerning the molecular structure of nucleic acids and its significance for information transfer in living material,\" according to the official citation. But at least one scientist nominated them for the chemistry\n\nQuestion: For which scientific discovery did Crick and Watson receive the 1962 Nobel Prize for Medicine?\nShort answer:",
-      "top_chunk": "Crick and Watson ended up winning the 1962 Nobel Prize in Physiology or Medicine \"for their discoveries concerning the molecular structure of nucleic acids and its significance for information transfe"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: For which scientific discovery did Crick and Watson receive the 1962 Nobel Prize for Medicine?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_3663",
@@ -3661,15 +3655,15 @@
         "roman moorish kingdoms",
         "roman moor kingdoms"
       ],
-      "prediction": "Mauritania",
+      "prediction": "",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Nouakchott is the capital of which Islamic African republic?\n\nContext:\n[1] (Mauritania) was located in Senegal, so when the country gained independence in 1960, Nouakchott, at the time little more than a fortified village (\"ksar\"), was chosen as the site of the new capital of Mauritania. After gaining independence, larger numbers of indigenous Sub-Saharan African peoples (Haalpulaar, Soninke, and Wolof)\n\nQuestion: Nouakchott is the capital of which Islamic African republic?\nShort answer:",
-      "top_chunk": "was located in Senegal, so when the country gained independence in 1960, Nouakchott, at the time little more than a fortified village (\"ksar\"), was chosen as the site of the new capital of Mauritania."
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Nouakchott is the capital of which Islamic African republic?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_1414",
@@ -3685,15 +3679,15 @@
         "day old cockerel",
         "hawking falconry"
       ],
-      "prediction": "falconry",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: A creance is the name of the long fine cord used in which sport?\n\nContext:\n[1] (Creance) A creance is a long light cord used to tether a flying hawk or falcon during training in falconry. They are used both when the bird is young, and when the bird has been taken out of the aviary for a moult or other reasons. The creance itself\n\nQuestion: A creance is the name of the long fine cord used in which sport?\nShort answer:",
-      "top_chunk": "A creance is a long light cord used to tether a flying hawk or falcon during training in falconry. They are used both when the bird is young, and when the bird has been taken out of the aviary for a m"
+      "prediction": "tennis",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: A creance is the name of the long fine cord used in which sport?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_2020",
@@ -3746,15 +3740,15 @@
         "luna natural satellite",
         "earth s natural satellites"
       ],
-      "prediction": "the moon",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Selenology is the scientific study of which celestial body?\n\nContext:\n[1] (Selenological | Article about selenological by The Free ...) Selenology the scientific discipline that studies the structure and the chemical and mineralogical composition of the moon. The shape of the moon and the metrical characteristics of its relief are the subject of selenodesy. Selenology arose in the mid-20th century when it became possible to carry out direct\n\nQuestion: Selenology is the scientific study of which celestial body?\nShort answer:",
-      "top_chunk": "Selenology the scientific discipline that studies the structure and the chemical and mineralogical composition of the moon. The shape of the moon and the metrical characteristics of its relief are the"
+      "prediction": "octopus",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Selenology is the scientific study of which celestial body?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_3952",
@@ -3797,15 +3791,15 @@
         "abortion physical effects of",
         "elective termination of pregnancy"
       ],
-      "prediction": "abortions after 20 weeks of pregnancy, require abortion clinics",
+      "prediction": "a federal law",
       "em": 0.0,
-      "f1": 0.3636363636363636,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In June 2013 US Texas State Senator Wendy Davis filibustered for 10 hours to obstruct Texas state laws concerning?\n\nContext:\n[1] (Wendy Davis (politician)) 3, 2013, she changed her mind and announced a candidacy for Texas Governor instead of re-election to the State Senate. 2013 filibuster On June 25, 2013, Davis performed a filibuster to block Senate Bill 5, a proposal to ban abortions after 20 weeks of pregnancy, require abortion clinics\n\nQuestion: In June 2013 US Texas State Senator Wendy Davis filibustered for 10 hours to obstruct Texas state laws concerning?\nShort answer:",
-      "top_chunk": "3, 2013, she changed her mind and announced a candidacy for Texas Governor instead of re-election to the State Senate. 2013 filibuster On June 25, 2013, Davis performed a filibuster to block Senate Bi"
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In June 2013 US Texas State Senator Wendy Davis filibustered for 10 hours to obstruct Texas state laws concerning?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "tc_2090",
@@ -3818,15 +3812,15 @@
         "Ubbe Ert Iwwerks",
         "iwerks ub"
       ],
-      "prediction": "Walt Disney",
+      "prediction": "john scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who first drew Mickey Mouse when ?Disney first supplied the voice?\n\nContext:\n[1] (Mickey Mouse) attributed to Wilfred Jackson, Carl Stalling and Bert Lewis, but identification remains uncertain. Walt Disney himself was voice actor for both Mickey and Minnie, and would remain the source of Mickey's voice through 1946 for theatrical cartoons. Jimmy MacDonald took over the role in 1946, but Walt provided\n\nQuestion: Who first drew Mickey Mouse when ?Disney first supplied the voice?\nShort answer:",
-      "top_chunk": "attributed to Wilfred Jackson, Carl Stalling and Bert Lewis, but identification remains uncertain. Walt Disney himself was voice actor for both Mickey and Minnie, and would remain the source of Mickey"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who first drew Mickey Mouse when ?Disney first supplied the voice?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_10047",
@@ -3843,15 +3837,15 @@
         "board of governors of federal reserve system",
         "board of governors of federal reserve"
       ],
-      "prediction": "Federal Reserve",
+      "prediction": "Department of Homeland Security",
       "em": 0.0,
-      "f1": 0.8,
+      "f1": 0.22222222222222224,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Alan Greenspan was the head of which US government department from 1987 to 2006?\n\nContext:\n[1] (Alan Greenspan) Alan Greenspan (; born March 6, 1926) is an American economist who served as Chairman of the Federal Reserve of the United States from 1987 to 2006. He currently works as a private adviser and provides consulting for firms through his company, Greenspan Associates LLC. First appointed Federal\n\nQuestion: Alan Greenspan was the head of which US government department from 1987 to 2006?\nShort answer:",
-      "top_chunk": "Alan Greenspan (; born March 6, 1926) is an American economist who served as Chairman of the Federal Reserve of the United States from 1987 to 2006. He currently works as a private adviser and provide"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Alan Greenspan was the head of which US government department from 1987 to 2006?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_7781",
@@ -3861,15 +3855,15 @@
         "one thousand and sixty-six",
         "one thousand and sixty six"
       ],
-      "prediction": "",
+      "prediction": "1897",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In what year was the Battle of Stamford Bridge?\n\nContext:\n[1] (UK Battlefield Trust Stamford Bridge Page) battle of Stamford Bridge was a decisive victory for the English King. It proved him to be an able commander and the English troops, particularly the Housecarls, to be well trained, highly skilled and capable of great endurance. Yet in English history the victory at Stamford Bridge is\n\nQuestion: In what year was the Battle of Stamford Bridge?\nShort answer:",
-      "top_chunk": "battle of Stamford Bridge was a decisive victory for the English King. It proved him to be an able commander and the English troops, particularly the Housecarls, to be well trained, highly skilled and"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In what year was the Battle of Stamford Bridge?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_21320",
@@ -3880,15 +3874,15 @@
         "Gorky (disambiguation)",
         "gorky disambiguation"
       ],
-      "prediction": "Gorky",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What was the Russian City of Nizhny Novgorod called between 1932 and 1990?\n\nContext:\n[1] (Flights Nizhny Novgorod - Flights | Compare, Book & Save) Flights Nizhny Novgorod Nizhny Novgorod Flights: Flights to Nizhny Novgorod The city of Nizhny Novgorod is the fifth largest in Russia and is located in the west of the country. Usually shortened to just Nizhny, the city was actually called Gorky between 1932 and 1990, and is a\n\nQuestion: What was the Russian City of Nizhny Novgorod called between 1932 and 1990?\nShort answer:",
-      "top_chunk": "Flights Nizhny Novgorod Nizhny Novgorod Flights: Flights to Nizhny Novgorod The city of Nizhny Novgorod is the fifth largest in Russia and is located in the west of the country. Usually shortened to j"
+      "prediction": "аард",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What was the Russian City of Nizhny Novgorod called between 1932 and 1990?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_267",
@@ -3898,15 +3892,15 @@
         "Giglio (disambiguation)",
         "giglio disambiguation"
       ],
-      "prediction": "Italy",
+      "prediction": "st juan",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"The cruise liner \"\"Costa Concordia\"\" sank in the Tyrhenian sea in January 2012 against the rocks of the coast of what island?\"\n\nContext:\n[1] (Costa Concordia) January 2012 at about 9:45 p.m., in calm seas and overcast weather, under command of Captain Francesco Schettino, Costa Concordia struck a rock in the Tyrrhenian Sea just off the eastern shore of Isola del Giglio, on the western coast of Italy about 100 km northwest of Rome.\n\nQuestion: \"The cruise liner \"\"Costa Concordia\"\" sank in the Tyrhenian sea in January 2012 against the rocks of the coast of what island?\"\nShort answer:",
-      "top_chunk": "January 2012 at about 9:45 p.m., in calm seas and overcast weather, under command of Captain Francesco Schettino, Costa Concordia struck a rock in the Tyrrhenian Sea just off the eastern shore of Isol"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"The cruise liner \"\"Costa Concordia\"\" sank in the Tyrhenian sea in January 2012 against the rocks of the coast of what island?\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_8041",
@@ -3939,15 +3933,15 @@
         "iso 3166 1 pl",
         "country poland"
       ],
-      "prediction": "Poland",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Zloty and Grosz are money in which country?\n\nContext:\n[1] (Convert your leftover coins from Poland to cash - Polish ...) produced by the Warsaw-based Mint of Poland since 1995. Coins from 1 grosz to 5 zloty are legal tender in Poland. Banks and exchange offices outside Poland will not accept Polish Zloty coins for exchange. However, we give cash for Polish zloty and groszy coins. We also exchange\n\nQuestion: Zloty and Grosz are money in which country?\nShort answer:",
-      "top_chunk": "produced by the Warsaw-based Mint of Poland since 1995. Coins from 1 grosz to 5 zloty are legal tender in Poland. Banks and exchange offices outside Poland will not accept Polish Zloty coins for excha"
+      "prediction": "",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Zloty and Grosz are money in which country?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_23344",
@@ -3966,15 +3960,15 @@
         "guthrie woody",
         "woodrow wilson 22woody 22 guthrie"
       ],
-      "prediction": "Woody Guthrie",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which US folk singer had the words “This machine kills fascists” written on his guitar?\n\nContext:\n[1] (This machine kills fascists) had a sign on his guitar that said, 'This machine kills fascists.' That's just the kind of connection between music and politics that I'm arguing against. It wasn't a machine and it didn't kill fascists. It made Woody Guthrie and the people who listened to him feel noble.\n\nQuestion: Which US folk singer had the words “This machine kills fascists” written on his guitar?\nShort answer:",
-      "top_chunk": "had a sign on his guitar that said, 'This machine kills fascists.' That's just the kind of connection between music and politics that I'm arguing against. It wasn't a machine and it didn't kill fascis"
+      "prediction": "Freddie Prinze",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which US folk singer had the words “This machine kills fascists” written on his guitar?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_9681",
@@ -3991,15 +3985,15 @@
         "hansard lords",
         "hansard s debates"
       ],
-      "prediction": "[1] (House of Commons of the United Kingdom) Mace is laid upon the Table of the House during sittings",
+      "prediction": "the journal of the house of commons",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: How is 'The Journal Of The House Of Commons' better known?\n\nContext:\n[1] (House of Commons of the United Kingdom) Mace is laid upon the Table of the House during sittings. The Librarian is head of the House of Commons Library, the House's research and information arm. Procedure Like the Lords, the Commons meets in the Palace of Westminster in London. The Commons chamber is small and modestly\n\nQuestion: How is 'The Journal Of The House Of Commons' better known?\nShort answer:",
-      "top_chunk": "Mace is laid upon the Table of the House during sittings. The Librarian is head of the House of Commons Library, the House's research and information arm. Procedure Like the Lords, the Commons meets i"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: How is 'The Journal Of The House Of Commons' better known?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_4276",
@@ -4058,15 +4052,15 @@
         "zoe carter eureka character",
         "henry deacon eureka character"
       ],
-      "prediction": "Sarah",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: According to the Old Testament, who was the wife of Abraham and the mother of Isaac ?\n\nContext:\n[1] (Sarah from the Old Testament - Jewish Virtual Library) Sarah | Jewish Virtual Library Tweet The biblical matriarch Sarah was the wife of Abraham and the mother of Isaac . Information about Sarah comes from Genesis chapters 11-23. Abraham and Sarah lived and were married in Haran. When Abraham was 75 years old, God commanded him to\n\nQuestion: According to the Old Testament, who was the wife of Abraham and the mother of Isaac ?\nShort answer:",
-      "top_chunk": "Sarah | Jewish Virtual Library Tweet The biblical matriarch Sarah was the wife of Abraham and the mother of Isaac . Information about Sarah comes from Genesis chapters 11-23. Abraham and Sarah lived a"
+      "prediction": "abraham",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: According to the Old Testament, who was the wife of Abraham and the mother of Isaac ?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_14990",
@@ -4104,11 +4098,11 @@
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who composed the Liverpool Oratorio in collaboration with Carl Davis?\n\nContext:\n[1] (Carl Davis) the Liverpool Oratorio. Davis's music is published by Faber Music. Early life and career Davis was born in New York City to Jewish parents, Sara (née Perlmutter) and Isadore Davis. He studied composition with Paul Nordoff and Hugo Kauder, and subsequently with Per Nørgaard in Copenhagen. His early\n\nQuestion: Who composed the Liverpool Oratorio in collaboration with Carl Davis?\nShort answer:",
-      "top_chunk": "the Liverpool Oratorio. Davis's music is published by Faber Music. Early life and career Davis was born in New York City to Jewish parents, Sara (née Perlmutter) and Isadore Davis. He studied composit"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who composed the Liverpool Oratorio in collaboration with Carl Davis?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_12335",
@@ -4136,15 +4130,15 @@
         "delacroix ferdinand victor eugene",
         "delacroix ferdinand victor eugène"
       ],
-      "prediction": "François-Louis Legrand",
+      "prediction": "Jacques Lennon",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which French romantic artist who painted Massacre at Chios and Women of Algiers was born on this day in 1798?\n\nContext:\n[1] (The Massacre at Chios) sympathy with the brutal occupiers. The painting was completed and displayed at the Salon of 1824 and presently hangs at the Musée du Louvre in Paris. Massacre A military attack on the inhabitants of Chios by Ottoman forces commenced on 11 April 1822 and was prosecuted for several\n\nQuestion: Which French romantic artist who painted Massacre at Chios and Women of Algiers was born on this day in 1798?\nShort answer:",
-      "top_chunk": "sympathy with the brutal occupiers. The painting was completed and displayed at the Salon of 1824 and presently hangs at the Musée du Louvre in Paris. Massacre A military attack on the inhabitants of "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which French romantic artist who painted Massacre at Chios and Women of Algiers was born on this day in 1798?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "jp_657",
@@ -4161,15 +4155,15 @@
         "well film",
         "well disambiguation"
       ],
-      "prediction": "river",
+      "prediction": "d).",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What did Tikki Tikki Tembo fall into?\n\nContext:\n[1] (Tikki Tikki Tembo: From Asian-American Folklore at ...) to play games with one another. One day, as they were playing tag, little Ping slipped on some wet grass and fell into the river. Tikki Tikki Tembo No Sarembo Hari Kari Pi Chi Pip Peri Pembo was alarmed. Neither of the brothers knew how to swim. Tikki\n\nQuestion: What did Tikki Tikki Tembo fall into?\nShort answer:",
-      "top_chunk": "to play games with one another. One day, as they were playing tag, little Ping slipped on some wet grass and fell into the river. Tikki Tikki Tembo No Sarembo Hari Kari Pi Chi Pip Peri Pembo was alarm"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What did Tikki Tikki Tembo fall into?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_5066",
@@ -4182,15 +4176,15 @@
         "Traflagar",
         "trafalgar disambiguation"
       ],
-      "prediction": "Rockall, Malin, Hebrides",
+      "prediction": "North Sea",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which is the most southerly of the Shipping Forecast areas?\n\nContext:\n[1] (Shipping Forecast) given as the last item of each sea area forecast. Examples of area forecasts: *\"Humber, Thames. Southeast veering southwest 4 or 5, occasionally 6 later. Thundery showers. Moderate or good, occasionally poor.\" *\"Tyne, Dogger. Northeast 3 or 4. Occasional rain. Moderate or poor.\" *\"Rockall, Malin, Hebrides. Southwest gale\n\nQuestion: Which is the most southerly of the Shipping Forecast areas?\nShort answer:",
-      "top_chunk": "given as the last item of each sea area forecast. Examples of area forecasts: *\"Humber, Thames. Southeast veering southwest 4 or 5, occasionally 6 later. Thundery showers. Moderate or good, occasional"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which is the most southerly of the Shipping Forecast areas?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_23329",
@@ -4202,15 +4196,15 @@
         "tanner disambiguation",
         "tanner name"
       ],
-      "prediction": "Blacksmiths",
+      "prediction": "abraham smith",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: A gerber was an alternative name for which traditional trade/craftsman?\n\nContext:\n[1] (Blacksmiths Glossary) to shape with tools. This was known as forging. The origin of the term is ancient and unknown, but may be from the Norse \"smithr\" or early Greek \"smile\" (carving knife) and can be found in Old English \"smithian\" and early German \"Schmied\". Soldering Joining metal objects using\n\nQuestion: A gerber was an alternative name for which traditional trade/craftsman?\nShort answer:",
-      "top_chunk": "to shape with tools. This was known as forging. The origin of the term is ancient and unknown, but may be from the Norse \"smithr\" or early Greek \"smile\" (carving knife) and can be found in Old English"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: A gerber was an alternative name for which traditional trade/craftsman?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_5774",
@@ -4222,15 +4216,15 @@
         "route 66 public transport",
         "route 66 disambiguation"
       ],
-      "prediction": "U.S. Highway 66",
+      "prediction": "st. john s s s s s s s s s s s s s",
       "em": 0.0,
-      "f1": 0.4,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What famous road began in Chicago, Illinois, ending at Santa Monica, California?\n\nContext:\n[1] (heart of historic route 66 - Kingman AZ Route 66) Chicago, Illinois through Missouri, Kansas, Oklahoma, Texas, New Mexico, Arizona and California before ending at the beach at Santa Monica for a total distance of 2448 miles. In the early 1900's the route was known as the National Old Trails Road. In 1926 it became U.S. Highway 66,\n\nQuestion: What famous road began in Chicago, Illinois, ending at Santa Monica, California?\nShort answer:",
-      "top_chunk": "Chicago, Illinois through Missouri, Kansas, Oklahoma, Texas, New Mexico, Arizona and California before ending at the beach at Santa Monica for a total distance of 2448 miles. In the early 1900's the r"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What famous road began in Chicago, Illinois, ending at Santa Monica, California?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_14566",
@@ -4275,15 +4269,15 @@
         "iso 3166 1 km",
         "al ittiḥād al qumuriyy"
       ],
-      "prediction": "the Union of the Comoros",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Moroni is the capital of which Indian Ocean island group?\n\nContext:\n[1] (Moroni, Comoros) of the Union of the Comoros, a sovereign archipelago nation in the Indian Ocean. In Comorian, Moroni translates as \"in the heart of the fire\", perhaps alluding to the city's location at the foot of Mount Karthala, an active volcano. Moroni is the capital of the semi-autonomous island\n\nQuestion: Moroni is the capital of which Indian Ocean island group?\nShort answer:",
-      "top_chunk": "of the Union of the Comoros, a sovereign archipelago nation in the Indian Ocean. In Comorian, Moroni translates as \"in the heart of the fire\", perhaps alluding to the city's location at the foot of Mo"
+      "prediction": "sands",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Moroni is the capital of which Indian Ocean island group?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_2596",
@@ -4302,15 +4296,15 @@
         "dover england",
         "dover kent"
       ],
-      "prediction": "Bath",
+      "prediction": "st john",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which English town/city did the Romans call Dubris?\n\nContext:\n[1] (Roman Britain) towns which have Roman origins, or were extensively developed by them are listed with their Latin names in brackets; ' are marked C * Alcester (Alauna) * Aldborough, North Yorkshire (Isurium Brigantum) C * Bath (Aquae Sulis) * Brough-on-Humber (Petuaria) C * Buxton (Aquae Arnemetiae) * Caerleon (Isca\n\nQuestion: Which English town/city did the Romans call Dubris?\nShort answer:",
-      "top_chunk": "towns which have Roman origins, or were extensively developed by them are listed with their Latin names in brackets; ' are marked C * Alcester (Alauna) * Aldborough, North Yorkshire (Isurium Brigantum"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which English town/city did the Romans call Dubris?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_8348",
@@ -4370,15 +4364,15 @@
         "f domesticus",
         "alley cat"
       ],
-      "prediction": "Siamese",
+      "prediction": "femur",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Maine Coon, Munchkin, Oriental Shorthair, Persian, Ragamuffin, Russian Blue, Siamese, Siberian, Snowshoe, Sphynx, Tonkinese and Manx are all breeds of what?\n\nContext:\n[1] (Oriental Shorthair) of the Siamese family of breeds, and can be found in various solid colors, and patterns such as smoke, shaded, parti-color/tortoiseshell, tabby and bicolor (any of the above, with white). Not all variants are acceptable to all organizations that recognize the breed. Conforming Oriental Shorthairs, like any of\n\nQuestion: Maine Coon, Munchkin, Oriental Shorthair, Persian, Ragamuffin, Russian Blue, Siamese, Siberian, Snowshoe, Sphynx, Tonkinese and Manx are all breeds of what?\nShort answer:",
-      "top_chunk": "of the Siamese family of breeds, and can be found in various solid colors, and patterns such as smoke, shaded, parti-color/tortoiseshell, tabby and bicolor (any of the above, with white). Not all vari"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Maine Coon, Munchkin, Oriental Shorthair, Persian, Ragamuffin, Russian Blue, Siamese, Siberian, Snowshoe, Sphynx, Tonkinese and Manx are all breeds of what?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_13550",
@@ -4391,15 +4385,15 @@
         "Haydos",
         "ML Hayden"
       ],
-      "prediction": "Ramnaresh Sarwan",
+      "prediction": "edward s. scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In October 2003, which cricketer, playing in a Test series against Zimbabwe, scored a record 380 not out?\n\nContext:\n[1] (Ramnaresh Sarwan) was unbeaten in both innings including a first innings score of 84 not out. He missed scoring his maiden Test century against South Africa in March 2001 when he was run out for 91. His score of 78 in the second Test against India at Chennai in October\n\nQuestion: In October 2003, which cricketer, playing in a Test series against Zimbabwe, scored a record 380 not out?\nShort answer:",
-      "top_chunk": "was unbeaten in both innings including a first innings score of 84 not out. He missed scoring his maiden Test century against South Africa in March 2001 when he was run out for 91. His score of 78 in "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In October 2003, which cricketer, playing in a Test series against Zimbabwe, scored a record 380 not out?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_19424",
@@ -4412,15 +4406,15 @@
         "Calculated guess",
         "Estimation"
       ],
-      "prediction": "Estimate",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which of the Queen's horses won the 2013 Ascot Gold Cup?\n\nContext:\n[1] (Royal Ascot: All Smiles As Queen Wins Gold Cup - Sky News) Ascot's Gold Cup with her horse Estimate. 20:02, UK, Thursday 20 June 2013 Mail The Queen has made sporting history by becoming the first reigning monarch to win the Gold Cup at Royal Ascot. With a clap of her hands and a beaming smile, she celebrated the \"thrilling\"\n\nQuestion: Which of the Queen's horses won the 2013 Ascot Gold Cup?\nShort answer:",
-      "top_chunk": "Ascot's Gold Cup with her horse Estimate. 20:02, UK, Thursday 20 June 2013 Mail The Queen has made sporting history by becoming the first reigning monarch to win the Gold Cup at Royal Ascot. With a cl"
+      "prediction": "adolfo",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which of the Queen's horses won the 2013 Ascot Gold Cup?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_5817",
@@ -4435,15 +4429,15 @@
         "peter mitchell three men and baby",
         "three men and baby"
       ],
-      "prediction": "Three Men and a Baby",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which 1987 US film was based on the 1985 French film ‘Trois hommes et un couffin’?\n\nContext:\n[1] (Three Men and a Cradle) **Nominated: Best Foreign Language Film *National Academy of Cinema (France) **Won: Academy Award (Coline Serreau) Remakes Trois hommes et un couffin was remade in English as Three Men and a Baby in 1987 which was subsequently adapted asThoovalsparsham (1990) in Malayalam which was then remade in Telugu as\n\nQuestion: Which 1987 US film was based on the 1985 French film ‘Trois hommes et un couffin’?\nShort answer:",
-      "top_chunk": "**Nominated: Best Foreign Language Film *National Academy of Cinema (France) **Won: Academy Award (Coline Serreau) Remakes Trois hommes et un couffin was remade in English as Three Men and a Baby in 1"
+      "prediction": "a sailor",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which 1987 US film was based on the 1985 French film ‘Trois hommes et un couffin’?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_13630",
@@ -4452,15 +4446,15 @@
         "Holly came from Miami F L A",
         "holly came from miami f l"
       ],
-      "prediction": "[1] (Lou Reed - Walk On The Wild Side (Lyrics in Description ...)",
+      "prediction": "a slew of sex",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"What is the first line of \"\"Walk on the Wild Side\"\" by Lou Reed, released as a single in 1972?\"\n\nContext:\n[1] (Lou Reed - Walk On The Wild Side (Lyrics in Description ...) Lou Reed - Walk On The Wild Side (Lyrics in Description) - YouTube Lou Reed - Walk On The Wild Side (Lyrics in Description) Want to watch this again later? Sign in to add this video to a playlist. Need to report the video? Sign in to report\n\nQuestion: \"What is the first line of \"\"Walk on the Wild Side\"\" by Lou Reed, released as a single in 1972?\"\nShort answer:",
-      "top_chunk": "Lou Reed - Walk On The Wild Side (Lyrics in Description) - YouTube Lou Reed - Walk On The Wild Side (Lyrics in Description) Want to watch this again later? Sign in to add this video to a playlist. Nee"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"What is the first line of \"\"Walk on the Wild Side\"\" by Lou Reed, released as a single in 1972?\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_10149",
@@ -4491,15 +4485,15 @@
         "yellow colour",
         "255 255 0"
       ],
-      "prediction": "black",
+      "prediction": "red",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What colour is the liqueur Galliano?\n\nContext:\n[1] (Galliano (liqueur)) packaged in a distinctively shaped bottle, reminiscent of a classical Roman column. Several other liqueurs are also produced under the Galliano brand name, including a black Sambuca, a white Sambuca and an amaretto, which are predominantly distributed in Australasia, where the products are popular as shots. Galliano also\n\nQuestion: What colour is the liqueur Galliano?\nShort answer:",
-      "top_chunk": "packaged in a distinctively shaped bottle, reminiscent of a classical Roman column. Several other liqueurs are also produced under the Galliano brand name, including a black Sambuca, a white Sambuca a"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What colour is the liqueur Galliano?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_3998",
@@ -4516,15 +4510,15 @@
         "new year s",
         "turn of year"
       ],
-      "prediction": "North Vietnamese Army",
+      "prediction": "tet",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The word Tet in the Tet Offensive (N Vietnam/Viet Cong against S Vietnam/US forces on 30 Jan 1968) referred to the national?\n\nContext:\n[1] (Vietnam War | HistoryNet) called simply the North Vietnamese Army (NVA) by those fighting against it. Following the Tet Offensive of 1968, the NVA had to assume the major combat role because the VC was decimated during the offensive. United States Military Advisors in Vietnam The U.S., which had been gradually exerting\n\nQuestion: The word Tet in the Tet Offensive (N Vietnam/Viet Cong against S Vietnam/US forces on 30 Jan 1968) referred to the national?\nShort answer:",
-      "top_chunk": "called simply the North Vietnamese Army (NVA) by those fighting against it. Following the Tet Offensive of 1968, the NVA had to assume the major combat role because the VC was decimated during the off"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The word Tet in the Tet Offensive (N Vietnam/Viet Cong against S Vietnam/US forces on 30 Jan 1968) referred to the national?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_13385",
@@ -4532,15 +4526,15 @@
       "gold": [
         "RAMNARESH"
       ],
-      "prediction": "Ramnaresh",
-      "em": 1.0,
-      "f1": 1.0,
+      "prediction": "alan",
+      "em": 0.0,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: By what first name is West Indian cricketer Sarwan known?\n\nContext:\n[1] (Ramnaresh Sarwan) the highest score for the West Indies of the great Sir Vivian Richards. Sarwan's name is a common Hindu name shared by many of his countrymen who have roots in India. For much of his career he wore a bandanna under his helmet whilst batting, but has now\n\nQuestion: By what first name is West Indian cricketer Sarwan known?\nShort answer:",
-      "top_chunk": "the highest score for the West Indies of the great Sir Vivian Richards. Sarwan's name is a common Hindu name shared by many of his countrymen who have roots in India. For much of his career he wore a "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: By what first name is West Indian cricketer Sarwan known?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_13317",
@@ -4550,15 +4544,15 @@
         "Northern (disambiguation)",
         "northern disambiguation"
       ],
-      "prediction": "Northern line",
+      "prediction": "London Underground",
       "em": 0.0,
-      "f1": 0.6666666666666666,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Goodge Street tube station is on which London Underground line?\n\nContext:\n[1] (Goodge Street Tube Station, London, England Tourist ...) Goodge Street Tube Station, London, England Tourist Information Locals and travelers to connect with About London Borough of Camden, London, England 51.5208-0.1344 Goodge Street is a London Underground station on Tottenham Court Road. It is on the Northern line between Tottenham Court Road and Warren Street, and is\n\nQuestion: Goodge Street tube station is on which London Underground line?\nShort answer:",
-      "top_chunk": "Goodge Street Tube Station, London, England Tourist Information Locals and travelers to connect with About London Borough of Camden, London, England 51.5208-0.1344 Goodge Street is a London Undergroun"
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Goodge Street tube station is on which London Underground line?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_5188",
@@ -4625,15 +4619,15 @@
         "william j blythe iii",
         "bill clinton s sex scandals"
       ],
-      "prediction": "George H. W. Bush",
+      "prediction": "john d. bush",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"Which American President used the slogan: \"\"It's the economy, stupid\"\" for his presidential campaign?\"\n\nContext:\n[1] (George H. W. Bush: Campaigns and Elections—Miller Center) campaign slogan was \"It's the economy, stupid,\" which highlighted the hard times many Americans were enduring economically. As the economy slowed down, Bush did not enact any major legislation that might have proved to the voters that he was responding to their concerns. The President was also damaged\n\nQuestion: \"Which American President used the slogan: \"\"It's the economy, stupid\"\" for his presidential campaign?\"\nShort answer:",
-      "top_chunk": "campaign slogan was \"It's the economy, stupid,\" which highlighted the hard times many Americans were enduring economically. As the economy slowed down, Bush did not enact any major legislation that mi"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"Which American President used the slogan: \"\"It's the economy, stupid\"\" for his presidential campaign?\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_9577",
@@ -4646,15 +4640,15 @@
         "eadmund disambiguation",
         "edmund given name"
       ],
-      "prediction": "Edmund",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the first name of Blackadder in the UK television series ‘Blackadder’?\n\nContext:\n[1] (Blackadder II) Blackadder II is the second series of the BBC sitcom Blackadder. It was written by Richard Curtis and Ben Elton. It aired from 9 January to 20 February 1986. The series is set in England during the reign of Queen Elizabeth I (1558–1603). The main character, Edmund, Lord\n\nQuestion: What is the first name of Blackadder in the UK television series ‘Blackadder’?\nShort answer:",
-      "top_chunk": "Blackadder II is the second series of the BBC sitcom Blackadder. It was written by Richard Curtis and Ben Elton. It aired from 9 January to 20 February 1986. The series is set in England during the re"
+      "prediction": "john",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the first name of Blackadder in the UK television series ‘Blackadder’?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qf_85",
@@ -4664,15 +4658,15 @@
         "Christie (disambiguation)",
         "christie disambiguation"
       ],
-      "prediction": "Jeff Christie",
+      "prediction": "antonio sacramento",
       "em": 0.0,
-      "f1": 0.6666666666666666,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: 'Yellow River' was a May 1970 No.1 for who?\n\nContext:\n[1] (Yellow River (song)) hit, reaching number one on the UK Singles Chart for one week in June 1970. In the US, it reached number 23 on the Billboard Hot 100 singles chart. The actual location of Yellow River in this song is not specified, although the author, Jeff Christie, is on\n\nQuestion: 'Yellow River' was a May 1970 No.1 for who?\nShort answer:",
-      "top_chunk": "hit, reaching number one on the UK Singles Chart for one week in June 1970. In the US, it reached number 23 on the Billboard Hot 100 singles chart. The actual location of Yellow River in this song is "
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: 'Yellow River' was a May 1970 No.1 for who?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_14848",
@@ -4684,15 +4678,15 @@
         "Forum Cornelii",
         "Rocca Sforzesca"
       ],
-      "prediction": "Autodromo Enzo e Dino Ferrari",
+      "prediction": "st. giorno",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: On which Italian track was the Formula One San Marino Grand Prix held?\n\nContext:\n[1] (San Marino Grand Prix) The San Marino Grand Prix (Italian: Gran Premio di San Marino) was a Formula One championship race which was run at the Autodromo Enzo e Dino Ferrari in the town of Imola, near the Apennine mountains in Italy, between 1981 and 2006. It was named after nearby San\n\nQuestion: On which Italian track was the Formula One San Marino Grand Prix held?\nShort answer:",
-      "top_chunk": "The San Marino Grand Prix (Italian: Gran Premio di San Marino) was a Formula One championship race which was run at the Autodromo Enzo e Dino Ferrari in the town of Imola, near the Apennine mountains "
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: On which Italian track was the Formula One San Marino Grand Prix held?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_12214",
@@ -4711,15 +4705,15 @@
         "space physics",
         "space philosophy"
       ],
-      "prediction": "Endangered Species Act",
+      "prediction": "d).",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The ESA was 35 years old in 2010. For what does the S stand?\n\nContext:\n[1] (Endangered Species Act) found that \"the plain intent of Congress in enacting\" the ESA \"was to halt and reverse the trend toward species extinction, whatever the cost.\" The Act is administered by two federal agencies, the United States Fish and Wildlife Service (FWS) and the National Oceanic and Atmospheric Administration (NOAA).\n\nQuestion: The ESA was 35 years old in 2010. For what does the S stand?\nShort answer:",
-      "top_chunk": "found that \"the plain intent of Congress in enacting\" the ESA \"was to halt and reverse the trend toward species extinction, whatever the cost.\" The Act is administered by two federal agencies, the Uni"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The ESA was 35 years old in 2010. For what does the S stand?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_20339",
@@ -4734,15 +4728,15 @@
         "Ginger cake",
         "Gingercake"
       ],
-      "prediction": "Gingerbread",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the principal charity for single parent families in the UK?\n\nContext:\n[1] (Gingerbread Single Parent Helpline - The Big Give) Gingerbread Single Parent Helpline, a project by Gingerbread, the charity for single parent families | The Big Give Need Need There are 1.9 million families, with over 3 million children, headed by a single parent, ie 25% of all families with children in the UK. More than half\n\nQuestion: What is the principal charity for single parent families in the UK?\nShort answer:",
-      "top_chunk": "Gingerbread Single Parent Helpline, a project by Gingerbread, the charity for single parent families | The Big Give Need Need There are 1.9 million families, with over 3 million children, headed by a "
+      "prediction": "The Royal Family",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the principal charity for single parent families in the UK?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bt_4210",
@@ -4761,15 +4755,15 @@
         "Aston Villa Hall of Fame",
         "Aston Villa F.C."
       ],
-      "prediction": "Tottenham Hotspur",
+      "prediction": "the United States",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who were the first League Cup winners\n\nContext:\n[1] (EFL Cup) gave the League Cup winner European qualification. As a result of the negotiating tactics, UEFA provided the League Cup winner with a place in the European competitions providing the team was in the first division. Tottenham Hotspur were the first team to qualify for Europe by virtue of\n\nQuestion: Who were the first League Cup winners\nShort answer:",
-      "top_chunk": "gave the League Cup winner European qualification. As a result of the negotiating tactics, UEFA provided the League Cup winner with a place in the European competitions providing the team was in the f"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who were the first League Cup winners\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_2289",
@@ -4787,15 +4781,15 @@
         "arsenal ammunition",
         "arsenal weaponry"
       ],
-      "prediction": "SC Weiz",
+      "prediction": "Manchester United",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Wayne Rooney scored his first senior goal against which club?\n\nContext:\n[1] (Wayne Rooney) their training camp in Austria in the summer of 2002 and scored his first senior goal in a 3–1 friendly victory over SC Weiz on 15 July. First team breakthrough Rooney was an unused substitute in Everton's 1–0 away win over Southampton on 20 April 2002. He made\n\nQuestion: Wayne Rooney scored his first senior goal against which club?\nShort answer:",
-      "top_chunk": "their training camp in Austria in the summer of 2002 and scored his first senior goal in a 3–1 friendly victory over SC Weiz on 15 July. First team breakthrough Rooney was an unused substitute in Ever"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Wayne Rooney scored his first senior goal against which club?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_3152",
@@ -4841,15 +4835,15 @@
         "arthur wellesley 1st duke of wellington",
         "arthur wellesly 1st duke of wellington"
       ],
-      "prediction": "a soldier",
+      "prediction": "john scott",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who is Arthur Wellesley better known as?\n\nContext:\n[1] (History of Arthur Wellesley, 1st Duke of Wellington - GOV.UK) orders and they wanted to stay and discuss them.” Arthur Wellesley 1st Duke of Wellington is today more famous as a soldier than as a politician. In fact, as the Prime Minister, he was known for his measures to repress reform, and his popularity sank a little during\n\nQuestion: Who is Arthur Wellesley better known as?\nShort answer:",
-      "top_chunk": "orders and they wanted to stay and discuss them.” Arthur Wellesley 1st Duke of Wellington is today more famous as a soldier than as a politician. In fact, as the Prime Minister, he was known for his m"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who is Arthur Wellesley better known as?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_206",
@@ -4857,15 +4851,15 @@
       "gold": [
         "NEPTUNE"
       ],
-      "prediction": "just the 8th planet in our solar system",
+      "prediction": "venus",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The existance of which planet was mathematically\n\nContext:\n[1] (Mathematics: The Beautiful Language of the Universe ...) just the 8th planet in our solar system; it is a celestial reminder of the power that mathematics grants us. These types of mathematical insights continued on long after Newton. Eventually, we began to learn much more about the universe with the advent of better technology (brought about\n\nQuestion: The existance of which planet was mathematically\nShort answer:",
-      "top_chunk": "just the 8th planet in our solar system; it is a celestial reminder of the power that mathematics grants us. These types of mathematical insights continued on long after Newton. Eventually, we began t"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The existance of which planet was mathematically\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_611",
@@ -4909,15 +4903,15 @@
         "ripp rapp og rupp",
         "huey dewey louie"
       ],
-      "prediction": "Huey, Dewey, and Louis Duck",
+      "prediction": "john w. kennedy",
       "em": 0.0,
-      "f1": 0.8000000000000002,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What are the names of Donald Duck's three nephews?\n\nContext:\n[1] (Duck family (Disney)) Huey, Dewey, and Louis Duck are Donald's three nephews and identical triplet sons of Della Duck and an unnamed father. Phooey Duck is a tongue-in-cheek name for a non-existent fourth nephew of Donald Duck who was sometimes drawn by accident. The name was coined by Disney comic editor\n\nQuestion: What are the names of Donald Duck's three nephews?\nShort answer:",
-      "top_chunk": "Huey, Dewey, and Louis Duck are Donald's three nephews and identical triplet sons of Della Duck and an unnamed father. Phooey Duck is a tongue-in-cheek name for a non-existent fourth nephew of Donald "
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What are the names of Donald Duck's three nephews?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qg_547",
@@ -4945,15 +4939,15 @@
         "costco co",
         "price costco"
       ],
-      "prediction": "Costco",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Kirkland Signature is the house brand of what retail giant?\n\nContext:\n[1] (Costco) 1992. The idea was to identify categories in which a private label product could provide brand name quality at discounted prices. To counteract the consumer confidence problem common in store branding, Kirkland Signature occasionally employs co-branding. According to Costco, while consumers may be wary of same-store-branding, they are\n\nQuestion: Kirkland Signature is the house brand of what retail giant?\nShort answer:",
-      "top_chunk": "1992. The idea was to identify categories in which a private label product could provide brand name quality at discounted prices. To counteract the consumer confidence problem common in store branding"
+      "prediction": "GE",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Kirkland Signature is the house brand of what retail giant?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bt_4413",
@@ -4970,15 +4964,15 @@
         "bogey man song",
         "john entwistle s"
       ],
-      "prediction": "John Entwistle",
-      "em": 1.0,
-      "f1": 1.0,
+      "prediction": "john scott",
+      "em": 0.0,
+      "f1": 0.5,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who was the original bass guitarist with The Who\n\nContext:\n[1] (John Entwistle) was best known as the original bass guitarist for the English rock band the Who. He was the only member of the band to have formal musical training. His aggressive lead sound influenced many rock bass players. He was inducted into the Rock and Roll Hall of Fame\n\nQuestion: Who was the original bass guitarist with The Who\nShort answer:",
-      "top_chunk": "was best known as the original bass guitarist for the English rock band the Who. He was the only member of the band to have formal musical training. His aggressive lead sound influenced many rock bass"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who was the original bass guitarist with The Who\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_10376",
@@ -5027,15 +5021,15 @@
         "tony blair s private life",
         "rt hon anthony charles lynton blair"
       ],
-      "prediction": "Tony Blair",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: \"Whose memoirs, published in 2010, were called \"\"A Journey\"\"?\"\n\nContext:\n[1] (‘The Journey’ to publicise Tony Blair’s memoirs (to be ...) ‘The Journey’ to publicise Tony Blair’s memoirs (to be published September 2010) | Tony Blair ‘The Journey’ to publicise Tony Blair’s memoirs (to be published September 2010) All Links to ‘The Trial of Tony Blair’ posts Sign the Ban Blair-Baiting petition here . “He’s not a war criminal.\n\nQuestion: \"Whose memoirs, published in 2010, were called \"\"A Journey\"\"?\"\nShort answer:",
-      "top_chunk": "‘The Journey’ to publicise Tony Blair’s memoirs (to be published September 2010) | Tony Blair ‘The Journey’ to publicise Tony Blair’s memoirs (to be published September 2010) All Links to ‘The Trial o"
+      "prediction": "john scott",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: \"Whose memoirs, published in 2010, were called \"\"A Journey\"\"?\"\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_8726",
@@ -5045,15 +5039,15 @@
         "Bascule (disambiguation)",
         "bascule disambiguation"
       ],
-      "prediction": "towers",
+      "prediction": "a slender bridge",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What name is given to the bridge design, such as Tower Bridge, with a divided lifting roadway?\n\nContext:\n[1] (Tower Bridge) towers. The vertical components of the forces in the suspended sections and the vertical reactions of the two walkways are carried by the two robust towers. The bascule pivots and operating machinery are housed in the base of each tower. The bridge's present colour scheme dates from 1977,\n\nQuestion: What name is given to the bridge design, such as Tower Bridge, with a divided lifting roadway?\nShort answer:",
-      "top_chunk": "towers. The vertical components of the forces in the suspended sections and the vertical reactions of the two walkways are carried by the two robust towers. The bascule pivots and operating machinery "
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What name is given to the bridge design, such as Tower Bridge, with a divided lifting roadway?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_345",
@@ -5064,15 +5058,15 @@
         "60 speed",
         "sixty speed"
       ],
-      "prediction": "30 (48)",
+      "prediction": "d).",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: On a motorway what is the speed limit for a car towing a caravan?\n\nContext:\n[1] (Speed limits - GOV.UK) showing otherwise. National speed limits Cars, motorcycles, car-derived vans and dual-purpose vehicles 30 (48) Cars, motorcycles, car-derived vans and dual-purpose vehicles when towing caravans or trailers 30 (48) Motorhomes or motor caravans (not more than 3.05 tonnes maximum unladen weight) 30 (48) Motorhomes or motor caravans (more than\n\nQuestion: On a motorway what is the speed limit for a car towing a caravan?\nShort answer:",
-      "top_chunk": "showing otherwise. National speed limits Cars, motorcycles, car-derived vans and dual-purpose vehicles 30 (48) Cars, motorcycles, car-derived vans and dual-purpose vehicles when towing caravans or tra"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: On a motorway what is the speed limit for a car towing a caravan?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qw_6697",
@@ -5083,15 +5077,15 @@
         "Solidus (disambiguation)",
         "solidus disambiguation"
       ],
-      "prediction": "fraction bar",
+      "prediction": "d).",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the name of the line separating the numerator and denominator of a fraction if it is written as a diagonal line?\n\nContext:\n[1] (Basic Math for Adults/Fractions - Wikibooks, open books ...) on the bottom is called the denominator (the prefix 'de-' is Latin for reverse) or divisor. numerator denominator {\\displaystyle {\\frac {\\text{numerator}}{\\text{denominator}}}} These two numbers are always separated by a line, which is known as a fraction bar. This way of representing fractions is called display representation. Common fractions\n\nQuestion: What is the name of the line separating the numerator and denominator of a fraction if it is written as a diagonal line?\nShort answer:",
-      "top_chunk": "on the bottom is called the denominator (the prefix 'de-' is Latin for reverse) or divisor. numerator denominator {\\displaystyle {\\frac {\\text{numerator}}{\\text{denominator}}}} These two numbers are a"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the name of the line separating the numerator and denominator of a fraction if it is written as a diagonal line?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_15113",
@@ -5120,15 +5114,15 @@
         "colour green",
         "green colour"
       ],
-      "prediction": "blue",
+      "prediction": "april",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The flag of the Great Socialist People's Libyan Arab Jamahiriya was what single colour?\n\nContext:\n[1] (History of Libya under Muammar Gaddafi) Socialist People's Libyan Arab Jamahiriya. Jamahiriya was a term coined by Gaddafi, usually translated as \"state of the masses\". The country was renamed again in 1986 as the Great Socialist People's Libyan Arab Jamahiriya. Coup d'état of 1969 The discovery of significant oil reserves in 1959 and the\n\nQuestion: The flag of the Great Socialist People's Libyan Arab Jamahiriya was what single colour?\nShort answer:",
-      "top_chunk": "Socialist People's Libyan Arab Jamahiriya. Jamahiriya was a term coined by Gaddafi, usually translated as \"state of the masses\". The country was renamed again in 1986 as the Great Socialist People's L"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The flag of the Great Socialist People's Libyan Arab Jamahiriya was what single colour?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_6186",
@@ -5159,15 +5153,15 @@
         "faggot disambiguation",
         "faggot stitch"
       ],
-      "prediction": "Faggot",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What dish, especially popular in parts of Wales and the English Midlands,  is traditionally made from pig's heart, liver and fatty belly meat or bacon minced together, with herbs added for flavouring and sometimes bread crumbs\n\nContext:\n[1] (Faggot (food)) made from pig's heart, liver and fatty belly meat or bacon minced together, with herbs added for flavouring and sometimes bread crumbs. Faggots originated as a traditional cheap food of ordinary country people in Western England, particularly west Wiltshire and the West Midlands. Their popularity spread from there,\n\nQuestion: What dish, especially popular in parts of Wales and the English Midlands,  is traditionally made from pig's heart, liver and fatty belly meat or bacon minced together, with herbs added for flavouring and sometimes bread crumbs\nShort answer:",
-      "top_chunk": "made from pig's heart, liver and fatty belly meat or bacon minced together, with herbs added for flavouring and sometimes bread crumbs. Faggots originated as a traditional cheap food of ordinary count"
+      "prediction": "sour cream",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What dish, especially popular in parts of Wales and the English Midlands,  is traditionally made from pig's heart, liver and fatty belly meat or bacon minced together, with herbs added for flavouring and sometimes bread crumbs\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_17706",
@@ -5193,15 +5187,15 @@
         "Grizzlar Bear",
         "hunting status on grizzly bears in british columbia canada"
       ],
-      "prediction": "urach",
+      "prediction": "fox",
       "em": 0.0,
       "f1": 0.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Ursus arctos horribilis is the scientific name of which animal?\n\nContext:\n[1] (Ursus arctos horribilis - US Forest Service) Ursus arctos horribilis Introductory WILDLIFE SPECIES: Ursus arctos horribilis AUTHORSHIP AND CITATION : Snyder, S. A. 1991. Ursus arctos horribilis. In: Fire Effects Information System, [Online]. U.S. Department of Agriculture, Forest Service, Rocky Mountain Research Station, Fire Sciences Laboratory (Producer). Available: http://www.fs.fed.us/database/feis/animals/mammal/urach/all.html [ ]. ABBREVIATION : URARH COMMON\n\nQuestion: Ursus arctos horribilis is the scientific name of which animal?\nShort answer:",
-      "top_chunk": "Ursus arctos horribilis Introductory WILDLIFE SPECIES: Ursus arctos horribilis AUTHORSHIP AND CITATION : Snyder, S. A. 1991. Ursus arctos horribilis. In: Fire Effects Information System, [Online]. U.S"
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Ursus arctos horribilis is the scientific name of which animal?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "wh_2999",
@@ -5211,15 +5205,15 @@
         "KRYPTON (Programming Language)",
         "KRYPTON programming language"
       ],
-      "prediction": "[1]",
+      "prediction": "syria",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which of the Noble Gases takes its name from the Greek for 'hidden' ?\n\nContext:\n[1] (Chemistry for Kids : Elements - The Noble Gases) its name from the Greek word \"kryptos\" meaning \"the hidden one.\" Many of the noble gases were either discovered or isolated by Scottish chemist Sir William Ramsay. Helium has the lowest melting and boiling points of any substance. All of the noble gases except for radon have stable\n\nQuestion: Which of the Noble Gases takes its name from the Greek for 'hidden' ?\nShort answer:",
-      "top_chunk": "its name from the Greek word \"kryptos\" meaning \"the hidden one.\" Many of the noble gases were either discovered or isolated by Scottish chemist Sir William Ramsay. Helium has the lowest melting and bo"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which of the Noble Gases takes its name from the Greek for 'hidden' ?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_13492",
@@ -5227,15 +5221,15 @@
       "gold": [
         "REGINALD BOSANQUET"
       ],
-      "prediction": "Aidan Crawley",
+      "prediction": "john scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which popular newsreader resigned from ITN in 1979?\n\nContext:\n[1] (ITN) immediately called for shorter ITN bulletins. While the ITA ruled on a minimum of a 20-minute bulletin, disagreements with the ITV companies over ITN's budget triggered the resignation of its news editor Aidan Crawley after just one year in 1956. He was replaced by Geoffrey Cox. Throughout the\n\nQuestion: Which popular newsreader resigned from ITN in 1979?\nShort answer:",
-      "top_chunk": "immediately called for shorter ITN bulletins. While the ITA ruled on a minimum of a 20-minute bulletin, disagreements with the ITV companies over ITN's budget triggered the resignation of its news edi"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which popular newsreader resigned from ITN in 1979?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_19838",
@@ -5245,15 +5239,15 @@
         "Amadeus (play)",
         "amadeus play"
       ],
-      "prediction": "Amadeus",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which play by Sir Peter Shaffer was made into a film with Tom Hulce in the title role?\n\nContext:\n[1] (Tom Hulce) in the television show St. Elsewhere. In the early 1980s, Hulce was chosen over intense competition (which included David Bowie and Mikhail Baryshnikov) to play the role of Mozart in director Miloš Forman's film version of Peter Shaffer's play Amadeus. In 1984, he was nominated for an Academy\n\nQuestion: Which play by Sir Peter Shaffer was made into a film with Tom Hulce in the title role?\nShort answer:",
-      "top_chunk": "in the television show St. Elsewhere. In the early 1980s, Hulce was chosen over intense competition (which included David Bowie and Mikhail Baryshnikov) to play the role of Mozart in director Miloš Fo"
+      "prediction": "The Man Who Shot the Devil",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which play by Sir Peter Shaffer was made into a film with Tom Hulce in the title role?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_5620",
@@ -5359,15 +5353,15 @@
         "san francisco county california",
         "hamlin school"
       ],
-      "prediction": "New York City",
+      "prediction": "st john s s s s s s s s s s s s s ",
       "em": 0.0,
-      "f1": 0.3333333333333333,
+      "f1": 0.1,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In which city was the wheelchair bound Robert Ironside Chief of detectives?\n\nContext:\n[1] (Ironside (TV Movie 1967) - IMDb) is hired to investigate. Director: Terence Fisher Centers on Robert T. Ironside, a tough, sexy and acerbic police detective relegated to a wheelchair after a shooting who is hardly limited by his disability as he pushes and prods his hand-picked team to solve the most difficult cases. Stars:\n\nQuestion: In which city was the wheelchair bound Robert Ironside Chief of detectives?\nShort answer:",
-      "top_chunk": "is hired to investigate. Director: Terence Fisher Centers on Robert T. Ironside, a tough, sexy and acerbic police detective relegated to a wheelchair after a shooting who is hardly limited by his disa"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In which city was the wheelchair bound Robert Ironside Chief of detectives?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "odql_14427",
@@ -5383,15 +5377,15 @@
         "baileys women s prize for fiction",
         "women s prize for fiction"
       ],
-      "prediction": "Baileys women's prize for fiction",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the name of the UK Women's Prize for Fiction?\n\nContext:\n[1] (Women's prize for fiction | Books | The Guardian) Women's prize for fiction | Books | The Guardian Women's prize for fiction The novelist has called Kamila Shamsie’s campaign for a pledge to publish only female authors in 2018 ‘a ridiculous idea’ Published: 10 Mar 2016 The Guardian view on the Baileys women’s prize for fiction –\n\nQuestion: What is the name of the UK Women's Prize for Fiction?\nShort answer:",
-      "top_chunk": "Women's prize for fiction | Books | The Guardian Women's prize for fiction The novelist has called Kamila Shamsie’s campaign for a pledge to publish only female authors in 2018 ‘a ridiculous idea’ Pub"
+      "prediction": "adolescent fiction",
+      "em": 0.0,
+      "f1": 0.3333333333333333,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the name of the UK Women's Prize for Fiction?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_7609",
@@ -5429,15 +5423,15 @@
         "process of selecting pope",
         "election of popes"
       ],
-      "prediction": "[1] (Papal conclave)",
+      "prediction": "Electoral Assembly",
       "em": 0.0,
-      "f1": 0.8,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the name of the assembly of cardinals for the election of a pope?\n\nContext:\n[1] (Papal conclave) of the pope. In the past, when the cardinals were voting during the conclave, they sat on canopied thrones symbolizing the cardinals' collective governance of the church during the period of sede vacante.W. J. Wintle, \"[https://books.google.com/books?id k8ckAQAAIAAJ&lpgPR5&ots F8FiLbVJcg&dqThe%20Harmsworth%20London%20Magazine%20volume%20X&pg PA574#vonepage&q The%20Harmsworth%20London%20Magazine%20volume%20X&ffalse How the Pope is Elected: A Popular Account\n\nQuestion: What is the name of the assembly of cardinals for the election of a pope?\nShort answer:",
-      "top_chunk": "of the pope. In the past, when the cardinals were voting during the conclave, they sat on canopied thrones symbolizing the cardinals' collective governance of the church during the period of sede vaca"
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the name of the assembly of cardinals for the election of a pope?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_1725",
@@ -5449,15 +5443,15 @@
         "Steven Bing",
         "shangri la entertainment"
       ],
-      "prediction": "Steve Bing",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Who dated actress Elizabeth Hurley between 2000 and 2001 and denied he was the father of her son born in 2002 before a DNA test proved otherwise?\n\nContext:\n[1] (Elizabeth Hurley) the high-profile nature of their relationship. On 4 April 2002, Hurley gave birth to a son, Damian Charles Hurley. The baby's father, American businessman Steve Bing, denied paternity by alleging that he and Hurley had a brief, non-exclusive relationship in 2001. A DNA test, however, established Bing as\n\nQuestion: Who dated actress Elizabeth Hurley between 2000 and 2001 and denied he was the father of her son born in 2002 before a DNA test proved otherwise?\nShort answer:",
-      "top_chunk": "the high-profile nature of their relationship. On 4 April 2002, Hurley gave birth to a son, Damian Charles Hurley. The baby's father, American businessman Steve Bing, denied paternity by alleging that"
+      "prediction": "edward wilson",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Who dated actress Elizabeth Hurley between 2000 and 2001 and denied he was the father of her son born in 2002 before a DNA test proved otherwise?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_1030",
@@ -5467,15 +5461,15 @@
         "Pharlap",
         "Phar"
       ],
-      "prediction": "Briseis",
+      "prediction": "samuel scott",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which famous racehorse won Australia’s Melbourne Cup in 1930?\n\nContext:\n[1] (Melbourne Cup) is regarded as one of the greatest mares foaled in Australia. Briseis wasn't the only sensation surrounding the 1876 Melbourne Cup. Two months before the event, on Saturday 9 September, the City Of Melbourne sailed for Melbourne from Sydney with a cargo including 13 racehorses, many of whom\n\nQuestion: Which famous racehorse won Australia’s Melbourne Cup in 1930?\nShort answer:",
-      "top_chunk": "is regarded as one of the greatest mares foaled in Australia. Briseis wasn't the only sensation surrounding the 1876 Melbourne Cup. Two months before the event, on Saturday 9 September, the City Of Me"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which famous racehorse won Australia’s Melbourne Cup in 1930?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_3798",
@@ -5485,15 +5479,15 @@
         "Clyde (disambiguation)",
         "clyde disambiguation"
       ],
-      "prediction": "Hood",
+      "prediction": "st. john",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The John Brown Shipyard is/was on which river?\n\nContext:\n[1] (John Brown & Company Limited, Builders of H.M.S. Hood) A vast inventory of equipment such as telemotors, rangefinders, galley equipment, pumps, winches etc. was supplied from manufacturers throughout the UK. The John Brown Shipyard Today After the completion of Hood, John Brown & Co. went on to build arguably the most famous ships in maritime history, the\n\nQuestion: The John Brown Shipyard is/was on which river?\nShort answer:",
-      "top_chunk": "A vast inventory of equipment such as telemotors, rangefinders, galley equipment, pumps, winches etc. was supplied from manufacturers throughout the UK. The John Brown Shipyard Today After the complet"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The John Brown Shipyard is/was on which river?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "bb_5000",
@@ -5694,15 +5688,15 @@
         "united states of america introduction",
         "u –s"
       ],
-      "prediction": "an agreement between European Americans and the Osage Nation about allowing settlers' wagon trains to go through the area to go West",
+      "prediction": "a slum",
       "em": 0.0,
-      "f1": 0.09523809523809525,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The expression 'Go West' originally (mid-1800s) encouraged people to move from/within?\n\nContext:\n[1] (Council Grove, Kansas) an agreement between European Americans and the Osage Nation about allowing settlers' wagon trains to go through the area to go West. Pioneers came together at a grove of trees so that wagons could stay together for their trip west. In 2010, 2,182 people lived there. History Council\n\nQuestion: The expression 'Go West' originally (mid-1800s) encouraged people to move from/within?\nShort answer:",
-      "top_chunk": "an agreement between European Americans and the Osage Nation about allowing settlers' wagon trains to go through the area to go West. Pioneers came together at a grove of trees so that wagons could st"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The expression 'Go West' originally (mid-1800s) encouraged people to move from/within?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qz_5801",
@@ -5745,15 +5739,15 @@
         "red barron",
         "red battle flyer"
       ],
-      "prediction": "Manfred von Richthofen",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What was the name of the World War I fighter ace nicknamed the Red Baron?\n\nContext:\n[1] (Manfred von Richthofen) the Red Baron, was a German fighter pilot with the Imperial German Army Air Service (Luftstreitkräfte) during the First World War. He is considered the ace-of-aces of the war, being officially credited with 80 air combat victories. Originally a cavalryman, Richthofen transferred to the Air Service in 1915,\n\nQuestion: What was the name of the World War I fighter ace nicknamed the Red Baron?\nShort answer:",
-      "top_chunk": "the Red Baron, was a German fighter pilot with the Imperial German Army Air Service (Luftstreitkräfte) during the First World War. He is considered the ace-of-aces of the war, being officially credite"
+      "prediction": "abraham scott",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What was the name of the World War I fighter ace nicknamed the Red Baron?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qf_630",
@@ -5766,15 +5760,15 @@
         "Utoeya",
         "Utoya"
       ],
-      "prediction": "Norway",
+      "prediction": "st. jäsen",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: What is the name of the island in Norway where over 80 people lost their lives to a gunman on 22nd July?\n\nContext:\n[1] (2011 Norway attacks) more bullets and survived, but one person who was shot died two days later in hospital from the bullet wounds to the head and back. The 564 people on the island at the time were from all over Norway as well as some visitors from foreign countries. The\n\nQuestion: What is the name of the island in Norway where over 80 people lost their lives to a gunman on 22nd July?\nShort answer:",
-      "top_chunk": "more bullets and survived, but one person who was shot died two days later in hospital from the bullet wounds to the head and back. The 564 people on the island at the time were from all over Norway a"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: What is the name of the island in Norway where over 80 people lost their lives to a gunman on 22nd July?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "dpql_5208",
@@ -5826,15 +5820,15 @@
         "great t phon",
         "discworld world"
       ],
-      "prediction": "a giant turtle",
+      "prediction": "a sand castle",
       "em": 0.0,
-      "f1": 0.5,
+      "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In a famous and popular series of books, what rests on the back of four giant elephants?\n\nContext:\n[1] (10 Book Series So Addictive, You Never Want Them to End) balanced on the backs of four elephants, which in turn are on a giant turtle. And they're utterly absorbing, thanks to Pratchett's mixture of lovable characters and wry wisdom, mixed with zany humor. Just the four YA-oriented Tiffany Aching books , by themselves, would make for enough of\n\nQuestion: In a famous and popular series of books, what rests on the back of four giant elephants?\nShort answer:",
-      "top_chunk": "balanced on the backs of four elephants, which in turn are on a giant turtle. And they're utterly absorbing, thanks to Pratchett's mixture of lovable characters and wry wisdom, mixed with zany humor. "
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In a famous and popular series of books, what rests on the back of four giant elephants?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qb_4235",
@@ -5848,15 +5842,15 @@
         "bullseye disambiguation",
         "bullseye game show"
       ],
-      "prediction": "Bulls Eye",
-      "em": 1.0,
-      "f1": 1.0,
-      "recall": 1.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: In the Charles Dickens novel ‘Oliver Twist’ what is the name of Bill Sykes dog?\n\nContext:\n[1] (Bill Sikes: My favourite Charles Dickens character - Telegraph) by his dog Bulls Eye in this portrait by Frederick Barnard. Photo: Alamy Image 1 of 4 Kay Walsh (Nancy) is attacked by Bill Sikes (Robert Newton) in the classic 1948 film version of Oliver Twist by Charles Dickens. KAY WALSH AND ROBERT NEWTON Image 1 of 4\n\nQuestion: In the Charles Dickens novel ‘Oliver Twist’ what is the name of Bill Sykes dog?\nShort answer:",
-      "top_chunk": "by his dog Bulls Eye in this portrait by Frederick Barnard. Photo: Alamy Image 1 of 4 Kay Walsh (Nancy) is attacked by Bill Sikes (Robert Newton) in the classic 1948 film version of Oliver Twist by Ch"
+      "prediction": "a squid",
+      "em": 0.0,
+      "f1": 0.0,
+      "recall": 0.0,
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: In the Charles Dickens novel ‘Oliver Twist’ what is the name of Bill Sykes dog?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "qg_2410",
@@ -5913,11 +5907,11 @@
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: The Tour de France always ends in Paris. In what European city did it begin this year?\n\nContext:\n[1] (Tour de France) Tour de France The first Tour de France was staged in 1903. The plan was a five-stage race from 31 May to 5 July, starting in Paris and stopping in Lyon, Marseille, Bordeaux and Nantes before returning to Paris. Toulouse was added later to break the long haul\n\nQuestion: The Tour de France always ends in Paris. In what European city did it begin this year?\nShort answer:",
-      "top_chunk": "Tour de France The first Tour de France was staged in 1903. The plan was a five-stage race from 31 May to 5 July, starting in Paris and stopping in Lyon, Marseille, Bordeaux and Nantes before returnin"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: The Tour de France always ends in Paris. In what European city did it begin this year?\nA:",
+      "top_chunk": ""
     },
     {
       "qid": "sfq_18732",
@@ -5932,36 +5926,36 @@
         "interlaken bern",
         "interlaken berne"
       ],
-      "prediction": "Meiringen",
+      "prediction": "st el st el st el st el st el s",
       "em": 0.0,
       "f1": 0.0,
       "recall": 0.0,
-      "n_retrieved": 1,
-      "nominal_k": 1,
-      "effective_k": 1,
-      "prompt": "Answer with a short phrase.\n\nQuestion: Which town stands on the River Aare, between the lakes of Brienz and Thun?\n\nContext:\n[1] (Aare) here that the Aare proves itself to be more than just a river, as it attracts thousands of tourists annually to the causeways through the gorge. A little past Meiringen, near Brienz, the river expands into Lake Brienz. Near the west end of the lake it receives its\n\nQuestion: Which town stands on the River Aare, between the lakes of Brienz and Thun?\nShort answer:",
-      "top_chunk": "here that the Aare proves itself to be more than just a river, as it attracts thousands of tourists annually to the causeways through the gorge. A little past Meiringen, near Brienz, the river expands"
+      "n_retrieved": 0,
+      "nominal_k": 0,
+      "effective_k": 0,
+      "prompt": "Q: Which town stands on the River Aare, between the lakes of Brienz and Thun?\nA:",
+      "top_chunk": ""
     }
   ],
   "timing": {
-    "retrieval_s": 4.83,
-    "generation_s": 55.63,
-    "total_s": 61.08,
+    "retrieval_s": 0.0,
+    "generation_s": 8.02,
+    "total_s": 8.28,
     "n_questions": 100,
     "cache_hits": 0,
     "cache_misses": 100,
-    "prompt_tokens_mean": 143.31,
-    "prompt_tokens_max": 246,
+    "prompt_tokens_mean": 23.7,
+    "prompt_tokens_max": 59,
     "prompt_tokens_budget": 1024,
-    "final_tokens_mean": 143.31,
-    "final_tokens_max": 246,
+    "final_tokens_mean": 23.7,
+    "final_tokens_max": 59,
     "prompts_truncated": 0,
     "n_prompts": 100,
-    "nominal_k": 1,
-    "effective_k_mean": 1.0,
-    "effective_k_min": 1,
-    "effective_k_max": 1,
+    "nominal_k": 0,
+    "effective_k_mean": 0.0,
+    "effective_k_min": 0,
+    "effective_k_max": 0,
     "n_prompts_partial_k": 0,
-    "n_rag_prompts": 100
+    "n_rag_prompts": 0
   }
 }

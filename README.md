@@ -57,6 +57,7 @@ This project provides a **rigorous empirical investigation** of these questions:
 | When does retrieval help — and when does it actively hurt? | Exp 5, 9, 11 |
 | Does better ranking (oracle / cross-encoder) translate into better answers? | Exp 6, 7 |
 | How much does the difficulty of the retrieval task itself matter? | Exp 8, 9 |
+| Does the benefit of retrieval depend on generator scale? | Exp 12 |
 
 ---
 
@@ -1192,55 +1193,63 @@ the Exp 7 reranker (`config.RERANK_BASE_MODEL`).
 
 ### Experiment 11 — Forced Retrieval Miss (recall held at 0)
 
-| Condition                         | EM    | Token F1 | Recall@k |
+| Condition                              | EM    | Token F1 | Recall@k |
 |---|---|---|---|
-| No-RAG (parametric, `Q:/A:` cue)  | 0.01 | 0.058    | —    |
-| Forced miss (only non-gold ctx)   | 0.19 | 0.286    | 0.00 |
-| RAG (right context, Exp 5)        | 0.59 | 0.665    | 0.90 |
+| No-RAG (bare `Q:/A:` cue)              | 0.01 | 0.058    | —    |
+| Matched (instr prompt, **empty** ctx) | 0.02 | 0.078    | —    |
+| Forced miss (instr prompt, non-gold)  | 0.19 | 0.286    | 0.00 |
+| RAG (right context, Exp 5)            | 0.59 | 0.665    | 0.90 |
 
 Recall@k is **0.00 by construction** (every chunk is a verified non-gold hard
-negative). Forced-miss lands at EM 0.19 — far below RAG's 0.59 but *above* the
-No-RAG floor of 0.01 (paired ΔEM **+0.18 vs No-RAG, *p* < 1e-4**, 18/0
-discordant). Inspecting the 19 correct forced-miss answers confirms they are
-genuine: all have recall = 0 (not copied from context), and the model recovers
-the right entity (e.g. *Ruddigore*, *Nicaragua*, *Diego Maradona*, *1066*) that
-the bare `Q:/A:` baseline gets wrong.
+negative). Forced-miss lands at EM 0.19 — far below RAG's 0.59 but well above
+the No-RAG floor. Inspecting the 19 correct forced-miss answers confirms they
+are genuine: all have recall = 0 (not copied from context), and the model
+recovers the right entity (e.g. *Ruddigore*, *Nicaragua*, *Diego Maradona*,
+*1066*) that the bare baseline gets wrong.
 
-**Two takeaways, one caveat.** (i) The cost of a retrieval miss is the
-*opportunity cost* vs correct retrieval (0.59 → 0.19, −0.40 EM) — retrieval
-quality matters enormously — far more than any absolute regression below the
-parametric floor. (ii) A *topically related* but answer-free context, wrapped
-in the instructed RAG scaffold, actually *primes* parametric recall (0.01 →
-0.19). **Caveat:** the `ForcedMiss − No-RAG` contrast is confounded — No-RAG
-uses the bare `Q:/A:` cue while forced-miss uses the richer instructed prompt
-*and* topical context, so it does not cleanly isolate "wrong context."
+**The matched baseline isolates the cause.** Decomposing the 0.01 → 0.19 jump:
+the instructed **scaffold alone** (matched, empty context) lifts EM only
+0.01 → 0.02 — *negligible* — while adding the **topical-but-wrong context**
+lifts it 0.02 → 0.19. The clean, format-controlled contrast is significant:
+`ForcedMiss − InstrNoCtx` paired **ΔEM +0.170 (*p* = 0.0001)**, ΔF1 +0.208
+(*p* < 1e-4), 18 helps / 1 hurts. So the earlier confound worry is resolved —
+the effect is *not* the richer prompt; a topically related (but answer-free)
+retrieved context genuinely **primes parametric recall**.
 
-> **Update — matched baseline added.** The notebook now also scores a
-> **format-matched no-context** arm (`exp11_matched_no_context`): the *same*
-> instructed scaffold as the forced-miss arm but with an **empty** context,
-> on the same questions. This decomposes the effect cleanly —
-> `forced-miss − matched` is the pure topical-wrong-context effect (prompt
-> format held fixed), and `matched − No-RAG` is the scaffold-only effect. A
-> `ForcedMiss − InstrNoCtx` paired contrast is added to the §10 table.
-> Numbers populate on the next Exp 11 run.
+**Two takeaways.** (i) The cost of a retrieval miss is the *opportunity cost*
+vs correct retrieval (0.59 → 0.19, −0.40 EM) — retrieval quality matters
+enormously — far more than any absolute regression below the parametric floor.
+(ii) Wrong-but-topical context still helps a small instruction-tuned model via
+priming, so on this setup a retrieval miss does not drag it *below* its bare
+floor.
 
 ### Experiment 12 — Generator-Size Sweep (RAG vs No-RAG)
 
-> **Pending — not yet run.** Added after the last end-to-end run; its
-> `results/exp12_*.json` and `figures/fig15_generator_scale.png` populate on
-> the next run (note: first run downloads `flan-t5-large`, ~3 GB). Expected
-> shape — the RAG−No-RAG gap should *shrink* as the generator grows:
->
-> | Generator | No-RAG EM | RAG EM | ΔEM |
-> |---|---|---|---|
-> | `flan-t5-small` | _pending_ | _pending_ | _pending_ |
-> | `flan-t5-base`  | 0.01 (= Exp 5) | 0.59 (= Exp 5) | +0.58 |
-> | `flan-t5-large` | _pending_ | _pending_ | _pending_ |
->
-> The `base` row will match Experiment 5 exactly (consistency check). If the
-> gap narrows monotonically, it confirms "retrieval helps most when parametric
-> memory is weak"; if `small` also has a low floor and `large` a much higher
-> one, the thesis is supported quantitatively.
+| Generator | No-RAG EM | RAG EM | ΔEM | helps / hurts / ties |
+|---|---|---|---|---|
+| `flan-t5-small` (~80M)  | 0.00 | 0.51 | +0.51 | 51 / 0 / 49 |
+| `flan-t5-base` (~250M)  | 0.01 | 0.59 | +0.58 | 58 / 0 / 42 |
+| `flan-t5-large` (~780M) | 0.08 | 0.62 | +0.54 | 56 / 2 / 42 |
+
+The `base` row reproduces Experiment 5 exactly (consistency check passed). Two
+clear trends support the thesis, plus one honest nuance:
+
+- **The No-RAG (parametric) floor rises monotonically with scale** — 0.00 →
+  0.01 → 0.08 — direct evidence that larger models hold more of these
+  long-tail facts. RAG also rises (0.51 → 0.59 → 0.62) but far more gently:
+  it is already near the retrieval/generation ceiling at every scale.
+- **`flan-t5-large` is the first model where RAG ever *hurts*** (2 questions
+  vs 0 for small/base): once the model knows an answer parametrically, added
+  context can occasionally distract it — exactly the regime where "retrieval
+  hurts" begins to appear.
+- **ΔEM is *not* monotonic** (+0.51 / +0.58 / +0.54). The gap is smallest for
+  `small` not because its floor is high but because its *RAG* is
+  capability-limited (it can't fully exploit retrieved context, RAG only
+  0.51). The gap peaks at `base` and then **starts to shrink at `large`**
+  (0.58 → 0.54) as the rising floor eats into it. So "the gap shrinks as the
+  model grows" holds at the upper end; at the lower end it is bounded by the
+  small model's weaker ability to *use* retrieval. A larger model
+  (Flan-T5-XL) would be expected to continue the `base → large` shrinkage.
 
 ### Paired significance (same questions; McNemar on EM, paired bootstrap on deltas)
 
@@ -1254,18 +1263,17 @@ uses the bare `Q:/A:` cue while forced-miss uses the richer instructed prompt
 | Dense+Rerank − e5-Dense | +0.020 | 0.7266 | 5/3  | +0.044 | [+0.005, +0.089] | 0.0238 |
 | Oracle − RAG            | +0.010 | 1.0000 | 1/0  | +0.013 | [−0.002, +0.037] | 0.1260 |
 | ForcedMiss − No-RAG     | +0.180 | 0.0000 | 18/0 | +0.228 | [+0.153, +0.307] | 0.0000 |
+| ForcedMiss − InstrNoCtx | +0.170 | 0.0001 | 18/1 | +0.208 | [+0.126, +0.293] | 0.0000 |
 
-A `ForcedMiss − InstrNoCtx` row (the clean wrong-context isolation from fix 1)
-will join this table on the next Exp 11 run.
-
-Reading the table: **three contrasts are statistically distinguishable** at
-n = 100 — RAG vs No-RAG (huge), ForcedMiss vs No-RAG (large; but see the Exp 11
-confound), and Dense+Rerank vs e5-Dense on **F1** (small, +0.044, *p* = 0.024;
-its ΔEM is *not* significant). The retriever choice (Exp 1), the prompt
-template (Exp 4), and Oracle vs RAG are all within sampling noise — their
-apparent orderings should not be over-read. Note that Oracle−RAG is no longer
-even nominally significant on F1 here (CI touches 0), unlike the earlier
-first-N run.
+Reading the table: **four contrasts are statistically distinguishable** at
+n = 100 — RAG vs No-RAG (huge), ForcedMiss vs No-RAG and **ForcedMiss vs
+InstrNoCtx** (the latter is the clean, format-controlled wrong-context-priming
+effect, ΔEM +0.17, *p* = 0.0001), and Dense+Rerank vs e5-Dense on **F1**
+(small, +0.044, *p* = 0.024; its ΔEM is *not* significant). The retriever
+choice (Exp 1), the prompt template (Exp 4), and Oracle vs RAG are all within
+sampling noise — their apparent orderings should not be over-read. Note that
+Oracle−RAG is no longer even nominally significant on F1 here (CI touches 0),
+unlike the earlier first-N run.
 
 ---
 
@@ -1293,18 +1301,23 @@ Figures in `figures/`:
 
 ## 11. Limitations
 
-1. **Model scale**: Flan-T5-base is a relatively small model. Larger models
-   (e.g., Flan-T5-XL, LLaMA-3) may show different patterns — e.g., less
-   benefit from retrieval because they have stronger parametric knowledge.
+1. **Model scale**: the headline experiments use Flan-T5-base (~250M).
+   Experiment 12 sweeps small/base/large and confirms the expected direction —
+   the parametric floor rises with scale (0.00 → 0.01 → 0.08) and `large` is
+   the first model where RAG begins to hurt — but all three are still small
+   encoder-decoders. Much larger models (Flan-T5-XL, LLaMA-3) would likely
+   push the floor higher and shrink the RAG gain further; that extrapolation
+   is untested here.
 
 2. **Statistical power**: All reported numbers are at `NUM_QUESTIONS = 100`,
    where the marginal bootstrap CIs are ±~0.09 EM. The paired tests (§6, §10)
-   show that only three effects are distinguishable at this scale — RAG vs
-   No-RAG, ForcedMiss vs No-RAG, and rerank vs e5-dense (on F1) — while the
-   retriever choice, the prompt template, the embedding model, the chunk size,
-   and Oracle vs RAG are all within noise. Quantitative claims about the
-   smaller effects (including the Exp 9 distraction slope) would require the
-   report-scale run (`NUM_QUESTIONS = 500`–1000).
+   show that only four effects are distinguishable at this scale — RAG vs
+   No-RAG, ForcedMiss vs No-RAG, ForcedMiss vs InstrNoCtx, and rerank vs
+   e5-dense (on F1) — while the retriever choice, the prompt template, the
+   embedding model, the chunk size, and Oracle vs RAG are all within noise.
+   Quantitative claims about the smaller effects (including the Exp 9
+   distraction slope and the Exp 12 ΔEM trend) would require the report-scale
+   run (`NUM_QUESTIONS = 500`–1000).
 
 3. **Corpus size and provenance**: At the default settings the corpus is
    ~2 500 documents (≈525 from TriviaQA + 2 000 Simple-Wikipedia

@@ -5944,9 +5944,9 @@
     }
   ],
   "timing": {
-    "retrieval_s": 3.95,
-    "generation_s": 224.01,
-    "total_s": 230.72,
+    "retrieval_s": 3.87,
+    "generation_s": 240.2,
+    "total_s": 247.44,
     "n_questions": 100,
     "cache_hits": 0,
     "cache_misses": 100,

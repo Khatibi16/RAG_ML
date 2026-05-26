@@ -20,9 +20,9 @@
         "n": 100
       },
       "timing": {
-        "retrieval_s": 11.78,
-        "generation_s": 270.59,
-        "total_s": 288.62,
+        "retrieval_s": 12.1,
+        "generation_s": 275.39,
+        "total_s": 294.47,
         "n_questions": 100,
         "cache_hits": 0,
         "cache_misses": 100,
@@ -61,9 +61,9 @@
         "n": 100
       },
       "timing": {
-        "retrieval_s": 3.68,
-        "generation_s": 255.47,
-        "total_s": 264.75,
+        "retrieval_s": 4.16,
+        "generation_s": 220.26,
+        "total_s": 227.4,
         "n_questions": 100,
         "cache_hits": 0,
         "cache_misses": 100,
@@ -102,9 +102,9 @@
         "n": 100
       },
       "timing": {
-        "retrieval_s": 1.21,
-        "generation_s": 217.53,
-        "total_s": 222.0,
+        "retrieval_s": 4.98,
+        "generation_s": 251.05,
+        "total_s": 259.42,
         "n_questions": 100,
         "cache_hits": 0,
         "cache_misses": 100,

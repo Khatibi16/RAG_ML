@@ -183,6 +183,29 @@
         "p_value": 0.0,
         "n": 100
       }
+    },
+    {
+      "contrast": "ForcedMiss - InstrNoCtx",
+      "em_mcnemar": {
+        "a_only": 18,
+        "b_only": 1,
+        "n_discordant": 19,
+        "p_value": 7.62939453125e-05
+      },
+      "em_paired_bootstrap": {
+        "mean_delta": 0.17,
+        "lo": 0.09,
+        "hi": 0.25,
+        "p_value": 0.0,
+        "n": 100
+      },
+      "f1_paired_bootstrap": {
+        "mean_delta": 0.2081689584924879,
+        "lo": 0.12556650220694338,
+        "hi": 0.29283037199728373,
+        "p_value": 0.0,
+        "n": 100
+      }
     }
   ]
 }
