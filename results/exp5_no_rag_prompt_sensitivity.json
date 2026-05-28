@@ -8,222 +8,222 @@
       "n": 50
     },
     "f1": {
-      "mean": 0.14377777777777775,
-      "lo": 0.07133333333333333,
-      "hi": 0.2289222222222222,
+      "mean": 0.12066666666666666,
+      "lo": 0.046,
+      "hi": 0.2020333333333333,
       "n": 50
     },
     "sample": [
       {
-        "q": "What is a name for a type of private club in city outskirts or rural areas that usually offers a variety of recreational sports facilities such as golf, tennis, swimming and polo?",
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
         "gold": [
-          "Country club",
-          "Golf club (institution)"
+          "'DIXON'",
+          "Dixon (disambiguation)"
         ],
-        "pred": "a club"
+        "pred": "scott"
       },
       {
-        "q": "Which month of the year came second in the Roman calendar?",
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
         "gold": [
-          "April",
-          "㋃"
+          "Tina Turner",
+          "Anna Bullock"
         ],
-        "pred": "july"
+        "pred": "sarah taylor"
       },
       {
-        "q": "Introduced in 1894 and one of the world's oldest trademarks, Bibendum is better known as what?",
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
         "gold": [
-          "The Michelin Man",
-          "Bibendum"
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
         ],
-        "pred": "scotch tape"
+        "pred": "samantha"
       },
       {
-        "q": "How many ‘Triangles’ are there on the logo of car manufacturer BMW?",
+        "q": "David Stern was the commissioner of what organization?",
         "gold": [
-          "Four",
-          "4"
+          "NBA",
+          "Nmba"
         ],
-        "pred": "three"
+        "pred": "nasa"
       },
       {
-        "q": "What is the next in the series: 1, 16, 81, 256, 625 ?",
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
         "gold": [
-          "1296",
-          "one thousand, two hundred and ninety-six"
+          "New South Wales",
+          "AU-NSW"
         ],
-        "pred": "63"
+        "pred": "new south wales"
       }
     ]
   },
   "qa_cue": {
     "template": "Q: {question}\nA:",
     "em": {
-      "mean": 0.14,
-      "lo": 0.06,
-      "hi": 0.24,
+      "mean": 0.1,
+      "lo": 0.02,
+      "hi": 0.18,
       "n": 50
     },
     "f1": {
-      "mean": 0.1953333333333333,
-      "lo": 0.1,
-      "hi": 0.29133333333333333,
+      "mean": 0.15438095238095237,
+      "lo": 0.06665000000000001,
+      "hi": 0.24335238095238096,
       "n": 50
     },
     "sample": [
       {
-        "q": "What is a name for a type of private club in city outskirts or rural areas that usually offers a variety of recreational sports facilities such as golf, tennis, swimming and polo?",
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
         "gold": [
-          "Country club",
-          "Golf club (institution)"
+          "'DIXON'",
+          "Dixon (disambiguation)"
         ],
-        "pred": "a club"
+        "pred": "scott"
       },
       {
-        "q": "Which month of the year came second in the Roman calendar?",
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
         "gold": [
-          "April",
-          "㋃"
+          "Tina Turner",
+          "Anna Bullock"
         ],
-        "pred": "july"
+        "pred": "sarah taylor"
       },
       {
-        "q": "Introduced in 1894 and one of the world's oldest trademarks, Bibendum is better known as what?",
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
         "gold": [
-          "The Michelin Man",
-          "Bibendum"
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
         ],
-        "pred": "scotch tape"
+        "pred": "antonio sandro"
       },
       {
-        "q": "How many ‘Triangles’ are there on the logo of car manufacturer BMW?",
+        "q": "David Stern was the commissioner of what organization?",
         "gold": [
-          "Four",
-          "4"
+          "NBA",
+          "Nmba"
         ],
-        "pred": "four"
+        "pred": "United States Air Force"
       },
       {
-        "q": "What is the next in the series: 1, 16, 81, 256, 625 ?",
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
         "gold": [
-          "1296",
-          "one thousand, two hundred and ninety-six"
+          "New South Wales",
+          "AU-NSW"
         ],
-        "pred": "st john s"
+        "pred": "New South Wales"
       }
     ]
   },
   "trivia": {
     "template": "Trivia: {question}",
     "em": {
-      "mean": 0.12,
-      "lo": 0.04,
-      "hi": 0.2,
+      "mean": 0.06,
+      "lo": 0.0,
+      "hi": 0.12,
       "n": 50
     },
     "f1": {
-      "mean": 0.15844444444444444,
-      "lo": 0.07244444444444445,
-      "hi": 0.24648333333333333,
+      "mean": 0.10266666666666666,
+      "lo": 0.03331666666666668,
+      "hi": 0.18266666666666664,
       "n": 50
     },
     "sample": [
       {
-        "q": "What is a name for a type of private club in city outskirts or rural areas that usually offers a variety of recreational sports facilities such as golf, tennis, swimming and polo?",
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
         "gold": [
-          "Country club",
-          "Golf club (institution)"
+          "'DIXON'",
+          "Dixon (disambiguation)"
         ],
-        "pred": "sandwich"
+        "pred": "scott"
       },
       {
-        "q": "Which month of the year came second in the Roman calendar?",
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
         "gold": [
-          "April",
-          "㋃"
+          "Tina Turner",
+          "Anna Bullock"
         ],
-        "pred": "july"
+        "pred": "emma sandler"
       },
       {
-        "q": "Introduced in 1894 and one of the world's oldest trademarks, Bibendum is better known as what?",
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
         "gold": [
-          "The Michelin Man",
-          "Bibendum"
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
         ],
-        "pred": "scotch tape"
+        "pred": "sandro"
       },
       {
-        "q": "How many ‘Triangles’ are there on the logo of car manufacturer BMW?",
+        "q": "David Stern was the commissioner of what organization?",
         "gold": [
-          "Four",
-          "4"
+          "NBA",
+          "Nmba"
         ],
-        "pred": "four"
+        "pred": "nasa"
       },
       {
-        "q": "What is the next in the series: 1, 16, 81, 256, 625 ?",
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
         "gold": [
-          "1296",
-          "one thousand, two hundred and ninety-six"
+          "New South Wales",
+          "AU-NSW"
         ],
-        "pred": "st john s"
+        "pred": "victoria"
       }
     ]
   },
   "polite": {
     "template": "Please answer the following trivia question.\n\nQuestion: {question}\nAnswer:",
     "em": {
-      "mean": 0.12,
-      "lo": 0.04,
-      "hi": 0.2,
+      "mean": 0.08,
+      "lo": 0.02,
+      "hi": 0.16,
       "n": 50
     },
     "f1": {
-      "mean": 0.18177777777777776,
-      "lo": 0.09575000000000003,
-      "hi": 0.27409999999999995,
+      "mean": 0.11266666666666665,
+      "lo": 0.042666666666666665,
+      "hi": 0.19001666666666667,
       "n": 50
     },
     "sample": [
       {
-        "q": "What is a name for a type of private club in city outskirts or rural areas that usually offers a variety of recreational sports facilities such as golf, tennis, swimming and polo?",
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
         "gold": [
-          "Country club",
-          "Golf club (institution)"
+          "'DIXON'",
+          "Dixon (disambiguation)"
         ],
-        "pred": "a club"
+        "pred": "scott"
       },
       {
-        "q": "Which month of the year came second in the Roman calendar?",
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
         "gold": [
-          "April",
-          "㋃"
+          "Tina Turner",
+          "Anna Bullock"
         ],
-        "pred": "july"
+        "pred": "elizabeth scott"
       },
       {
-        "q": "Introduced in 1894 and one of the world's oldest trademarks, Bibendum is better known as what?",
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
         "gold": [
-          "The Michelin Man",
-          "Bibendum"
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
         ],
-        "pred": "scotch tape"
+        "pred": "samantha"
       },
       {
-        "q": "How many ‘Triangles’ are there on the logo of car manufacturer BMW?",
+        "q": "David Stern was the commissioner of what organization?",
         "gold": [
-          "Four",
-          "4"
+          "NBA",
+          "Nmba"
         ],
-        "pred": "four"
+        "pred": "nasa"
       },
       {
-        "q": "What is the next in the series: 1, 16, 81, 256, 625 ?",
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
         "gold": [
-          "1296",
-          "one thousand, two hundred and ninety-six"
+          "New South Wales",
+          "AU-NSW"
         ],
-        "pred": "st john s church"
+        "pred": "new south wales"
       }
     ]
   }
