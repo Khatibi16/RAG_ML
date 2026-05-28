@@ -174,8 +174,8 @@ into one corpus gives a realistic retrieval setting:
 ### Corpus construction
 
 We draw a **seeded random sample** of **`config.NUM_QUESTIONS`** questions from
-the validation split (`QUESTION_SAMPLE_SEED = 42`; default **100** for fast
-iteration; raise to 500–1000 for the final run). A random sample is more
+the validation split (`QUESTION_SAMPLE_SEED = 42`; configured at **750** for the
+report run, drop to ~100 for fast iteration). A random sample is more
 representative of TriviaQA than the first N rows, and the seed keeps it
 reproducible — the seed is folded into the corpus cache key so changing it
 does not silently reuse a stale parse. For each question, TriviaQA provides
@@ -684,6 +684,12 @@ retrieval *family* (BM25 / TF-IDF / Dense). This experiment isolates the
 All three models are small (384-dim, 22–33 M params) so runtime stays modest;
 the `all-MiniLM` row reuses the Experiment-1 dense cache and is therefore free.
 
+**Eval-set size.** Scored on a representative subset of `EXP10_NUM_QUESTIONS`
+(default 400) rather than the full 750: the dense index is still built over the
+*full* corpus (so retrieval difficulty is unchanged), and 3 dense models means
+3× generation, so the subset bounds that cost while keeping enough power to
+detect a real embedding-model gap.
+
 **Fairness — instruction prefixes.** `e5` and `bge` are trained with
 *asymmetric* query/passage instructions (`"query:"` / `"passage:"` for e5, a
 search instruction on the query side for bge) and score poorly if embedded as
@@ -746,8 +752,12 @@ with model scale**, which a single point cannot show. This experiment repeats
 
 **Efficiency.** Retrieval and embeddings are generator-independent, so the
 dense index is built **once** and only *generation* is repeated per model. The
-generation cache is keyed by *model + prompt* (§7) so the runs never collide;
-the `base` row reproduces Exp 5 exactly (consistency check).
+generation cache is keyed by *model + prompt* (§7) so the runs never collide.
+Because `flan-t5-large` is the single costliest cell and the cross-scale ΔEM is
+underpowered at any feasible n, this arm runs on a subset of
+`EXP12_NUM_QUESTIONS` (default 150) — a **trend demonstration**, not a precise
+estimate. (The `base` row is therefore ≈ Exp 5 on the same subset, not an exact
+match to the full-n Exp 5 numbers.)
 
 **Hypothesis.** The No-RAG EM rises with scale (more parametric knowledge)
 while RAG rises more slowly (already near the retrieval/generation ceiling), so
@@ -846,6 +856,16 @@ on the identical question set, we add two **paired** tests (notebook §17c,
   delta (A − B) on each of 10 000 resamples, and report the mean delta, its
   95% percentile CI, and a two-sided bootstrap *p*-value
   `2·min(P(Δ*<0), P(Δ*>0))`.
+
+- **Holm–Bonferroni correction.** Because ~9 contrasts are tested
+  simultaneously, raw *p*-values overstate significance. We apply the
+  Holm step-down correction across the family (separately to the EM McNemar
+  *p*-values and the F1 bootstrap *p*-values) and report the adjusted
+  *p* alongside the raw one (`p_holm`; shown in `fig12`). Only effects that
+  survive the adjustment should be called significant; the two large effects
+  (RAG vs No-RAG; ForcedMiss vs No-RAG/InstrNoCtx) survive comfortably, while
+  borderline raw results (e.g. rerank-F1 at raw *p* = 0.024) should be read
+  against their adjusted value.
 
 > **Note — statistical vs practical significance.** A paired test can flag a
 > *consistent* effect as significant even when it is *tiny*. The Oracle-vs-RAG
@@ -969,19 +989,22 @@ Note that key is the prompt text only, so if you cache and then change a
 decoding/budget setting that doesn't alter the prompt (e.g. `MAX_NEW_TOKENS`),
 delete that file to avoid replaying stale answers.
 
-**Expected runtime** at the default `NUM_QUESTIONS=100` / `MAX_SEARCH_RESULTS_PER_Q=5`
-(Apple Silicon / modern CPU):
+**Expected runtime** at the configured report scale `NUM_QUESTIONS=750`
+(`EXP10_NUM_QUESTIONS=400`, `EXP12_NUM_QUESTIONS=150`) /
+`MAX_SEARCH_RESULTS_PER_Q=5`:
 - Data loading: 5–15 min first time (the `rc` dataset is large); <10 s from cache afterwards.
-- Dense embedding (across chunk sizes, including the chunk=48 index for Exp 3): ~3–8 min.
-- Generation (100 questions × ~25 conditions across all experiments): ~15–30 min on CPU, faster on MPS/CUDA. Cache keeps re-runs cheap.
-- Experiment 12 adds a generator-size sweep: `flan-t5-small` is fast, but
-  `flan-t5-large` (~780M, ~3 GB) downloads on first run and is ~3–5× slower
-  than base on CPU — budget an extra ~15–30 min on CPU (much less on MPS/CUDA).
-- Total first end-to-end run: ~45–75 min (with the Exp 12 large-model sweep).
+- Dense embedding (across chunk sizes; corpus ~7.5× the n=100 size): ~15–40 min cold, then cached.
+- Generation scales ~linearly with n: the base-model experiments (1–11) run
+  ~7.5× the n=100 cost. The generator sweep (Exp 12) is bounded by its 150-question
+  subset, but `flan-t5-large` (~780M, ~3 GB) downloads on first run and is
+  ~3–5× slower than base.
+- **Total first end-to-end run: roughly ~4–8 h on CPU** (much less on MPS/CUDA,
+  which is strongly recommended at this scale). The per-experiment subsets
+  (Exp 10/12) and the cached embeddings keep this from ballooning further.
 
-To run at "report scale", bump `config.NUM_QUESTIONS` to 500 or 1000 and
-optionally raise `MAX_SEARCH_RESULTS_PER_Q`; runtime scales roughly linearly
-with both.
+To iterate faster, drop `config.NUM_QUESTIONS` back to ~100; runtime scales
+roughly linearly. Turning on `USE_GENERATION_CACHE` (now safe — keyed by
+model+prompt) makes analysis-only re-runs near-instant after the first run.
 
 ### Run a single experiment
 
@@ -999,16 +1022,25 @@ generation, so they can be re-run on their own once the experiments exist.
 
 ## 10. Results Summary
 
-> **Status — current.** All numbers and figures below were produced by a
-> single end-to-end run of the committed notebook at the default settings
-> (`NUM_QUESTIONS = 100`, `QUESTION_SAMPLE_SEED = 42`,
-> `MAX_SEARCH_RESULTS_PER_Q = 5`, `NUM_WIKI_DISTRACTORS = 2000`, `rc` corpus,
-> `MAX_INPUT_TOKENS = 1024`, middle-truncation + question-twice prompts, greedy
-> decoding, token-span Recall@k). They live in `results/*.json` and
-> `figures/*.png` and reproduce deterministically. **At n = 100 the marginal
-> bootstrap CIs are wide (±~0.09 EM), so absolute numbers are directional** —
-> for which differences are actually distinguishable, see the
-> *paired-significance* table at the end of this section.
+> **⚠️ Numbers below are the n = 100 run; a report-scale run is now
+> configured.** The tables in this section were produced at `NUM_QUESTIONS =
+> 100`. The notebook is now set to the report scale **`NUM_QUESTIONS = 750`**
+> (with `EXP10_NUM_QUESTIONS = 400` and `EXP12_NUM_QUESTIONS = 150` — the
+> costly multi-pass sweeps run on representative subsets; see §5/§9), so the
+> **next end-to-end run will refresh every number here**. Expected effects of
+> the larger n: marginal CIs tighten from ±~0.09 to ±~0.04 EM, the medium
+> effects (chunk size, Exp 9 slope, Exp 12 trend, rerank-F1) become firmly
+> resolvable, and — because the corpus also grows ~7.5× — Recall@5 may fall
+> below 0.90 and the retriever / embedding "ties" may finally separate.
+>
+> **Status (n = 100 run below).** Produced by a single end-to-end run
+> (`QUESTION_SAMPLE_SEED = 42`, `MAX_SEARCH_RESULTS_PER_Q = 5`,
+> `NUM_WIKI_DISTRACTORS = 2000`, `rc` corpus, `MAX_INPUT_TOKENS = 1024`,
+> middle-truncation + question-twice prompts, greedy decoding, token-span
+> Recall@k, Holm-adjusted paired tests). **At n = 100 the marginal bootstrap
+> CIs are wide (±~0.09 EM), so absolute numbers are directional** — for which
+> differences are actually distinguishable, see the *paired-significance* table
+> at the end of this section.
 >
 > **Reading note — this run uses the seeded random sample (D3).** The
 > questions are now a random sample of the validation split, not its first 100
@@ -1292,7 +1324,7 @@ Figures in `figures/`:
 | `fig9_rerank.png`               | EM + F1 + Recall@5: e5 Dense vs e5 Dense + Cross-Encoder Rerank (Exp 7) |
 | `fig10_distractor_sweep.png`    | EM / F1 / Recall@k vs number of external distractors (Exp 8) |
 | `fig11_distraction.png`         | EM / F1 / Recall@k vs number of hard non-gold distractors, recall held at 1 (Exp 9) |
-| `fig12_significance.png`        | Table of paired tests (McNemar on EM, paired bootstrap on EM/F1 deltas) |
+| `fig12_significance.png`        | Table of paired tests (McNemar on EM, paired bootstrap on EM/F1 deltas; raw + Holm-adjusted p) |
 | `fig13_embedding_models.png`    | EM + F1 + Recall@5 across dense embedding models (Exp 10) |
 | `fig14_forced_miss.png`         | EM + F1: No-RAG / matched (instr, empty ctx) / Forced-miss / RAG (Exp 11) |
 | `fig15_generator_scale.png`     | EM grouped bars: No-RAG vs RAG across Flan-T5 small/base/large (Exp 12) |
@@ -1309,15 +1341,19 @@ Figures in `figures/`:
    push the floor higher and shrink the RAG gain further; that extrapolation
    is untested here.
 
-2. **Statistical power**: All reported numbers are at `NUM_QUESTIONS = 100`,
-   where the marginal bootstrap CIs are ±~0.09 EM. The paired tests (§6, §10)
-   show that only four effects are distinguishable at this scale — RAG vs
+2. **Statistical power**: the *currently tabulated* numbers are at
+   `NUM_QUESTIONS = 100` (marginal CIs ±~0.09 EM), where the Holm-adjusted
+   paired tests (§6, §10) leave only four effects distinguishable — RAG vs
    No-RAG, ForcedMiss vs No-RAG, ForcedMiss vs InstrNoCtx, and rerank vs
-   e5-dense (on F1) — while the retriever choice, the prompt template, the
-   embedding model, the chunk size, and Oracle vs RAG are all within noise.
-   Quantitative claims about the smaller effects (including the Exp 9
-   distraction slope and the Exp 12 ΔEM trend) would require the report-scale
-   run (`NUM_QUESTIONS = 500`–1000).
+   e5-dense (on F1, borderline) — while the retriever choice, prompt template,
+   embedding model, chunk size, and Oracle vs RAG sit within noise. The
+   notebook is now configured for the report scale `NUM_QUESTIONS = 750`
+   (CIs ±~0.04), which should resolve the medium effects (~0.05–0.08: chunk
+   size, the Exp 9 slope, the Exp 12 trend); the ~0.02 ties (retriever, prompt)
+   are genuinely negligible and will remain indistinguishable — there the
+   contribution is a *tight* CI around zero, not a detected effect. Costly
+   sweeps (Exp 10/12) run on subsets, so their CIs stay slightly wider by
+   design.
 
 3. **Corpus size and provenance**: At the default settings the corpus is
    ~2 500 documents (≈525 from TriviaQA + 2 000 Simple-Wikipedia
