@@ -113,27 +113,6 @@ Our key contributions are:
     and that the RAG--No-RAG gap begins to shrink as model scale grows.
 \end{itemize}
 
-\section{Background and Related Work}
-
-Lewis et al.~[1] introduce the RAG model: a BART generator augmented
-with a Dense Passage Retriever (DPR) over Wikipedia.
-They show strong open-domain QA results without task-specific
-fine-tuning and observe that retrieval helps most for specific factual
-questions where parametric memory is insufficient---exactly the regime
-we study.
-
-Izacard and Grave~[2] extend RAG with Fusion-in-Decoder (FiD), encoding
-each retrieved passage independently before the decoder attends to all
-jointly.
-FiD consistently outperforms RAG at $k\!\geq\!5$, showing that
-\emph{how} multiple passages are integrated can be as important as
-\emph{whether} they are retrieved at all.
-
-Gao et al.~[3] survey the full RAG design space across naive, advanced,
-and modular topologies, identifying chunking strategy and embedding model
-as two of the highest-impact design choices.
-Our experiments directly test these axes and add causal per-component
-estimates via controlled ablation.
 
 \section{Method}
 
@@ -159,6 +138,9 @@ to preserve the answer cue.
 \paragraph{Dataset and corpus.}
 We use \textbf{TriviaQA} \texttt{rc}~[4], sampling 750 questions from
 the validation split (seed 42).
+TriviaQA was chosen because the primary references for this work---Lewis
+et al.~[1] and Izacard and Grave~[2]---both evaluate on TriviaQA,
+enabling direct comparison with those baselines.
 TriviaQA provides Wikipedia entity pages and web search hits for each
 question; pooling all documents across questions gives a realistic
 retrieval setting where the gold evidence is always present but must
@@ -196,26 +178,6 @@ Of 750 questions, \textbf{411 benefit}, \textbf{319 tie}, and only
 model already answered correctly from memory and where retrieved context
 distracted it.
 
-\paragraph{Retriever and embedding model (Exps.\ 1, 10).}
-All three retrieval families are statistically indistinguishable
-(Table~\ref{tab:core}, middle; Holm $p\!=\!1.0$ for all three pairs).
-Dense retrieval achieves the highest Recall@5 (0.865) yet not the
-highest EM---residual error is generator-side.
-The embedding model ablation (Exp.~10, $n\!=\!400$) reveals an
-interesting interaction: e5-small reaches Recall@5$\!=\!$0.915 (highest)
-but EM$\!=\!$0.610 (lowest), while MiniLM has Recall@5$\!=\!$0.877 but
-EM$\!=\!$0.623 (highest).
-A stronger retriever finds more gold chunks; the generator extracts no
-better answers from them.
-Cross-encoder re-ranking (Exp.~7, \texttt{ms-marco-MiniLM-L-6-v2},
-top-50$\to$top-5) raises Recall@5 by 0.017 but the EM gain
-($+0.017$, Holm $p\!=\!0.73$) is not significant, confirming the
-generator bottleneck.
-The oracle (Exp.~6, Table~\ref{tab:core}, bottom) quantifies the
-residual retrieval-failure component: forcing the gold chunk in for the
-13\% of questions that Dense misses yields $+0.019$ EM
-(Holm $p\!=\!0.0007$)---small but reliable.
-
 \begin{table}[t]
 \centering
 \caption{Core results. All experiments use Flan-T5-base, chunk=128
@@ -250,16 +212,49 @@ Oracle (gold forced in) & 0.619 & 0.684 & 0.999 & 0.0007 \\
 \end{tabular}
 \end{table}
 
-\paragraph{When retrieval hurts: controlled distraction (Exp.\ 9).}
-To isolate generator distraction from retrieval failure we pin the gold
-chunk at rank~1 (Recall@$k\!=\!1$ throughout) and add $N\in\{0,1,2,4,8\}$
-hard, topically relevant non-gold chunks---realistic near-misses a real
-RAG system would surface.
+\paragraph{Retrieval pipeline: method, chunk size, and depth (Exps.\ 1--4).}
+All three retrieval families are statistically indistinguishable
+(Table~\ref{tab:core}, middle; Holm $p\!=\!1.0$ for all three pairs):
+Dense retrieval achieves the highest Recall@5 (0.865) but not the
+highest EM, confirming that residual error is generator-side.
+At a fixed 1024-token budget (Exp.~2), smaller chunks win: 64-word
+chunks ($\approx$8 packed per prompt) achieve EM~0.596 vs.\ 0.517 for
+512-word chunks ($\approx$1.2 per prompt), since large chunks risk
+losing the entire context window on a single retrieval miss.
+Retrieval depth~$k$ (Exp.~3, chunk\,=\,48 words) shows monotone
+improvement through $k\!=\!10$ (EM: 0.433$\to$0.583) with no distraction
+penalty---consistent with distraction only materialising once the answer
+is already guaranteed present.
+Prompt template (Exp.~4) has no significant effect: concise vs.\
+instructed differ by only 0.016 EM (Holm $p\!=\!0.18$).
+
+\paragraph{Retrieval quality ceiling: oracle, re-ranking, and embedding model (Exps.\ 6, 7, 10).}
+Three experiments probe whether better retrieval quality can raise EM,
+and all point to the same conclusion: the generator is the binding
+constraint.
+The oracle upper bound (Exp.~6, Table~\ref{tab:core}, bottom) forces the
+gold chunk in for the 13\% of questions that Dense misses, yielding
+only $+0.019$ EM (Holm $p\!=\!0.0007$)---small but reliable.
+Cross-encoder re-ranking (Exp.~7, \texttt{ms-marco-MiniLM-L-6-v2},
+top-50$\to$top-5) raises Recall@5 by 0.017 but the EM gain ($+0.017$,
+Holm $p\!=\!0.73$) is not significant.
+The embedding model ablation (Exp.~10, $n\!=\!400$) reveals the same
+pattern: e5-small reaches Recall@5$\!=\!$0.915 (highest) yet
+EM$\!=\!$0.610 (lowest), while MiniLM has Recall@5$\!=\!$0.877 but
+EM$\!=\!$0.623 (highest)---a stronger retriever finds more gold chunks;
+the generator extracts no better answers from them.
+
+\paragraph{Distractor robustness and retrieval failure (Exps.\ 8, 9, 11).}
+Experiment~8 sweeps the external distractor count
+($\{0, 500, 2000, 5000\}$ Simple-Wikipedia articles): Recall@5 and EM
+are exactly flat across a $2.8\times$ corpus-size range, confirming
+that topic-agnostic noise never out-ranks gold pages.
+To isolate generator distraction from retrieval failure, Experiment~9
+pins the gold chunk at rank~1 (Recall@$k\!=\!1$ throughout) and adds
+$N\in\{0,1,2,4,8\}$ hard topical non-gold chunks.
 EM drops \textbf{monotonically} from 0.673 ($N\!=\!0$, single-passage
-ceiling) to 0.558 ($N\!=\!8$), a fall of 11.5~pp attributable entirely
+ceiling) to 0.558 ($N\!=\!8$)---a fall of 11.5~pp attributable entirely
 to distraction (Figure~\ref{fig:main}, left).
-The $N\!=\!0$ anchor is also a clean generator ceiling: even with a
-perfect one-chunk context the model misses $\approx$33\% of questions.
 Experiment~11 (forced retrieval miss, Recall@$k\!=\!0$ by construction)
 closes the analysis from the other side: wrong-but-topical context
 scores EM~0.159---far below RAG (0.600) but well above no-context
@@ -269,19 +264,6 @@ the bare parametric baseline; topical-but-wrong context adds a further
 $+0.102$ EM (Holm $p\!<\!10^{-4}$).
 A retrieval miss therefore primes parametric recall rather than dragging
 the model below its floor.
-
-\paragraph{Generator scale (Exp.\ 12).}
-Figure~\ref{fig:main} (right) sweeps Flan-T5 small/base/large (80M /
-250M / 780M) on 150 questions.
-The No-RAG parametric floor rises monotonically with scale
-(0.027$\to$0.053$\to$0.113), while RAG rises more slowly
-(0.467$\to$0.600$\to$0.633) toward the retrieval/generation ceiling.
-The RAG--No-RAG gap \textbf{peaks at base} ($\Delta\!=\!0.547$) and
-\textbf{begins to shrink at large} ($\Delta\!=\!0.520$), consistent with
-retrieval helping most when parametric memory is weakest.
-The large model is also the only one where RAG occasionally hurts
-(3/150 questions) as growing parametric knowledge conflicts with retrieved
-context.
 
 \begin{figure}[t]
   \centering
@@ -301,21 +283,18 @@ context.
   \label{fig:main}
 \end{figure}
 
-\paragraph{Chunk size and retrieval depth (Exps.\ 2--3).}
-At a fixed 1024-token budget (Exp.~2, Dense retriever), smaller chunks
-win: 64-word chunks ($\approx$8 packed per prompt) achieve EM~0.596
-vs.\ 0.517 for 512-word chunks ($\approx$1.2 per prompt, Recall@$k$
-drops to 0.759).
-Large chunks are risky because a single retrieval miss costs the entire
-context window.
-Retrieval depth~$k$ (Exp.~3, chunk\,=\,48 words, fitting the full range
-untruncated) shows monotone improvement through $k\!=\!10$
-(EM: 0.433$\to$0.583), with \emph{no} distraction penalty in the
-standard retrieval setting---consistent with distraction only becoming a
-significant factor once the answer is already guaranteed present (Exp.~9).
-Prompt template (Exp.~4) has no significant effect: concise vs.\
-instructed differ by only 0.016 EM (Holm $p\!=\!0.18$), as Flan-T5 is
-already terse enough that the explicit directive adds nothing.
+\paragraph{Generator scale (Exp.\ 12).}
+Figure~\ref{fig:main} (right) sweeps Flan-T5 small/base/large (80M /
+250M / 780M) on 150 questions.
+The No-RAG parametric floor rises monotonically with scale
+(0.027$\to$0.053$\to$0.113), while RAG rises more slowly
+(0.467$\to$0.600$\to$0.633) toward the retrieval/generation ceiling.
+The RAG--No-RAG gap \textbf{peaks at base} ($\Delta\!=\!0.547$) and
+\textbf{begins to shrink at large} ($\Delta\!=\!0.520$), consistent with
+retrieval helping most when parametric memory is weakest.
+The large model is also the only one where RAG occasionally hurts
+(3/150 questions) as growing parametric knowledge conflicts with retrieved
+context.
 
 \section{Conclusion}
 
