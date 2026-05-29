@@ -1,0 +1,230 @@
+{
+  "short-instruction": {
+    "template": "Answer the following question with a short phrase.\n\nQuestion: {question}\nShort answer:",
+    "em": {
+      "mean": 0.08,
+      "lo": 0.02,
+      "hi": 0.16,
+      "n": 50
+    },
+    "f1": {
+      "mean": 0.12066666666666666,
+      "lo": 0.046,
+      "hi": 0.2020333333333333,
+      "n": 50
+    },
+    "sample": [
+      {
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
+        "gold": [
+          "'DIXON'",
+          "Dixon (disambiguation)"
+        ],
+        "pred": "scott"
+      },
+      {
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
+        "gold": [
+          "Tina Turner",
+          "Anna Bullock"
+        ],
+        "pred": "sarah taylor"
+      },
+      {
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
+        "gold": [
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
+        ],
+        "pred": "samantha"
+      },
+      {
+        "q": "David Stern was the commissioner of what organization?",
+        "gold": [
+          "NBA",
+          "Nmba"
+        ],
+        "pred": "nasa"
+      },
+      {
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
+        "gold": [
+          "New South Wales",
+          "AU-NSW"
+        ],
+        "pred": "new south wales"
+      }
+    ]
+  },
+  "qa_cue": {
+    "template": "Q: {question}\nA:",
+    "em": {
+      "mean": 0.1,
+      "lo": 0.02,
+      "hi": 0.18,
+      "n": 50
+    },
+    "f1": {
+      "mean": 0.15438095238095237,
+      "lo": 0.06665000000000001,
+      "hi": 0.24335238095238096,
+      "n": 50
+    },
+    "sample": [
+      {
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
+        "gold": [
+          "'DIXON'",
+          "Dixon (disambiguation)"
+        ],
+        "pred": "scott"
+      },
+      {
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
+        "gold": [
+          "Tina Turner",
+          "Anna Bullock"
+        ],
+        "pred": "sarah taylor"
+      },
+      {
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
+        "gold": [
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
+        ],
+        "pred": "antonio sandro"
+      },
+      {
+        "q": "David Stern was the commissioner of what organization?",
+        "gold": [
+          "NBA",
+          "Nmba"
+        ],
+        "pred": "United States Air Force"
+      },
+      {
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
+        "gold": [
+          "New South Wales",
+          "AU-NSW"
+        ],
+        "pred": "New South Wales"
+      }
+    ]
+  },
+  "trivia": {
+    "template": "Trivia: {question}",
+    "em": {
+      "mean": 0.06,
+      "lo": 0.0,
+      "hi": 0.12,
+      "n": 50
+    },
+    "f1": {
+      "mean": 0.10266666666666666,
+      "lo": 0.03331666666666668,
+      "hi": 0.18266666666666664,
+      "n": 50
+    },
+    "sample": [
+      {
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
+        "gold": [
+          "'DIXON'",
+          "Dixon (disambiguation)"
+        ],
+        "pred": "scott"
+      },
+      {
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
+        "gold": [
+          "Tina Turner",
+          "Anna Bullock"
+        ],
+        "pred": "emma sandler"
+      },
+      {
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
+        "gold": [
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
+        ],
+        "pred": "sandro"
+      },
+      {
+        "q": "David Stern was the commissioner of what organization?",
+        "gold": [
+          "NBA",
+          "Nmba"
+        ],
+        "pred": "nasa"
+      },
+      {
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
+        "gold": [
+          "New South Wales",
+          "AU-NSW"
+        ],
+        "pred": "victoria"
+      }
+    ]
+  },
+  "polite": {
+    "template": "Please answer the following trivia question.\n\nQuestion: {question}\nAnswer:",
+    "em": {
+      "mean": 0.08,
+      "lo": 0.02,
+      "hi": 0.16,
+      "n": 50
+    },
+    "f1": {
+      "mean": 0.11266666666666665,
+      "lo": 0.042666666666666665,
+      "hi": 0.19001666666666667,
+      "n": 50
+    },
+    "sample": [
+      {
+        "q": "What is the surname of the title character in Kingsley Amis' novel 'Lucky Jim'?",
+        "gold": [
+          "'DIXON'",
+          "Dixon (disambiguation)"
+        ],
+        "pred": "scott"
+      },
+      {
+        "q": "Who played Aunty Entity' in the film 'Mad Max Beyond the Thunderdome'?",
+        "gold": [
+          "Tina Turner",
+          "Anna Bullock"
+        ],
+        "pred": "elizabeth scott"
+      },
+      {
+        "q": "Which of Puccini's operatic characters commits suicide with her father's sword?",
+        "gold": [
+          "'MADAME BUTTERFLY'",
+          "Madam Butterfly"
+        ],
+        "pred": "samantha"
+      },
+      {
+        "q": "David Stern was the commissioner of what organization?",
+        "gold": [
+          "NBA",
+          "Nmba"
+        ],
+        "pred": "nasa"
+      },
+      {
+        "q": "The Tumut Hydroelectric Power Station is in which Australian state?",
+        "gold": [
+          "New South Wales",
+          "AU-NSW"
+        ],
+        "pred": "new south wales"
+      }
+    ]
+  }
+}

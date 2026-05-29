@@ -1,0 +1,45 @@
+{
+  "n_corpus_docs": 2717,
+  "n_chunks": 98738,
+  "metrics": {
+    "em": {
+      "mean": 0.6,
+      "lo": 0.5653333333333334,
+      "hi": 0.6346666666666667,
+      "n": 750
+    },
+    "f1": {
+      "mean": 0.6671346980006827,
+      "lo": 0.6353207967853874,
+      "hi": 0.69957379455015,
+      "n": 750
+    },
+    "recall_at_k": {
+      "mean": 0.8653333333333333,
+      "lo": 0.8413333333333334,
+      "hi": 0.888,
+      "n": 750
+    }
+  },
+  "timing": {
+    "retrieval_s": 4.11,
+    "generation_s": 45.73,
+    "total_s": 61.86,
+    "n_questions": 750,
+    "cache_hits": 0,
+    "cache_misses": 750,
+    "prompt_tokens_mean": 1080.0733333333333,
+    "prompt_tokens_max": 1617,
+    "prompt_tokens_budget": 1024,
+    "final_tokens_mean": 1004.5666666666667,
+    "final_tokens_max": 1024,
+    "prompts_truncated": 513,
+    "n_prompts": 750,
+    "nominal_k": 5,
+    "effective_k_mean": 4.942666666666667,
+    "effective_k_min": 3,
+    "effective_k_max": 5,
+    "n_prompts_partial_k": 41,
+    "n_rag_prompts": 750
+  }
+}
