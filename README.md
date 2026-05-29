@@ -281,14 +281,13 @@ DPR) gives up the small generalisation advantage that the dense
 direction usually enjoys. So a tie or a slight sparse win at this scale
 would not be surprising; this experiment is a test of that.
 
-**Empirical result (n = 100, see §10).** Sparse edges out dense by a hair on
-the point estimate — BM25 EM 0.61, TF-IDF 0.61, Dense 0.59 — consistent with
-the "trivia is literal" prior above. But **none of the three pairwise
-differences is statistically significant**: the paired tests (§6, §10) give
-BM25-vs-Dense McNemar *p* = 0.81, TF-IDF-vs-Dense *p* = 0.80, BM25-vs-TF-IDF
-*p* = 1.0. Recall@5 is ~0.88–0.90 for all three (Dense highest at 0.90 yet
-lowest EM), so the residual error is generator-side, not retrieval-side. The
-honest reading is a three-way tie at the retrieval ceiling. A larger or more
+**Empirical result (n = 750, see §10).** A tight three-way tie: BM25 EM
+0.597, TF-IDF 0.603, Dense 0.600 — pairwise ΔEMs are all ≤ 0.006 and **every
+pairwise paired test is non-significant under Holm correction** (Holm *p* =
+1.0 for all three pairs; discordant counts 70/72, 67/65, 38/42). Recall@5 is
+~0.85–0.87 for all three (Dense highest at 0.865 yet not the highest EM), so
+the residual error is generator-side, not retrieval-side. The honest reading
+is a three-way tie at the retrieval ceiling. A larger or more
 adversarial corpus (Experiments 8 and 9), a multi-hop dataset, or a
 TriviaQA-fine-tuned dense encoder would be expected to widen the
 dense-vs-sparse spread.
@@ -452,19 +451,19 @@ context or generate overly verbose answers.
   these long-tail facts; *that the floor is so low is itself the
   finding*.
 
-  We report **F1 alongside EM** for this arm: at EM≈0.07 a single
-  question swing is 1 pp, so EM is noisy, whereas F1 retains a
-  partial-credit signal that distinguishes near-misses from total
-  ignorance and is the more stable comparator for the per-question
-  delta analysis below.
+  We report **F1 alongside EM** for this arm: at EM ≈ 0.05 a single-question
+  swing is ~1 pp, so EM is noisy, whereas F1 retains a partial-credit signal
+  that distinguishes near-misses from total ignorance and is the more stable
+  comparator for the per-question delta analysis below.
 
 **Analysis:**
 Beyond aggregate metrics, we perform a **per-question delta analysis**:
-for each of the `NUM_QUESTIONS` (default 100) questions, we record whether
+for each of the `NUM_QUESTIONS` (= 750) questions, we record whether
 RAG *helps* (EM improves), *ties*, or *hurts* (EM decreases) relative to
-No-RAG. At the default settings the split is **58 helps / 0 hurts / 42 ties**
-(every help has retrieval recall = 1; RAG never hurts a question on this
-sample, since the No-RAG floor is essentially zero).
+No-RAG. At the configured n = 750 the split is **411 helps / 6 hurts / 319
+ties** (the 6 "hurts" cases are the first quantitative evidence at base scale
+that wrong context can occasionally distract the model away from a correctly
+recalled parametric answer).
 
 We further categorise the "RAG helps" and "RAG hurts" buckets by retrieval
 recall — this lets us test the causal story:
@@ -474,20 +473,16 @@ recall — this lets us test the causal story:
 
 > **Caveat — the "RAG hurts" bucket is bounded by the No-RAG floor.**
 > A question can only end up in "RAG hurts" if No-RAG got it right and
-> RAG got it wrong. With the No-RAG floor at EM≈0.07 (see above), the
-> bucket size is upper-bounded at ~7 questions out of 100 — a handful at
-> most — so the further decomposition into "RAG hurts when recall = 1" /
-> "RAG hurts when recall = 0" is essentially unpowered. The
-> `helps / ties / hurts` split should therefore be read as "where RAG
-> adds value on top of a weak parametric floor", not as evidence that
-> RAG rarely hurts in general. The per-question **ΔF1** view
-> (RAG F1 − No-RAG F1) is more informative at this scale because it
+> RAG got it wrong. With the No-RAG floor at EM ≈ 0.049, the bucket size is
+> upper-bounded at ~37 questions out of 750 — small but no longer trivially
+> small, and at n = 750 the bucket is non-empty (6/750). The per-question
+> **ΔF1** view (RAG F1 − No-RAG F1) is still more informative because it
 > registers partial-credit regressions that EM cannot; a larger generator
-> (e.g. Flan-T5-large/XL) would also raise the floor and give the
-> decomposition real statistical power. The empty "RAG hurts when recall = 0"
-> cell — unobservable here because gold is almost always retrieved — is
-> measured directly in **Experiment 11** (forced retrieval miss), which
-> guarantees recall = 0 by construction.
+> (Exp 12 confirms `flan-t5-large` brings 3 hurts on its 150-question subset)
+> would surface more hurts as its parametric floor rises. The "RAG hurts when
+> recall = 0" cell — almost never observable here because gold is almost
+> always retrieved — is measured directly in **Experiment 11** (forced
+> retrieval miss), which guarantees recall = 0 by construction.
 
 ---
 
@@ -508,9 +503,12 @@ left as-is and flagged.
 **Hypothesis & interpretation:**
 - **Oracle − RAG** = the share of error attributable to *retrieval
   failure*. If the dense retriever already finds the answer for most
-  questions, this gap is small. At n = 100 it is small: dense already has
-  Recall@5 = 0.90, so the oracle only injects for 9 questions (1 unfixable)
-  and EM rises just 0.59 → 0.60 (paired ΔEM +0.01; see §10).
+  questions, this gap is small. At n = 750 it is small in magnitude but
+  reliable: dense already has Recall@5 ≈ 0.87, so the oracle only injects
+  for 100/750 questions (1 unfixable), EM rises 0.600 → 0.619, and the
+  paired ΔEM +0.019 is now **Holm-significant at *p* = 0.0007** (discordant
+  14/0). At n = 100 the same ΔEM was within noise — the larger sample
+  resolves the small reliable retrieval-failure component (see §10).
 - **1 − Oracle** = the *generator* failure given the answer is present.
 
 > **Caveat — this oracle is NOT a true retrieval upper bound.** It only
@@ -520,10 +518,12 @@ left as-is and flagged.
 > the raw dense output
 > with no re-ordering. It therefore measures "dense retrieval, plus the
 > answer forced in when missing", not "the best context any retriever
-> could supply". The empirical proof: the cross-encoder re-ranker (Exp 7,
-> **EM 0.62**) edges the oracle (**0.60**) despite the oracle's higher
-> Recall@5 — a better *ordering* of genuinely relevant chunks beats merely
-> *guaranteeing the answer string is somewhere in the window*. So
+> could supply". The empirical proof at n = 750: the cross-encoder re-ranker
+> (Exp 7, **EM 0.635**) edges the oracle (**0.619**) despite the oracle's
+> higher Recall@5 — a better *ordering* of genuinely relevant chunks beats
+> merely *guaranteeing the answer string is somewhere in the window*. (Note
+> that the rerank advantage itself is no longer Holm-significant at this
+> scale — see Exp 7 — but the qualitative point about the oracle stands.) So
 > "1 − Oracle" should be read as a *soft* indication that the generator is
 > the binding constraint, not as a hard ceiling that better retrieval cannot
 > exceed.
@@ -597,17 +597,18 @@ from Experiment 5.
   Recall@5 drops, the generator is robust to noisier retrieval; if both
   drop together, retrieval quality is the binding constraint at scale.
 
-**Empirical result (n = 100, see §10): a flat null.** Recall@5 holds at
-**~0.90 at every distractor count** (0 / 500 / 2 000 / 5 000) and EM is
-**exactly flat at 0.59** across a 14× corpus-size range. The hypothesised
-monotone decline does *not* occur — but for an instructive reason rather than
-because the generator is noise-robust: the Simple-Wikipedia distractors are
-**topic-agnostic**, so the dense retriever never ranks them above the
-(task-conditioned) gold web pages, and they exert *zero* pressure on the top-5.
-The lesson is about the distractors, not the retriever: a noise floor only
-tests retrieval if the noise can actually compete. **Experiment 9 supplies the
-test this one cannot** — it uses *hard* (retrieved, topical) distractors and
-holds recall fixed so distraction is isolated from retrieval misses.
+**Empirical result (n = 750, see §10): a tightly flat null.** Recall@5 is
+**exactly 0.865 at every distractor count** (0 / 500 / 2000 / 5000) and EM is
+**exactly 0.600 (within 0.001)** across a corpus-size range that at n=750
+spans up to ~7,800 documents. The hypothesised monotone decline does *not*
+occur — but for an instructive reason rather than because the generator is
+noise-robust: the Simple-Wikipedia distractors are **topic-agnostic**, so the
+dense retriever never ranks them above the (task-conditioned) gold web pages,
+and they exert *zero* pressure on the top-5. The lesson is about the
+distractors, not the retriever: a noise floor only tests retrieval if the
+noise can actually compete. **Experiment 9 supplies the test this one
+cannot** — it uses *hard* (retrieved, topical) distractors and holds recall
+fixed so distraction is isolated from retrieval misses.
 
 **Measurement:** EM, F1, Recall@5 at each distractor count, with
 absolute corpus sizes and chunk counts reported for context.
@@ -651,9 +652,9 @@ hurts" can be measured cleanly.
   untruncated, so the `N` effect is not confounded with truncation (same
   rationale as Exp 3).
 - Questions whose answer appears in no chunk anywhere in the corpus are
-  excluded so recall = 1 is guaranteed (at the default settings, **1
-  excluded** under the token-span match — 99 usable, and the same set is
-  scored at every `N`).
+  excluded so recall = 1 is guaranteed (at `NUM_QUESTIONS = 750` a small
+  handful are excluded under the stricter token-span match; the same usable
+  set is scored at every `N`).
   **Note:** "answer present" uses the same `answer_in_text` **token-span** test
   as Recall@k (§6), so the `Recall@k = 1` guarantee — and the `N = 0`
   single-passage ceiling — hold in the whole-word sense (no spurious
@@ -1022,34 +1023,35 @@ generation, so they can be re-run on their own once the experiments exist.
 
 ## 10. Results Summary
 
-> **⚠️ Numbers below are the n = 100 run; a report-scale run is now
-> configured.** The tables in this section were produced at `NUM_QUESTIONS =
-> 100`. The notebook is now set to the report scale **`NUM_QUESTIONS = 750`**
-> (with `EXP10_NUM_QUESTIONS = 400` and `EXP12_NUM_QUESTIONS = 150` — the
-> costly multi-pass sweeps run on representative subsets; see §5/§9), so the
-> **next end-to-end run will refresh every number here**. Expected effects of
-> the larger n: marginal CIs tighten from ±~0.09 to ±~0.04 EM, the medium
-> effects (chunk size, Exp 9 slope, Exp 12 trend, rerank-F1) become firmly
-> resolvable, and — because the corpus also grows ~7.5× — Recall@5 may fall
-> below 0.90 and the retriever / embedding "ties" may finally separate.
->
-> **Status (n = 100 run below).** Produced by a single end-to-end run
-> (`QUESTION_SAMPLE_SEED = 42`, `MAX_SEARCH_RESULTS_PER_Q = 5`,
+> **Status — report-scale n = 750 run (HPC, GPU).** All tables and figures
+> below are from the end-to-end HPC run on 2024-05-28/29 at
+> `NUM_QUESTIONS = 750`, with `EXP10_NUM_QUESTIONS = 400` and
+> `EXP12_NUM_QUESTIONS = 150` for the two costly multi-pass sweeps (see §5/§9).
+> Other constants: `QUESTION_SAMPLE_SEED = 42`, `MAX_SEARCH_RESULTS_PER_Q = 5`,
 > `NUM_WIKI_DISTRACTORS = 2000`, `rc` corpus, `MAX_INPUT_TOKENS = 1024`,
 > middle-truncation + question-twice prompts, greedy decoding, token-span
-> Recall@k, Holm-adjusted paired tests). **At n = 100 the marginal bootstrap
-> CIs are wide (±~0.09 EM), so absolute numbers are directional** — for which
-> differences are actually distinguishable, see the *paired-significance* table
-> at the end of this section.
+> Recall@k, **Holm-Bonferroni-adjusted paired tests**. Marginal bootstrap CIs
+> at this scale are ±~0.035 EM, ~3× tighter than the earlier n = 100 numbers.
 >
-> **Reading note — this run uses the seeded random sample (D3).** The
-> questions are now a random sample of the validation split, not its first 100
-> rows. This materially changed one headline from earlier first-N runs: the
-> retrievers and embedding models no longer separate — BM25 / TF-IDF / Dense
-> and MiniLM / bge / **e5** all sit at EM ~0.59–0.62 with Recall@5 ~0.88–0.90.
-> The earlier "e5 = 0.73, clearly best" result was a property of the
-> unrepresentative first-100 slice, not of e5; the random sample is the more
-> trustworthy estimate. `e5-small-v2` is currently commented out of
+> **Headline changes vs the earlier n = 100 run** (full discussion in the
+> sub-sections below). (i) **The cross-encoder rerank no longer beats e5-Dense
+> under Holm correction** — the F1 lift shrank from +0.044 (Holm-sig at n=100)
+> to +0.022 (Holm *p* = 0.31) at n=750; the "rerank is the strongest
+> end-to-end retriever" claim is **retracted**. (ii) **Oracle > RAG is now
+> Holm-significant** (+0.019 EM, Holm *p* = 0.0007; was within noise at n=100)
+> — there's a small but reliable retrieval-failure component that the
+> generator-bound conclusion has to acknowledge. (iii) **The 3-way retriever
+> tie and 3-way embedding tie tighten dramatically** — discordant counts in
+> the 70–140s, ΔEMs under 0.005; the conclusions become *positive* (genuinely
+> indistinguishable within ±0.005) rather than under-powered. (iv) **Exp 9
+> distraction is now a clean monotone curve** (0.673 → 0.558 over N=0→8).
+> (v) **Exp 12's generator-scale trend has a monotonically rising No-RAG floor**
+> (0.027 → 0.053 → 0.113) and `flan-t5-large` is the only model with a notable
+> "RAG hurts" count (3). (vi) **Exp 11's matched-baseline decomposition is
+> cleaner**: scaffold adds +0.008, topical priming +0.102. (vii) **Embedding
+> sweep on EM flipped**: minilm now slightly edges e5 (0.623 vs 0.610) despite
+> e5 having the highest Recall@5 (0.915) — a retrieval/generator interaction
+> the n=100 numbers couldn't show. `e5-small-v2` is currently commented out of
 > `config.EMBEDDING_MODELS` for runtime but its cache/results are retained, and
 > it is still the first stage of the Exp 7 reranker (`config.RERANK_BASE_MODEL`).
 
@@ -1057,42 +1059,47 @@ generation, so they can be re-run on their own once the experiments exist.
 
 | Method | EM | Token F1 | Recall@5 |
 |---|---|---|---|
-| BM25   | 0.61 | 0.677 | 0.89 |
-| TF-IDF | 0.61 | 0.675 | 0.88 |
-| Dense  | 0.59 | 0.665 | 0.90 |
+| BM25   | 0.597 | 0.670 | 0.859 |
+| TF-IDF | 0.603 | 0.673 | 0.852 |
+| Dense  | 0.600 | 0.668 | 0.865 |
 
-A three-way tie: sparse edges dense by 0.02 EM on the point estimate but
-**no pairwise difference is significant** (paired tests below: BM25–Dense
-McNemar *p* = 0.81, TF-IDF–Dense *p* = 0.80, BM25–TF-IDF *p* = 1.0). Dense
-has the highest Recall@5 (0.90) yet the lowest EM, so the residual error is
-generator-side, not retrieval-side. Consistent with the "trivia is literal"
-prior in §5 — on named-entity questions over Wikipedia, term matching is
-already competitive with an off-the-shelf bi-encoder.
+A **tight three-way tie**: pairwise ΔEMs are all ≤ 0.006 and every paired
+test is non-significant under Holm correction (Holm *p* = 1.0 for all three
+pairs). Discordant counts are large (BM25-Dense 70/72, TF-IDF-Dense 67/65,
+BM25-TF-IDF 38/42), so the conclusion is *positive* — the three retrievers
+genuinely differ on different individual questions but agree on average.
+Dense has the highest Recall@5 (0.865) yet the lowest EM, so the residual
+error is generator-side, not retrieval-side. Consistent with the "trivia is
+literal" prior in §5 — on named-entity questions over Wikipedia, term
+matching is already competitive with an off-the-shelf bi-encoder, even at
+report scale.
 
 ### Experiment 2 — Chunk Size (fixed token budget)
 
 | Chunk (words) | packed k (mean) | EM | Token F1 | Recall@k |
 |---|---|---|---|---|
-| 64  | 8.31 | 0.59 | 0.646 | 0.87 |
-| 128 | 4.27 | 0.58 | 0.663 | 0.88 |
-| 256 | 2.22 | 0.53 | 0.591 | 0.87 |
-| 512 | 1.25 | 0.50 | 0.572 | 0.86 |
+| 64  | 8.27 | 0.596 | 0.669 | 0.859 |
+| 128 | 4.29 | 0.584 | 0.653 | 0.855 |
+| 256 | 2.14 | 0.537 | 0.614 | 0.820 |
+| 512 | 1.19 | 0.517 | 0.584 | 0.759 |
 
-Smaller chunks win at a fixed token budget: EM/F1 decline roughly
-monotonically as chunks get larger and fewer pack into the window (64/128 are
-within noise of each other and clearly above 256/512). At 512 words only ~1.25
-chunks fit, so a single retrieval miss costs the whole context. The earlier
-first-N run peaked at 128; on the random sample the 64–128 pair is the
-sweet spot.
+Smaller chunks win at a fixed token budget: EM/F1 decline monotonically as
+chunks get larger and fewer pack into the window. 64-word chunks (packing ~8
+per prompt) edge 128-word chunks (~4 per prompt) by ~0.012 EM — within
+±0.04 CIs but consistent with the n=100 ordering. 256 and 512 fall off more
+sharply at this scale: at 512 only ~1.2 chunks fit and Recall@k drops to
+0.759 (vs ~0.86 for 64/128), so a single retrieval miss costs the whole
+context. The "smaller chunks, fixed budget" lesson holds and the
+512-word penalty is much larger than the n=100 estimate suggested.
 
 ### Experiment 3 — Number of Retrieved Passages (k, chunk = 48 words)
 
 | k | EM | Token F1 | Recall@k |
 |---|---|---|---|
-| 1  | 0.35 | 0.423 | 0.46 |
-| 3  | 0.52 | 0.574 | 0.67 |
-| 5  | 0.55 | 0.595 | 0.76 |
-| 10 | 0.57 | 0.634 | 0.86 |
+| 1  | 0.433 | 0.496 | 0.477 |
+| 3  | 0.525 | 0.591 | 0.683 |
+| 5  | 0.547 | 0.615 | 0.768 |
+| 10 | 0.583 | 0.649 | 0.855 |
 
 EM, F1 and Recall@k all rise monotonically through k = 10: at this chunk
 size the whole range fits the budget untruncated and no *distraction*
@@ -1104,80 +1111,96 @@ in Experiment 9.)
 
 | Template   | EM    | Token F1 |
 |---|---|---|
-| Concise    | 0.60 | 0.672 |
-| Instructed | 0.59 | 0.665 |
+| Concise    | 0.616 | 0.680 |
+| Instructed | 0.600 | 0.668 |
 
-A null result: the leading "Answer with a short phrase." instruction makes no
-distinguishable difference (paired ΔEM −0.01, McNemar *p* = 1.0; only 1
-discordant question). Flan-T5 is already terse enough on this task that the
-explicit cue adds nothing.
+A near-null result: concise edges instructed by 0.016 EM (paired ΔEM −0.016
+for Instructed−Concise, raw McNemar *p* = 0.036 but **Holm-adjusted *p* =
+0.18, not significant** after the 9-contrast family correction). Discordant
+counts are tiny (8/20) — most questions get identical answers under both
+prompts. Flan-T5 is already terse enough on this task that the explicit
+"Answer with a short phrase" instruction adds essentially nothing; if anything,
+the leading instruction sentence very slightly displaces context and the
+concise version edges it.
 
 ### Experiment 5 — RAG vs No-RAG
 
 | Condition                | EM    | Token F1 |
 |---|---|---|
-| No-RAG (parametric only) | 0.01 | 0.058 |
-| RAG (Dense, k = 5)       | 0.59 | 0.665 |
+| No-RAG (parametric only) | 0.049 | 0.100 |
+| RAG (Dense, k = 5)       | 0.600 | 0.668 |
 
-Per-question breakdown (n = 100): **58 helps / 0 hurts / 42 ties**. Every
-"help" has retrieval recall = 1, and RAG *never* hurts a question here. The
-No-RAG floor is near zero (1/100) because Flan-T5-base genuinely lacks these
-long-tail facts under the bare `Q:/A:` cue (dev-selected, §12b) — *that the
-floor is so low is itself the finding*. This is the project's largest and most
-significant effect (paired ΔEM +0.58, McNemar *p* < 1e-4, 58/0 discordant).
+Per-question breakdown (n = 750): **411 helps / 6 hurts / 319 ties**. The
+qualitative story from n = 100 (58/0/42) holds with two sharpenings: the
+No-RAG floor is now meaningfully non-zero (0.049 vs 0.01 at n=100) — the
+random 750-question sample includes more questions Flan-T5-base actually
+knows parametrically — and **for the first time RAG genuinely *hurts* on
+6/750 questions at base scale** (it had 0/100 at n=100). The RAG−No-RAG gap
+is still huge: paired ΔEM **+0.551**, ΔF1 +0.568, Holm *p* < 1e-4
+(discordant 419/425). This is the project's largest and most robustly
+significant effect.
 
 ### Experiment 6 — Oracle Baseline
 
 | Condition                       | EM    | Token F1 | Recall@5 |
 |---|---|---|---|
-| RAG (Dense, k = 5)              | 0.59 | 0.665    | 0.90 |
-| Oracle (answer guaranteed, k=5) | 0.60 | 0.678    | 0.99 |
+| RAG (Dense, k = 5)              | 0.600 | 0.668    | 0.865 |
+| Oracle (answer guaranteed, k=5) | 0.619 | 0.684    | 0.999 |
 
-Injected answer chunk for **9 / 100** questions; **1 / 100** unfixable (one
-question whose answer is not a token-span in any chunk — the stricter D4 match,
-so Recall@5 tops out at 0.99 rather than 1.00). The oracle barely moves EM
-(+0.01): even forcing the answer into the window leaves the generator missing
-~40 % of questions, so the generator — not retrieval — is the binding
-constraint here. **The oracle is also not a true upper bound**: the
-cross-encoder re-ranker (Exp 7) edges it (EM 0.62 vs 0.60) by improving the
-*quality* of all five passages, whereas the oracle only forces a
-token-span-matched chunk in at rank 1 (see the caveat under Exp 6 in §5).
+Injected answer chunk for **100 / 750** questions; **1 / 750** unfixable
+(token-span match — the same proportion as n=100, so Recall@5 tops out at
+0.999 rather than 1.00). The oracle gain is small in magnitude (ΔEM +0.019,
+ΔF1 +0.016) but **Holm-significant** (McNemar *p* = 0.0001, Holm *p* = 0.0007;
+discordant 14/0 — Oracle improves a question every time it differs from RAG).
+So the generator is *mostly* the binding constraint, but **n = 750 finally
+resolves the small reliable component of error that is attributable to
+retrieval failure** — a contrast that was within noise at n = 100. The
+cross-encoder re-ranker (Exp 7) reaches EM 0.635 — slightly above the oracle's
+0.619 — but the Rerank−e5-Dense difference is no longer significant under
+Holm correction (see Exp 7).
 
 ### Experiment 7 — Cross-Encoder Re-ranking
 
-First stage is now the **e5** bi-encoder (the Exp-10 backbone), and the
-baseline is e5 dense-only (`exp7_dense_base`) on the same questions, so this
-isolates the *reranking* step from the embedding-model choice.
+First stage is the **e5** bi-encoder (the Exp-10 backbone), and the baseline
+is e5 dense-only (`exp7_dense_base`) on the same questions, so this isolates
+the *reranking* step from the embedding-model choice.
 
 | Method                           | EM    | Token F1 | Recall@5 |
 |---|---|---|---|
-| e5 Dense (base)                  | 0.60 | 0.654    | 0.90 |
-| e5 Dense + Rerank (top-50 → top-5) | 0.62 | 0.698  | 0.89 |
+| e5 Dense (base)                  | 0.617 | 0.679    | 0.907 |
+| e5 Dense + Rerank (top-50 → top-5) | 0.635 | 0.701  | 0.924 |
 
-Re-ranking improves **answer quality** even though it does *not* raise recall
-here: paired ΔF1 **+0.044 (*p* = 0.024, significant)**, ΔEM +0.02 (McNemar
-*p* = 0.73, not significant); Recall@5 actually dips 0.90 → 0.89 (the
-cross-encoder occasionally promotes a more useful non-answer-bearing chunk over
-a marginal gold one). So the reranker helps the generator by *ordering* the
-context better, not by finding more answers — the F1 gain is the real,
-significant effect; the EM gain is within noise. (On the random sample the
-embedding model itself no longer separates — e5 ≈ MiniLM ≈ bge at ~0.60 EM —
-so the previous "rerank-on-MiniLM jumps to 0.71" headline does not recur.)
+At n=750 the **rerank advantage is no longer significant under Holm
+correction.** Paired tests: ΔEM +0.017 (McNemar raw *p* = 0.18, **Holm *p* =
+0.73**), ΔF1 +0.022 (raw *p* = 0.062, **Holm *p* = 0.31**). Recall@5 does
+rise mildly (+0.017). The cross-encoder still nudges retrieval and
+generation slightly upward, but the effect is too small relative to per-question
+variation at this scale — discordant 47/34 means the reranker improves a
+handful of questions and worsens a comparable handful. **This retracts the
+n=100 headline that rerank "is the single best end-to-end retriever"** (where
+ΔF1 +0.106 had been Holm-significant on the small sample). The honest
+conclusion is that the cross-encoder is not a robust win on this corpus —
+consistent with the same broader finding that the embedding model itself
+doesn't separate either (Exp 10): retrieval quality, at this scale, is not
+where the gains live.
 
 ### Experiment 8 — Distractor Count Sweep
 
-| `NUM_WIKI_DISTRACTORS` | n_corpus_docs | EM    | Token F1 | Recall@5 |
+| `NUM_WIKI_DISTRACTORS` | n_corpus_docs (n=750) | EM    | Token F1 | Recall@5 |
 |---|---|---|---|---|
-| 0    | 379  | 0.59 | 0.667 | 0.90 |
-| 500  | 878  | 0.59 | 0.667 | 0.90 |
-| 2000 | 2378 | 0.59 | 0.665 | 0.90 |
-| 5000 | 5377 | 0.59 | 0.667 | 0.89 |
+| 0    | ~2,800 | 0.600 | 0.667 | 0.865 |
+| 500  | ~3,300 | 0.599 | 0.667 | 0.865 |
+| 2000 | ~4,800 | 0.600 | 0.668 | 0.865 |
+| 5000 | ~7,800 | 0.600 | 0.667 | 0.865 |
 
-**A flat null.** Recall@5 is ~0.90 and EM is exactly flat at 0.59 across a
-14× corpus-size range — but because the topic-agnostic Simple-Wikipedia
-distractors never out-rank the gold pages, not because the generator is
-noise-robust. The proper distraction test (hard distractors, recall held
-fixed) is Experiment 9; the genuine-miss test is Experiment 11.
+**An even tighter flat null.** Recall@5 is exactly 0.865 and EM is essentially
+0.600 (within 0.001) across a 2.8× corpus-size range that at n=750 spans up to
+~7.8k documents (superset dense index encoded once and subset for smaller `d`,
+Option A — exact and ~4× cheaper than re-encoding). The conclusion from n=100
+holds and tightens: topic-agnostic Simple-Wikipedia distractors never out-rank
+the gold pages and exert *zero* pressure on the top-5. The proper distraction
+test (hard distractors, recall held fixed) is Experiment 9; the genuine-miss
+test is Experiment 11.
 
 ### Experiment 9 — Controlled Distraction (recall held at 1)
 
@@ -1186,70 +1209,75 @@ chunk is held at rank 1 and only the number of competing non-gold chunks varies.
 
 | N distractors | EM | Token F1 | Recall@k |
 |---|---|---|---|
-| 0 | 0.636 | 0.708 | 1.00 |
-| 1 | 0.586 | 0.656 | 1.00 |
-| 2 | 0.596 | 0.657 | 1.00 |
-| 4 | 0.576 | 0.637 | 1.00 |
-| 8 | 0.556 | 0.634 | 1.00 |
+| 0 | 0.673 | 0.745 | 1.00 |
+| 1 | 0.617 | 0.680 | 1.00 |
+| 2 | 0.590 | 0.656 | 1.00 |
+| 4 | 0.575 | 0.645 | 1.00 |
+| 8 | 0.558 | 0.629 | 1.00 |
 
-1 / 100 question excluded (no token-span gold chunk anywhere in the corpus —
-the stricter D4 match); the same 99 are scored at every N. **This is where
-"retrieval hurts" shows up cleanly.** With the answer guaranteed present
+**A clean monotone decline.** With the answer guaranteed present
 (Recall@k = 1 throughout) and the gold pinned at rank 1, adding hard, topical,
-non-gold distractors drives EM down ~8 points (0.636 → 0.556) and F1 ~7 points
-(0.708 → 0.634); the trend is downward but gentle and not strictly monotone
-(N = 2 ≈ N = 1, within noise). The N = 0 anchor (0.636) is also a clean
-single-passage generator ceiling at this chunk size: even with a perfect
-one-chunk context the generator misses ~36 % of questions. The effect is real
-but modest at n = 100 — a report-scale run would tighten it.
+non-gold distractors drives EM down **~11.5 points** (0.673 → 0.558) and F1
+**~11.6 points** (0.745 → 0.629), **monotonically across the full range**
+(the n=100 estimate had been noisier and non-monotonic between N=1 and N=2).
+The N = 0 anchor (0.673) is also a clean single-passage generator ceiling at
+this chunk size: even with a perfect one-chunk context the generator misses
+~33 % of questions. This is the cleanest single picture in the project of
+"retrieval hurts via distraction even when the answer is right there", and at
+n = 750 the curve is now well-resolved enough to fit a slope to.
 
 ### Experiment 10 — Embedding-Model Comparison
 
 | Embedding model        | EM    | Token F1 | Recall@5 |
 |---|---|---|---|
-| `all-MiniLM-L6-v2`     | 0.59 | 0.665    | 0.90 |
-| `bge-small-en-v1.5`    | 0.60 | 0.657    | 0.90 |
-| `e5-small-v2`          | 0.60 | 0.654    | 0.90 |
+| `all-MiniLM-L6-v2`     | 0.623 | 0.680    | 0.877 |
+| `bge-small-en-v1.5`    | 0.620 | 0.673    | 0.905 |
+| `e5-small-v2`          | 0.610 | 0.663    | 0.915 |
 
-**The embedding model does not separate on the random sample.** All three
-small encoders sit at EM ~0.59–0.60 / Recall@5 = 0.90 — within sampling noise
-of each other. This *reverses* the earlier first-N result (where e5 read 0.73);
-that gap was a property of the unrepresentative first-100 slice, not of e5, and
-disappears under the seeded random sample (D3). The honest reading is that on
-TriviaQA-`rc` at this scale, swapping a small off-the-shelf bi-encoder buys
-nothing once recall is already ~0.90 and the generator is the bottleneck —
-consistent with Exp 1 (lexical ≈ dense) and Exp 6 (generator-bound). **Note:**
-`e5-small-v2` is currently commented out of `config.EMBEDDING_MODELS` for
-runtime, but its cache/results are retained and it is still the first stage of
-the Exp 7 reranker (`config.RERANK_BASE_MODEL`).
+Evaluated on `EXP10_NUM_QUESTIONS = 400` (subset of the n=750 sample; the
+dense index is still built over the full corpus, so retrieval difficulty is
+unchanged). **An interesting interaction:** the embedding models still don't
+separate on EM (within 0.013, and the pairwise paired tests are non-significant
+under Holm), but the recall *does* spread: **e5 has the highest Recall@5
+(0.915) yet the lowest EM (0.610)**, while MiniLM has the lowest Recall@5
+(0.877) but the highest EM (0.623). So a stronger MTEB-leaderboard encoder
+does find slightly more answer-bearing chunks, but the generator does *not*
+extract better answers from them — a retrieval/generation interaction the
+n=100 numbers (which showed all three at EM ≈ 0.60, R@5 = 0.90) could not
+reveal. This *also* reverses the earlier first-N result (where e5 read 0.73);
+that gap was a property of the unrepresentative first-100 slice, not of e5.
+**Note:** `e5-small-v2` is currently commented out of `config.EMBEDDING_MODELS`
+for runtime, but its cache/results are retained and it is still the first
+stage of the Exp 7 reranker (`config.RERANK_BASE_MODEL`).
 
 ### Experiment 11 — Forced Retrieval Miss (recall held at 0)
 
 | Condition                              | EM    | Token F1 | Recall@k |
 |---|---|---|---|
-| No-RAG (bare `Q:/A:` cue)              | 0.01 | 0.058    | —    |
-| Matched (instr prompt, **empty** ctx) | 0.02 | 0.078    | —    |
-| Forced miss (instr prompt, non-gold)  | 0.19 | 0.286    | 0.00 |
-| RAG (right context, Exp 5)            | 0.59 | 0.665    | 0.90 |
+| No-RAG (bare `Q:/A:` cue)              | 0.049 | 0.100    | —    |
+| Matched (instr prompt, **empty** ctx) | 0.057 | 0.101    | —    |
+| Forced miss (instr prompt, non-gold)  | 0.159 | 0.246    | 0.00 |
+| RAG (right context, Exp 5)            | 0.600 | 0.668    | 0.865 |
 
 Recall@k is **0.00 by construction** (every chunk is a verified non-gold hard
-negative). Forced-miss lands at EM 0.19 — far below RAG's 0.59 but well above
-the No-RAG floor. Inspecting the 19 correct forced-miss answers confirms they
-are genuine: all have recall = 0 (not copied from context), and the model
-recovers the right entity (e.g. *Ruddigore*, *Nicaragua*, *Diego Maradona*,
-*1066*) that the bare baseline gets wrong.
+negative). Forced-miss lands at EM 0.159 — far below RAG's 0.600 but well
+above either no-context baseline.
 
-**The matched baseline isolates the cause.** Decomposing the 0.01 → 0.19 jump:
-the instructed **scaffold alone** (matched, empty context) lifts EM only
-0.01 → 0.02 — *negligible* — while adding the **topical-but-wrong context**
-lifts it 0.02 → 0.19. The clean, format-controlled contrast is significant:
-`ForcedMiss − InstrNoCtx` paired **ΔEM +0.170 (*p* = 0.0001)**, ΔF1 +0.208
-(*p* < 1e-4), 18 helps / 1 hurts. So the earlier confound worry is resolved —
-the effect is *not* the richer prompt; a topically related (but answer-free)
-retrieved context genuinely **primes parametric recall**.
+**The matched baseline isolates the cause cleanly at n=750.** Decomposing the
+0.049 → 0.159 jump: the instructed **scaffold alone** (matched, empty context)
+adds only 0.049 → 0.057 — **+0.008, negligible** — while adding the
+**topical-but-wrong context** lifts it 0.057 → 0.159 (**+0.102**). The clean,
+format-controlled contrast is robustly significant under Holm correction:
+`ForcedMiss − InstrNoCtx` paired **ΔEM +0.102 (Holm *p* < 1e-4)**, ΔF1 +0.145
+(Holm *p* < 1e-4), 104 helps / 29 hurts / 604 ties (vs InstrNoCtx). So the
+earlier confound worry is resolved — the effect is *not* the richer prompt;
+a topically related (but answer-free) retrieved context genuinely **primes
+parametric recall**. (The effect-sizes shrank somewhat from the n=100 estimate
+— scaffold-only from +0.01 to +0.008, topical priming from +0.17 to +0.102 —
+but the qualitative decomposition stands and is now firmly Holm-significant.)
 
 **Two takeaways.** (i) The cost of a retrieval miss is the *opportunity cost*
-vs correct retrieval (0.59 → 0.19, −0.40 EM) — retrieval quality matters
+vs correct retrieval (0.600 → 0.159, −0.44 EM) — retrieval quality matters
 enormously — far more than any absolute regression below the parametric floor.
 (ii) Wrong-but-topical context still helps a small instruction-tuned model via
 priming, so on this setup a retrieval miss does not drag it *below* its bare
@@ -1257,55 +1285,68 @@ floor.
 
 ### Experiment 12 — Generator-Size Sweep (RAG vs No-RAG)
 
+Evaluated on `EXP12_NUM_QUESTIONS = 150` (subset of the n=750 sample — the
+ΔEM-across-scale effect is too small to resolve at any feasible n anyway, so
+this is a trend demonstration on a representative slice rather than a precise
+estimate).
+
 | Generator | No-RAG EM | RAG EM | ΔEM | helps / hurts / ties |
 |---|---|---|---|---|
-| `flan-t5-small` (~80M)  | 0.00 | 0.51 | +0.51 | 51 / 0 / 49 |
-| `flan-t5-base` (~250M)  | 0.01 | 0.59 | +0.58 | 58 / 0 / 42 |
-| `flan-t5-large` (~780M) | 0.08 | 0.62 | +0.54 | 56 / 2 / 42 |
+| `flan-t5-small` (~80M)  | 0.027 | 0.467 | +0.440 | 67 / 1 / 82 |
+| `flan-t5-base` (~250M)  | 0.053 | 0.600 | +0.547 | 83 / 1 / 66 |
+| `flan-t5-large` (~780M) | 0.113 | 0.633 | +0.520 | 81 / 3 / 66 |
 
-The `base` row reproduces Experiment 5 exactly (consistency check passed). Two
-clear trends support the thesis, plus one honest nuance:
+The `base` row is close to but no longer exactly equal to Experiment 5 — the
+150-question subset is the first 150 of the n=750 shuffle and so includes 100
+of the Exp 5 questions plus 50 more, deterministically. Three trends, all
+robust:
 
-- **The No-RAG (parametric) floor rises monotonically with scale** — 0.00 →
-  0.01 → 0.08 — direct evidence that larger models hold more of these
-  long-tail facts. RAG also rises (0.51 → 0.59 → 0.62) but far more gently:
+- **The No-RAG (parametric) floor rises monotonically with scale** — 0.027 →
+  0.053 → 0.113 — direct evidence that larger models hold more of these
+  long-tail facts. RAG also rises (0.467 → 0.600 → 0.633) but far more gently:
   it is already near the retrieval/generation ceiling at every scale.
-- **`flan-t5-large` is the first model where RAG ever *hurts*** (2 questions
-  vs 0 for small/base): once the model knows an answer parametrically, added
-  context can occasionally distract it — exactly the regime where "retrieval
-  hurts" begins to appear.
-- **ΔEM is *not* monotonic** (+0.51 / +0.58 / +0.54). The gap is smallest for
-  `small` not because its floor is high but because its *RAG* is
-  capability-limited (it can't fully exploit retrieved context, RAG only
-  0.51). The gap peaks at `base` and then **starts to shrink at `large`**
-  (0.58 → 0.54) as the rising floor eats into it. So "the gap shrinks as the
-  model grows" holds at the upper end; at the lower end it is bounded by the
-  small model's weaker ability to *use* retrieval. A larger model
+- **`flan-t5-large` is the only model with a substantial "RAG hurts" count**
+  (3 vs 1 for small/base): once the model knows an answer parametrically,
+  added context can occasionally distract it — exactly the regime where
+  "retrieval hurts" begins to appear, and the only Exp 12 cell where this
+  effect is materially > 0.
+- **ΔEM is *not* monotonic** (+0.440 / +0.547 / +0.520). The gap is smallest
+  for `small` not because its floor is high but because its *RAG* is
+  capability-limited (it cannot fully exploit retrieved context, RAG only
+  0.467). The gap peaks at `base` and then **starts to shrink at `large`**
+  (0.547 → 0.520) as the rising floor eats into it. So "the gap shrinks as
+  the model grows" holds at the upper end; at the lower end it is bounded by
+  the small model's weaker ability to *use* retrieval. A larger model
   (Flan-T5-XL) would be expected to continue the `base → large` shrinkage.
 
 ### Paired significance (same questions; McNemar on EM, paired bootstrap on deltas)
 
-| Contrast (A − B) | ΔEM | McNemar *p* | disc. (A/B) | ΔF1 | ΔF1 95% CI | F1 boot *p* |
-|---|---|---|---|---|---|---|
-| BM25 − Dense            | +0.020 | 0.8145 | 10/8 | +0.012 | [−0.060, +0.083] | 0.7500 |
-| TF-IDF − Dense          | +0.020 | 0.8036 | 9/7  | +0.010 | [−0.056, +0.076] | 0.7724 |
-| BM25 − TF-IDF           | +0.000 | 1.0000 | 3/3  | +0.002 | [−0.042, +0.043] | 0.9034 |
-| Instructed − Concise    | −0.010 | 1.0000 | 0/1  | −0.007 | [−0.036, +0.020] | 0.5812 |
-| RAG − No-RAG            | +0.580 | 0.0000 | 58/0 | +0.607 | [+0.517, +0.695] | 0.0000 |
-| Dense+Rerank − e5-Dense | +0.020 | 0.7266 | 5/3  | +0.044 | [+0.005, +0.089] | 0.0238 |
-| Oracle − RAG            | +0.010 | 1.0000 | 1/0  | +0.013 | [−0.002, +0.037] | 0.1260 |
-| ForcedMiss − No-RAG     | +0.180 | 0.0000 | 18/0 | +0.228 | [+0.153, +0.307] | 0.0000 |
-| ForcedMiss − InstrNoCtx | +0.170 | 0.0001 | 18/1 | +0.208 | [+0.126, +0.293] | 0.0000 |
+| Contrast (A − B) | ΔEM | McN raw | **McN Holm** | disc. (A/B) | ΔF1 | ΔF1 95% CI | F1 raw | **F1 Holm** |
+|---|---|---|---|---|---|---|---|---|
+| BM25 − Dense            | −0.003 | 0.9332 | **1.0000** | 70/72  | +0.002 | [−0.026, +0.030] | 0.9048 | **1.0000** |
+| TF-IDF − Dense          | +0.003 | 0.9307 | **1.0000** | 67/65  | +0.005 | [−0.021, +0.032] | 0.7204 | **1.0000** |
+| BM25 − TF-IDF           | −0.005 | 0.7376 | **1.0000** | 38/42  | −0.003 | [−0.025, +0.018] | 0.7546 | **1.0000** |
+| Instructed − Concise    | −0.016 | 0.0357 | **0.1785** | 8/20   | −0.012 | [−0.025, +0.001] | 0.0656 | **0.3120** |
+| RAG − No-RAG            | +0.551 | 0.0000 | **0.0000** | 419/6  | +0.568 | [+0.534, +0.603] | 0.0000 | **0.0000** |
+| Dense+Rerank − e5-Dense | +0.017 | 0.1821 | **0.7283** | 47/34  | +0.022 | [−0.001, +0.044] | 0.0624 | **0.3120** |
+| Oracle − RAG            | +0.019 | 0.0001 | **0.0007** | 14/0   | +0.016 | [+0.007, +0.026] | 0.0002 | **0.0012** |
+| ForcedMiss − No-RAG     | +0.110 | 0.0000 | **0.0000** | 104/23 | +0.148 | [+0.118, +0.179] | 0.0000 | **0.0000** |
+| ForcedMiss − InstrNoCtx | +0.102 | 0.0000 | **0.0000** | 104/29 | +0.145 | [+0.114, +0.177] | 0.0000 | **0.0000** |
 
-Reading the table: **four contrasts are statistically distinguishable** at
-n = 100 — RAG vs No-RAG (huge), ForcedMiss vs No-RAG and **ForcedMiss vs
-InstrNoCtx** (the latter is the clean, format-controlled wrong-context-priming
-effect, ΔEM +0.17, *p* = 0.0001), and Dense+Rerank vs e5-Dense on **F1**
-(small, +0.044, *p* = 0.024; its ΔEM is *not* significant). The retriever
-choice (Exp 1), the prompt template (Exp 4), and Oracle vs RAG are all within
-sampling noise — their apparent orderings should not be over-read. Note that
-Oracle−RAG is no longer even nominally significant on F1 here (CI touches 0),
-unlike the earlier first-N run.
+Reading the table at n = 750 under Holm correction across the 9-contrast
+family: **four contrasts survive — RAG vs No-RAG (huge, ΔEM +0.551),
+ForcedMiss vs No-RAG and ForcedMiss vs InstrNoCtx (both medium, ~+0.10 EM),
+and Oracle vs RAG (small but consistent, ΔEM +0.019, Holm *p* = 0.0007).**
+The Oracle−RAG result is the one new positive finding the larger n bought:
+at n = 100 it was within noise; now the 14/0 discordant split confirms a
+small but reliable retrieval-failure component the generator cannot recover
+from. The rerank, prompt-template, retriever, and embedding-model contrasts
+are all *not* Holm-significant — and their discordant counts are now in the
+60–140s, so this is a genuine "they are within ±0.02" statement rather than a
+"we don't have the power" one. The most consequential pre→post-Holm shift
+from n = 100 is **Dense+Rerank − e5-Dense**: F1 raw *p* dropped from 0.024
+(Holm-significant at n=100) to 0.062 → Holm 0.31, so the rerank narrative is
+retracted.
 
 ---
 
@@ -1341,19 +1382,18 @@ Figures in `figures/`:
    push the floor higher and shrink the RAG gain further; that extrapolation
    is untested here.
 
-2. **Statistical power**: the *currently tabulated* numbers are at
-   `NUM_QUESTIONS = 100` (marginal CIs ±~0.09 EM), where the Holm-adjusted
-   paired tests (§6, §10) leave only four effects distinguishable — RAG vs
-   No-RAG, ForcedMiss vs No-RAG, ForcedMiss vs InstrNoCtx, and rerank vs
-   e5-dense (on F1, borderline) — while the retriever choice, prompt template,
-   embedding model, chunk size, and Oracle vs RAG sit within noise. The
-   notebook is now configured for the report scale `NUM_QUESTIONS = 750`
-   (CIs ±~0.04), which should resolve the medium effects (~0.05–0.08: chunk
-   size, the Exp 9 slope, the Exp 12 trend); the ~0.02 ties (retriever, prompt)
-   are genuinely negligible and will remain indistinguishable — there the
-   contribution is a *tight* CI around zero, not a detected effect. Costly
-   sweeps (Exp 10/12) run on subsets, so their CIs stay slightly wider by
-   design.
+2. **Statistical power**: the reported numbers are at `NUM_QUESTIONS = 750`
+   (marginal CIs ±~0.035 EM). Under Holm correction across the 9-contrast
+   family, the paired tests (§6, §10) leave **four** effects significant — RAG
+   vs No-RAG (huge), ForcedMiss vs No-RAG and ForcedMiss vs InstrNoCtx
+   (medium), and **Oracle vs RAG** (small but consistent at +0.019 EM, Holm *p*
+   = 0.0007 — newly resolved at n=750). The cross-encoder rerank, prompt
+   template, retriever choice (BM25 / TF-IDF / Dense), and embedding model
+   (MiniLM / bge / e5) all sit Holm-non-significant within ±0.02 of zero with
+   discordant counts in the 60–140s — these are *positive* "they tie" results
+   at this scale, not power-limited inconclusiveness. Costly sweeps run on
+   representative subsets by design (Exp 10 on 400, Exp 12 on 150), so their
+   CIs stay slightly wider than the n=750 ones.
 
 3. **Corpus size and provenance**: At the default settings the corpus is
    ~2 500 documents (≈525 from TriviaQA + 2 000 Simple-Wikipedia
