@@ -12,6 +12,9 @@
 \usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{multirow}
+
+\graphicspath{{figures_hpc_n750/}}
 
 \workshoptitle{30562 --- Machine Learning and Artificial Intelligence}
 \title{When Does Retrieval-Augmented Generation Help?}
@@ -31,7 +34,7 @@
   \And
   Dhruv Singh \\
   Bocconi University \\
-  /texttt{dhruv.singh@studbocconi.it}\\
+  \texttt{dhruv.singh@studbocconi.it}\\
 }
 
 
@@ -41,63 +44,684 @@
 \maketitle
 
 \begin{abstract}
-A concise summary of the problem, the approach, and the main findings.
-The abstract should be self-contained and not exceed one paragraph.
+Retrieval-Augmented Generation (RAG) augments language models with
+non-parametric external memory, but its benefits depend on many
+pipeline decisions that are rarely studied in controlled isolation.
+We present a twelve-experiment ablation on TriviaQA ($n\!=\!750$
+questions, pooled Wikipedia/web corpus) using Flan-T5-base as the
+generator, covering retrieval method, chunk granularity, retrieval
+depth, prompt template, oracle and cross-encoder re-ranking upper
+bounds, external distractor robustness, controlled distraction at
+fixed recall, forced retrieval miss, and generator scale.
+Our main findings are:
+(i) RAG provides a massive benefit over the parametric baseline
+($\Delta\mathrm{EM}\!=\!{+0.551}$, Holm $p\!<\!10^{-4}$) because
+Flan-T5-base genuinely lacks long-tail factual knowledge;
+(ii) the generator, not the retriever, is the binding constraint at
+this scale---retrieval method, embedding model, and cross-encoder
+re-ranking are all statistically indistinguishable under Holm
+correction;
+(iii) with the answer guaranteed present, each additional hard topical
+distractor monotonically reduces EM (0.673$\to$0.558 across
+$N\!=\!0$--$8$ distractors); and
+(iv) wrong-but-topical retrieved context primes parametric recall
+($+0.102$ EM over an empty-context baseline), so a retrieval miss
+is costly relative to correct retrieval but does not drag the model
+below its parametric floor.
 \end{abstract}
 
 \section{Introduction}
 
-Motivate the problem you are solving.
-What is the research question?
-Why is it interesting or important?
-Briefly summarise what you do and what you find.
+Large language models (LLMs) encode substantial world knowledge during
+pre-training, but this \emph{parametric memory} has well-known failure
+modes: facts can be outdated, hallucinated, or simply absent for
+long-tail entities [1].
+Retrieval-Augmented Generation (RAG) addresses this by augmenting the
+generator with a non-parametric corpus---retrieving relevant passages
+at inference time and conditioning the model on them.
+
+Despite RAG's strong empirical track record, its benefits are not
+uniform and the contribution of individual components remains poorly
+understood.
+Retrieval can be noisy or fail entirely; irrelevant passages can
+\emph{distract} the generator; and chunking strategy, embedding model,
+and retrieval depth are typically tuned by intuition rather than
+evidence.
+Prior work establishes that RAG helps on knowledge-intensive tasks [1],
+that how passages are integrated matters [2], and surveys the full
+design space [3]---but causal component-level ablations under a
+consistent evaluation protocol on the same benchmark are rare.
+
+We address this gap with a controlled twelve-experiment study.
+Our key contributions are:
+\begin{itemize}
+  \item A comprehensive ablation spanning retrieval family (BM25 /
+    TF-IDF / Dense), embedding model, chunk granularity, retrieval
+    depth~$k$, prompt template, oracle upper bound, cross-encoder
+    re-ranking, external distractor robustness, and generator scale.
+  \item Statistical evidence (Holm-corrected paired tests) that the
+    \emph{generator} is the binding constraint: retrieval method,
+    embedding model, and re-ranking are all indistinguishable within
+    $\pm0.02$ EM---a \emph{positive} ``they tie'' conclusion, not a
+    power-limited one.
+  \item The first clean causal estimate of when RAG hurts: pinning
+    recall at~1 and adding hard topical distractors causes a monotone
+    11.5~pp EM drop (0.673$\to$0.558), entirely attributable to
+    generator distraction.
+  \item Evidence that topical retrieval misses prime parametric recall
+    ($+0.102$ EM over an empty-context baseline, Holm $p\!<\!10^{-4}$),
+    and that the RAG--No-RAG gap begins to shrink as model scale grows.
+\end{itemize}
 
 \section{Background and Related Work}
 
-Describe any prior work your project builds on.
-Cite relevant papers and explain how your work relates to them.
+Lewis et al.~[1] introduce the RAG model: a BART generator augmented
+with a Dense Passage Retriever (DPR) over Wikipedia.
+They show strong open-domain QA results without task-specific
+fine-tuning and observe that retrieval helps most for specific factual
+questions where parametric memory is insufficient---exactly the regime
+we study.
+
+Izacard and Grave~[2] extend RAG with Fusion-in-Decoder (FiD), encoding
+each retrieved passage independently before the decoder attends to all
+jointly.
+FiD consistently outperforms RAG at $k\!\geq\!5$, showing that
+\emph{how} multiple passages are integrated can be as important as
+\emph{whether} they are retrieved at all.
+
+Gao et al.~[3] survey the full RAG design space across naive, advanced,
+and modular topologies, identifying chunking strategy and embedding model
+as two of the highest-impact design choices.
+Our experiments directly test these axes and add causal per-component
+estimates via controlled ablation.
 
 \section{Method}
 
-Describe your approach clearly and precisely.
-Include any mathematical formulation, model architecture, or algorithm
-that is central to your work.
+\paragraph{System.}
+We implement a standard retrieve-then-read pipeline.
+A retriever selects the top-$k$ passages from a corpus; these are
+concatenated into a prompt (question repeated before and after the
+context for robustness to truncation); and the generator produces a
+short answer.
+We evaluate three retrieval families:
+\textbf{BM25} (Okapi BM25 on a shared NFKD-normalised token stream),
+\textbf{TF-IDF} (\texttt{TfidfVectorizer}, sublinear TF, same
+tokeniser as BM25),
+and \textbf{Dense} (sentence-transformers
+\texttt{all-MiniLM-L6-v2}, 384-dim, cosine similarity).
+For the embedding ablation (Exp.~10) and cross-encoder re-ranking
+(Exp.~7) we additionally use \texttt{bge-small-en-v1.5},
+\texttt{e5-small-v2}, and \texttt{ms-marco-MiniLM-L-6-v2}.
+The generator is \textbf{Flan-T5-base} [5] ($\approx$250M parameters),
+with greedy decoding, a 1024-token input budget, and middle-truncation
+to preserve the answer cue.
 
-\section{Experiments}
+\paragraph{Dataset and corpus.}
+We use \textbf{TriviaQA} \texttt{rc}~[4], sampling 750 questions from
+the validation split (seed 42).
+TriviaQA provides Wikipedia entity pages and web search hits for each
+question; pooling all documents across questions gives a realistic
+retrieval setting where the gold evidence is always present but must
+be located among $\sim$2{,}500 documents (including 2{,}000
+topic-agnostic Simple English Wikipedia distractors added to widen the
+noise floor).
+Documents are chunked with a fixed word-window (default 128 words,
+32-word overlap).
+Gold answers are SQuAD-normalised (lowercase, strip articles/punctuation)
+and a prediction is correct if it matches any gold alias.
 
-Describe your experimental setup: dataset(s), baselines, evaluation metrics,
-and implementation details (model size, optimiser, hyperparameters).
+\paragraph{Evaluation.}
+We report \textbf{Exact Match (EM)}, \textbf{Token F1}, and
+\textbf{Retrieval Recall@$k$} (a whole-word token-span match, avoiding
+spurious partial-word substring hits).
+All metrics carry 95\% percentile bootstrap CIs (1{,}000 resamples).
+For pairwise comparisons we use \textbf{McNemar's exact test} on EM and
+a \textbf{paired bootstrap} on score deltas, with
+\textbf{Holm--Bonferroni correction} across the family of nine contrasts.
+Paired tests cancel question-to-question difficulty variance, providing
+substantially more power than comparing marginal CIs.
 
-\subsection{Results}
+\section{Experiments and Results}
 
-Present your main results using tables or figures.
-Compare against baselines where applicable.
+\paragraph{RAG vs.\ No-RAG (Exp.\ 5).}
+RAG provides a massive benefit over the parametric floor
+(Table~\ref{tab:core}, top):
+$\Delta\mathrm{EM}\!=\!{+0.551}$, Holm $p\!<\!10^{-4}$ (discordant
+419/6 questions).
+The No-RAG EM of 0.049 confirms that Flan-T5-base genuinely lacks these
+long-tail facts---the model produces confidently-shaped but incorrect
+entity strings (e.g., \texttt{henry viii} for ``PM after Balfour'').
+Of 750 questions, \textbf{411 benefit}, \textbf{319 tie}, and only
+\textbf{6 are hurt} by retrieval; the 6 ``hurts'' are questions the
+model already answered correctly from memory and where retrieved context
+distracted it.
 
-\subsection{Ablations}
+\paragraph{Retriever and embedding model (Exps.\ 1, 10).}
+All three retrieval families are statistically indistinguishable
+(Table~\ref{tab:core}, middle; Holm $p\!=\!1.0$ for all three pairs).
+Dense retrieval achieves the highest Recall@5 (0.865) yet not the
+highest EM---residual error is generator-side.
+The embedding model ablation (Exp.~10, $n\!=\!400$) reveals an
+interesting interaction: e5-small reaches Recall@5$\!=\!$0.915 (highest)
+but EM$\!=\!$0.610 (lowest), while MiniLM has Recall@5$\!=\!$0.877 but
+EM$\!=\!$0.623 (highest).
+A stronger retriever finds more gold chunks; the generator extracts no
+better answers from them.
+Cross-encoder re-ranking (Exp.~7, \texttt{ms-marco-MiniLM-L-6-v2},
+top-50$\to$top-5) raises Recall@5 by 0.017 but the EM gain
+($+0.017$, Holm $p\!=\!0.73$) is not significant, confirming the
+generator bottleneck.
+The oracle (Exp.~6, Table~\ref{tab:core}, bottom) quantifies the
+residual retrieval-failure component: forcing the gold chunk in for the
+13\% of questions that Dense misses yields $+0.019$ EM
+(Holm $p\!=\!0.0007$)---small but reliable.
 
-If applicable, include ablation studies that isolate the contribution
-of individual design choices.
+\begin{table}[t]
+\centering
+\caption{Core results. All experiments use Flan-T5-base, chunk=128
+  words, $k\!=\!5$, instructed prompt, $n\!=\!750$ (Exp.~10:
+  $n\!=\!400$). ``Holm $p$'' is the McNemar $p$-value adjusted across
+  the nine-contrast family; ``(ref)'' marks the comparison baseline.}
+\label{tab:core}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Condition & EM & F1 & R@5 & Holm $p$ \\
+\midrule
+\multicolumn{5}{l}{\textit{RAG vs.\ No-RAG (Exp.\ 5)}} \\
+No-RAG (parametric only) & 0.049 & 0.100 & --- & \\
+RAG (Dense, $k\!=\!5$) & \textbf{0.600} & \textbf{0.668} & 0.865 &
+  $<\!10^{-4}$ \\
+\midrule
+\multicolumn{5}{l}{\textit{Retriever comparison (Exp.\ 1)}} \\
+BM25   & 0.597 & 0.670 & 0.859 & 1.00 \\
+TF-IDF & 0.603 & 0.673 & 0.852 & 1.00 \\
+Dense (MiniLM) & 0.600 & 0.668 & 0.865 & (ref) \\
+\midrule
+\multicolumn{5}{l}{\textit{Embedding model ablation (Exp.\ 10)}} \\
+Dense (MiniLM)  & \textbf{0.623} & \textbf{0.680} & 0.877 & (ref) \\
+Dense (bge-small) & 0.620 & 0.673 & 0.905 & --- \\
+Dense (e5-small)  & 0.610 & 0.663 & \textbf{0.915} & --- \\
+\midrule
+\multicolumn{5}{l}{\textit{Oracle upper bound (Exp.\ 6)}} \\
+RAG (Dense, $k\!=\!5$)       & 0.600 & 0.668 & 0.865 & (ref) \\
+Oracle (gold forced in) & 0.619 & 0.684 & 0.999 & 0.0007 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{When retrieval hurts: controlled distraction (Exp.\ 9).}
+To isolate generator distraction from retrieval failure we pin the gold
+chunk at rank~1 (Recall@$k\!=\!1$ throughout) and add $N\in\{0,1,2,4,8\}$
+hard, topically relevant non-gold chunks---realistic near-misses a real
+RAG system would surface.
+EM drops \textbf{monotonically} from 0.673 ($N\!=\!0$, single-passage
+ceiling) to 0.558 ($N\!=\!8$), a fall of 11.5~pp attributable entirely
+to distraction (Figure~\ref{fig:main}, left).
+The $N\!=\!0$ anchor is also a clean generator ceiling: even with a
+perfect one-chunk context the model misses $\approx$33\% of questions.
+Experiment~11 (forced retrieval miss, Recall@$k\!=\!0$ by construction)
+closes the analysis from the other side: wrong-but-topical context
+scores EM~0.159---far below RAG (0.600) but well above no-context
+baselines (0.049--0.057).
+Decomposing: the instructed-prompt scaffold alone adds $+0.008$ EM over
+the bare parametric baseline; topical-but-wrong context adds a further
+$+0.102$ EM (Holm $p\!<\!10^{-4}$).
+A retrieval miss therefore primes parametric recall rather than dragging
+the model below its floor.
+
+\paragraph{Generator scale (Exp.\ 12).}
+Figure~\ref{fig:main} (right) sweeps Flan-T5 small/base/large (80M /
+250M / 780M) on 150 questions.
+The No-RAG parametric floor rises monotonically with scale
+(0.027$\to$0.053$\to$0.113), while RAG rises more slowly
+(0.467$\to$0.600$\to$0.633) toward the retrieval/generation ceiling.
+The RAG--No-RAG gap \textbf{peaks at base} ($\Delta\!=\!0.547$) and
+\textbf{begins to shrink at large} ($\Delta\!=\!0.520$), consistent with
+retrieval helping most when parametric memory is weakest.
+The large model is also the only one where RAG occasionally hurts
+(3/150 questions) as growing parametric knowledge conflicts with retrieved
+context.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.48\linewidth]{fig11_distraction.png}%
+  \hfill%
+  \includegraphics[width=0.48\linewidth]{fig15_generator_scale.png}
+  \caption{%
+    \textbf{Left (Exp.~9):} EM and F1 decline monotonically as hard
+    topical distractors are added alongside a guaranteed gold chunk
+    (Recall@$k\!=\!1$ throughout).
+    The $N\!=\!0$ point (gold chunk only) is the single-passage
+    generator ceiling.
+    \textbf{Right (Exp.~12):} RAG vs.\ No-RAG EM across Flan-T5 scales.
+    The No-RAG parametric floor rises monotonically; the RAG--No-RAG gap
+    peaks at base and begins to shrink at large, confirming that
+    retrieval helps most when parametric memory is weakest.}
+  \label{fig:main}
+\end{figure}
+
+\paragraph{Chunk size and retrieval depth (Exps.\ 2--3).}
+At a fixed 1024-token budget (Exp.~2, Dense retriever), smaller chunks
+win: 64-word chunks ($\approx$8 packed per prompt) achieve EM~0.596
+vs.\ 0.517 for 512-word chunks ($\approx$1.2 per prompt, Recall@$k$
+drops to 0.759).
+Large chunks are risky because a single retrieval miss costs the entire
+context window.
+Retrieval depth~$k$ (Exp.~3, chunk\,=\,48 words, fitting the full range
+untruncated) shows monotone improvement through $k\!=\!10$
+(EM: 0.433$\to$0.583), with \emph{no} distraction penalty in the
+standard retrieval setting---consistent with distraction only becoming a
+significant factor once the answer is already guaranteed present (Exp.~9).
+Prompt template (Exp.~4) has no significant effect: concise vs.\
+instructed differ by only 0.016 EM (Holm $p\!=\!0.18$), as Flan-T5 is
+already terse enough that the explicit directive adds nothing.
 
 \section{Conclusion}
 
-Summarise what you did, what you found, and what the limitations are.
-Optionally, suggest directions for future work.
+We conducted a twelve-experiment controlled ablation of a RAG pipeline
+on TriviaQA.
+Four contrasts survive Holm correction:
+RAG vs.\ No-RAG ($+0.551$ EM, the dominant effect);
+both comparisons of forced-miss against no-context baselines
+($+0.102$--$0.110$ EM, topical priming);
+and Oracle vs.\ RAG ($+0.019$ EM, a small but reliable retrieval-failure
+component first resolved at $n\!=\!750$).
+Retrieval method, embedding model, and re-ranking are all
+Holm-non-significant within $\pm0.02$ EM with large discordant
+counts---a positive ``they tie'' result.
+Experiment~9 provides the clearest causal picture of when RAG hurts:
+each additional topical distractor reduces EM monotonically even when
+the answer is guaranteed present.
+Taken together, the results suggest that for small instruction-tuned
+generators, RAG effort is better invested in the generator than in
+retrieval quality.
+
+\paragraph{Limitations.}
+The study uses small encoder-decoders (up to 780M parameters) on a
+corpus much smaller and less adversarial than open-domain Wikipedia.
+A DPR model fine-tuned on TriviaQA would likely widen the sparse--dense
+gap currently observed as a tie.
+Much larger generators (LLaMA-class) would raise the parametric floor
+further and shrink the RAG benefit; multi-hop questions and
+adversarially constructed distractors are left to future work.
 
 \section*{References}
 
 \small
 
-% Use any consistent citation style.
-% Example:
-%
-% [1] Author, A. \& Author, B. (Year). Title. \textit{Venue}.
+[1] Lewis, P., Perez, E., Piktus, A., Petroni, F., Karpukhin, V.,
+Goyal, N., \ldots Kiela, D.\ (2020). Retrieval-Augmented Generation for
+Knowledge-Intensive NLP Tasks. \textit{NeurIPS 2020}.
+
+[2] Izacard, G., \& Grave, E.\ (2021). Leveraging Passage Retrieval with
+Generative Models for Open Domain Question Answering.
+\textit{EACL 2021}.
+
+[3] Gao, Y., Xiong, Y., Gao, X., Jia, K., Pan, J., Bi, Y., \ldots Wang, H.\
+(2024). Retrieval-Augmented Generation for Large Language Models:
+A Survey. \textit{arXiv:2312.10997}.
+
+[4] Joshi, M., Choi, E., Weld, D., \& Zettlemoyer, L.\ (2017). TriviaQA:
+A Large Scale Distantly Supervised Challenge Dataset for Reading
+Comprehension. \textit{ACL 2017}.
+
+[5] Chung, H.~W., Hou, L., Longpre, S., Zoph, B., Tay, Y., Fedus, W.,
+\ldots Wei, J.\ (2022). Scaling Instruction-Finetuned Language Models.
+\textit{arXiv:2210.11416}.
+
+[6] Robertson, S., \& Zaragoza, H.\ (2009). The Probabilistic Relevance
+Framework: BM25 and Beyond.
+\textit{Foundations and Trends in Information Retrieval}, 3(4).
 
 \appendix
 
-\section{Additional Results and Implementation Details}
+\section{Additional Figures}
 
-Put here any supplementary figures, tables, proofs, or extended
-experimental details that did not fit in the main paper.
-The appendix has no page limit.
+Figures~\ref{fig:app_retriever}--\ref{fig:app_scale} show all
+fifteen experiment plots from the report-scale run ($n\!=\!750$,
+$n\!=\!400$ for Exp.~10, $n\!=\!150$ for Exp.~12) on GPU (HPC).
+Error bars are 95\% percentile bootstrap CIs (1{,}000 resamples).
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig1_retriever_comparison.png}
+    \caption{Exp.~1 --- Retriever comparison (BM25 / TF-IDF / Dense).
+      All three are statistically indistinguishable (Holm $p\!=\!1.0$
+      for all pairs).}
+    \label{fig:app_retriever}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig2_chunk_size.png}
+    \caption{Exp.~2 --- Chunk-size ablation at a fixed 1024-token budget.
+      Smaller chunks pack more passages and achieve higher recall and EM.}
+    \label{fig:app_chunk}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig3_k_values.png}
+    \caption{Exp.~3 --- Retrieval depth sweep ($k\!\in\!\{1,3,5,10\}$,
+      chunk\,=\,48 words).
+      EM and Recall@$k$ both increase monotonically; no distraction penalty
+      appears at standard retrieval.}
+    \label{fig:app_k}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig4_prompt_template.png}
+    \caption{Exp.~4 --- Prompt template: concise vs.\ instructed.
+      Difference is 0.016 EM (Holm $p\!=\!0.18$, non-significant).}
+    \label{fig:app_prompt}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig5_rag_vs_no_rag.png}
+    \caption{Exp.~5 --- RAG vs.\ No-RAG.
+      $\Delta$EM\,=\,+0.551 (Holm $p\!<\!10^{-4}$; 411 helps / 6 hurts /
+      319 ties out of 750 questions).}
+    \label{fig:app_rag_vs_norag}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig6_error_analysis.png}
+    \caption{Exp.~5 error analysis: per-question RAG helps / hurts / ties
+      breakdown and scatter of Recall@5 vs.\ $\Delta$EM.}
+    \label{fig:app_error}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig7_qualitative.png}
+    \caption{Exp.~5 qualitative examples where RAG helps and where it hurts.}
+    \label{fig:app_qual}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig8_oracle.png}
+    \caption{Exp.~6 --- Oracle vs.\ RAG vs.\ No-RAG.
+      Oracle gain: $+0.019$ EM (Holm $p\!=\!0.0007$), quantifying the
+      small reliable retrieval-failure component.}
+    \label{fig:app_oracle}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig9_rerank.png}
+    \caption{Exp.~7 --- Cross-encoder re-ranking (e5 first stage,
+      top-50$\to$top-5).
+      Recall@5 rises by 0.017 but EM gain ($+0.017$) is not
+      significant (Holm $p\!=\!0.73$).}
+    \label{fig:app_rerank}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig10_distractor_sweep.png}
+    \caption{Exp.~8 --- External distractor count sweep
+      ($\{0, 500, 2000, 5000\}$ Simple-Wikipedia articles).
+      Recall@5 and EM are exactly flat across a $2.8\times$
+      corpus-size range: topic-agnostic distractors never
+      out-rank gold pages.}
+    \label{fig:app_distractor_sweep}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig11_distraction.png}
+    \caption{Exp.~9 --- Controlled distraction (Recall@$k\!=\!1$
+      throughout). Adding hard topical distractors drives EM monotonically
+      from 0.673 ($N\!=\!0$) to 0.558 ($N\!=\!8$).}
+    \label{fig:app_distraction}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig12_significance.png}
+    \caption{Paired significance table (McNemar on EM, paired bootstrap
+      on deltas; raw and Holm-adjusted $p$-values for all nine contrasts).}
+    \label{fig:app_sig}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig13_embedding_models.png}
+    \caption{Exp.~10 --- Embedding model ablation ($n\!=\!400$).
+      e5-small achieves the highest Recall@5 (0.915) yet the
+      lowest EM (0.610); MiniLM has the lowest recall but the
+      highest EM (0.623).}
+    \label{fig:app_embed}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{fig14_forced_miss.png}
+    \caption{Exp.~11 --- Forced retrieval miss (Recall@$k\!=\!0$).
+      Topical-but-wrong context adds $+0.102$ EM over the empty-context
+      baseline (Holm $p\!<\!10^{-4}$) via parametric priming.}
+    \label{fig:app_miss}
+  \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.6\linewidth]{fig15_generator_scale.png}
+  \caption{Exp.~12 --- Generator-scale sweep ($n\!=\!150$).
+    No-RAG floor rises with scale (0.027$\to$0.053$\to$0.113);
+    RAG--No-RAG gap peaks at base ($\Delta\!=\!0.547$) and shrinks
+    at large ($\Delta\!=\!0.520$).}
+  \label{fig:app_scale}
+\end{figure}
+
+\section{Complete Results Tables}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~2 --- Chunk size at fixed 1024-token budget (Dense,
+  $n\!=\!750$, 30 candidates packed greedily).}
+\small
+\begin{tabular}{rcccc}
+\toprule
+Chunk (words) & Mean packed $k$ & EM & Token F1 & Recall@$k$ \\
+\midrule
+64  & 8.27 & 0.596 & 0.669 & 0.859 \\
+128 & 4.29 & 0.584 & 0.653 & 0.855 \\
+256 & 2.14 & 0.537 & 0.614 & 0.820 \\
+512 & 1.19 & 0.517 & 0.584 & 0.759 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~3 --- Retrieval depth $k$ (Dense, chunk\,=\,48 words,
+  $n\!=\!750$; full range fits 1024-token budget untruncated).}
+\small
+\begin{tabular}{rccc}
+\toprule
+$k$ & EM & Token F1 & Recall@$k$ \\
+\midrule
+1  & 0.433 & 0.496 & 0.477 \\
+3  & 0.525 & 0.591 & 0.683 \\
+5  & 0.547 & 0.615 & 0.768 \\
+10 & 0.583 & 0.649 & 0.855 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~9 --- Controlled distraction (Recall@$k\!=\!1$ by
+  construction; gold chunk pinned at rank~1, $n\!\approx\!750$,
+  chunk\,=\,48 words).}
+\small
+\begin{tabular}{rccc}
+\toprule
+$N$ distractors & EM & Token F1 & Recall@$k$ \\
+\midrule
+0 & 0.673 & 0.745 & 1.00 \\
+1 & 0.617 & 0.680 & 1.00 \\
+2 & 0.590 & 0.656 & 1.00 \\
+4 & 0.575 & 0.645 & 1.00 \\
+8 & 0.558 & 0.629 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~11 --- Forced retrieval miss ($n\!\approx\!750$,
+  chunk\,=\,48 words; Recall@$k\!=\!0$ by construction for the
+  forced-miss arm).}
+\small
+\begin{tabular}{lccc}
+\toprule
+Condition & EM & Token F1 & Recall@$k$ \\
+\midrule
+No-RAG (bare \texttt{Q:/A:} cue) & 0.049 & 0.100 & --- \\
+Matched (instructed prompt, \emph{empty} context) & 0.057 & 0.101 & --- \\
+Forced miss (instructed prompt, non-gold chunks) & 0.159 & 0.246 & 0.00 \\
+RAG (Dense, $k\!=\!5$, Exp.~5) & 0.600 & 0.668 & 0.865 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~12 --- Generator-scale sweep ($n\!=\!150$; trend
+  demonstration on a representative subset).}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Generator & No-RAG EM & RAG EM & $\Delta$EM &
+  Helps / Hurts / Ties \\
+\midrule
+\texttt{flan-t5-small} ($\approx$80M)  & 0.027 & 0.467 & $+0.440$ &
+  67 / 1 / 82 \\
+\texttt{flan-t5-base} ($\approx$250M)  & 0.053 & 0.600 & $+0.547$ &
+  83 / 1 / 66 \\
+\texttt{flan-t5-large} ($\approx$780M) & 0.113 & 0.633 & $+0.520$ &
+  81 / 3 / 66 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Exp.~8 --- External distractor count sweep (Dense, chunk\,=\,128,
+  $k\!=\!5$, $n\!=\!750$; corpus sizes are approximate).}
+\small
+\begin{tabular}{rcccc}
+\toprule
+Distractors & Corpus docs & EM & Token F1 & Recall@5 \\
+\midrule
+0    & $\sim$2{,}800 & 0.600 & 0.667 & 0.865 \\
+500  & $\sim$3{,}300 & 0.599 & 0.667 & 0.865 \\
+2000 & $\sim$4{,}800 & 0.600 & 0.668 & 0.865 \\
+5000 & $\sim$7{,}800 & 0.600 & 0.667 & 0.865 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Statistical Significance Tests}
+
+Table~\ref{tab:sig} reports all nine pairwise contrasts with raw and
+Holm-Bonferroni-adjusted $p$-values.
+Four contrasts survive correction (bold):
+RAG vs.\ No-RAG, both Forced-Miss contrasts, and Oracle vs.\ RAG.
+
+\begin{table}[h]
+\centering
+\caption{Paired significance results ($n\!=\!750$). McNemar's exact
+  test on EM; paired bootstrap on F1 deltas (10{,}000 resamples).
+  Holm--Bonferroni correction across all nine contrasts. Discordant
+  counts are (A better / B better).}
+\label{tab:sig}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccccc}
+\toprule
+Contrast (A $-$ B) & $\Delta$EM & Disc. &
+  McN raw & \textbf{McN Holm} &
+  $\Delta$F1 & 95\% CI & \textbf{F1 Holm} \\
+\midrule
+BM25 $-$ Dense & $-0.003$ & 70/72 & 0.933 & 1.000 &
+  $+0.002$ & [$-0.026$, $+0.030$] & 1.000 \\
+TF-IDF $-$ Dense & $+0.003$ & 67/65 & 0.931 & 1.000 &
+  $+0.005$ & [$-0.021$, $+0.032$] & 1.000 \\
+BM25 $-$ TF-IDF & $-0.005$ & 38/42 & 0.738 & 1.000 &
+  $-0.003$ & [$-0.025$, $+0.018$] & 1.000 \\
+Instructed $-$ Concise & $-0.016$ & 8/20 & 0.036 & 0.179 &
+  $-0.012$ & [$-0.025$, $+0.001$] & 0.312 \\
+\textbf{RAG $-$ No-RAG} & $\mathbf{+0.551}$ & \textbf{419/6} &
+  $\mathbf{<0.001}$ & $\mathbf{<0.001}$ &
+  $+0.568$ & [$+0.534$, $+0.603$] & $<0.001$ \\
+Dense+Rerank $-$ e5-Dense & $+0.017$ & 47/34 & 0.182 & 0.728 &
+  $+0.022$ & [$-0.001$, $+0.044$] & 0.312 \\
+\textbf{Oracle $-$ RAG} & $\mathbf{+0.019}$ & \textbf{14/0} &
+  $\mathbf{0.0001}$ & $\mathbf{0.0007}$ &
+  $+0.016$ & [$+0.007$, $+0.026$] & $0.001$ \\
+\textbf{ForcedMiss $-$ No-RAG} & $\mathbf{+0.110}$ & \textbf{104/23} &
+  $\mathbf{<0.001}$ & $\mathbf{<0.001}$ &
+  $+0.148$ & [$+0.118$, $+0.179$] & $<0.001$ \\
+\textbf{ForcedMiss $-$ InstrNoCtx} & $\mathbf{+0.102}$ & \textbf{104/29} &
+  $\mathbf{<0.001}$ & $\mathbf{<0.001}$ &
+  $+0.145$ & [$+0.114$, $+0.177$] & $<0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Implementation Details}
+
+\paragraph{Chunking.}
+Fixed word-window chunking with 32-word overlap.
+For a document of $W$ words and chunk size $c$:
+chunk $i$ spans words $[i(c-32),\; i(c-32)+c]$.
+
+\paragraph{Generation.}
+Flan-T5-base with greedy decoding (\texttt{do\_sample=False},
+\texttt{num\_beams=1}, \texttt{max\_new\_tokens=32}).
+Long prompts are \emph{middle-truncated}: prefix (question) and suffix
+(answer cue) are preserved; only the context body is trimmed.
+All generation is cached to
+\texttt{data/cache/generation\_cache.json} keyed by MD5 of
+\texttt{model\_name + rendered\_prompt}, so different generator sizes
+(Exp.~12) never collide.
+
+\paragraph{Dense retrieval.}
+Query and passage embeddings are L2-normalised; retrieval is by
+dot product (equivalent to cosine similarity).
+Passage embeddings are cached per chunk-size to avoid re-encoding across
+experiments.
+For Exp.~10, each model receives its recommended asymmetric
+query/passage instruction prefixes
+(\texttt{e5}: \texttt{"query:"}/\texttt{"passage:"}; \texttt{bge}: search
+instruction on the query side; \texttt{MiniLM}: no prefix).
+
+\paragraph{Reproducibility.}
+All random processes use fixed seeds (corpus sampling seed 42,
+bootstrap seed 42).
+Running the notebook twice produces identical results.
+Expected end-to-end runtime at $n\!=\!750$: approximately 4--8~h on CPU
+(significantly less on GPU/MPS with embedding caching).
 
 \end{document}
